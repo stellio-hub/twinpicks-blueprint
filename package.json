@@ -7,6 +7,7 @@
         "tsc": "tsc",
         "commit": "git cz && npm version patch",
         "qai": "npx tsc && cd ./dist/usecases/air-quality-monitoring && node index.js && cd ../../..",
+        "qaiUpdateBlueprint": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=air-quality-monitoring",
         "irrig": "npx tsc && cd ./dist/usecases/smart-irrigation && node index.js && cd ../../..",
         "greenhouse": "npx tsc && cd ./dist/usecases/greenhouse-management && node index.js && cd ../../..",
         "biorecer": "npx tsc && cd ./dist/usecases/biorecer && node index.js && cd ../../..",
