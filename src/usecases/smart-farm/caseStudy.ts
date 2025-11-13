@@ -57,9 +57,9 @@ export const caseStudyTemplate: StellioTemplate = {
             },
         },
     },
-    hasSocialEco: {
+    hasSocialEconomic: {
         type: 'Relationship',
-        object: 'urn:ngsi-ld:SocialEco:Template',
+        object: 'urn:ngsi-ld:SocialEconomic:Template',
         jsonSchema: {
             type: 'Property',
             value: {
