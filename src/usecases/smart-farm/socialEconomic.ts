@@ -8,39 +8,39 @@ export const socialEconomicTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'Nom' },
+            value: { schemaType: 'string', title: 'Name' },
         },
     },
-    observedAt: {
+    recordedAt: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'datetime', title: 'observedAt' },
+            value: { schemaType: 'date', title: 'recordedAt' },
         },
     },
-    farmer_feedback: {
+    farmerFeedback: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'farmer feedback' },
+            value: { schemaType: 'string', title: 'Farmer feedback' },
         },
     },
-    economics_costs: {
+    economicsCosts: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'economics costs' },
+            value: { schemaType: 'string', title: 'Economics costs' },
         },
     },
-    labor_hours: {
+    laborHours: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'labor hour' },
+            value: { schemaType: 'string', title: 'Labor hour' },
         },
     },
     jsonSchema: {
@@ -49,8 +49,8 @@ export const socialEconomicTemplate: StellioTemplate = {
             schemaType: "SocialEconomic",
             title: "Social Economic",
             minimum: 1,
-            required: ['name', 'observedAt','farmer_feedback',
-                'economics_costs','labor_hours'
+            required: ['name', 'observedAt','farmerFeedback',
+                'economicsCosts','laborHours'
             ],
             description: `This represents a Social Economics`,
         },

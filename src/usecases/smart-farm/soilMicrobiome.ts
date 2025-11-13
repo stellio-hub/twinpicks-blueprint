@@ -8,55 +8,55 @@ export const soilMicrobiomeTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'Nom' },
+            value: { schemaType: 'string', title: 'Name' },
         },
     },
-    bacterial_diversity_index: {
+    bacterialDiversity: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'bacterial_diversity_index' },
+            value: { schemaType: 'string', title: 'Bacterial diversity index' },
         },
     },
-    fungal_diversity_index: {
+    fungalDiversity: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'fungal_diversity_index' },
+            value: { schemaType: 'string', title: 'Fungal diversity index' },
         },
     },
-    microbial_biomass: {
+    microbialBiomass: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'microbial_biomass' },
+            value: { schemaType: 'string', title: 'Microbial biomass' },
         },
     },
-    Enzme_activities: {
+    enzmeActivities: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'Enzme_activities' },
+            value: { schemaType: 'string', title: 'Enzme activities' },
         },
     },
-    soil_respiration_rate: {
+    soilRespiration: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'soil_respiration_rate' },
+            value: { schemaType: 'string', title: 'Soil respiration rate' },
         },
     },
-    soil_organic_matter_content: {
+    soilOrganicMatter: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'soil_organic_matter_content' },
+            value: { schemaType: 'string', title: 'Soil organic matter content' },
         },
     },
     jsonSchema: {
@@ -65,9 +65,9 @@ export const soilMicrobiomeTemplate: StellioTemplate = {
             schemaType: "SoilMicrobiome",
             title: "Soil Microbiome",
             minimum: 1,
-            required: ['name', 'bacterial_diversity_index','fungal_diversity_index',
-                'microbial_biomass','Enzme_activities','soil_respiration_rate',
-                'soil_organic_matter_content'],
+            required: ['name', 'bacterialDiversity','fungalDiversity',
+                'microbialBiomass','enzmeActivities','soilRespiration',
+                'soilOrganicMatter'],
             description: `This represents a Soil Microbiome`,
         },
     },

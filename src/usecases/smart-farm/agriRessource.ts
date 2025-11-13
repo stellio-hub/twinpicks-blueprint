@@ -1,30 +1,36 @@
 import { StellioTemplate } from 'src/interfaces';
 
+export const ressourceTypeCategories = [
+    "pesticides",
+    "mechanical weeding",
+    "thermal weeding",
+    "electrical weeding",
+    "biological weeding",
+    "cultural weeding",
+    "manual weeding",
+    "robotic weeding",
+    "chemical weeding",
+    "Matériel d'irrigation",
+    "Matériel d'entretien des cultures",
+    "Matériel de récolte",
+    "Produits phytosanitaires",
+    "Matériel de protection des cultures",
+    "Engrais",
+    "Matériel de fertilisation",
+    "Semences",
+    "Matériel de semis",
+]
+
+
 export const agriRessourceTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:Ressource:Template`,
     type: 'Template',
-    value: {
-        type: 'Property',
-        value: 'Placeholder',
-        jsonSchema: {
-            type: 'Property',
-            value: { schemaType: 'string', title: 'Nom' },
-        },
-    },
-    datasetId: {
-        type: 'Property',
-        value: 'Placeholder',
-        jsonSchema: {
-            type: 'Property',
-            value: { schemaType: 'string', title: 'Nom' },
-        },
-    },
     amount: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'amount' },
+            value: { schemaType: 'integer', title: 'Amount' },
         },
     },
     category: {
@@ -32,7 +38,8 @@ export const agriRessourceTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'category' },
+            value: { schemaType: 'string',
+                title: 'Category' },
         },
     },
     ressourceType: {
@@ -40,7 +47,9 @@ export const agriRessourceTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'Ressource Type' },
+            value: { schemaType: 'string',
+                enum: ressourceTypeCategories,
+                title: 'Ressource Type' },
         },
     },
     unit: {

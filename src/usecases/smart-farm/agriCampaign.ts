@@ -8,7 +8,7 @@ export const agriCampaignTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'Nom' },
+            value: { schemaType: 'string', title: 'Name' },
         },
     },
     startAt: {
@@ -16,7 +16,7 @@ export const agriCampaignTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'datetime', title: 'debut' },
+            value: { schemaType: 'date', title: 'Start' },
         },
     },
     endAt: {
@@ -24,7 +24,7 @@ export const agriCampaignTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'datetime', title: 'debut' },
+            value: { schemaType: 'date', title: 'End' },
         },
     },
     hasItinerary: {
@@ -35,8 +35,8 @@ export const agriCampaignTemplate: StellioTemplate = {
             value: {
                 schemaType: 'string',
                 format: 'uri',
-                title: "Quelle est la Itinerare de référence pour cette Campagne ?",
-                friendlyAttributeName: 'Itinerare de référence',
+                title: "what itinerary is connected to this campaign",
+                friendlyAttributeName: 'Reference itinerary',
                 minimum: 1,
                 maximum: 1,
             },
@@ -48,7 +48,7 @@ export const agriCampaignTemplate: StellioTemplate = {
             schemaType: "Campaign",
             title: "Campaign",
             minimum: 1,
-            required: ['name', 'startAt'],
+            required: ['name', 'startAt','endAt','hasItinerary'],
             description: `This represents a Campaign`,
         },  
     }

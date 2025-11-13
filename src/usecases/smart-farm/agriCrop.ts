@@ -8,16 +8,23 @@ export const agriCropTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'Nom' },
+            value: { schemaType: 'string', title: 'Name' },
         },
     },
     placement: {
-        type: 'Property',
-        value: 'Placeholder',
+        type: 'GeoProperty',
+        value: {
+            type: 'Point',
+            coordinates: [],
+        },
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'Emplacement' },
-        }
+            value: {
+                schemaType: 'object',
+                title: 'Place a point on the map',
+                friendlyAttributeName: 'Geolocation',
+            },
+        },
     },
     jsonSchema: {
         type: 'Property',

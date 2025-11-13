@@ -8,50 +8,50 @@ export const environmentalResultTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'Nom' },
+            value: { schemaType: 'string', title: 'Name' },
         },
     },
-    soil_ph: {
+    soilPH: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'soil_ph' },
+            value: { schemaType: 'string', title: 'Soil PH' },
         },
     },
-    soil_moisture: {
+    soilMoisture: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'soil_moisture' },
+            value: { schemaType: 'string', title: 'Soil Moisture' },
         },
     },
-    biodiversity_index: {
+    biodiversityIndex: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'biodiversity_index' },
+            value: { schemaType: 'string', title: 'Biodiversity index' },
         },
     },
-    pesticide_use: {
+    pesticideUse: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'pesticide_use' },
+            value: { schemaType: 'string', title: 'Pesticide use' },
         },
     },
-    pesticide_impact: {
+    pesticideImpact: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'pesticide_impact' },
+            value: { schemaType: 'string', title: 'Pesticide Impact' },
         },
     },
-    soil_nutrient_content:{
+    soilNutrientContent:{
         type: 'Relationship',
         object: 'urn:ngsi-ld:SoilNutrient:Template',
         jsonSchema: {
@@ -59,8 +59,8 @@ export const environmentalResultTemplate: StellioTemplate = {
             value: {
                 schemaType: 'string',
                 format: 'uri',
-                title: "Quelles SoilNutrient est associe a ces Resultat ?",
-                friendlyAttributeName: 'SoilNutrient de référence',
+                title: "Which soil nutrient is associated with these results?",
+                friendlyAttributeName: 'Soil nutrient of reference',
                 minimum: 1,
                 maximum: 1,
             },
@@ -72,8 +72,8 @@ export const environmentalResultTemplate: StellioTemplate = {
             schemaType: "EnvironmentalResult",
             title: "Environmental Result",
             minimum: 1,
-            required: ['name','soil_ph','soil_moisture','biodiversity_index',
-                'pesticide_use','pesticide_impact'],
+            required: ['name','soilPH','soilMoisture','biodiversityIndex',
+                'pesticideUse','pesticideImpact'],
             description: `This represents a Environmental Result`,
         },
     },

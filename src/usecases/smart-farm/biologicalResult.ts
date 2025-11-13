@@ -8,10 +8,10 @@ export const biologicalResultTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'Nom' },
+            value: { schemaType: 'string', title: 'Name' },
         },
     },
-    hasweedSpecies: {
+    hasWeedSpecies: {
         type: 'Relationship',
         object: 'urn:ngsi-ld:WeedSpecies:Template',
         jsonSchema: {
@@ -19,14 +19,14 @@ export const biologicalResultTemplate: StellioTemplate = {
             value: {
                 schemaType: 'string',
                 format: 'uri',
-                title: "Quelles weed est associe a ces Resultat ?",
-                friendlyAttributeName: 'WeedSpecies de référence',
+                title: "Which weed species are associated with these results ?",
+                friendlyAttributeName: 'Reference Weed Species',
                 minimum: 1,
                 maximum: 1,
             },
         },
     },
-    hascropSpecies: {
+    hasCropSpecies: {
         type: 'Relationship',
         object: 'urn:ngsi-ld:CropSpecies:Template',
         jsonSchema: {
@@ -34,14 +34,14 @@ export const biologicalResultTemplate: StellioTemplate = {
             value: {
                 schemaType: 'string',
                 format: 'uri',
-                title: "Quelles crop est associe a ces Resultat ?",
-                friendlyAttributeName: 'Crop Species de référence',
+                title: "Which crop species are associated with these results ?",
+                friendlyAttributeName: 'Reference Crop Species',
                 minimum: 1,
                 maximum: 1,
             },
         },
     },
-    hassoilMicrobiome: {
+    hasSoilMicrobiome: {
         type: 'Relationship',
         object: 'urn:ngsi-ld:SoilMicrobiome:Template',
         jsonSchema: {
@@ -49,8 +49,8 @@ export const biologicalResultTemplate: StellioTemplate = {
             value: {
                 schemaType: 'string',
                 format: 'uri',
-                title: "Quelles Soil Microbiome est associe a ces Resultat ?",
-                friendlyAttributeName: 'Soil Microbiome de référence',
+                title: "Which soil microbiome is associated with these results ?",
+                friendlyAttributeName: 'Reference Soil Microbiome',
                 minimum: 1,
                 maximum: 1,
             },
@@ -62,7 +62,7 @@ export const biologicalResultTemplate: StellioTemplate = {
             schemaType: "BiologicalResult",
             title: "Biological Result",
             minimum: 1,
-            required: ['name'],
+            required: ['name','hasWeedSpecies','hasCropSpecies'],
             description: `This represents a Biological Result`,
         },
     },

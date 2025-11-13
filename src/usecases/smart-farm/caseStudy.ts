@@ -8,7 +8,7 @@ export const caseStudyTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'Nom' },
+            value: { schemaType: 'string', title: 'Name' },
         },
     },
     location: {
@@ -21,8 +21,8 @@ export const caseStudyTemplate: StellioTemplate = {
             type: 'Property',
             value: {
                 schemaType: 'object',
-                title: 'Dessiner et suivre la voie sur la carte',
-                friendlyAttributeName: 'Géolocalisation',
+                title: 'Place a point on the map',
+                friendlyAttributeName: 'Geolocation',
             },
         },
     },
@@ -31,7 +31,7 @@ export const caseStudyTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'datetime', title: 'debut' },
+            value: { schemaType: 'date', title: 'Start' },
         },
     },
     endAt: {
@@ -39,7 +39,7 @@ export const caseStudyTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'datetime', title: 'debut' },
+            value: { schemaType: 'date', title: 'End' },
         },
     },
     hasParcel:{
@@ -50,8 +50,8 @@ export const caseStudyTemplate: StellioTemplate = {
             value: {
                 schemaType: 'string',
                 format: 'uri',
-                title: "Quelles Parcel est associe a cette case study ?",
-                friendlyAttributeName: 'Analise de référence',
+                title: "Which plot is associated with this case study?",
+                friendlyAttributeName: 'Reference Plot',
                 minimum: 1,
                 maximum: 1,
             },
@@ -65,8 +65,8 @@ export const caseStudyTemplate: StellioTemplate = {
             value: {
                 schemaType: 'string',
                 format: 'uri',
-                title: "Quelles SocialEco est associe a cette case study ?",
-                friendlyAttributeName: 'SocialEco de référence',
+                title: "Which socio-economic aspects are associated with this case study?",
+                friendlyAttributeName: 'Reference socio-economic',
                 minimum: 1,
                 maximum: 1,
             },

@@ -8,21 +8,21 @@ export const agriParcelAreaTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'Nom' },
+            value: { schemaType: 'string', title: 'Name' },
         },
     },
     location: {
         type: 'GeoProperty',
         value: {
-            type: 'LineString',
+            type: 'Polygon',
             coordinates: [],
         },
         jsonSchema: {
             type: 'Property',
             value: {
                 schemaType: 'object',
-                title: 'Dessiner et suivre la voie sur la carte',
-                friendlyAttributeName: 'Géolocalisation',
+                title: 'Draw a Polygone on the map',
+                friendlyAttributeName: 'Geolacation',
             },
         },
     },
@@ -34,8 +34,8 @@ export const agriParcelAreaTemplate: StellioTemplate = {
             value: {
                 schemaType: 'array',
                 format: 'uri',
-                title: "Quelles Cultures sont sur cette Zone de Parcel ?",
-                friendlyAttributeName: 'Cultures de référence',
+                title: "What is growing in this area ?",
+                friendlyAttributeName: 'Reference crop',
                 minItems: 1,
                 items: {
                     type: "Relationship",
@@ -60,8 +60,8 @@ export const agriParcelAreaTemplate: StellioTemplate = {
             value: {
                 schemaType: 'array',
                 format: 'uri',
-                title: "échantillon pris de la Zone de Parcel ?",
-                friendlyAttributeName: 'échantillon de référence',
+                title: "Samples collected from this area?",
+                friendlyAttributeName: 'Reference Sample ',
                 minItems: 1,
                 items: {
                     type: "Relationship",
@@ -86,8 +86,8 @@ export const agriParcelAreaTemplate: StellioTemplate = {
             value: {
                 schemaType: 'string',
                 format: 'uri',
-                title: "Quelles Campagne sont executer sur cette Zone de Parcel ?",
-                friendlyAttributeName: 'Campagne de référence',
+                title: "WhatCampaigns are implemented on this area ?",
+                friendlyAttributeName: 'Reference Campaign',
                 minimum: 1,
                 maximum: 1,
             },
@@ -101,8 +101,8 @@ export const agriParcelAreaTemplate: StellioTemplate = {
             value: {
                 schemaType: 'string',
                 format: 'uri',
-                title: "Quelles Pratique sont sur cette Zone de Parcel ?",
-                friendlyAttributeName: 'Pratique de référence',
+                title: "What practices are used on this area of the plot?",
+                friendlyAttributeName: 'Reference practices',
                 minimum: 1,
                 maximum: 1,
             },
@@ -116,8 +116,8 @@ export const agriParcelAreaTemplate: StellioTemplate = {
             value: {
                 schemaType: 'string',
                 format: 'uri',
-                title: "Quelles analyse sont faite sur cette Zone de Parcel ?",
-                friendlyAttributeName: 'Analise de référence',
+                title: "What analyse are carried out on this area of the plot?",
+                friendlyAttributeName: 'Reference analyse',
                 minimum: 1,
                 maximum: 1,
             },

@@ -1,5 +1,15 @@
 import { StellioTemplate } from 'src/interfaces';
 
+export const activityCategories = [
+    "winter oats",
+    "winter soft wheat",
+    "farm",
+    "heifer",
+    "alfalfa",
+    "maize",
+    "winter barley",
+    "grassland",
+]
 export const agriItineraryTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:Itinerary:Template`,
     type: 'Template',
@@ -8,7 +18,7 @@ export const agriItineraryTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'Nom' },
+            value: { schemaType: 'string', title: 'Name' },
         },
     },
     description: {
@@ -16,7 +26,7 @@ export const agriItineraryTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'description' },
+            value: { schemaType: 'string', title: 'Description' },
         },
     },
     activity: {
@@ -24,7 +34,9 @@ export const agriItineraryTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'activity' },
+            value: { schemaType: 'string',
+                enum: activityCategories,
+                title: 'Activity' },
         },
     },
     hasOperation: {
@@ -35,8 +47,8 @@ export const agriItineraryTemplate: StellioTemplate = {
             value: {
                 schemaType: 'array',
                 format: 'uri',
-                title: "Operation utiliser pendant l'itineraire ?",
-                friendlyAttributeName: 'Operation de référence',
+                title: "Operations taken during a itinerary",
+                friendlyAttributeName: 'Reference Operation',
                 minItems: 1,
                 items: {
                     type: "Relationship",
@@ -59,7 +71,7 @@ export const agriItineraryTemplate: StellioTemplate = {
             schemaType: "Itinerary",
             title: "Itinerary",
             minimum: 1,
-            required: ['name', 'description','activity'],
+            required: ['name', 'description','activity','hasOperation'],
             description: `This represents a Itinerary`,
         },  
     },

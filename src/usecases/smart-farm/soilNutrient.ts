@@ -8,47 +8,47 @@ export const soilNutrientTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'Nom' },
+            value: { schemaType: 'string', title: 'Name' },
         },
     },
-    nitrogen_levels: {
+    nitrogenLevels: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'nitrogen_levels' },
+            value: { schemaType: 'string', title: 'Nitrogen levels' },
         },
     },
-    phosphorus_levels: {
+    phosphorusLevels: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'phosphorus_levels' },
+            value: { schemaType: 'string', title: 'Phosphorus levels' },
         },
     },
-    potassium_levels: {
+    potassiumLevels: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'potassium_levels' },
+            value: { schemaType: 'string', title: 'Potassium levels' },
         },
     },
-    cation_exchange_capacity: {
+    cationExchangeCapacity: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'cation_exchange_capacity' },
+            value: { schemaType: 'string', title: 'Cation exchange capacity' },
         },
     },
-    organic_matter_content: {
+    OrganicMatter: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'organic_matter_content' },
+            value: { schemaType: 'string', title: 'Organic matter content' },
         },
     },
     zinc: {

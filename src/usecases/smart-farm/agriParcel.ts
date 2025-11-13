@@ -8,21 +8,21 @@ export const agriParcelTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'Nom' },
+            value: { schemaType: 'string', title: 'Name' },
         },
     },
     location: {
         type: 'GeoProperty',
         value: {
-            type: 'LineString',
+            type: 'Polygon',
             coordinates: [],
         },
         jsonSchema: {
             type: 'Property',
             value: {
                 schemaType: 'object',
-                title: 'Dessiner et suivre la voie sur la carte',
-                friendlyAttributeName: 'Géolocalisation',
+                title: 'Draw a Polygone on the map',
+                friendlyAttributeName: 'Geolocation',
             },
         },
     },
@@ -34,8 +34,8 @@ export const agriParcelTemplate: StellioTemplate = {
             value: {
                 schemaType: 'string',
                 format: 'uri',
-                title: "Quelle est la Météo de référence pour cette Parcel ?",
-                friendlyAttributeName: 'Météo de référence',
+                title: "what's the weather above this Plote ?",
+                friendlyAttributeName: 'Reference Weather information',
                 minimum: 1,
                 maximum: 1,
             },
@@ -49,8 +49,8 @@ export const agriParcelTemplate: StellioTemplate = {
             value: {
                 schemaType: 'array',
                 format: 'uri',
-                title: "Quelle est la Zone de référence pour cette Parcel ?",
-                friendlyAttributeName: 'Zone de référence',
+                title: "what zones thos this plot devide into ?",
+                friendlyAttributeName: 'Reference area',
                 minItems: 1,
                 items: {
                     type: "Relationship",
@@ -60,33 +60,7 @@ export const agriParcelTemplate: StellioTemplate = {
                         value: {
                             schemaType: "string",
                             format: "uri",
-                            title: "Select a place"
-                        }
-                    }
-                }
-            },
-        },
-    },
-    collectedAsset:{
-        type: 'Relationship',
-        object: 'urn:ngsi-ld:Device:Template',
-        jsonSchema: {
-            type: 'Property',
-            value: {
-                schemaType: 'array',
-                format: 'uri',
-                title: "what devices are placed on this Parcel ?",
-                friendlyAttributeName: 'Zone de référence',
-                minItems: 1,
-                items: {
-                    type: "Relationship",
-                    object: "urn:ngsi-ld:Device:Template",
-                    jsonSchema: {
-                        type: "Property",
-                        value: {
-                            schemaType: "string",
-                            format: "uri",
-                            title: "Select a Device"
+                            title: "Select a area"
                         }
                     }
                 }

@@ -1,5 +1,15 @@
 import { StellioTemplate } from 'src/interfaces';
 
+export const categoryCategories = [
+    "Weed management",
+    "Sowing",
+    "Fertilization",
+    "Crop protection",
+    "Harvest",
+    "Crop maintenance",
+    "Irrigation",
+]
+
 export const agriOperationTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:Operation:Template`,
     type: 'Template',
@@ -8,7 +18,7 @@ export const agriOperationTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'Nom' },
+            value: { schemaType: 'string', title: 'Name' },
         },
     },
     description: {
@@ -16,7 +26,7 @@ export const agriOperationTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'description' },
+            value: { schemaType: 'string', title: 'Description' },
         },
     },
     category: {
@@ -24,7 +34,9 @@ export const agriOperationTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'category' },
+            value: { schemaType: 'string',
+                enum:categoryCategories,
+                title: 'Category' },
         },
     },
     hasRessources: {
@@ -35,8 +47,8 @@ export const agriOperationTemplate: StellioTemplate = {
             value: {
                 schemaType: 'array',
                 format: 'uri',
-                title: "resourse utiliser pendant l'opperation ?",
-                friendlyAttributeName: 'Ressource de référence',
+                title: "Ressources used during a Operation ?",
+                friendlyAttributeName: 'Reference Ressources',
                 minItems: 1,
                 items: {
                     type: "Relationship",
@@ -59,7 +71,7 @@ export const agriOperationTemplate: StellioTemplate = {
             schemaType: "Operation",
             title: "Operation",
             minimum: 1,
-            required: ['name', 'description'],
+            required: ['name', 'description','category','hasRessources'],
             description: `This represents a Operation`,
         },  
     },

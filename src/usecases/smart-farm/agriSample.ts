@@ -1,5 +1,17 @@
 import { StellioTemplate } from 'src/interfaces';
 
+export const treatmentTypeCategories = [
+    "Mechanical weeding",
+    "Organic mulch",
+    "Acetic acid treatment",
+    "Pelargonic acid treatment",
+    "No treatment",
+    "Conventional treatment",
+    "False seedbed",
+    "Shifted sowing time"
+
+]
+
 export const agriSampleTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:Sample:Template`,
     type: 'Template',
@@ -8,23 +20,25 @@ export const agriSampleTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'Nom' },
+            value: { schemaType: 'string', title: 'Name' },
         },
     }, 
-    treatment_type: {
+    treatmentType: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', title: 'Treatment Type' },
+            value: { schemaType: 'string', 
+                enum : treatmentTypeCategories, 
+                title: 'Treatment Type' },
         },
     }, 
-    sampling_date: {
+    samplingDate: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'datatime', title: 'Dampling Date' },
+            value: { schemaType: 'date', title: 'Sampling Date' },
         },
     }, 
     sampleEnvironmentalResults: {
@@ -35,8 +49,8 @@ export const agriSampleTemplate: StellioTemplate = {
             value: {
                 schemaType: 'array',
                 format: 'uri',
-                title: "Resultat des échantillon ?",
-                friendlyAttributeName: 'Resultat de référence',
+                title: "what environmental results are taken from this Sample ?",
+                friendlyAttributeName: 'Reference environmental result',
                 minItems: 1,
                 items: {
                     type: "Relationship",
@@ -46,7 +60,7 @@ export const agriSampleTemplate: StellioTemplate = {
                         value: {
                             schemaType: "string",
                             format: "uri",
-                            title: "Select a result"
+                            title: "Select a environmental result"
                         }
                     }
                 }
@@ -61,8 +75,8 @@ export const agriSampleTemplate: StellioTemplate = {
             value: {
                 schemaType: 'array',
                 format: 'uri',
-                title: "Resultat des échantillon ?",
-                friendlyAttributeName: 'Resultat de référence',
+                title: "what biological results are taken from this Sample ?",
+                friendlyAttributeName: 'Reference biological result',
                 minItems: 1,
                 items: {
                     type: "Relationship",
@@ -72,7 +86,7 @@ export const agriSampleTemplate: StellioTemplate = {
                         value: {
                             schemaType: "string",
                             format: "uri",
-                            title: "Select a result"
+                            title: "Select a biological result"
                         }
                     }
                 }
@@ -85,7 +99,7 @@ export const agriSampleTemplate: StellioTemplate = {
             schemaType: "Sample",
             title: "Sample",
             minimum: 1,
-            required: ['name', 'treatment_type','sampling_date'],
+            required: ['name', 'treatmentType','samplingDate'],
             description: `This represents a Sample`,
         },
     },
