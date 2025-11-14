@@ -43,7 +43,7 @@ export const soilNutrientTemplate: StellioTemplate = {
             value: { schemaType: 'string', title: 'Cation exchange capacity' },
         },
     },
-    OrganicMatter: {
+    organicMatter: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {

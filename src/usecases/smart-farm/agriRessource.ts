@@ -1,6 +1,6 @@
 import { StellioTemplate } from 'src/interfaces';
 
-export const ressourceTypeCategories = [
+const ressourceTypeCategories = [
     "pesticides",
     "mechanical weeding",
     "thermal weeding",

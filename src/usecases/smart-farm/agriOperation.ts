@@ -1,6 +1,6 @@
 import { StellioTemplate } from 'src/interfaces';
 
-export const categoryCategories = [
+const categoryCategories = [
     "Weed management",
     "Sowing",
     "Fertilization",

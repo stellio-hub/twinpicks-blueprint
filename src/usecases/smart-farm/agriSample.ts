@@ -1,16 +1,6 @@
 import { StellioTemplate } from 'src/interfaces';
 
-export const treatmentTypeCategories = [
-    "Mechanical weeding",
-    "Organic mulch",
-    "Acetic acid treatment",
-    "Pelargonic acid treatment",
-    "No treatment",
-    "Conventional treatment",
-    "False seedbed",
-    "Shifted sowing time"
 
-]
 
 export const agriSampleTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:Sample:Template`,
@@ -21,16 +11,6 @@ export const agriSampleTemplate: StellioTemplate = {
         jsonSchema: {
             type: 'Property',
             value: { schemaType: 'string', title: 'Name' },
-        },
-    }, 
-    treatmentType: {
-        type: 'Property',
-        value: 'Placeholder',
-        jsonSchema: {
-            type: 'Property',
-            value: { schemaType: 'string', 
-                enum : treatmentTypeCategories, 
-                title: 'Treatment Type' },
         },
     }, 
     samplingDate: {
@@ -99,7 +79,7 @@ export const agriSampleTemplate: StellioTemplate = {
             schemaType: "Sample",
             title: "Sample",
             minimum: 1,
-            required: ['name', 'treatmentType','samplingDate'],
+            required: ['name','samplingDate'],
             description: `This represents a Sample`,
         },
     },

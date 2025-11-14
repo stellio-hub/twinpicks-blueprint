@@ -1,6 +1,6 @@
 import { StellioTemplate } from 'src/interfaces';
 
-export const cropSpeciesCategories = [
+const cropSpeciesCategories = [
     "Field Crops - Wheat",
     "Field Crops - Barley",
     "Vegetables - Tomatoes",
@@ -13,7 +13,7 @@ export const cropSpeciesCategories = [
     "Field Crops - Sunflower",
 ]
 
-export const CropCategories = [
+const cropCategories = [
     "Wheat (Triticum spp.)",
     "Barley (Hordeum vulgare)",
     "Corn (Zea mays)",
@@ -35,7 +35,7 @@ export const cropSpeciesTemplate: StellioTemplate = {
         jsonSchema: {
             type: 'Property',
             value: { schemaType: 'string',
-                enum: CropCategories,
+                enum: cropCategories,
                 title: 'Name' },
         },
     },

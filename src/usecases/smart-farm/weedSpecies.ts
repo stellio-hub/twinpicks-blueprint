@@ -1,6 +1,6 @@
 import { StellioTemplate } from 'src/interfaces';
 
-export const weedSpeciesCategories = [
+const weedSpeciesCategories = [
     "Field Thistle (Cirsium arvense)",
     "White Goosefoot (Chenopodium album)",
     "Common Lambsquarters (Chenopodium album)",

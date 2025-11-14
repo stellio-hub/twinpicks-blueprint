@@ -1,6 +1,6 @@
 import { StellioTemplate } from 'src/interfaces';
 
-export const activityCategories = [
+const activityCategories = [
     "winter oats",
     "winter soft wheat",
     "farm",
