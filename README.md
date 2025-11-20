@@ -179,6 +179,7 @@ A blueprint is a global definition of a specific use case type. It is following 
         }
     }
     ```
+> 📒 **Note:** The `contextString` value must be the direct URL to the context's raw JSON 
 
 1. That's it! Twin·Picks' users will be able to instantiate a new use case and create entities based on this Blueprint. 
 1. Optional: add a `.env` file to simplify the process (see .env.example for variables definition). Then adapt the commands below depending on the use case directory name:
