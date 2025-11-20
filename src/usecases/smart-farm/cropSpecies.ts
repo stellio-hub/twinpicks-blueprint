@@ -1,17 +1,6 @@
 import { StellioTemplate } from 'src/interfaces';
 
-const cropSpeciesCategories = [
-    "Field Crops - Wheat",
-    "Field Crops - Barley",
-    "Vegetables - Tomatoes",
-    "Vegetables - Peppers",
-    "Vegetables - Leafy Greens",
-    "Fruit Trees - Apples",
-    "Fruit Trees - Pears",
-    "Fruit Trees - Olives",
-    "Vineyards - Grapes",
-    "Field Crops - Sunflower",
-]
+
 
 const cropCategories = [
     "Wheat (Triticum spp.)",

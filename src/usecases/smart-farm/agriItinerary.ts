@@ -1,15 +1,18 @@
 import { StellioTemplate } from 'src/interfaces';
 
 const activityCategories = [
-    "winter oats",
-    "winter soft wheat",
-    "farm",
-    "heifer",
-    "alfalfa",
-    "maize",
-    "winter barley",
-    "grassland",
+    "Field Crops - Wheat",
+    "Field Crops - Barley",
+    "Vegetables - Tomatoes",
+    "Vegetables - Peppers",
+    "Vegetables - Leafy Greens",
+    "Fruit Trees - Apples",
+    "Fruit Trees - Pears",
+    "Fruit Trees - Olives",
+    "Vineyards - Grapes",
+    "Field Crops - Sunflower",
 ]
+
 export const agriItineraryTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:Itinerary:Template`,
     type: 'Template',
