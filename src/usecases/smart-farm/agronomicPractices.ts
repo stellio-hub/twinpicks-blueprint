@@ -36,13 +36,6 @@ const fertilizersCategories = [
     "Liquid Fertilizers",
     "Green Manures",
 ]
-
-const farmingSystemsCategories = [
-    "Organic Farming",
-    "Conventional Farming",
-    "Slow-Release Fertilizers",
-    "Integrated Farming",
-]
 const treatmentTypeCategories = [
     "Mechanical weeding",
     "Organic mulch",
@@ -75,16 +68,6 @@ export const agronomicPracticesTemplate: StellioTemplate = {
                 title: 'Treatment Type' },
         },
     }, 
-    farmingSystems: {
-        type: 'Property',
-        value: 'Placeholder',
-        jsonSchema: {
-            type: 'Property',
-            value: { schemaType: 'string',
-                enum: farmingSystemsCategories,
-                title: 'Farming Systems' },
-        },
-    },
     weedManagement: {
         type: 'Property',
         value: 'Placeholder',
@@ -139,8 +122,7 @@ export const agronomicPracticesTemplate: StellioTemplate = {
             schemaType: "AgronomicPractices",
             title: "Agronomic Practices",
             minimum: 1,
-            required: ['name', 'treatmentType','weedManagement','soilManagement',
-                'irrigationMethods','fertilizerType','fertilizerQuantity'],
+            required: ['name'],
             description: `This represents a Agronomic Practices`,
         },
     },

@@ -1,5 +1,11 @@
 import { StellioTemplate } from 'src/interfaces';
 
+const farmingSystemsCategories = [
+    "Organic Farming",
+    "Conventional Farming",
+    "Integrated Farming",
+]
+
 export const agriParcelTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:Parcel:Template`,
     type: 'Template',
@@ -39,6 +45,16 @@ export const agriParcelTemplate: StellioTemplate = {
                 minimum: 1,
                 maximum: 1,
             },
+        },
+    },
+    farmingSystems: {
+        type: 'Property',
+        value: 'Placeholder',
+        jsonSchema: {
+            type: 'Property',
+            value: { schemaType: 'string',
+                enum: farmingSystemsCategories,
+                title: 'Farming Systems' },
         },
     },
     hasParcelArea: {
