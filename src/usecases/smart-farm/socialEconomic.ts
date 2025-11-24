@@ -48,7 +48,6 @@ export const socialEconomicTemplate: StellioTemplate = {
         value: {
             schemaType: "SocialEconomic",
             title: "Social Economic",
-            minimum: 1,
             required: ['name', 'observedAt','farmerFeedback',
                 'economicsCosts','laborHours'
             ],

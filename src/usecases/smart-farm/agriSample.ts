@@ -78,7 +78,6 @@ export const agriSampleTemplate: StellioTemplate = {
         value: {
             schemaType: "Sample",
             title: "Sample",
-            minimum: 1,
             required: ['name','samplingDate'],
             description: `This represents a Sample`,
         },

@@ -31,7 +31,6 @@ export const agriCropTemplate: StellioTemplate = {
         value: {
             schemaType: "Crop",
             title: "Crop",
-            minimum: 1,
             required: ['name', 'placement'],
             description: `This represents a Crop`,
         },  
