@@ -128,7 +128,6 @@ export const agriParcelAreaTemplate: StellioTemplate = {
         value: {
             schemaType: "ParcelArea",
             title: "Parcel Area",
-            minimum: 1,
             required: ['name', 'location'],
             description: `This represents a Parcel Area`,
         },

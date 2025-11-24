@@ -77,7 +77,6 @@ export const caseStudyTemplate: StellioTemplate = {
         value: {
             schemaType: "CaseStudy",
             title: "Case Study",
-            minimum: 1,
             required: ['name', 'location','startAt','hasParcel'],
             description: `This represents a Case Study`,
         },

@@ -61,7 +61,6 @@ export const biologicalResultTemplate: StellioTemplate = {
         value: {
             schemaType: "BiologicalResult",
             title: "Biological Result",
-            minimum: 1,
             required: ['name','hasWeedSpecies','hasCropSpecies'],
             description: `This represents a Biological Result`,
         },

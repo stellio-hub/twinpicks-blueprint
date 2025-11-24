@@ -121,7 +121,6 @@ export const agronomicPracticesTemplate: StellioTemplate = {
         value: {
             schemaType: "AgronomicPractices",
             title: "Agronomic Practices",
-            minimum: 1,
             required: ['name'],
             description: `This represents a Agronomic Practices`,
         },

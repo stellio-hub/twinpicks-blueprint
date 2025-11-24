@@ -60,7 +60,6 @@ export const weedSpeciesTemplate: StellioTemplate = {
         value: {
             schemaType: "WeedSpecies",
             title: "Weed Species",
-            minimum: 1,
             required: ['name','number','biomass'],
             description: `This represents a Weed Species`,
         },

@@ -71,7 +71,6 @@ export const environmentalResultTemplate: StellioTemplate = {
         value: {
             schemaType: "EnvironmentalResult",
             title: "Environmental Result",
-            minimum: 1,
             required: ['name','soilPH','soilMoisture','biodiversityIndex',
                 'pesticideUse','pesticideImpact'],
             description: `This represents a Environmental Result`,
