@@ -88,6 +88,7 @@ export const soilNutrientTemplate: StellioTemplate = {
         value: {
             schemaType: "SoilNutrient",
             title: "Soil Nutrient",
+            minimum: 0,
             required: ['name'],
             description: `This represents a Soil Nutrient`,
         },

@@ -64,6 +64,7 @@ export const soilMicrobiomeTemplate: StellioTemplate = {
         value: {
             schemaType: "SoilMicrobiome",
             title: "Soil Microbiome",
+            minimum: 0,
             required: ['name', 'bacterialDiversity','fungalDiversity',
                 'microbialBiomass','enzmeActivities','soilRespiration',
                 'soilOrganicMatter'],

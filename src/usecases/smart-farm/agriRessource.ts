@@ -65,6 +65,7 @@ export const agriRessourceTemplate: StellioTemplate = {
         value: {
             schemaType: "Ressource",
             title: "Ressource",
+            minimum: 0,
             required: ['name', 'datasetId','amount','category',
                 'ressourceType','unit'],
             description: `This represents a Ressource`,

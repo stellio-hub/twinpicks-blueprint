@@ -47,6 +47,7 @@ export const agriCampaignTemplate: StellioTemplate = {
         value: {
             schemaType: "Campaign",
             title: "Campaign",
+            minimum: 0,
             required: ['name', 'startAt','endAt','hasItinerary'],
             description: `This represents a Campaign`,
         },  
