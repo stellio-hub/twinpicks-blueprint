@@ -73,6 +73,7 @@ export const agriItineraryTemplate: StellioTemplate = {
         value: {
             schemaType: "Itinerary",
             title: "Itinerary",
+            minimum: 0,
             required: ['name', 'description','activity','hasOperation'],
             description: `This represents a Itinerary`,
         },  

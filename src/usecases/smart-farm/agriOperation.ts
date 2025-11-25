@@ -90,6 +90,7 @@ export const agriOperationTemplate: StellioTemplate = {
         value: {
             schemaType: "Operation",
             title: "Operation",
+            minimum: 0,
             required: ['name', 'description','category','hasRessources'],
             description: `This represents a Operation`,
         },  
