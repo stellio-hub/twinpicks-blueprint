@@ -5,7 +5,9 @@ A blueprint is a global definition of a specific use case type. It is following 
 
 1. If you don't have it, install node (https://github.com/nvm-sh/nvm or for windows https://github.com/coreybutler/nvm-windows) and use version at least 16+
 1. Clone repository `git clone https://github.com/easy-global-market/twinpicks-blueprint.git`
-1. Do `npm install`
+1. Do `npm install` 
+    if any errors occured try:
+    `npm audit fix`
 1. Create a new directory in `/src/usecases/[NEW_USECASE_TYPE]`
     - Create a new file for each new defined entity type
         - See the next section for more information on how to define an entity type
@@ -177,6 +179,7 @@ A blueprint is a global definition of a specific use case type. It is following 
         }
     }
     ```
+> 📒 **Note:** The `contextString` value must be the direct URL to the context's raw JSON 
 
 1. That's it! Twin·Picks' users will be able to instantiate a new use case and create entities based on this Blueprint. 
 1. Optional: add a `.env` file to simplify the process (see .env.example for variables definition). Then adapt the commands below depending on the use case directory name:

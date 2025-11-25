@@ -108,7 +108,7 @@ const template: StellioTemplate = {
             value: {
                 schemaType: 'integer',
                 friendlyAttributeName: 'Unavoidable Residue Share',
-                title: '(If residue) Specify the percentage (%) of the total dry mass of the residue or by-product that is considered as unavoidable',
+                title: '(If residue and actor role is Primary producer) Specify the percentage (%) of the total dry mass of the residue or by-product that is considered as unavoidable',
                 order: 8,
             },
         },
@@ -136,7 +136,7 @@ const template: StellioTemplate = {
             value: {
                 schemaType: 'integer',
                 friendlyAttributeName: 'Sustainable Removal Share',
-                title: '(If residue) Please provide the percentage (%) of the sustainable removal rate for residues regarding your activity',
+                title: '(If residue and actor role is Primary producer) Please provide the percentage (%) of the sustainable removal rate for residues regarding your activity',
                 order: 10,
             },
         },
@@ -150,7 +150,7 @@ const template: StellioTemplate = {
             value: {
                 schemaType: 'integer',
                 friendlyAttributeName: 'Mass of residue for fine chemicals',
-                title: '(If residue) Please provide the total dry mass (kg) of generated residue used as feedstock for pharmaceuticals or fine chemicals',
+                title: '(If residue and actor role is Primary producer) Please provide the total dry mass (kg) of generated residue used as feedstock for pharmaceuticals or fine chemicals',
                 order: 11,
             },
         },
@@ -164,7 +164,7 @@ const template: StellioTemplate = {
             value: {
                 schemaType: 'integer',
                 friendlyAttributeName: 'Mass Of Residue For Food',
-                title: '(If residue) Please provide the total dry mass (kg) of generated residue used for food or feed',
+                title: '(If residue and actor role is Primary producer) Please provide the total dry mass (kg) of generated residue used for food or feed',
                 order: 12,
             },
         },
@@ -178,7 +178,7 @@ const template: StellioTemplate = {
             value: {
                 schemaType: 'integer',
                 friendlyAttributeName: 'Mass Of Residue For Bioplastics',
-                title: '(If residue) Please provide the total dry mass (kg) of generated residue used for bioplastics or polymers',
+                title: '(If residue and actor role is Primary producer) Please provide the total dry mass (kg) of generated residue used for bioplastics or polymers',
                 order: 13,
             },
         },
@@ -192,7 +192,7 @@ const template: StellioTemplate = {
             value: {
                 schemaType: 'integer',
                 friendlyAttributeName: 'Mass Of Residue For Bulk Chemicals',
-                title: '(If residue) Please provide the total dry mass (kg) of generated residue used for bulk chemicals or materials',
+                title: '(If residue and actor role is Primary producer) Please provide the total dry mass (kg) of generated residue used for bulk chemicals or materials',
                 order: 14,
             },
         },
@@ -206,7 +206,7 @@ const template: StellioTemplate = {
             value: {
                 schemaType: 'integer',
                 friendlyAttributeName: 'Mass Of Residue For Energy',
-                title: '(If residue) Please provide the total dry mass (kg) of generated residue used for energy, heat or fuel',
+                title: '(If residue and actor role is Primary producer) Please provide the total dry mass (kg) of generated residue used for energy, heat or fuel',
                 order: 15,
             },
         },
@@ -220,7 +220,7 @@ const template: StellioTemplate = {
             value: {
                 schemaType: 'integer',
                 friendlyAttributeName: 'Mass Of Left On Field Residue',
-                title: '(If residue) Please provide the total dry mass (kg) of generated residue left on field',
+                title: '(If residue and actor role is Primary producer) Please provide the total dry mass (kg) of generated residue left on field',
                 order: 16,
             },
         },
@@ -234,7 +234,7 @@ const template: StellioTemplate = {
             value: {
                 schemaType: 'integer',
                 friendlyAttributeName: 'Mass Of Lost Residue',
-                title: '(If residue) Please provide the total dry mass (kg) of generated residue being landfilled, burnt, lost, etc.',
+                title: '(If residue and actor role is Primary producer) Please provide the total dry mass (kg) of generated residue being landfilled, burnt, lost, etc.',
                 order: 17,
             },
         },
