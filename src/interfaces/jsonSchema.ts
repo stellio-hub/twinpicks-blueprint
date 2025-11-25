@@ -31,7 +31,7 @@ export interface JsonSchema {
      */
     maximum?: number;
     /**
-     * At the entity level: is used to force a minimum number of entities before provisioning is allowed
+     * At the entity level: is used to force a minimum number of entities before provisioning is allowed (1 by default if omitted)
      * At the property level: is used to force a minimum number of relationships before entity can be created
      */
     minimum?: number;
