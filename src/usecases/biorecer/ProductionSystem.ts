@@ -59,8 +59,8 @@ const template: StellioTemplate = {
             schemaType: entityType,
             title: entityTypeTitle,
             minimum: 0,
-            required: ['name'],
-            description: `Digital twin for a ${entityTypeTitle} which uses a process`,
+            required: ['name', 'location'],
+            description: `Any mean of production which uses a process`,
         },
     },
 };
