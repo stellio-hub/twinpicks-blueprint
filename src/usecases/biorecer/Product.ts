@@ -605,7 +605,7 @@ const template: StellioTemplate = {
             schemaType: entityType,
             title: entityTypeTitle,
             minimum: 1,
-            required: ['name', 'typeOfProduct'],
+            required: ['name', 'typeOfProduct', 'mass'],
             description: `This is a product. It can be anything, a raw material, a chemical, a final object...`,
         },
     },
