@@ -72,7 +72,7 @@ export const agriOperationTemplate: StellioTemplate = {
                 minItems: 1,
                 items: {
                     type: "Relationship",
-                    object: "urn:ngsi-ld:Ressources:Template",
+                    object: "urn:ngsi-ld:Ressource:Template",
                     jsonSchema: {
                         type: "Property",
                         value: {
