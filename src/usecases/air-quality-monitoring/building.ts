@@ -1,70 +1,5 @@
 import { StellioTemplate } from 'src/interfaces';
 
-export const buildingCategories = [
-    'Abri (shed)',
-    'Abri à ordures (garbage_shed)',
-    'Abri voiture (carport)',
-    'Appartements (apartments)',
-    'Bâtiment annexe de ferme (farm_auxiliary)',
-    'Bâtiment public (civic)',
-    'Boulangerie (bakehouse)',
-    'Bungalow (bungalow)',
-    'Bunker (bunker)',
-    'Bureau (office)',
-    'Cabane (cabin)',
-    'Caravane fixe (static_caravan)',
-    'Cathédrale (cathedral)',
-    'Chantier (construction)',
-    'Chapelle (chapel)',
-    "Château d'eau (water_tower)",
-    'Commerce (retail)',
-    'Commercial (commercial)',
-    'Digesteur (digester)',
-    'Dortoir (dormitory)',
-    'Ecole (school)',
-    'Ecurie (stable)',
-    'Eglise (church)',
-    'Entrepôt (warehouse)',
-    'Etable (cowshed)',
-    'Ferme (farm)',
-    'Garage (garage)',
-    'Garages (garages)',
-    'Gare (train_station)',
-    'Grange (barn)',
-    'Hangar (hangar)',
-    'Hôpital (hospital)',
-    'Hôtel (hotel)',
-    'Hutte (hut)',
-    'Industriel (industrial)',
-    "Jardin d'enfants (kindergarten)",
-    'Kiosque (kiosk)',
-    'Maison (house)',
-    'Maison individuelle (detached)',
-    'Maison mitoyenne (terrace)',
-    'Manège (riding_hall)',
-    'Mosquée (mosque)',
-    'Parking (parking)',
-    'Pavillon (pavilion)',
-    'Péniche (houseboat)',
-    'Pont (bridge)',
-    'Porcherie (sty)',
-    'Poste de transformation (transformer_tower)',
-    'Public (public)',
-    'Résidentiel (residential)',
-    'Ruines (ruins)',
-    'Sanctuaire (shrine)',
-    'Serre (greenhouse)',
-    'Service (service)',
-    'Stade (stadium)',
-    'Synagogue (synagogue)',
-    'Temple (temple)',
-    'Toit (roof)',
-    'Transport (transportation)',
-    'Tribune (grandstand)',
-    'Université (university)',
-    'Véranda (conservatory)',
-];
-
 export const BuildingTemplate: StellioTemplate = {
     id: 'urn:ngsi-ld:Building:Template',
     type: 'Template',
@@ -90,6 +25,9 @@ export const BuildingTemplate: StellioTemplate = {
             },
         },
     },
+    /**
+     * A GeoProperty in a Building will display the RNB selector component in TP
+     */
     location: {
         type: 'GeoProperty',
         value: {
@@ -100,20 +38,23 @@ export const BuildingTemplate: StellioTemplate = {
             type: 'Property',
             value: {
                 schemaType: 'object',
-                title: 'Où se situe le bâtiment',
+                title: 'Sélectionner le bâtiment sur la carte',
             },
         },
     },
-    category: {
-        type: 'Property',
-        value: 'Placeholder',
+    /**
+     *  The `rnb` JsonProperty must be present in the blueprint if required \
+     *  It won't be added to the entity otherwise
+     */
+    rnb: {
+        type: 'JsonProperty',
+        json: '{}',
         jsonSchema: {
             type: 'Property',
             value: {
-                schemaType: 'string',
-                enum: buildingCategories,
-                title: `Sélectionner une categorie`,
-                friendlyAttributeName: 'Categorie',
+                schemaType: 'json',
+                canSelfInit: true,
+                friendlyAttributeName: 'Référentiel National des Bâtiments',
             },
         },
     },

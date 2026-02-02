@@ -45,9 +45,19 @@ type StellioMultiAttribute<T = any> = {
     datasetId: string;
 };
 
+type StellioJsonProp<T = unknown> = {
+    type: 'JsonProperty';
+    json: T extends object ? T : unknown;
+    observedAt?: string;
+    modifiedAt?: string;
+    createdAt?: string;
+    observedBy?: StellioRelationship;
+};
+
 type NgsildPossibleValue =
     | StellioProp<any>
     | StellioGeoProp
+    | StellioJsonProp
     | StellioRelationship
     | StellioRelationship[]
     | StellioMultiAttribute<any>[]
@@ -64,7 +74,11 @@ export type StellioTemplateRelationship = StellioRelationship & {
     jsonSchema: StellioProp<JsonSchema>;
 };
 
+export type StellioTemplateJsonProp = StellioJsonProp & {
+    jsonSchema: StellioProp<JsonSchema>;
+};
+
 export interface StellioTemplate extends EntityBaseProps {
-    [key: string]: NgsildPossibleValue | StellioTemplateProp | StellioTemplateRelationship;
+    [key: string]: NgsildPossibleValue | StellioTemplateProp | StellioTemplateRelationship | StellioTemplateJsonProp;
     jsonSchema: StellioProp<JsonSchema>;
 }
