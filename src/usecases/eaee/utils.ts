@@ -1,6 +1,6 @@
-import { StellioTemplateJsonProp, StellioTemplateProp } from 'src/interfaces';
+import { StellioTemplateJsonProp, StellioTemplateProp } from '../../interfaces';
 
-const getStructureJsonProp = (json: Record<string, string>): StellioTemplateJsonProp => {
+export const getStructureJsonProp = (json: Record<string, string>): StellioTemplateJsonProp => {
     return {
         type: 'JsonProperty',
         json: json,
@@ -15,7 +15,7 @@ const getStructureJsonProp = (json: Record<string, string>): StellioTemplateJson
     };
 };
 
-const getDisplayNameProp = (name: string): StellioTemplateProp => {
+export const getDisplayNameProp = (name: string): StellioTemplateProp => {
     return {
         type: 'Property',
         value: name,
@@ -30,7 +30,9 @@ const getDisplayNameProp = (name: string): StellioTemplateProp => {
     };
 };
 
-const getSimpleTextProp = (title: string, order?: number): StellioTemplateProp => {
+let order = 0;
+export const getSimpleTextProp = (title: string): StellioTemplateProp => {
+    order++;
     return {
         type: 'Property',
         value: title,
@@ -45,7 +47,7 @@ const getSimpleTextProp = (title: string, order?: number): StellioTemplateProp =
     };
 };
 
-const getDateProp = (title: string, order?: number): StellioTemplateProp => {
+export const getDateProp = (title: string): StellioTemplateProp => {
     return {
         type: 'Property',
         value: new Date(),
@@ -54,10 +56,7 @@ const getDateProp = (title: string, order?: number): StellioTemplateProp => {
             value: {
                 schemaType: 'date',
                 title: title,
-                order: order,
             },
         },
     };
 };
-
-export { getStructureJsonProp, getDisplayNameProp, getSimpleTextProp, getDateProp };

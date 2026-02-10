@@ -1,6 +1,6 @@
-import { StellioTemplate } from 'src/interfaces';
-import { getDisplayNameProp, getSimpleTextProp, getStructureJsonProp, getDateProp } from 'src/usecases/eaee/utils';
-import * as Structures from 'src/usecases/eaee/actionsDataStructures';
+import { StellioTemplate } from '../../interfaces';
+import { getDisplayNameProp, getSimpleTextProp, getStructureJsonProp, getDateProp } from './utils';
+import * as Structures from './actionsDataStructures';
 
 export const ActionTemplate: StellioTemplate = {
     id: 'urn:ngsi-ld:Action:Template',
@@ -17,37 +17,37 @@ export const ActionTemplate: StellioTemplate = {
     },
 
     titre: {
-        ...getSimpleTextProp('Titre', 1),
+        ...getSimpleTextProp('Titre'),
         structure: getStructureJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Titre'),
     },
     description: {
-        ...getSimpleTextProp('Description', 2),
+        ...getSimpleTextProp('Description'),
         structure: getStructureJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Description'),
     },
     typeAction: {
-        ...getSimpleTextProp('Type action', 3),
+        ...getSimpleTextProp('Type action'),
         structure: getStructureJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Type action'),
     },
     statut: {
-        ...getSimpleTextProp('Statut', 4),
+        ...getSimpleTextProp('Statut'),
         structure: getStructureJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Statut'),
     },
     dateDebut: {
-        ...getDateProp('Date de début', 5),
+        ...getDateProp('Date de début'),
         structure: getStructureJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Date de début'),
     },
     dateFin: {
-        ...getDateProp('Date de fin', 6),
+        ...getDateProp('Date de fin'),
         structure: getStructureJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Date de fin'),
     },
     commentaires: {
-        ...getSimpleTextProp('Commentaires', 7),
+        ...getSimpleTextProp('Commentaires'),
         structure: getStructureJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Commentaires'),
     },

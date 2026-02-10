@@ -1,74 +1,74 @@
-const taxonomie = {
+export const taxonomie = {
     '0': 'taxonomie',
 } as const;
 
-const presenceAbsence = {
+export const presenceAbsence = {
     '0': 'presenceAbsence',
 } as const;
 
-const indigenat = {
+export const indigenat = {
     '0': 'autonomie',
 } as const;
 
-const autonomie = {
+export const autonomie = {
     '0': 'autonomie',
 } as const;
 
-const informationsSupplementaires = {
+export const informationsSupplementaires = {
     '0': 'informationsSupplementaires',
 } as const;
 
 // #region ANALYSE INTENSITE IMPACTS ENVIRONNEMENTAUX
-const analyseIntensiteImpactsEnvironnementaux = {
+export const analyseIntensiteImpactsEnvironnementaux = {
     '0': 'analyseIntensiteImpactsEnvironnementaux',
 } as const;
 
-const potentielDeProliferation = {
+export const potentielDeProliferation = {
     ...analyseIntensiteImpactsEnvironnementaux,
     '1': 'potentielDeProliferation',
 } as const;
-const colonisationHabitatsNaturels = {
+export const colonisationHabitatsNaturels = {
     ...analyseIntensiteImpactsEnvironnementaux,
     '1': 'colonisationHabitatsNaturels',
 } as const;
-const impactsSurTaxonsIndigenes = {
+export const impactsSurTaxonsIndigenes = {
     ...analyseIntensiteImpactsEnvironnementaux,
     '1': 'impactsSurTaxonsIndigenes',
 } as const;
-const predation = {
+export const predation = {
     ...impactsSurTaxonsIndigenes,
     '2': 'predation',
 } as const;
-const competition = {
+export const competition = {
     ...impactsSurTaxonsIndigenes,
     '2': 'competition',
 } as const;
-const maladies = {
+export const maladies = {
     ...impactsSurTaxonsIndigenes,
     '2': 'maladies',
 } as const;
-const hybridation = {
+export const hybridation = {
     ...impactsSurTaxonsIndigenes,
     '2': 'hybridation',
 } as const;
 
-const impactsSurEnvironnement = {
+export const impactsSurEnvironnement = {
     ...analyseIntensiteImpactsEnvironnementaux,
     '1': 'impactsSurEnvironnement',
 } as const;
-const cyclesNaturels = {
+export const cyclesNaturels = {
     ...impactsSurEnvironnement,
     '2': 'cyclesNaturels',
 } as const;
-const alterationsPhysiques = {
+export const alterationsPhysiques = {
     ...impactsSurEnvironnement,
     '2': 'alterationsPhysiques',
 } as const;
-const successionEcologiques = {
+export const successionEcologiques = {
     ...impactsSurEnvironnement,
     '2': 'successionEcologiques',
 } as const;
-const reseauxTrophiques = {
+export const reseauxTrophiques = {
     ...impactsSurEnvironnement,
     '2': 'reseauxTrophiques',
 } as const;
@@ -76,57 +76,57 @@ const reseauxTrophiques = {
 // #endregion
 
 // #region ANALYSE DE L'INTENSITE DES IMPACTS SOCIO-ECONOMIQUES SANITAIRES
-const analyseIntensiteImpactsSocioEconomiquesSanitaires = {
+export const analyseIntensiteImpactsSocioEconomiquesSanitaires = {
     '0': 'analyseIntensiteImpactsSocioEconomiquesSanitaires',
 } as const;
 
-const impactsSurEconomie = {
+export const impactsSurEconomie = {
     ...analyseIntensiteImpactsSocioEconomiquesSanitaires,
     '1': 'impactsSurEconomie',
 } as const;
-const impactsSanitaires = {
+export const impactsSanitaires = {
     ...analyseIntensiteImpactsSocioEconomiquesSanitaires,
     '1': 'impactsSanitaires',
 } as const;
 
-const impactsSurActivitesHumaines = {
+export const impactsSurActivitesHumaines = {
     ...analyseIntensiteImpactsSocioEconomiquesSanitaires,
     '1': 'impactsSurActivitesHumaines',
 } as const;
-const agriculture = {
+export const agriculture = {
     ...impactsSurActivitesHumaines,
     '2': 'agriculture',
 } as const;
-const foresterie = {
+export const foresterie = {
     ...impactsSurActivitesHumaines,
     '2': 'foresterie',
 } as const;
-const aquaculture = {
+export const aquaculture = {
     ...impactsSurActivitesHumaines,
     '2': 'aquaculture',
 } as const;
-const industrie = {
+export const industrie = {
     ...impactsSurActivitesHumaines,
     '2': 'industrie',
 } as const;
 
-const impactSurBienEtreHumain = {
+export const impactSurBienEtreHumain = {
     ...analyseIntensiteImpactsSocioEconomiquesSanitaires,
     '1': 'impactSurBienEtreHumain',
 } as const;
-const patrimoine = {
+export const patrimoine = {
     ...impactSurBienEtreHumain,
     '2': 'patrimoine',
 } as const;
-const securite = {
+export const securite = {
     ...impactSurBienEtreHumain,
     '2': 'securite',
 } as const;
-const loisirs = {
+export const loisirs = {
     ...impactSurBienEtreHumain,
     '2': 'loisirs',
 } as const;
-const amenites = {
+export const amenites = {
     ...impactSurBienEtreHumain,
     '2': 'amenites',
 } as const;
@@ -134,18 +134,18 @@ const amenites = {
 // #endregion
 
 // #region ANALYSE DE RISQUES DES TAXONS EVALUES
-const analyseRisquesDesTaxonsEvalues = {
+export const analyseRisquesDesTaxonsEvalues = {
     '0': 'analyseRisquesDesTaxonsEvalues',
 } as const;
-const introductionVolontaire = {
+export const introductionVolontaire = {
     ...analyseRisquesDesTaxonsEvalues,
     '1': 'introductionVolontaire',
 } as const;
-const introductionInvolontaire = {
+export const introductionInvolontaire = {
     ...analyseRisquesDesTaxonsEvalues,
     '1': 'introductionInvolontaire',
 } as const;
-const limitrophe = {
+export const limitrophe = {
     ...analyseRisquesDesTaxonsEvalues,
     '1': 'limitrophe',
 } as const;
@@ -153,57 +153,16 @@ const limitrophe = {
 // #endregion
 
 // #region CRITERES INFORMATIFS
-const criteresInformatifs = {
+export const criteresInformatifs = {
     '0': 'criteresInformatifs',
 } as const;
-const distributionSpatiale = {
+export const distributionSpatiale = {
     ...criteresInformatifs,
     '1': 'distributionSpatiale',
 } as const;
-const coefficientDabondance = {
+export const coefficientDabondance = {
     ...criteresInformatifs,
     '1': 'coefficientDabondance',
 } as const;
 
 // #endregion
-
-export {
-    taxonomie,
-    presenceAbsence,
-    indigenat,
-    autonomie,
-    informationsSupplementaires,
-    analyseIntensiteImpactsEnvironnementaux,
-    impactsSurTaxonsIndigenes,
-    potentielDeProliferation,
-    colonisationHabitatsNaturels,
-    predation,
-    competition,
-    maladies,
-    hybridation,
-    impactsSurEnvironnement,
-    cyclesNaturels,
-    alterationsPhysiques,
-    successionEcologiques,
-    reseauxTrophiques,
-    analyseIntensiteImpactsSocioEconomiquesSanitaires,
-    impactsSurEconomie,
-    impactsSanitaires,
-    impactsSurActivitesHumaines,
-    agriculture,
-    foresterie,
-    aquaculture,
-    industrie,
-    impactSurBienEtreHumain,
-    patrimoine,
-    securite,
-    loisirs,
-    amenites,
-    analyseRisquesDesTaxonsEvalues,
-    introductionVolontaire,
-    introductionInvolontaire,
-    limitrophe,
-    criteresInformatifs,
-    distributionSpatiale,
-    coefficientDabondance,
-};
