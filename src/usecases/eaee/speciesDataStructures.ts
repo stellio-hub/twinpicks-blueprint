@@ -7,7 +7,7 @@ export const presenceAbsence = {
 } as const;
 
 export const indigenat = {
-    '0': 'autonomie',
+    '0': 'indigenat',
 } as const;
 
 export const autonomie = {
