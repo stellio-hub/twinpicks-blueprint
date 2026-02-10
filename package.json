@@ -17,7 +17,8 @@
         "smartParking": "npx tsc && cd ./dist/usecases/smart-parking && node index.js && cd ../../..",
         "irrigation": "npx tsc && cd ./dist/usecases/smart-irrigation && node index.js && cd ../../..",
         "irrigationUpdateBlueprint": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=smart-irrigation",
-        "eaee": "npx tsc && cd ./dist/usecases/eaee && node index.js && cd ../../.."
+        "eaee": "npx tsc && cd ./dist/usecases/eaee && node index.js && cd ../../..",
+        "eaeeUpdateBlueprint": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=eaee"
     },
     "devDependencies": {
         "@types/geojson": "^7946.0.10",
