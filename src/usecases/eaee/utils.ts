@@ -1,4 +1,4 @@
-import { StellioTemplateJsonProp, StellioTemplateProp } from '../../interfaces';
+import { StellioTemplateJsonProp, StellioTemplateProp, StellioTemplateRelationship } from '../../interfaces';
 
 export const getStructureJsonProp = (json: Record<string, string>): StellioTemplateJsonProp => {
     return {
@@ -56,6 +56,35 @@ export const getDateProp = (title: string): StellioTemplateProp => {
             value: {
                 schemaType: 'date',
                 title: title,
+            },
+        },
+    };
+};
+
+export const getMultiRelationshipProp = (
+    formLabel: string,
+    formLabelPerItem: string,
+    templateObjectId: string
+): StellioTemplateRelationship => {
+    return {
+        type: 'Relationship',
+        object: templateObjectId,
+        jsonSchema: {
+            type: 'Property',
+            value: {
+                schemaType: 'array',
+                title: formLabel,
+                items: {
+                    type: 'Relationship',
+                    object: templateObjectId,
+                    jsonSchema: {
+                        type: 'Property',
+                        value: {
+                            schemaType: 'string',
+                            title: formLabelPerItem,
+                        },
+                    },
+                },
             },
         },
     };

@@ -1,5 +1,11 @@
 import { StellioTemplate } from '../../interfaces';
-import { getDisplayNameProp, getSimpleTextProp, getStructureJsonProp, getDateProp } from './utils';
+import {
+    getDisplayNameProp,
+    getMultiRelationshipProp,
+    getSimpleTextProp,
+    getStructureJsonProp,
+    getDateProp,
+} from './utils';
 import * as Structures from './actionsDataStructures';
 
 export const ActionTemplate: StellioTemplate = {
@@ -50,5 +56,13 @@ export const ActionTemplate: StellioTemplate = {
         ...getSimpleTextProp('Commentaires'),
         structure: getStructureJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Commentaires'),
+    },
+
+    isAppliedToSpecies: {
+        ...getMultiRelationshipProp(
+            "Espèces sujettes à l'action",
+            'Sélectionner une espèce',
+            'urn:ngsi-ld:Species:Template'
+        ),
     },
 };
