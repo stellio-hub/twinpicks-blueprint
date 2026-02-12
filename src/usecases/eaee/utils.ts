@@ -1,5 +1,7 @@
 import { StellioTemplateJsonProp, StellioTemplateProp, StellioTemplateRelationship } from '../../interfaces';
 
+let order = 0;
+
 export const getStructureJsonProp = (json: Record<string, string>): StellioTemplateJsonProp => {
     return {
         type: 'JsonProperty',
@@ -30,7 +32,6 @@ export const getDisplayNameProp = (name: string): StellioTemplateProp => {
     };
 };
 
-let order = 0;
 export const getSimpleTextProp = (title: string): StellioTemplateProp => {
     order++;
     return {
@@ -66,6 +67,7 @@ export const getMultiRelationshipProp = (
     formLabelPerItem: string,
     templateObjectId: string
 ): StellioTemplateRelationship => {
+    order++;
     return {
         type: 'Relationship',
         object: templateObjectId,
@@ -73,6 +75,7 @@ export const getMultiRelationshipProp = (
             type: 'Property',
             value: {
                 schemaType: 'array',
+                order: order,
                 title: formLabel,
                 items: {
                     type: 'Relationship',
