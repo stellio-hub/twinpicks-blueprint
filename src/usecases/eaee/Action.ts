@@ -58,9 +58,9 @@ export const ActionTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Commentaires'),
     },
 
-    isAppliedToSpecies: {
+    relatedSpecies: {
         ...getMultiRelationshipProp(
-            "Espèces sujettes à l'action",
+            "Espèces liées à l'action",
             'Sélectionner une espèce',
             'urn:ngsi-ld:Species:Template'
         ),
