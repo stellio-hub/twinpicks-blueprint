@@ -647,7 +647,7 @@ export const SpeciesTemplate: StellioTemplate = {
 
     probaMax: {
         ...getSimpleTextProp('Probabilité maximale'),
-        structure: getStructureJsonProp(Structures.analyseIntensiteImpactsEnvironnementaux),
+        structure: getStructureJsonProp(Structures.analyseRisquesDesTaxonsEvalues),
         displayName: getDisplayNameProp('Proba Max'),
     },
 
