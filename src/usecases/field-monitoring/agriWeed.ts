@@ -9,7 +9,7 @@ const survey = [
 ]
 
 export const agriWeedTemplate: StellioTemplate = {
-    id: `urn:ngsi-ld:Crop:Template`,
+    id: `urn:ngsi-ld:Weed:Template`,
     type: 'Template',
     name: {
         type: 'Property',
