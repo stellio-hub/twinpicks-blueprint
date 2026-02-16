@@ -6,6 +6,7 @@ import { cropSpeciesTemplate } from './cropSpecies';
 import { ReferenceSoilAreaTemplate } from './referenceSoilArea';
 import { WeatherInformationTemplate } from './weatherInformation';
 import { weedSpeciesTemplate } from './weedSpecies';
+import { TreatmentTemplate } from './treatment';
 
 import { generateBlueprintFile } from '../../utils';
 
@@ -18,6 +19,7 @@ const blueprint = [
     WeatherInformationTemplate,
     cropSpeciesTemplate,
     weedSpeciesTemplate,
+    TreatmentTemplate,
 ];
 
 const usecasePathName = __dirname.split(/dist[\\/]/)[1];
