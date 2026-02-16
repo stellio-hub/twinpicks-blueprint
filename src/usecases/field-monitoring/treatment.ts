@@ -33,4 +33,4 @@ export const TreatmentTemplate: StellioTemplate = {
             description: `This represents a Treatment`,
         },  
     }
-}
+};
