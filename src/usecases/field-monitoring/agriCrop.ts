@@ -63,7 +63,7 @@ export const agriCropTemplate: StellioTemplate = {
             value: { schemaType: 'number', title: 'Irrigation in L' },
         },
     },
-    fertilization: {
+    fertilizerQuantity: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {

@@ -91,11 +91,11 @@ export const agriWeedTemplate: StellioTemplate = {
     jsonSchema: {
         type: 'Property',
         value: {
-            schemaType: "Crop",
-            title: "Crop",
+            schemaType: "Weed",
+            title: "Weed",
             minimum: 0,
             required: ['name','hasWeedSpecies','startAt'],
-            description: `This represents a Crop`,
+            description: `This represents a Weed`,
         },  
     }
 };
