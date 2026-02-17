@@ -48,7 +48,57 @@ export const getSimpleTextProp = (title: string): StellioTemplateProp => {
     };
 };
 
+export const getNumberProp = (title: string): StellioTemplateProp => {
+    order++;
+    return {
+        type: 'Property',
+        value: 0,
+        jsonSchema: {
+            type: 'Property',
+            value: {
+                schemaType: 'integer',
+                title: title,
+                order: order,
+            },
+        },
+    };
+};
+
+export const getEnumProp = (title: string, enumValues: string[]): StellioTemplateProp => {
+    order++;
+    return {
+        type: 'Property',
+        value: enumValues[0],
+        jsonSchema: {
+            type: 'Property',
+            value: {
+                schemaType: 'string',
+                enum: enumValues,
+                title: title,
+                order: order,
+            },
+        },
+    };
+};
+
+export const getBooleanProp = (title: string): StellioTemplateProp => {
+    order++;
+    return {
+        type: 'Property',
+        value: false,
+        jsonSchema: {
+            type: 'Property',
+            value: {
+                schemaType: 'boolean',
+                title: title,
+                order: order,
+            },
+        },
+    };
+};
+
 export const getDateProp = (title: string): StellioTemplateProp => {
+    order++;
     return {
         type: 'Property',
         value: new Date(),
@@ -57,6 +107,7 @@ export const getDateProp = (title: string): StellioTemplateProp => {
             value: {
                 schemaType: 'date',
                 title: title,
+                order: order,
             },
         },
     };
@@ -92,3 +143,5 @@ export const getMultiRelationshipProp = (
         },
     };
 };
+
+export const presenceAbsenceEnumValues = ['N', 'C', 'A', 'D'];

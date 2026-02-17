@@ -1,5 +1,13 @@
 import { StellioTemplate } from '../../interfaces';
-import { getDisplayNameProp, getSimpleTextProp, getStructureJsonProp } from './utils';
+import {
+    getBooleanProp,
+    getDisplayNameProp,
+    getEnumProp,
+    getNumberProp,
+    getSimpleTextProp,
+    getStructureJsonProp,
+    presenceAbsenceEnumValues,
+} from './utils';
 import * as Structures from './speciesDataStructures';
 
 export const SpeciesTemplate: StellioTemplate = {
@@ -19,7 +27,7 @@ export const SpeciesTemplate: StellioTemplate = {
 
     // #region TAXONOMIE
     taxon: {
-        ...getSimpleTextProp("Taxon de l'espèce"),
+        ...getEnumProp("Taxon de l'espèce", ['Mammifère', 'Oiseau', 'Reptile', 'Amphibien', 'Poisson', 'Insecte']),
         structure: getStructureJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Taxon'),
     },
@@ -61,13 +69,13 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     especeProtegee: {
-        ...getSimpleTextProp('Est-ce une espèce protégée ?'),
+        ...getEnumProp('Est-ce une espèce protégée ?', ['Oui', 'Non']),
         structure: getStructureJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Espèce protégée'),
     },
 
     filtreTaxonomique: {
-        ...getSimpleTextProp('Filtre taxonomique'),
+        ...getBooleanProp('Filtre taxonomique'),
         structure: getStructureJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Filtre taxonomique'),
     },
@@ -82,38 +90,38 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     region: {
-        ...getSimpleTextProp('Région'),
+        ...getEnumProp('Région', presenceAbsenceEnumValues),
         structure: getStructureJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('Région'),
     },
 
     '04': {
-        ...getSimpleTextProp('04'),
+        ...getEnumProp('04', presenceAbsenceEnumValues),
         structure: getStructureJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('04'),
     },
     '05': {
-        ...getSimpleTextProp('05'),
+        ...getEnumProp('05', presenceAbsenceEnumValues),
         structure: getStructureJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('05'),
     },
     '06': {
-        ...getSimpleTextProp('06'),
+        ...getEnumProp('06', presenceAbsenceEnumValues),
         structure: getStructureJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('06'),
     },
     '13': {
-        ...getSimpleTextProp('13'),
+        ...getEnumProp('13', presenceAbsenceEnumValues),
         structure: getStructureJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('13'),
     },
     '83': {
-        ...getSimpleTextProp('83'),
+        ...getEnumProp('83', presenceAbsenceEnumValues),
         structure: getStructureJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('83'),
     },
     '84': {
-        ...getSimpleTextProp('84'),
+        ...getEnumProp('84', presenceAbsenceEnumValues),
         structure: getStructureJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('84'),
     },
@@ -125,7 +133,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     filtreDePresence: {
-        ...getSimpleTextProp('Filtre de présence'),
+        ...getBooleanProp('Filtre de présence'),
         structure: getStructureJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('Filtre de présence'),
     },
@@ -188,7 +196,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Remarques'),
     },
     filtreIndigenat: {
-        ...getSimpleTextProp("Filtre d'indigénat"),
+        ...getBooleanProp("Filtre d'indigénat"),
         structure: getStructureJsonProp(Structures.indigenat),
         displayName: getDisplayNameProp("Filtre d'indigénat"),
     },
@@ -222,7 +230,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Remarques'),
     },
     filtreDAutonomie: {
-        ...getSimpleTextProp("Filtre d'autonomie"),
+        ...getBooleanProp("Filtre d'autonomie"),
         structure: getStructureJsonProp(Structures.autonomie),
         displayName: getDisplayNameProp("Filtre d'autonomie"),
     },
@@ -275,7 +283,7 @@ export const SpeciesTemplate: StellioTemplate = {
 
     // #region ANALYSE DE L'INTENSITE DES IMPACTS ENVIRONNEMENTAUX
     scorePotentielDeProliferation: {
-        ...getSimpleTextProp('Score du potentiel de prolifération'),
+        ...getNumberProp('Score du potentiel de prolifération'),
         structure: getStructureJsonProp(Structures.potentielDeProliferation),
         displayName: getDisplayNameProp('Score'),
     },
@@ -291,7 +299,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreColonisationHabitatsNaturels: {
-        ...getSimpleTextProp('Score de colonisation des habitats naturels'),
+        ...getNumberProp('Score de colonisation des habitats naturels'),
         structure: getStructureJsonProp(Structures.colonisationHabitatsNaturels),
         displayName: getDisplayNameProp('Score'),
     },
@@ -307,7 +315,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scorePredation: {
-        ...getSimpleTextProp('Score de prédation'),
+        ...getNumberProp('Score de prédation'),
         structure: getStructureJsonProp(Structures.predation),
         displayName: getDisplayNameProp('Score'),
     },
@@ -323,7 +331,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreCompetition: {
-        ...getSimpleTextProp('Score de compétition'),
+        ...getNumberProp('Score de compétition'),
         structure: getStructureJsonProp(Structures.competition),
         displayName: getDisplayNameProp('Score'),
     },
@@ -339,7 +347,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreMaladies: {
-        ...getSimpleTextProp('Score de maladies'),
+        ...getNumberProp('Score de maladies'),
         structure: getStructureJsonProp(Structures.maladies),
         displayName: getDisplayNameProp('Score'),
     },
@@ -355,7 +363,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreHybridation: {
-        ...getSimpleTextProp("Score d'hybridation"),
+        ...getNumberProp("Score d'hybridation"),
         structure: getStructureJsonProp(Structures.hybridation),
         displayName: getDisplayNameProp('Score'),
     },
@@ -371,7 +379,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreCyclesNaturels: {
-        ...getSimpleTextProp('Score de cycles naturels'),
+        ...getNumberProp('Score de cycles naturels'),
         structure: getStructureJsonProp(Structures.cyclesNaturels),
         displayName: getDisplayNameProp('Score'),
     },
@@ -387,7 +395,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreAlterationsPhysiques: {
-        ...getSimpleTextProp('Score alterations physiques'),
+        ...getNumberProp('Score alterations physiques'),
         structure: getStructureJsonProp(Structures.alterationsPhysiques),
         displayName: getDisplayNameProp('Score'),
     },
@@ -403,7 +411,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreSuccessionEcologiques: {
-        ...getSimpleTextProp('Score succession écologiques'),
+        ...getNumberProp('Score succession écologiques'),
         structure: getStructureJsonProp(Structures.successionEcologiques),
         displayName: getDisplayNameProp('Score'),
     },
@@ -419,7 +427,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreReseauxTrophiques: {
-        ...getSimpleTextProp('Score réseaux trophiques'),
+        ...getNumberProp('Score réseaux trophiques'),
         structure: getStructureJsonProp(Structures.reseauxTrophiques),
         displayName: getDisplayNameProp('Score'),
     },
@@ -444,7 +452,7 @@ export const SpeciesTemplate: StellioTemplate = {
 
     // #region ANALYSE DE L'INTENSITE DES IMPACTS SOCIO-ECONOMIQUES SANITAIRES
     scoreImpactsSurEconomie: {
-        ...getSimpleTextProp("Score impacts sur l'économie"),
+        ...getNumberProp("Score impacts sur l'économie"),
         structure: getStructureJsonProp(Structures.impactsSurEconomie),
         displayName: getDisplayNameProp('Score'),
     },
@@ -460,7 +468,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreImpactsSanitaires: {
-        ...getSimpleTextProp('Score impacts sanitaires'),
+        ...getNumberProp('Score impacts sanitaires'),
         structure: getStructureJsonProp(Structures.impactsSanitaires),
         displayName: getDisplayNameProp('Score'),
     },
@@ -476,7 +484,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreAgriculture: {
-        ...getSimpleTextProp('Score agriculture'),
+        ...getNumberProp('Score agriculture'),
         structure: getStructureJsonProp(Structures.agriculture),
         displayName: getDisplayNameProp('Score'),
     },
@@ -492,7 +500,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreForesterie: {
-        ...getSimpleTextProp('Score foresterie'),
+        ...getNumberProp('Score foresterie'),
         structure: getStructureJsonProp(Structures.foresterie),
         displayName: getDisplayNameProp('Score'),
     },
@@ -508,7 +516,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreAquaculture: {
-        ...getSimpleTextProp('Score aquaculture'),
+        ...getNumberProp('Score aquaculture'),
         structure: getStructureJsonProp(Structures.aquaculture),
         displayName: getDisplayNameProp('Score'),
     },
@@ -524,7 +532,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreIndustrie: {
-        ...getSimpleTextProp('Score industrie'),
+        ...getNumberProp('Score industrie'),
         structure: getStructureJsonProp(Structures.industrie),
         displayName: getDisplayNameProp('Score'),
     },
@@ -540,7 +548,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scorePatrimoine: {
-        ...getSimpleTextProp('Score patrimoine'),
+        ...getNumberProp('Score patrimoine'),
         structure: getStructureJsonProp(Structures.patrimoine),
         displayName: getDisplayNameProp('Score'),
     },
@@ -556,7 +564,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreSecurite: {
-        ...getSimpleTextProp('Score sécurité'),
+        ...getNumberProp('Score sécurité'),
         structure: getStructureJsonProp(Structures.securite),
         displayName: getDisplayNameProp('Score'),
     },
@@ -572,7 +580,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreLoisirs: {
-        ...getSimpleTextProp('Score loisirs'),
+        ...getNumberProp('Score loisirs'),
         structure: getStructureJsonProp(Structures.loisirs),
         displayName: getDisplayNameProp('Score'),
     },
@@ -588,7 +596,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreAmenites: {
-        ...getSimpleTextProp('Score aménities'),
+        ...getNumberProp('Score aménities'),
         structure: getStructureJsonProp(Structures.amenites),
         displayName: getDisplayNameProp('Score'),
     },
@@ -655,7 +663,7 @@ export const SpeciesTemplate: StellioTemplate = {
 
     // #region CRITERES INFORMATIFS
     scoreDistributionSpatiale: {
-        ...getSimpleTextProp('Score distribution spatiale'),
+        ...getNumberProp('Score distribution spatiale'),
         structure: getStructureJsonProp(Structures.distributionSpatiale),
         displayName: getDisplayNameProp('Score'),
     },
@@ -666,7 +674,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreCoefficientDabondance: {
-        ...getSimpleTextProp("Score coefficient d'abondance"),
+        ...getNumberProp("Score coefficient d'abondance"),
         structure: getStructureJsonProp(Structures.coefficientDabondance),
         displayName: getDisplayNameProp('Score'),
     },
