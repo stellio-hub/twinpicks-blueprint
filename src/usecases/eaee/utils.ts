@@ -1,4 +1,9 @@
-import { StellioTemplateJsonProp, StellioTemplateProp, StellioTemplateRelationship } from '../../interfaces';
+import {
+    StellioTemplateGeoProp,
+    StellioTemplateJsonProp,
+    StellioTemplateProp,
+    StellioTemplateRelationship,
+} from '../../interfaces';
 
 let order = 0;
 
@@ -139,6 +144,28 @@ export const getMultiRelationshipProp = (
                         },
                     },
                 },
+            },
+        },
+    };
+};
+
+export const getGeoPropertyProp = (
+    title: string,
+    geometryType: 'Point' | 'LineString' | 'MultiLineString' | 'Polygon' | 'MultiPolygon'
+): StellioTemplateGeoProp => {
+    order++;
+    return {
+        type: 'GeoProperty',
+        value: {
+            type: geometryType,
+            coordinates: [],
+        },
+        jsonSchema: {
+            type: 'Property',
+            value: {
+                schemaType: 'object',
+                title: title,
+                order: order,
             },
         },
     };
