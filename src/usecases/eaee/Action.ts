@@ -19,7 +19,7 @@ export const ActionTemplate: StellioTemplate = {
         value: {
             schemaType: 'Action',
             title: 'Action',
-            required: ['nom'],
+            required: ['name'],
             minimum: 0,
             description: "Entité représentant une action de gestion de l'espèce",
         },
