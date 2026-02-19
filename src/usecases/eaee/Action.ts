@@ -162,6 +162,8 @@ export const ActionTemplate: StellioTemplate = {
             'Sélectionner une espèce',
             'urn:ngsi-ld:Species:Template'
         ),
+        structure: getStructureJsonProp(Structures.especesCibles),
+        displayName: getDisplayNameProp("Espèces liées à l'action"),
     },
     // #endregion
 

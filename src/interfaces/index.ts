@@ -10,14 +10,14 @@ interface EntityBaseProps {
 }
 
 interface StellioRelationship {
-    [key: string]: StellioProp | string | undefined | StellioRelationship;
+    [key: string]: StellioProp | string | undefined | StellioRelationship | StellioJsonProp;
     type: 'Relationship';
     object: string;
     datasetId?: string;
 }
 
 type StellioProp<T = any> = {
-    [key: string]: StellioProp | string | T | undefined | StellioRelationship;
+    [key: string]: StellioProp | string | T | undefined | StellioRelationship | StellioJsonProp;
     type: 'Property';
     value: T;
     unitCode?: string;
@@ -39,7 +39,7 @@ type StellioGeoProp = {
 };
 
 type StellioMultiAttribute<T = any> = {
-    [key: string]: StellioProp | string | T | undefined | StellioRelationship;
+    [key: string]: StellioProp | string | T | undefined | StellioRelationship | StellioJsonProp;
     type: 'Property';
     value: T;
     datasetId: string;
