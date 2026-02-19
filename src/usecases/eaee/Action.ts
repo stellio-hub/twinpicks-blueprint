@@ -27,9 +27,9 @@ export const ActionTemplate: StellioTemplate = {
 
     // #region GENERALITES
     name: {
-        ...getSimpleTextProp('Nom du projet'),
+        ...getSimpleTextProp("Nom de l'action"),
         structure: getStructureJsonProp(Structures.generalites),
-        displayName: getDisplayNameProp('Nom du projet'),
+        displayName: getDisplayNameProp("Nom de l'action"),
     },
     objectifsDeLaction: {
         ...getSimpleTextProp("Objectifs de l'action"),
