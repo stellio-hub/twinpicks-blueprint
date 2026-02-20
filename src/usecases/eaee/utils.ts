@@ -7,7 +7,7 @@ import {
 
 let order = 0;
 
-export const getStructureJsonProp = (json: Record<string, string>): StellioTemplateJsonProp => {
+export const getClassificationJsonProp = (json: Record<string, string>): StellioTemplateJsonProp => {
     return {
         type: 'JsonProperty',
         json: json,
