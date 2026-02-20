@@ -10,14 +10,14 @@ interface EntityBaseProps {
 }
 
 interface StellioRelationship {
-    [key: string]: StellioProp | string | undefined | StellioRelationship;
+    [key: string]: StellioProp | string | undefined | StellioRelationship | StellioJsonProp;
     type: 'Relationship';
     object: string;
     datasetId?: string;
 }
 
 type StellioProp<T = any> = {
-    [key: string]: StellioProp | string | T | undefined | StellioRelationship;
+    [key: string]: StellioProp | string | T | undefined | StellioRelationship | StellioJsonProp;
     type: 'Property';
     value: T;
     unitCode?: string;
@@ -28,7 +28,7 @@ type StellioProp<T = any> = {
 };
 
 type StellioGeoProp = {
-    [key: string]: StellioProp | GeometryObject | string | undefined | StellioRelationship;
+    [key: string]: StellioProp | GeometryObject | string | undefined | StellioRelationship | StellioJsonProp;
     type: 'GeoProperty';
     value: GeometryObject;
     unitCode?: string;
@@ -39,7 +39,7 @@ type StellioGeoProp = {
 };
 
 type StellioMultiAttribute<T = any> = {
-    [key: string]: StellioProp | string | T | undefined | StellioRelationship;
+    [key: string]: StellioProp | string | T | undefined | StellioRelationship | StellioJsonProp;
     type: 'Property';
     value: T;
     datasetId: string;
@@ -78,7 +78,16 @@ export type StellioTemplateJsonProp = StellioJsonProp & {
     jsonSchema: StellioProp<JsonSchema>;
 };
 
+export type StellioTemplateGeoProp = StellioGeoProp & {
+    jsonSchema: StellioProp<JsonSchema>;
+};
+
 export interface StellioTemplate extends EntityBaseProps {
-    [key: string]: NgsildPossibleValue | StellioTemplateProp | StellioTemplateRelationship | StellioTemplateJsonProp;
+    [key: string]:
+        | NgsildPossibleValue
+        | StellioTemplateProp
+        | StellioTemplateRelationship
+        | StellioTemplateJsonProp
+        | StellioTemplateGeoProp;
     jsonSchema: StellioProp<JsonSchema>;
 }

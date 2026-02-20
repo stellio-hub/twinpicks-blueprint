@@ -1,0 +1,81 @@
+import { StellioTemplate } from '../../interfaces';
+
+export const StructureConfigTemplate: StellioTemplate = {
+    id: 'urn:ngsi-ld:StructureConfig:Template',
+    type: 'Template',
+    jsonSchema: {
+        type: 'Property',
+        value: {
+            schemaType: 'StructureConfig',
+            title: 'Configuration des structures',
+            required: [],
+            minimum: 0,
+            description: 'Entité technique de configuration utilisée pour le mapping des catégories de structures',
+        },
+    },
+
+    speciesStructureMapping: {
+        type: 'JsonProperty',
+        json: {
+            taxonomie: 'Taxonomie',
+            presenceAbsence: 'Présence/Absence',
+            indigenat: 'Indigénat',
+            autonomie: 'Autonomie',
+            informationsSupplementaires: 'Informations supplémentaires',
+            analyseIntensiteImpactsEnvironnementaux: 'Analyse intensité impacts environnementaux',
+            potentielDeProliferation: 'Potentiel de prolifération',
+            colonisationHabitatsNaturels: 'Colonisation habitats naturels',
+            impactsSurTaxonsIndigenes: 'Impacts sur taxons indigènes',
+            predation: 'Prédation',
+            competition: 'Compétition',
+            maladies: 'Maladies',
+            hybridation: 'Hybridation',
+            impactsSurEnvironnement: "Impacts sur l'environnement",
+            cyclesNaturels: 'Cycles naturels',
+            alterationsPhysiques: 'Alterations physiques',
+            successionEcologiques: 'Succession écologiques',
+            reseauxTrophiques: 'Réseaux trophiques',
+            analyseIntensiteImpactsSocioEconomiquesSanitaires:
+                'Analyse intensité impacts socio-économiques et sanitaires',
+            impactsSurEconomie: "Impacts sur l'économie",
+            impactsSanitaires: 'Impacts sanitaires',
+            impactsSurActivitesHumaines: 'Impacts sur les activités humaines',
+            agriculture: 'Agriculture',
+            foresterie: 'Foresterie',
+            aquaculture: 'Aquaculture',
+            industrie: 'Industrie',
+            impactSurBienEtreHumain: 'Impact sur le bien-être humain',
+            patrimoine: 'Patrimoine',
+            securite: 'Sécurité',
+            loisirs: 'Loisirs',
+            amenites: 'Aménités',
+            analyseRisquesDesTaxonsEvalues: 'Analyse risques des taxons évalués',
+            introductionVolontaire: 'Introduction volontaire',
+            introductionInvolontaire: 'Introduction involontaire',
+            limitrophe: 'Limitrophe',
+            criteresInformatifs: 'Critères informatifs',
+            distributionSpatiale: 'Distribution spatiale',
+            coefficientDabondance: "Coefficient d'abondance",
+        },
+        jsonSchema: {
+            type: 'Property',
+            value: {
+                schemaType: 'json',
+                title: 'Mapping des catégories de structures',
+            },
+        },
+    },
+    actionsStructureMapping: {
+        type: 'JsonProperty',
+        json: {
+            taxonomie: 'Taxonomie',
+        },
+        jsonSchema: {
+            type: 'Property',
+            value: {
+                schemaType: 'json',
+                title: "Mapping des catégories d'actions",
+            },
+        },
+    },
+};
