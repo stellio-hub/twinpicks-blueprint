@@ -13,7 +13,7 @@ const activityCategories = [
     "Field Crops - Sunflower",
 ]
 
-export const agriItineraryTemplate: StellioTemplate = {
+export const AgriItineraryTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:Itinerary:Template`,
     type: 'Template',
     name: {
@@ -42,29 +42,60 @@ export const agriItineraryTemplate: StellioTemplate = {
                 title: 'Activity' },
         },
     },
-    hasOperation: {
-        type: 'Relationship',
-        object: 'urn:ngsi-ld:Operation:Template',
+    hasOperations:{
+        type: 'Property',
+        value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: {
-                schemaType: 'array',
-                format: 'uri',
-                title: "Operations taken during a itinerary",
-                friendlyAttributeName: 'Reference Operation',
-                minItems: 1,
-                items: {
-                    type: "Relationship",
-                    object: "urn:ngsi-ld:Operation:Template",
+            value: { schemaType: 'array',
+                title: 'Operations',
+                hasOperation: {
+                    type: 'Relationship',
+                    object: 'urn:ngsi-ld:Operation:Template',
                     jsonSchema: {
-                        type: "Property",
+                        type: 'Property',
                         value: {
-                            schemaType: "string",
-                            format: "uri",
-                            title: "Select a Operation"
-                        }
-                    }
-                }
+                            schemaType: 'array',
+                            format: 'uri',
+                            title: "Operations taken during a itinerary",
+                            friendlyAttributeName: 'Reference Operation',
+                            minItems: 1,
+                            items: {
+                                type: "Relationship",
+                                object: "urn:ngsi-ld:Operation:Template",
+                                jsonSchema: {
+                                    type: "Property",
+                                    value: {
+                                        schemaType: "string",
+                                        format: "uri",
+                                        title: "Select a Operation"
+                                    }
+                                },
+                                day: {
+                                    type: 'Property',
+                                    value: 'Placeholder',
+                                    jsonSchema: {
+                                        type: 'Property',
+                                        value: { schemaType: 'number',
+                                            title: 'Day' },
+                                    },
+                                },
+                                hasResources: {
+                                    type: 'Relationship',
+                                    object: 'urn:ngsi-ld:Resource:Template',
+                                    jsonSchema: {
+                                        type: 'Property',
+                                        value: {
+                                            schemaType: "string",
+                                            format: "uri",
+                                            title: "Select a Resource"
+                                        },
+                                    },
+                                },
+                            }
+                        },
+                    },
+                },
             },
         },
     },
@@ -74,7 +105,7 @@ export const agriItineraryTemplate: StellioTemplate = {
             schemaType: "Itinerary",
             title: "Itinerary",
             minimum: 0,
-            required: ['name', 'description','activity','hasOperation'],
+            required: ['name', 'description'],
             description: `This represents a Itinerary`,
         },  
     },

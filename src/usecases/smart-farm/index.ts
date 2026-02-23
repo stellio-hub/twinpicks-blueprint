@@ -1,43 +1,51 @@
-import { agriCampaignTemplate } from './agriCampaign';
-import { agriCropTemplate } from './agriCrop';
-import { agriItineraryTemplate } from './agriItinerary';
-import { agriOperationTemplate } from './agriOperation';
-import { agriParcelTemplate } from './agriParcel';
-import { agriParcelAreaTemplate } from './agriParcelArea';
-import { agriRessourceTemplate } from './agriRessource';
-import { agriSampleTemplate } from './agriSample';
-import { agronomicPracticesTemplate } from './agronomicPractices';
-import { biologicalResultTemplate } from './biologicalResult';
-import { caseStudyTemplate } from './caseStudy';
-import { cropSpeciesTemplate } from './cropSpecies';
-import { environmentalResultTemplate } from './environmentalResult';
-import { socialEconomicTemplate } from './socialEconomic';
-import { soilMicrobiomeTemplate } from './soilMicrobiome';
-import { soilNutrientTemplate } from './soilNutrient';
-import { weedSpeciesTemplate } from './weedSpecies';
+import { AgriCampaignTemplate } from './agriCampaign';
+import { AgriCropTemplate } from './agriCrop';
+import { AgriItineraryTemplate } from './agriItinerary';
+import { AgriOperationTemplate } from './agriOperation';
+import { AgriParcelTemplate } from './agriParcel';
+import { AgriParcelAreaTemplate } from './agriParcelArea';
+import { AgriResourceTemplate } from './agriResource';
+import { AgriSampleTemplate } from './agriSample';
+import { AgronomicPracticesTemplate } from './agronomicPractices';
+import { AgriWeedTemplate } from './agriWeed';
+import { BiologicalResultTemplate } from './biologicalResult';
+import { CaseStudyTemplate } from './caseStudy';
+import { CropSpeciesTemplate } from './cropSpecies';
+import { EnvironmentalResultTemplate } from './environmentalResult';
+import { SocialEconomicTemplate } from './socialEconomic';
+import { SoilMicrobiomeTemplate } from './soilMicrobiome';
+import { SoilNutrientTemplate } from './soilNutrient'
+import { ReferenceSoilAreaTemplate } from './referenceSoilArea';
+import { TreatmentTemplate } from './treatment';
+import { WeatherInformationTemplate } from './weatherInformation';
+import { WeedSpeciesTemplate } from './weedSpecies';
 
 
 
 import { generateBlueprintFile } from '../../utils';
 
 const blueprint = [
-    agriParcelTemplate,
-    agriParcelAreaTemplate,
-    agriCropTemplate,
-    agriSampleTemplate,
-    agronomicPracticesTemplate,
-    caseStudyTemplate,
-    socialEconomicTemplate,
-    agriCampaignTemplate,
-    agriItineraryTemplate,
-    agriOperationTemplate,
-    agriRessourceTemplate,
-    biologicalResultTemplate,
-    cropSpeciesTemplate,
-    environmentalResultTemplate,
-    soilMicrobiomeTemplate,
-    soilNutrientTemplate,
-    weedSpeciesTemplate,
+    AgriCropTemplate,
+    AgriCampaignTemplate,
+    AgriItineraryTemplate,
+    AgriParcelAreaTemplate,
+    AgriParcelTemplate,
+    AgriOperationTemplate,
+    AgriResourceTemplate,
+    AgriSampleTemplate,
+    AgriWeedTemplate,
+    AgronomicPracticesTemplate,
+    BiologicalResultTemplate,
+    CaseStudyTemplate,
+    CropSpeciesTemplate,
+    EnvironmentalResultTemplate,
+    SocialEconomicTemplate,
+    SoilMicrobiomeTemplate,
+    SoilNutrientTemplate,
+    ReferenceSoilAreaTemplate,
+    TreatmentTemplate,
+    WeatherInformationTemplate,
+    WeedSpeciesTemplate,
 ];
 
 const usecasePathName = __dirname.split(/dist[\\/]/)[1];

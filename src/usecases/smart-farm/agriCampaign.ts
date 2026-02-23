@@ -1,6 +1,6 @@
 import { StellioTemplate } from 'src/interfaces';
 
-export const agriCampaignTemplate: StellioTemplate = {
+export const AgriCampaignTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:Campaign:Template`,
     type: 'Template',
     name: {

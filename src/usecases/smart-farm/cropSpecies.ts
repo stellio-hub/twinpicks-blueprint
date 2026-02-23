@@ -1,21 +1,7 @@
 import { StellioTemplate } from 'src/interfaces';
 
 
-
-const cropCategories = [
-    "Wheat (Triticum spp.)",
-    "Barley (Hordeum vulgare)",
-    "Corn (Zea mays)",
-    "Tomatoes (Solanum lycopersicum)",
-    "Peppers (Capsicum spp.)",
-    "Leafy Greens (various species)",
-    "Apples (Malus domestica)",
-    "Pears (Pyrus spp.)",
-    "Olives (Olea europaea)",
-    "Grapes (Vitis vinifera)",
-]
-
-export const cropSpeciesTemplate: StellioTemplate = {
+export const CropSpeciesTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:CropSpecies:Template`,
     type: 'Template',
     name: {
@@ -24,16 +10,7 @@ export const cropSpeciesTemplate: StellioTemplate = {
         jsonSchema: {
             type: 'Property',
             value: { schemaType: 'string',
-                enum: cropCategories,
                 title: 'Name' },
-        },
-    },
-    yield: {
-        type: 'Property',
-        value: 'Placeholder',
-        jsonSchema: {
-            type: 'Property',
-            value: { schemaType: 'integer', title: 'yield' },
         },
     },
     jsonSchema: {
@@ -42,7 +19,7 @@ export const cropSpeciesTemplate: StellioTemplate = {
             schemaType: "CropSpecies",
             title: "Crop Species",
             minimum: 0,
-            required: ['name','yield'],
+            required: ['name'],
             description: `This represents a crop Species`,
         },
     },

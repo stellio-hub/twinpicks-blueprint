@@ -1,6 +1,6 @@
 import { StellioTemplate } from 'src/interfaces';
 
-export const socialEconomicTemplate: StellioTemplate = {
+export const SocialEconomicTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:SocialEconomic:Template`,
     type: 'Template',
     name: {

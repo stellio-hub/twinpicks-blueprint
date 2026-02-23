@@ -1,6 +1,6 @@
 import { StellioTemplate } from 'src/interfaces';
 
-export const caseStudyTemplate: StellioTemplate = {
+export const CaseStudyTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:CaseStudy:Template`,
     type: 'Template',
     name: {

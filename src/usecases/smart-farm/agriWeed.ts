@@ -4,8 +4,12 @@ const severity = [
     1,2,3,4,5,6,7,8,9,10
 ]
 
-export const AgriCropTemplate: StellioTemplate = {
-    id: `urn:ngsi-ld:Crop:Template`,
+const survey = [
+    "T0","T1","T2"
+]
+
+export const AgriWeedTemplate: StellioTemplate = {
+    id: `urn:ngsi-ld:Weed:Template`,
     type: 'Template',
     name: {
         type: 'Property',
@@ -23,12 +27,12 @@ export const AgriCropTemplate: StellioTemplate = {
             value: { schemaType: 'number', enum: severity, title: 'Pathogen serverity' },
         },
     },
-    soilCoverage: {
+    BBCH: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'number', title: 'Soil coverage %' },
+            value: { schemaType: 'number', title: 'BBCH' },
         },
     },
     startAt: {
@@ -47,82 +51,59 @@ export const AgriCropTemplate: StellioTemplate = {
             value: { schemaType: 'date', title: 'End' },
         },
     },
-    rowSpacing: {
+    number: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'number', title: 'Row Spacing in cm' },
+            value: { schemaType: 'number', title: 'number' },
         },
     },
-    irrigation: {
+    desiccation : {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'number', title: 'Irrigation in L' },
+            value: { schemaType: 'number', title: 'Percentage of desiccation ' },
         },
     },
-    fertilizerQuantity: {
+    surveyTime: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'number', title: 'fertilization in Kg' },
+            value: { schemaType: 'string',enum: survey , title: 'time of survey (T0, T1 or T2)' },
         },
     },
-    tillagePractices: {
-        type: 'Property',
-        value: 'Placeholder',
-        jsonSchema: {
-            type: 'Property',
-            value: { schemaType: 'string', title: 'Tillage Practices' },
-        },
-    },
-    hasCropSpecies: {
+    hasWeedSpecies: {
         type: 'Relationship',
-        object: 'urn:ngsi-ld:CropSpecies:Template',
+        object: 'urn:ngsi-ld:WeedSpecies:Template',
         jsonSchema: {
             type: 'Property',
             value: {
                 schemaType: 'string',
                 format: 'uri',
                 title: "what's the Species is this Crop ?",
-                friendlyAttributeName: 'Reference Crop Species',
+                friendlyAttributeName: 'Reference Weed Species',
             },
         },
     },
-    placement: {
-        type: 'GeoProperty',
-        value: {
-            type: 'Point',
-            coordinates: [],
-        },
-        jsonSchema: {
-            type: 'Property',
-            value: {
-                schemaType: 'object',
-                title: 'Place a point on the map',
-                friendlyAttributeName: 'Geolocation',
-            },
-        },
-    },
-    yield: {
+    biomass: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'number', title: 'Yield (mg/ha)' },
+            value: { schemaType: 'string', title: 'Biomass' },
         },
     },
     jsonSchema: {
         type: 'Property',
         value: {
-            schemaType: "Crop",
-            title: "Crop",
+            schemaType: "Weed",
+            title: "Weed",
             minimum: 0,
-            required: ['name','hasCropSpecies','startAt'],
-            description: `This represents a Crop`,
+            required: ['name','hasWeedSpecies','startAt'],
+            description: `This represents a Weed`,
         },  
     }
 };

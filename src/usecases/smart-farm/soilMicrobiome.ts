@@ -1,6 +1,6 @@
 import { StellioTemplate } from 'src/interfaces';
 
-export const soilMicrobiomeTemplate: StellioTemplate = {
+export const SoilMicrobiomeTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:SoilMicrobiome:Template`,
     type: 'Template',
     name: {

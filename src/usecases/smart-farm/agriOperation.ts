@@ -30,7 +30,7 @@ const categoryCategories = [
     
 
 
-export const agriOperationTemplate: StellioTemplate = {
+export const AgriOperationTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:Operation:Template`,
     type: 'Template',
     name: {
@@ -59,39 +59,13 @@ export const agriOperationTemplate: StellioTemplate = {
                 title: 'Category' },
         },
     },
-    hasRessources: {
-        type: 'Relationship',
-        object: 'urn:ngsi-ld:Ressource:Template',
-        jsonSchema: {
-            type: 'Property',
-            value: {
-                schemaType: 'array',
-                format: 'uri',
-                title: "Ressources used during a Operation ?",
-                friendlyAttributeName: 'Reference Ressources',
-                minItems: 1,
-                items: {
-                    type: "Relationship",
-                    object: "urn:ngsi-ld:Ressource:Template",
-                    jsonSchema: {
-                        type: "Property",
-                        value: {
-                            schemaType: "string",
-                            format: "uri",
-                            title: "Select a Ressource"
-                        }
-                    }
-                }
-            },
-        },
-    },
     jsonSchema: {
         type: 'Property',
         value: {
             schemaType: "Operation",
             title: "Operation",
             minimum: 0,
-            required: ['name', 'description','category','hasRessources'],
+            required: ['name', 'description'],
             description: `This represents a Operation`,
         },  
     },

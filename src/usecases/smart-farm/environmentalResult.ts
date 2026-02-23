@@ -1,6 +1,6 @@
 import { StellioTemplate } from 'src/interfaces';
 
-export const environmentalResultTemplate: StellioTemplate = {
+export const EnvironmentalResultTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:EnvironmentalResult:Template`,
     type: 'Template',
     name: {

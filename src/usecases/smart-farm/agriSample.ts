@@ -2,7 +2,7 @@ import { StellioTemplate } from 'src/interfaces';
 
 
 
-export const agriSampleTemplate: StellioTemplate = {
+export const AgriSampleTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:Sample:Template`,
     type: 'Template',
     name: {

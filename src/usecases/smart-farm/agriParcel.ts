@@ -1,12 +1,6 @@
 import { StellioTemplate } from 'src/interfaces';
 
-const farmingSystemsCategories = [
-    "Organic Farming",
-    "Conventional Farming",
-    "Integrated Farming",
-]
-
-export const agriParcelTemplate: StellioTemplate = {
+export const AgriParcelTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:Parcel:Template`,
     type: 'Template',
     name: {
@@ -47,16 +41,6 @@ export const agriParcelTemplate: StellioTemplate = {
             },
         },
     },
-    farmingSystems: {
-        type: 'Property',
-        value: 'Placeholder',
-        jsonSchema: {
-            type: 'Property',
-            value: { schemaType: 'string',
-                enum: farmingSystemsCategories,
-                title: 'Farming Systems' },
-        },
-    },
     hasParcelArea: {
         type: 'Relationship',
         object: 'urn:ngsi-ld:ParcelArea:Template',
@@ -77,6 +61,32 @@ export const agriParcelTemplate: StellioTemplate = {
                             schemaType: "string",
                             format: "uri",
                             title: "Select a area"
+                        }
+                    }
+                }
+            },
+        },
+    },
+    hasReferenceSoilArea: {
+        type: 'Relationship',
+        object: 'urn:ngsi-ld:ReferenceSoilArea:Template',
+        jsonSchema: {
+            type: 'Property',
+            value: {
+                schemaType: 'array',
+                format: 'uri',
+                title: 'Sensor and reference soil for the management zone',
+                friendlyAttributeName: 'Reference soil area',
+                minItems: 1,
+                items: {
+                    type: "Relationship",
+                    object: "urn:ngsi-ld:ReferenceSoilArea:Template",
+                    jsonSchema: {
+                        type: "Property",
+                        value: {
+                            schemaType: "string",
+                            format: "uri",
+                            title: "Select a reference soil area"
                         }
                     }
                 }

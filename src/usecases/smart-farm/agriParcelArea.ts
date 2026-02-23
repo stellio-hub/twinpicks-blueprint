@@ -1,6 +1,6 @@
 import { StellioTemplate } from 'src/interfaces';
 
-export const agriParcelAreaTemplate: StellioTemplate = {
+export const AgriParcelAreaTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:ParcelArea:Template`,
     type: 'Template',
     name: {
@@ -108,18 +108,37 @@ export const agriParcelAreaTemplate: StellioTemplate = {
             },
         },
     },
-    hasAnalysis:{
+    yield: {
+        type: 'Property',
+        value: 'Placeholder',
+        jsonSchema: {
+            type: 'Property',
+            value: { schemaType: 'number', title: 'Total Yield (mg/ha)' },
+        },
+    },
+    hasWeeds: {
         type: 'Relationship',
-        object: 'urn:ngsi-ld:Analysis:Template',
+        object: 'urn:ngsi-ld:Weed:Template',
         jsonSchema: {
             type: 'Property',
             value: {
-                schemaType: 'string',
+                schemaType: 'array',
                 format: 'uri',
-                title: "What analyse are carried out on this area of the plot?",
-                friendlyAttributeName: 'Reference analyse',
-                minimum: 1,
-                maximum: 1,
+                title: "What is growing in this area ?",
+                friendlyAttributeName: 'Reference weed',
+                minItems: 1,
+                items: {
+                    type: "Relationship",
+                    object: "urn:ngsi-ld:Weed:Template",
+                    jsonSchema: {
+                        type: "Property",
+                        value: {
+                            schemaType: "string",
+                            format: "uri",
+                            title: "Select a weed"
+                        }
+                    }
+                }
             },
         },
     },
