@@ -7,6 +7,7 @@ import {
     getSimpleTextProp,
     getClassificationJsonProp,
     presenceAbsenceEnumValues,
+    getDateProp,
 } from './utils';
 import * as Structures from './speciesDataStructures';
 
@@ -176,7 +177,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Source période et lieu d'introduction (France et régions)"),
     },
     datePremiereEntreeSileneRegionSud: {
-        ...getSimpleTextProp('Date de la première entrée Silène en région Sud'),
+        ...getDateProp('Date de la première entrée Silène en région Sud'),
         classification: getClassificationJsonProp(Structures.indigenat),
         displayName: getDisplayNameProp('Date première entrée Silène région Sud'),
     },
