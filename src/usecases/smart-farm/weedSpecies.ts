@@ -26,7 +26,7 @@ const weedSpeciesCategories = [
 ]
 
 
-export const weedSpeciesTemplate: StellioTemplate = {
+export const WeedSpeciesTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:WeedSpecies:Template`,
     type: 'Template',
     name: {
@@ -39,29 +39,13 @@ export const weedSpeciesTemplate: StellioTemplate = {
                 title: 'Name' },
         },
     },
-    number: {
-        type: 'Property',
-        value: 'Placeholder',
-        jsonSchema: {
-            type: 'Property',
-            value: { schemaType: 'integer', title: 'Number' },
-        },
-    },
-    biomass: {
-        type: 'Property',
-        value: 'Placeholder',
-        jsonSchema: {
-            type: 'Property',
-            value: { schemaType: 'string', title: 'Biomass' },
-        },
-    },
     jsonSchema: {
         type: 'Property',
         value: {
             schemaType: "WeedSpecies",
             title: "Weed Species",
             minimum: 0,
-            required: ['name','number','biomass'],
+            required: ['name'],
             description: `This represents a Weed Species`,
         },
     },

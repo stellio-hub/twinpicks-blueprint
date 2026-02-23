@@ -1,6 +1,6 @@
 import { StellioTemplate } from 'src/interfaces';
 
-export const soilNutrientTemplate: StellioTemplate = {
+export const SoilNutrientTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:SoilNutrient:Template`,
     type: 'Template',
     name: {

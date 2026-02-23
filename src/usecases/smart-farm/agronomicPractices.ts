@@ -36,18 +36,14 @@ const fertilizersCategories = [
     "Liquid Fertilizers",
     "Green Manures",
 ]
-const treatmentTypeCategories = [
-    "Mechanical weeding",
-    "Organic mulch",
-    "Acetic acid treatment",
-    "Pelargonic acid treatment",
-    "No treatment",
-    "Conventional treatment",
-    "False seedbed",
-    "Shifted sowing time"
+const farmingSystemsCategories = [
+    "Organic Farming",
+    "Conventional Farming",
+    "Integrated Farming",
 ]
 
-export const agronomicPracticesTemplate: StellioTemplate = {
+
+export const AgronomicPracticesTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:agronomicPractices:Template`,
     type: 'Template',
     name: {
@@ -58,14 +54,40 @@ export const agronomicPracticesTemplate: StellioTemplate = {
             value: { schemaType: 'string', title: 'Name' },
         },
     },
-    treatmentType: {
+    farmingSystems: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string', 
-                enum : treatmentTypeCategories, 
-                title: 'Treatment Type' },
+            value: { schemaType: 'string',
+                enum: farmingSystemsCategories,
+                title: 'Farming Systems' },
+        },
+    },
+    hasTreatment: {
+        type: 'Relationship',
+        object: 'urn:ngsi-ld:Treatment:Template',
+        jsonSchema: {
+            type: 'Property',
+            value: {
+                schemaType: 'array',
+                format: 'uri',
+                title: "What treatment has been used in this area ?",
+                friendlyAttributeName: 'Reference treatment',
+                minItems: 1,
+                items: {
+                    type: "Relationship",
+                    object: "urn:ngsi-ld:Treatment:Template",
+                    jsonSchema: {
+                        type: "Property",
+                        value: {
+                            schemaType: "string",
+                            format: "uri",
+                            title: "Select a treatment"
+                        }
+                    }
+                }
+            },
         },
     }, 
     weedManagement: {
@@ -114,6 +136,30 @@ export const agronomicPracticesTemplate: StellioTemplate = {
         jsonSchema: {
             type: 'Property',
             value: { schemaType: 'integer', title: "Fertilizer Quantity" },
+        },
+    },
+    rowSpacing: {
+        type: 'Property',
+        value: 'Placeholder',
+        jsonSchema: {
+            type: 'Property',
+            value: { schemaType: 'number', title: 'Row Spacing in cm' },
+        },
+    },
+    irrigation: {
+        type: 'Property',
+        value: 'Placeholder',
+        jsonSchema: {
+            type: 'Property',
+            value: { schemaType: 'number', title: 'Irrigation in L' },
+        },
+    },
+    tillagePractices: {
+        type: 'Property',
+        value: 'Placeholder',
+        jsonSchema: {
+            type: 'Property',
+            value: { schemaType: 'string', title: 'Tillage Practices' },
         },
     },
     jsonSchema: {

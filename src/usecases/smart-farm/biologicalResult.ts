@@ -1,6 +1,6 @@
 import { StellioTemplate } from 'src/interfaces';
 
-export const biologicalResultTemplate: StellioTemplate = {
+export const BiologicalResultTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:BiologicalResult:Template`,
     type: 'Template',
     name: {
@@ -11,33 +11,55 @@ export const biologicalResultTemplate: StellioTemplate = {
             value: { schemaType: 'string', title: 'Name' },
         },
     },
-    hasWeedSpecies: {
+    hasWeeds: {
         type: 'Relationship',
-        object: 'urn:ngsi-ld:WeedSpecies:Template',
+        object: 'urn:ngsi-ld:Weed:Template',
         jsonSchema: {
             type: 'Property',
             value: {
-                schemaType: 'string',
+                schemaType: 'array',
                 format: 'uri',
-                title: "Which weed species are associated with these results ?",
-                friendlyAttributeName: 'Reference Weed Species',
-                minimum: 1,
-                maximum: 1,
+                title: "What is growing in this area ?",
+                friendlyAttributeName: 'Reference weed',
+                minItems: 1,
+                items: {
+                    type: "Relationship",
+                    object: "urn:ngsi-ld:Weed:Template",
+                    jsonSchema: {
+                        type: "Property",
+                        value: {
+                            schemaType: "string",
+                            format: "uri",
+                            title: "Select a weed"
+                        }
+                    }
+                }
             },
         },
     },
-    hasCropSpecies: {
+    hasCrops: {
         type: 'Relationship',
-        object: 'urn:ngsi-ld:CropSpecies:Template',
+        object: 'urn:ngsi-ld:Crop:Template',
         jsonSchema: {
             type: 'Property',
             value: {
-                schemaType: 'string',
+                schemaType: 'array',
                 format: 'uri',
-                title: "Which crop species are associated with these results ?",
-                friendlyAttributeName: 'Reference Crop Species',
-                minimum: 1,
-                maximum: 1,
+                title: "What is growing in this area ?",
+                friendlyAttributeName: 'Reference crop',
+                minItems: 1,
+                items: {
+                    type: "Relationship",
+                    object: "urn:ngsi-ld:Crop:Template",
+                    jsonSchema: {
+                        type: "Property",
+                        value: {
+                            schemaType: "string",
+                            format: "uri",
+                            title: "Select a crop"
+                        }
+                    }
+                }
             },
         },
     },
