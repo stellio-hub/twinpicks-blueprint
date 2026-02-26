@@ -66,10 +66,17 @@ export const StructureConfigTemplate: StellioTemplate = {
             },
         },
     },
-    actionsStructureMapping: {
+    actionStructureMapping: {
         type: 'JsonProperty',
         json: {
-            taxonomie: 'Taxonomie',
+            generalites: 'Généralités',
+            porteursDeProjets: 'Porteurs de projet',
+            especesCibles: 'Espèces cibles',
+            resultatsAttendus: 'Résultats attendus',
+            lieuDeLaction: "Lieu de l'action",
+            typeDaction: "Type d'action",
+            resultatEtBilan: 'Résultat et bilan',
+            ficheRex: 'Fiche REX',
         },
         jsonSchema: {
             type: 'Property',
