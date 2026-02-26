@@ -1,3 +1,7 @@
+export const ficheEspece = {
+    '0': 'ficheEspece',
+} as const;
+
 export const taxonomie = {
     '0': 'taxonomie',
 } as const;

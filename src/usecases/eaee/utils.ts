@@ -171,4 +171,8 @@ export const getGeoPropertyProp = (
     };
 };
 
-export const presenceAbsenceEnumValues = ['N', 'C', 'A', 'D'];
+export const presenceAbsenceEnumValues = ['C', 'A', 'N', 'D'];
+export const filtreXEnumValues = ['OK', 'X', '+', 'A évaluer'];
+export const scoreEnumValues = ['0', '1', '2', '3'];
+export const incertitudeEnumValues = ['Faible', 'Fort', 'NA'];
+export const probabiliteEnumValues = ['Probable', 'Possible', 'Peu Probable'];
