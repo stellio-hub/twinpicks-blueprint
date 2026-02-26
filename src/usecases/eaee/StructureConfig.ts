@@ -17,6 +17,7 @@ export const StructureConfigTemplate: StellioTemplate = {
     speciesStructureMapping: {
         type: 'JsonProperty',
         json: {
+            ficheEspece: 'Fiche espèce',
             taxonomie: 'Taxonomie',
             presenceAbsence: 'Présence/Absence',
             indigenat: 'Indigénat',
