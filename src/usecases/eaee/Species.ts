@@ -1,6 +1,5 @@
 import { StellioTemplate } from '../../interfaces';
 import {
-    getBooleanProp,
     getDisplayNameProp,
     getEnumProp,
     getSimpleTextProp,
@@ -8,9 +7,9 @@ import {
     presenceAbsenceEnumValues,
     getDateProp,
     filtreXEnumValues,
-    scoreEnumValues,
     incertitudeEnumValues,
     probabiliteEnumValues,
+    getIntegerProp,
 } from './utils';
 import * as Structures from './speciesDataStructures';
 
@@ -285,7 +284,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Remarques'),
     },
     filtreDAutonomie: {
-        ...getBooleanProp("Filtre d'autonomie"),
+        ...getSimpleTextProp("Filtre d'autonomie"),
         classification: getClassificationJsonProp(Structures.autonomie),
         displayName: getDisplayNameProp("Filtre d'autonomie"),
     },
@@ -366,7 +365,7 @@ export const SpeciesTemplate: StellioTemplate = {
 
     // #region ANALYSE DE L'INTENSITE DES IMPACTS ENVIRONNEMENTAUX
     scorePotentielDeProliferation: {
-        ...getEnumProp('Score du potentiel de prolifération', scoreEnumValues),
+        ...getIntegerProp('Score du potentiel de prolifération'),
         classification: getClassificationJsonProp(Structures.potentielDeProliferation),
         displayName: getDisplayNameProp('Score'),
     },
@@ -382,7 +381,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreColonisationHabitatsNaturels: {
-        ...getEnumProp('Score de colonisation des habitats naturels', scoreEnumValues),
+        ...getIntegerProp('Score de colonisation des habitats naturels'),
         classification: getClassificationJsonProp(Structures.colonisationHabitatsNaturels),
         displayName: getDisplayNameProp('Score'),
     },
@@ -398,7 +397,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scorePredation: {
-        ...getEnumProp('Score de prédation', scoreEnumValues),
+        ...getIntegerProp('Score de prédation'),
         classification: getClassificationJsonProp(Structures.predation),
         displayName: getDisplayNameProp('Score'),
     },
@@ -414,7 +413,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreCompetition: {
-        ...getEnumProp('Score de compétition', scoreEnumValues),
+        ...getIntegerProp('Score de compétition'),
         classification: getClassificationJsonProp(Structures.competition),
         displayName: getDisplayNameProp('Score'),
     },
@@ -430,7 +429,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreMaladies: {
-        ...getEnumProp('Score de maladies', scoreEnumValues),
+        ...getIntegerProp('Score de maladies'),
         classification: getClassificationJsonProp(Structures.maladies),
         displayName: getDisplayNameProp('Score'),
     },
@@ -446,7 +445,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreHybridation: {
-        ...getEnumProp("Score d'hybridation", scoreEnumValues),
+        ...getIntegerProp("Score d'hybridation"),
         classification: getClassificationJsonProp(Structures.hybridation),
         displayName: getDisplayNameProp('Score'),
     },
@@ -462,7 +461,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreCyclesNaturels: {
-        ...getEnumProp('Score de cycles naturels', scoreEnumValues),
+        ...getIntegerProp('Score de cycles naturels'),
         classification: getClassificationJsonProp(Structures.cyclesNaturels),
         displayName: getDisplayNameProp('Score'),
     },
@@ -478,7 +477,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreAlterationsPhysiques: {
-        ...getEnumProp('Score alterations physiques', scoreEnumValues),
+        ...getIntegerProp('Score alterations physiques'),
         classification: getClassificationJsonProp(Structures.alterationsPhysiques),
         displayName: getDisplayNameProp('Score'),
     },
@@ -494,7 +493,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreSuccessionEcologiques: {
-        ...getEnumProp('Score succession écologiques', scoreEnumValues),
+        ...getIntegerProp('Score succession écologiques'),
         classification: getClassificationJsonProp(Structures.successionEcologiques),
         displayName: getDisplayNameProp('Score'),
     },
@@ -510,7 +509,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreReseauxTrophiques: {
-        ...getEnumProp('Score réseaux trophiques', scoreEnumValues),
+        ...getIntegerProp('Score réseaux trophiques'),
         classification: getClassificationJsonProp(Structures.reseauxTrophiques),
         displayName: getDisplayNameProp('Score'),
     },
@@ -535,7 +534,7 @@ export const SpeciesTemplate: StellioTemplate = {
 
     // #region ANALYSE DE L'INTENSITE DES IMPACTS SOCIO-ECONOMIQUES SANITAIRES
     scoreImpactsSurEconomie: {
-        ...getEnumProp("Score impacts sur l'économie", scoreEnumValues),
+        ...getIntegerProp("Score impacts sur l'économie"),
         classification: getClassificationJsonProp(Structures.impactsSurEconomie),
         displayName: getDisplayNameProp('Score'),
     },
@@ -551,7 +550,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreImpactsSanitaires: {
-        ...getEnumProp('Score impacts sanitaires', scoreEnumValues),
+        ...getIntegerProp('Score impacts sanitaires'),
         classification: getClassificationJsonProp(Structures.impactsSanitaires),
         displayName: getDisplayNameProp('Score'),
     },
@@ -567,7 +566,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreAgriculture: {
-        ...getEnumProp('Score agriculture', scoreEnumValues),
+        ...getIntegerProp('Score agriculture'),
         classification: getClassificationJsonProp(Structures.agriculture),
         displayName: getDisplayNameProp('Score'),
     },
@@ -583,7 +582,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreForesterie: {
-        ...getEnumProp('Score foresterie', scoreEnumValues),
+        ...getIntegerProp('Score foresterie'),
         classification: getClassificationJsonProp(Structures.foresterie),
         displayName: getDisplayNameProp('Score'),
     },
@@ -599,7 +598,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreAquaculture: {
-        ...getEnumProp('Score aquaculture', scoreEnumValues),
+        ...getIntegerProp('Score aquaculture'),
         classification: getClassificationJsonProp(Structures.aquaculture),
         displayName: getDisplayNameProp('Score'),
     },
@@ -615,7 +614,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreIndustrie: {
-        ...getEnumProp('Score industrie', scoreEnumValues),
+        ...getIntegerProp('Score industrie'),
         classification: getClassificationJsonProp(Structures.industrie),
         displayName: getDisplayNameProp('Score'),
     },
@@ -631,7 +630,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scorePatrimoine: {
-        ...getEnumProp('Score patrimoine', scoreEnumValues),
+        ...getIntegerProp('Score patrimoine'),
         classification: getClassificationJsonProp(Structures.patrimoine),
         displayName: getDisplayNameProp('Score'),
     },
@@ -647,7 +646,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreSecurite: {
-        ...getEnumProp('Score sécurité', scoreEnumValues),
+        ...getIntegerProp('Score sécurité'),
         classification: getClassificationJsonProp(Structures.securite),
         displayName: getDisplayNameProp('Score'),
     },
@@ -663,7 +662,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreLoisirs: {
-        ...getEnumProp('Score loisirs', scoreEnumValues),
+        ...getIntegerProp('Score loisirs'),
         classification: getClassificationJsonProp(Structures.loisirs),
         displayName: getDisplayNameProp('Score'),
     },
@@ -679,7 +678,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreAmenites: {
-        ...getEnumProp('Score aménities', scoreEnumValues),
+        ...getIntegerProp('Score aménities'),
         classification: getClassificationJsonProp(Structures.amenites),
         displayName: getDisplayNameProp('Score'),
     },

@@ -86,6 +86,24 @@ export const getEnumProp = (title: string, enumValues: string[]): StellioTemplat
     };
 };
 
+export const getIntegerProp = (title: string, minimum = 0, maximum = 3): StellioTemplateProp => {
+    order++;
+    return {
+        type: 'Property',
+        value: 0,
+        jsonSchema: {
+            type: 'Property',
+            value: {
+                schemaType: 'integer',
+                minimum: minimum,
+                maximum: maximum,
+                title: title,
+                order: order,
+            },
+        },
+    };
+};
+
 export const getBooleanProp = (title: string): StellioTemplateProp => {
     order++;
     return {
@@ -173,6 +191,5 @@ export const getGeoPropertyProp = (
 
 export const presenceAbsenceEnumValues = ['C', 'A', 'N', 'D'];
 export const filtreXEnumValues = ['OK', 'X', '+', 'A évaluer'];
-export const scoreEnumValues = ['0', '1', '2', '3'];
 export const incertitudeEnumValues = ['Faible', 'Fort', 'NA'];
 export const probabiliteEnumValues = ['Probable', 'Possible', 'Peu Probable'];
