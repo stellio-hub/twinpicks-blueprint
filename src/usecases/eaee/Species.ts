@@ -77,55 +77,56 @@ export const SpeciesTemplate: StellioTemplate = {
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Taxon'),
     },
-
     liste: {
         ...getEnumProp('Liste', [...filtreXEnumValues, 'A mettre à jour']),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Liste'),
     },
-
+    ordre: {
+        ...getSimpleTextProp('Ordre'),
+        classification: getClassificationJsonProp(Structures.taxonomie),
+        displayName: getDisplayNameProp('Ordre'),
+    },
+    famille: {
+        ...getSimpleTextProp('Famille'),
+        classification: getClassificationJsonProp(Structures.taxonomie),
+        displayName: getDisplayNameProp('Famille'),
+    },
     cdRef: {
         ...getSimpleTextProp('Code de référence'),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('CD Ref'),
     },
-
     nomValide: {
         ...getSimpleTextProp('Nom valide'),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Nom valide'),
     },
-
     nomVernaculaire: {
         ...getSimpleTextProp('Nom vernaculaire'),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Nom vernaculaire'),
     },
-
     rang: {
         ...getEnumProp('Rang', ['OR', 'FN', 'SBFM', 'GN', 'SSGN', 'ES', 'SSES', 'FO', 'RACE', 'Autre']),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Rang'),
     },
-
     hybride: {
         ...getSimpleTextProp('Hybride'),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Hybride'),
     },
-
     especeProtegee: {
         ...getEnumProp('Est-ce une espèce protégée ?', ['Oui', 'Non']),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Espèce protégée'),
     },
-
     filtreTaxonomique: {
         ...getEnumProp('Filtre taxonomique', filtreXEnumValues),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Filtre taxonomique'),
     },
-
     // #endregion
 
     // #region PRESENCE / ABSENCE
@@ -134,13 +135,11 @@ export const SpeciesTemplate: StellioTemplate = {
         classification: getClassificationJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('Source'),
     },
-
     region: {
         ...getEnumProp('Région', presenceAbsenceEnumValues),
         classification: getClassificationJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('Région'),
     },
-
     '04': {
         ...getEnumProp('04', presenceAbsenceEnumValues),
         classification: getClassificationJsonProp(Structures.presenceAbsence),
@@ -171,13 +170,11 @@ export const SpeciesTemplate: StellioTemplate = {
         classification: getClassificationJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('84'),
     },
-
     remarquesPresenceAbsence: {
         ...getSimpleTextProp('Remarques sur la présence/absence'),
         classification: getClassificationJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('Remarques'),
     },
-
     filtreDePresence: {
         ...getEnumProp('Filtre de présence', filtreXEnumValues),
         classification: getClassificationJsonProp(Structures.presenceAbsence),
@@ -186,16 +183,6 @@ export const SpeciesTemplate: StellioTemplate = {
     // #endregion
 
     // #region INDIGENAT
-    indigenat: {
-        ...getEnumProp('Indigénat', ['Indigène', 'Exogène', 'Cryptogène', 'Inconnu', 'A évaluer']),
-        classification: getClassificationJsonProp(Structures.indigenat),
-        displayName: getDisplayNameProp('Indigénat'),
-    },
-    categorie: {
-        ...getEnumProp('Catégorie', ['Archéozoaire', 'Néozoaire', 'Inconnu', 'A évaluer', 'NA']),
-        classification: getClassificationJsonProp(Structures.indigenat),
-        displayName: getDisplayNameProp('Catégorie'),
-    },
     statutPresenceREG: {
         ...getSimpleTextProp('Statut de présence REG'),
         classification: getClassificationJsonProp(Structures.indigenat),
@@ -205,6 +192,16 @@ export const SpeciesTemplate: StellioTemplate = {
         ...getSimpleTextProp('Statut biologique'),
         classification: getClassificationJsonProp(Structures.indigenat),
         displayName: getDisplayNameProp('Statut biologique'),
+    },
+    indigenat: {
+        ...getEnumProp('Indigénat', ['Indigène', 'Exogène', 'Cryptogène', 'Inconnu', 'A évaluer']),
+        classification: getClassificationJsonProp(Structures.indigenat),
+        displayName: getDisplayNameProp('Indigénat'),
+    },
+    categorie: {
+        ...getEnumProp('Catégorie', ['Archéozoaire', 'Néozoaire', 'Inconnu', 'A évaluer', 'NA']),
+        classification: getClassificationJsonProp(Structures.indigenat),
+        displayName: getDisplayNameProp('Catégorie'),
     },
     sourceIndigenat: {
         ...getSimpleTextProp('Source indigénat'),
@@ -221,11 +218,6 @@ export const SpeciesTemplate: StellioTemplate = {
         classification: getClassificationJsonProp(Structures.indigenat),
         displayName: getDisplayNameProp("Source période et lieu d'introduction (France et régions)"),
     },
-    datePremiereEntreeSileneRegionSud: {
-        ...getDateProp('Date de la première entrée Silène en région Sud'),
-        classification: getClassificationJsonProp(Structures.indigenat),
-        displayName: getDisplayNameProp('Date première entrée Silène région Sud'),
-    },
     aireDorigine: {
         ...getSimpleTextProp("Aire d'origine"),
         classification: getClassificationJsonProp(Structures.indigenat),
@@ -235,6 +227,11 @@ export const SpeciesTemplate: StellioTemplate = {
         ...getSimpleTextProp("Source aire d'origine"),
         classification: getClassificationJsonProp(Structures.indigenat),
         displayName: getDisplayNameProp("Source aire d'origine"),
+    },
+    datePremiereEntreeSileneRegionSud: {
+        ...getDateProp('Date de la première entrée Silène en région Sud'),
+        classification: getClassificationJsonProp(Structures.indigenat),
+        displayName: getDisplayNameProp('Date première entrée Silène région Sud'),
     },
     remarquesIndigenat: {
         ...getSimpleTextProp("Remarques sur l'indigénat"),
@@ -345,6 +342,16 @@ export const SpeciesTemplate: StellioTemplate = {
         classification: getClassificationJsonProp(Structures.informationsSupplementaires),
         displayName: getDisplayNameProp('Liste Occitanie'),
     },
+    auvergneRhoneAlpes: {
+        ...getSimpleTextProp('Auvergne-Rhône-Alpes'),
+        classification: getClassificationJsonProp(Structures.informationsSupplementaires),
+        displayName: getDisplayNameProp('Auvergne-Rhône-Alpes'),
+    },
+    italieRegionsLimitrophes: {
+        ...getSimpleTextProp('Italie - Régions limitrophes'),
+        classification: getClassificationJsonProp(Structures.informationsSupplementaires),
+        displayName: getDisplayNameProp('Italie - Régions limitrophes'),
+    },
     lienCentreDeRessource: {
         ...getSimpleTextProp('Lien vers centre de ressource'),
         classification: getClassificationJsonProp(Structures.informationsSupplementaires),
@@ -359,6 +366,11 @@ export const SpeciesTemplate: StellioTemplate = {
         ...getSimpleTextProp("Compléments d'information"),
         classification: getClassificationJsonProp(Structures.informationsSupplementaires),
         displayName: getDisplayNameProp("Compléments d'information"),
+    },
+    listeDeTravail: {
+        ...getEnumProp('Liste de travail', [...filtreXEnumValues, 'A mettre à jour']),
+        classification: getClassificationJsonProp(Structures.informationsSupplementaires),
+        displayName: getDisplayNameProp('Liste de travail'),
     },
 
     // #endregion
@@ -524,10 +536,20 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Commentaires'),
     },
 
-    impactsEnvironnementauxNoteGlobale: {
-        ...getSimpleTextProp('Impacts environnementaux note globale'),
+    scoreISEIA: {
+        ...getSimpleTextProp('Score ISEIA'),
         classification: getClassificationJsonProp(Structures.analyseIntensiteImpactsEnvironnementaux),
-        displayName: getDisplayNameProp('Note globale'),
+        displayName: getDisplayNameProp('Score ISEIA'),
+    },
+    impactsDocumentesISEIA: {
+        ...getEnumProp('Impacts documentés', ['Oui', 'Non', 'A faire', 'NA']),
+        classification: getClassificationJsonProp(Structures.analyseIntensiteImpactsEnvironnementaux),
+        displayName: getDisplayNameProp('Impacts documentés'),
+    },
+    intensiteImpactsNegatifsEnvironnement: {
+        ...getSimpleTextProp("Intensité des impacts négatifs sur l'environnement"),
+        classification: getClassificationJsonProp(Structures.analyseIntensiteImpactsEnvironnementaux),
+        displayName: getDisplayNameProp("Intensité des impacts négatifs sur l'environnement"),
     },
 
     // #endregion
@@ -693,10 +715,15 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Commentaires'),
     },
 
-    impactsBienEtreHumainNoteGlobale: {
-        ...getSimpleTextProp('Impacts bien-être humain note globale'),
+    scoreISSIA: {
+        ...getSimpleTextProp('Score ISSIA'),
         classification: getClassificationJsonProp(Structures.impactSurBienEtreHumain),
-        displayName: getDisplayNameProp('Note globale'),
+        displayName: getDisplayNameProp('Score ISSIA'),
+    },
+    impactsDocumentesISSIA: {
+        ...getEnumProp('Impacts documentés', ['Oui', 'Non', 'A faire', 'NA']),
+        classification: getClassificationJsonProp(Structures.impactSurBienEtreHumain),
+        displayName: getDisplayNameProp('Impacts documentés'),
     },
 
     // #endregion
@@ -771,6 +798,57 @@ export const SpeciesTemplate: StellioTemplate = {
         classification: getClassificationJsonProp(Structures.coefficientDabondance),
         displayName: getDisplayNameProp('Commentaires'),
     },
+    // #endregion
 
+    // #region ANALYSE FINALE
+    impactsIrreversibles: {
+        ...getSimpleTextProp('Impacts irréversibles'),
+        classification: getClassificationJsonProp(Structures.analyseFinale),
+        displayName: getDisplayNameProp('Impacts irréversibles'),
+    },
+    analyseDesRisquesDesTaxonsEvalues: {
+        ...getSimpleTextProp('Analyse des risques des taxons évalués'),
+        classification: getClassificationJsonProp(Structures.analyseFinale),
+        displayName: getDisplayNameProp('Analyse des risques des taxons évalués'),
+    },
+    consequence: {
+        ...getSimpleTextProp('Conséquence'),
+        classification: getClassificationJsonProp(Structures.analyseFinale),
+        displayName: getDisplayNameProp('Conséquence'),
+    },
+
+    categorieFinale: {
+        ...getSimpleTextProp('Catégorie'),
+        classification: getClassificationJsonProp(Structures.analyseFinale),
+        displayName: getDisplayNameProp('Catégorie'),
+    },
+    categorieAjustee: {
+        ...getEnumProp('Catégorie ajustée', [
+            'Majeure',
+            'Modérée',
+            'Emergente',
+            'Alerte',
+            'Prévention',
+            'Exotique non envahissante',
+            'NA',
+            'A évaluer',
+        ]),
+        classification: getClassificationJsonProp(Structures.analyseFinale),
+        displayName: getDisplayNameProp('Catégorie ajustée'),
+    },
+    categorieAffichee: {
+        ...getEnumProp('Catégorie affichée', [
+            'Majeure',
+            'Modérée',
+            'Emergente',
+            'Alerte',
+            'Prévention',
+            'Exotique non envahissante',
+            'NA',
+            'A évaluer',
+        ]),
+        classification: getClassificationJsonProp(Structures.analyseFinale),
+        displayName: getDisplayNameProp('Catégorie affichée'),
+    },
     // #endregion
 };

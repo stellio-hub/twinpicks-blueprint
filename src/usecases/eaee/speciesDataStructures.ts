@@ -170,3 +170,7 @@ export const coefficientDabondance = {
 } as const;
 
 // #endregion
+
+export const analyseFinale = {
+    '0': 'Analyse finale',
+} as const;
