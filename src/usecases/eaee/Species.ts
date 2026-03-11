@@ -304,7 +304,7 @@ export const SpeciesTemplate: StellioTemplate = {
         classification: getClassificationJsonProp(Structures.informationsSupplementaires),
         displayName: getDisplayNameProp('Habitat'),
     },
-    statutBiogéographiqueEnFrance: {
+    statutBiogeographiqueEnFrance: {
         ...getEnumProp('Statut biogéographique en France', [
             'Présent (indigène ou indéterminé)',
             'Endémique',
@@ -724,6 +724,11 @@ export const SpeciesTemplate: StellioTemplate = {
         ...getEnumProp('Impacts documentés', ['Oui', 'Non', 'A faire', 'NA']),
         classification: getClassificationJsonProp(Structures.impactSurBienEtreHumain),
         displayName: getDisplayNameProp('Impacts documentés'),
+    },
+    intensiteImpactsSocioEconomiquesSanitaires: {
+        ...getEnumProp('Intensité des impacts négatifs socio-économiques sanitaires', ['Élevée', 'Modérée', 'Faible']),
+        classification: getClassificationJsonProp(Structures.impactSurBienEtreHumain),
+        displayName: getDisplayNameProp('Intensité des impacts négatifs'),
     },
 
     // #endregion
