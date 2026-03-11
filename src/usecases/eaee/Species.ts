@@ -725,9 +725,10 @@ export const SpeciesTemplate: StellioTemplate = {
         classification: getClassificationJsonProp(Structures.impactSurBienEtreHumain),
         displayName: getDisplayNameProp('Impacts documentés'),
     },
+
     intensiteImpactsSocioEconomiquesSanitaires: {
         ...getEnumProp('Intensité des impacts négatifs socio-économiques sanitaires', ['Élevée', 'Modérée', 'Faible']),
-        classification: getClassificationJsonProp(Structures.impactSurBienEtreHumain),
+        classification: getClassificationJsonProp(Structures.analyseIntensiteImpactsSocioEconomiquesSanitaires),
         displayName: getDisplayNameProp('Intensité des impacts négatifs'),
     },
 
