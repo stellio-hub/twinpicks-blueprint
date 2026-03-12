@@ -537,7 +537,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreISEIA: {
-        ...getSimpleTextProp('Score ISEIA'),
+        ...getIntegerProp('Score ISEIA'),
         classification: getClassificationJsonProp(Structures.analyseIntensiteImpactsEnvironnementaux),
         displayName: getDisplayNameProp('Score ISEIA'),
     },
@@ -716,7 +716,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreISSIA: {
-        ...getSimpleTextProp('Score ISSIA'),
+        ...getIntegerProp('Score ISSIA'),
         classification: getClassificationJsonProp(Structures.impactSurBienEtreHumain),
         displayName: getDisplayNameProp('Score ISSIA'),
     },
