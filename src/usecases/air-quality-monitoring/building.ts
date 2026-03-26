@@ -31,7 +31,7 @@ export const BuildingTemplate: StellioTemplate = {
     location: {
         type: 'GeoProperty',
         value: {
-            type: 'Point',
+            type: 'Polygon',
             coordinates: [],
         },
         jsonSchema: {
