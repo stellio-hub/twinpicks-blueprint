@@ -6,8 +6,10 @@ interface EnvConfig {
     keycloakBaseUrl: string;
     gatewayServer: string;
     clientId: string;
+    grantType: string;
     username: string;
     password: string;
+    clientSecret: string;
     realm: string;
     tenant: string;
     useCaseConfigId: string;
@@ -19,8 +21,9 @@ const getKeycloakToken = async (realmConfig?: EnvConfig) => {
     let accessToken = '';
 
     const params = new URLSearchParams({
-        grant_type: 'password',
+        grant_type: realmConfig.grantType ?? 'password',
         client_id: realmConfig.clientId,
+        client_secret: realmConfig.clientSecret,
         username: realmConfig.username,
         password: realmConfig.password,
     });
