@@ -53,22 +53,6 @@ export const getSimpleTextProp = (title: string): StellioTemplateProp => {
     };
 };
 
-export const getNumberProp = (title: string): StellioTemplateProp => {
-    order++;
-    return {
-        type: 'Property',
-        value: 0,
-        jsonSchema: {
-            type: 'Property',
-            value: {
-                schemaType: 'integer',
-                title: title,
-                order: order,
-            },
-        },
-    };
-};
-
 export const getEnumProp = (title: string, enumValues: string[]): StellioTemplateProp => {
     order++;
     return {
