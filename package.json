@@ -1,7 +1,7 @@
 {
     "name": "blueprints",
     "author": "junjou",
-    "version": "1.2.21",
+    "version": "1.2.22",
     "description": "blueprints for twinpicks",
     "scripts": {
         "tsc": "tsc",
@@ -17,8 +17,7 @@
         "smartParking": "npx tsc && cd ./dist/usecases/smart-parking && node index.js && cd ../../..",
         "irrigation": "npx tsc && cd ./dist/usecases/smart-irrigation && node index.js && cd ../../..",
         "irrigationUpdateBlueprint": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=smart-irrigation",
-        "eaee": "npx tsc && cd ./dist/usecases/eaee && node index.js && cd ../../..",
-        "eaeeUpdateBlueprint": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=eaee"
+        "eaee": "npx tsc && cd ./dist/usecases/eaee && node index.js && cd ../../.."
     },
     "devDependencies": {
         "@types/geojson": "^7946.0.10",
