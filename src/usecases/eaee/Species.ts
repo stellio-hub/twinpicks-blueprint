@@ -209,14 +209,14 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Source indigénat'),
     },
     periodeEtLieuDIntroduction: {
-        ...getSimpleTextProp("Période et lieu d'introduction (France et régions)"),
+        ...getSimpleTextProp("Période et lieu d'introduction (France et région)"),
         classification: getClassificationJsonProp(Structures.indigenat),
-        displayName: getDisplayNameProp("Période et lieu d'introduction (France et régions)"),
+        displayName: getDisplayNameProp("Période et lieu d'introduction (France et région)"),
     },
     sourcePeriodeEtLieuDIntroduction: {
-        ...getSimpleTextProp("Source période et lieu d'introduction (France et régions)"),
+        ...getSimpleTextProp("Source période et lieu d'introduction (France et région)"),
         classification: getClassificationJsonProp(Structures.indigenat),
-        displayName: getDisplayNameProp("Source période et lieu d'introduction (France et régions)"),
+        displayName: getDisplayNameProp("Source période et lieu d'introduction (France et région)"),
     },
     aireDorigine: {
         ...getSimpleTextProp("Aire d'origine"),
@@ -281,7 +281,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Remarques'),
     },
     filtreDAutonomie: {
-        ...getSimpleTextProp("Filtre d'autonomie"),
+        ...getEnumProp("Filtre d'autonomie", filtreXEnumValues),
         classification: getClassificationJsonProp(Structures.autonomie),
         displayName: getDisplayNameProp("Filtre d'autonomie"),
     },
@@ -322,7 +322,6 @@ export const SpeciesTemplate: StellioTemplate = {
             'Introduit éteint',
             'Inconnu',
             'A évaluer',
-            'Inconnu',
         ]),
         classification: getClassificationJsonProp(Structures.informationsSupplementaires),
         displayName: getDisplayNameProp('Statut biogéographique en France'),
