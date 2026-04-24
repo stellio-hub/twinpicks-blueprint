@@ -93,7 +93,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Famille'),
     },
     cdRef: {
-        ...getSimpleTextProp('Code de référence'),
+        ...getIntegerProp('Code de référence'),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('CD Ref'),
     },
