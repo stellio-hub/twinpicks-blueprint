@@ -1,15 +1,14 @@
 import { StellioTemplate } from '../../interfaces';
+import * as Structures from './actionsDataStructures';
+import { getDisplayNameProp, getClassificationJsonProp } from './utils';
 import {
-    getDisplayNameProp,
-    getMultiRelationshipProp,
     getSimpleTextProp,
-    getClassificationJsonProp,
     getDateProp,
     getEnumProp,
+    getMultiRelationshipProp,
     getGeoPropertyProp,
     getBooleanProp,
-} from './utils';
-import * as Structures from './actionsDataStructures';
+} from '../../utils/blueprintHelpers';
 
 export const ActionTemplate: StellioTemplate = {
     id: 'urn:ngsi-ld:Action:Template',

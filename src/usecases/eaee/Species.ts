@@ -1,16 +1,13 @@
 import { StellioTemplate } from '../../interfaces';
 import {
     getDisplayNameProp,
-    getEnumProp,
-    getSimpleTextProp,
     getClassificationJsonProp,
     presenceAbsenceEnumValues,
-    getDateProp,
     filtreXEnumValues,
     incertitudeEnumValues,
     probabiliteEnumValues,
-    getIntegerProp,
 } from './utils';
+import { getSimpleTextProp, getDateProp, getEnumProp, getIntegerProp } from '../../utils/blueprintHelpers';
 import * as Structures from './speciesDataStructures';
 
 export const SpeciesTemplate: StellioTemplate = {
