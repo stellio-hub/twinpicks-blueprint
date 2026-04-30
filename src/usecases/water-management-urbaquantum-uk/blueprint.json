@@ -1,0 +1,86 @@
+[
+    {
+        "id": "urn:ngsi-ld:River:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Name of the river",
+            "jsonSchema": {
+                "type": "Property",
+                "value": { "schemaType": "string", "title": "Name of the river", "order": 1 }
+            }
+        },
+        "description": {
+            "type": "Property",
+            "value": "Description of the river",
+            "jsonSchema": {
+                "type": "Property",
+                "value": { "schemaType": "string", "title": "Description of the river", "order": 2 }
+            }
+        },
+        "location": {
+            "type": "GeoProperty",
+            "value": { "type": "LineString", "coordinates": [] },
+            "jsonSchema": {
+                "type": "Property",
+                "value": { "schemaType": "object", "title": "Geographical location of the river", "order": 3 }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "River",
+                "title": "River",
+                "required": ["name", "location"],
+                "minimum": 1,
+                "description": "Digital twin of the river"
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:RiverBasin:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Name of the river basin",
+            "jsonSchema": {
+                "type": "Property",
+                "value": { "schemaType": "string", "title": "Name of the river basin", "order": 4 }
+            }
+        },
+        "description": {
+            "type": "Property",
+            "value": "Description of the river basin",
+            "jsonSchema": {
+                "type": "Property",
+                "value": { "schemaType": "string", "title": "Description of the river basin", "order": 5 }
+            }
+        },
+        "location": {
+            "type": "GeoProperty",
+            "value": { "type": "Polygon", "coordinates": [] },
+            "jsonSchema": {
+                "type": "Property",
+                "value": { "schemaType": "object", "title": "Geographical location of the river basin", "order": 6 }
+            }
+        },
+        "outlet": {
+            "type": "GeoProperty",
+            "value": { "type": "Point", "coordinates": [] },
+            "jsonSchema": {
+                "type": "Property",
+                "value": { "schemaType": "object", "title": "Outlet of the river basin", "order": 7 }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "RiverBasin",
+                "title": "River basin",
+                "required": ["name", "location"],
+                "minimum": 1,
+                "description": "Digital twin of the river basin"
+            }
+        }
+    }
+]
