@@ -1,5 +1,5 @@
 import { StellioTemplate } from 'src/interfaces';
-import { getGeoPropertyProp, getSimpleTextProp } from '../../utils/blueprintHelpers';
+import { getGeoPropertyProp, getRelationshipProp, getSimpleTextProp } from '../../utils/blueprintHelpers';
 
 export const RiverTemplate: StellioTemplate = {
     id: 'urn:ngsi-ld:River:Template',
@@ -12,6 +12,9 @@ export const RiverTemplate: StellioTemplate = {
     },
     location: {
         ...getGeoPropertyProp('Geographical location of the river', 'LineString'),
+    },
+    hasRiverBasin: {
+        ...getRelationshipProp('River basin of the river', 'urn:ngsi-ld:RiverBasin:Template'),
     },
     jsonSchema: {
         type: 'Property',
