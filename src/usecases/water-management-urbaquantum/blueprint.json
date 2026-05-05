@@ -26,6 +26,14 @@
                 "value": { "schemaType": "object", "title": "Geographical location of the river", "order": 3 }
             }
         },
+        "hasRiverBasin": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:RiverBasin:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": { "schemaType": "string", "title": "River basin of the river" }
+            }
+        },
         "jsonSchema": {
             "type": "Property",
             "value": {
@@ -45,7 +53,7 @@
             "value": "Name of the river basin",
             "jsonSchema": {
                 "type": "Property",
-                "value": { "schemaType": "string", "title": "Name of the river basin", "order": 4 }
+                "value": { "schemaType": "string", "title": "Name of the river basin", "order": 5 }
             }
         },
         "description": {
@@ -53,7 +61,7 @@
             "value": "Description of the river basin",
             "jsonSchema": {
                 "type": "Property",
-                "value": { "schemaType": "string", "title": "Description of the river basin", "order": 5 }
+                "value": { "schemaType": "string", "title": "Description of the river basin", "order": 6 }
             }
         },
         "location": {
@@ -61,7 +69,7 @@
             "value": { "type": "Polygon", "coordinates": [] },
             "jsonSchema": {
                 "type": "Property",
-                "value": { "schemaType": "object", "title": "Geographical location of the river basin", "order": 6 }
+                "value": { "schemaType": "object", "title": "Geographical location of the river basin", "order": 7 }
             }
         },
         "outlet": {
@@ -69,7 +77,7 @@
             "value": { "type": "Point", "coordinates": [] },
             "jsonSchema": {
                 "type": "Property",
-                "value": { "schemaType": "object", "title": "Outlet of the river basin", "order": 7 }
+                "value": { "schemaType": "object", "title": "Outlet of the river basin", "order": 8 }
             }
         },
         "jsonSchema": {

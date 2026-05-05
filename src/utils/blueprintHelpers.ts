@@ -88,7 +88,9 @@ export const getDateProp = (title: string): StellioTemplateProp => {
 export const getMultiRelationshipProp = (
     formLabel: string,
     formLabelPerItem: string,
-    templateObjectId: string
+    templateObjectId: string,
+    minimum?: number,
+    maximum?: number
 ): StellioTemplateRelationship => {
     order++;
     return {
@@ -100,6 +102,8 @@ export const getMultiRelationshipProp = (
                 schemaType: 'array',
                 order: order,
                 title: formLabel,
+                minimum: minimum,
+                maximum: maximum,
                 items: {
                     type: 'Relationship',
                     object: templateObjectId,
@@ -111,6 +115,21 @@ export const getMultiRelationshipProp = (
                         },
                     },
                 },
+            },
+        },
+    };
+};
+
+export const getRelationshipProp = (formLabel: string, targetTemplateObjectId: string): StellioTemplateRelationship => {
+    order++;
+    return {
+        type: 'Relationship',
+        object: targetTemplateObjectId,
+        jsonSchema: {
+            type: 'Property',
+            value: {
+                schemaType: 'string',
+                title: formLabel,
             },
         },
     };

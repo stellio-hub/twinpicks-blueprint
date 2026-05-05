@@ -18,7 +18,7 @@
         "irrigation": "npx tsc && cd ./dist/usecases/smart-irrigation && node index.js && cd ../../..",
         "irrigationUpdateBlueprint": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=smart-irrigation",
         "eaee": "npx tsc && cd ./dist/usecases/eaee && node index.js && cd ../../..",
-        "uwpuk": "npx tsc && cd ./dist/usecases/water-management-urbaquantum-uk && node index.js && cd ../../.."
+        "urbaquantum": "npx tsc && cd ./dist/usecases/water-management-urbaquantum && node index.js && cd ../../.."
     },
     "devDependencies": {
         "@types/geojson": "^7946.0.10",
