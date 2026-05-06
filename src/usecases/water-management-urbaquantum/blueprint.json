@@ -7,7 +7,11 @@
             "value": "Name of the river",
             "jsonSchema": {
                 "type": "Property",
-                "value": { "schemaType": "string", "title": "Name of the river", "order": 1 }
+                "value": {
+                    "schemaType": "string",
+                    "title": "Name of the river",
+                    "order": 1
+                }
             }
         },
         "description": {
@@ -15,15 +19,26 @@
             "value": "Description of the river",
             "jsonSchema": {
                 "type": "Property",
-                "value": { "schemaType": "string", "title": "Description of the river", "order": 2 }
+                "value": {
+                    "schemaType": "string",
+                    "title": "Description of the river",
+                    "order": 2
+                }
             }
         },
         "location": {
             "type": "GeoProperty",
-            "value": { "type": "LineString", "coordinates": [] },
+            "value": {
+                "type": "LineString",
+                "coordinates": []
+            },
             "jsonSchema": {
                 "type": "Property",
-                "value": { "schemaType": "object", "title": "Geographical location of the river", "order": 3 }
+                "value": {
+                    "schemaType": "object",
+                    "title": "Geographical location of the river",
+                    "order": 3
+                }
             }
         },
         "hasRiverBasin": {
@@ -31,7 +46,125 @@
             "object": "urn:ngsi-ld:RiverBasin:Template",
             "jsonSchema": {
                 "type": "Property",
-                "value": { "schemaType": "string", "title": "River basin of the river" }
+                "value": {
+                    "schemaType": "string",
+                    "title": "River basin of the river"
+                }
+            }
+        },
+        "flowsFrom": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:River:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "order": 5,
+                    "title": "List of input rivers",
+                    "items": {
+                        "type": "Relationship",
+                        "object": "urn:ngsi-ld:River:Template",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "string",
+                                "title": "Select an input river"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "flowsTo": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:River:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "order": 6,
+                    "title": "List of output rivers",
+                    "items": {
+                        "type": "Relationship",
+                        "object": "urn:ngsi-ld:River:Template",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "string",
+                                "title": "Select an output river"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "hasStormTank": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:StormTank:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "order": 7,
+                    "title": "List of Storm tanks of the river",
+                    "items": {
+                        "type": "Relationship",
+                        "object": "urn:ngsi-ld:StormTank:Template",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "string",
+                                "title": "Storm tank"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "refControlPoint": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ControlPoint:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "order": 8,
+                    "title": "List of control points",
+                    "items": {
+                        "type": "Relationship",
+                        "object": "urn:ngsi-ld:ControlPoint:Template",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "string",
+                                "title": "Select a control point"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "refSamplingPoint": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:SamplingPoint:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "order": 9,
+                    "title": "List of sampling points",
+                    "items": {
+                        "type": "Relationship",
+                        "object": "urn:ngsi-ld:SamplingPoint:Template",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "string",
+                                "title": "Select a sampling point"
+                            }
+                        }
+                    }
+                }
             }
         },
         "jsonSchema": {
@@ -39,7 +172,10 @@
             "value": {
                 "schemaType": "River",
                 "title": "River",
-                "required": ["name", "location"],
+                "required": [
+                    "name",
+                    "location"
+                ],
                 "minimum": 1,
                 "description": "Digital twin of the river"
             }
@@ -53,7 +189,11 @@
             "value": "Name of the river basin",
             "jsonSchema": {
                 "type": "Property",
-                "value": { "schemaType": "string", "title": "Name of the river basin", "order": 5 }
+                "value": {
+                    "schemaType": "string",
+                    "title": "Name of the river basin",
+                    "order": 10
+                }
             }
         },
         "description": {
@@ -61,23 +201,41 @@
             "value": "Description of the river basin",
             "jsonSchema": {
                 "type": "Property",
-                "value": { "schemaType": "string", "title": "Description of the river basin", "order": 6 }
+                "value": {
+                    "schemaType": "string",
+                    "title": "Description of the river basin",
+                    "order": 11
+                }
             }
         },
         "location": {
             "type": "GeoProperty",
-            "value": { "type": "Polygon", "coordinates": [] },
+            "value": {
+                "type": "Polygon",
+                "coordinates": []
+            },
             "jsonSchema": {
                 "type": "Property",
-                "value": { "schemaType": "object", "title": "Geographical location of the river basin", "order": 7 }
+                "value": {
+                    "schemaType": "object",
+                    "title": "Geographical location of the river basin",
+                    "order": 12
+                }
             }
         },
         "outlet": {
             "type": "GeoProperty",
-            "value": { "type": "Point", "coordinates": [] },
+            "value": {
+                "type": "Point",
+                "coordinates": []
+            },
             "jsonSchema": {
                 "type": "Property",
-                "value": { "schemaType": "object", "title": "Outlet of the river basin", "order": 8 }
+                "value": {
+                    "schemaType": "object",
+                    "title": "Outlet of the river basin",
+                    "order": 13
+                }
             }
         },
         "jsonSchema": {
@@ -85,9 +243,452 @@
             "value": {
                 "schemaType": "RiverBasin",
                 "title": "River basin",
-                "required": ["name", "location"],
+                "required": [
+                    "name",
+                    "location"
+                ],
                 "minimum": 1,
                 "description": "Digital twin of the river basin"
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:CombinedSewer:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Name of the combined sewer",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Name of the combined sewer",
+                    "order": 14
+                }
+            }
+        },
+        "location": {
+            "type": "GeoProperty",
+            "value": {
+                "type": "LineString",
+                "coordinates": []
+            },
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "object",
+                    "title": "Geographical representation of the combined sewer",
+                    "order": 15
+                }
+            }
+        },
+        "dischargesTo": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:River:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "order": 16,
+                    "title": "List of rivers that receive flows from the combined sewer",
+                    "items": {
+                        "type": "Relationship",
+                        "object": "urn:ngsi-ld:River:Template",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "string",
+                                "title": "Select a river"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "refControlPoint": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ControlPoint:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "order": 17,
+                    "title": "List of control points",
+                    "items": {
+                        "type": "Relationship",
+                        "object": "urn:ngsi-ld:ControlPoint:Template",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "string",
+                                "title": "Select a control point"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "refSamplingPoint": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:SamplingPoint:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "order": 18,
+                    "title": "List of sampling points",
+                    "items": {
+                        "type": "Relationship",
+                        "object": "urn:ngsi-ld:SamplingPoint:Template",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "string",
+                                "title": "Select a sampling point"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "CombinedSewer",
+                "title": "Combined sewer",
+                "required": [
+                    "name",
+                    "location"
+                ],
+                "description": "Digital twin of a combined sewer",
+                "minimum": 0
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:WaterTreatmentPlant:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Name of the water treatment plant",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Name of the water treatment plant",
+                    "order": 19
+                }
+            }
+        },
+        "location": {
+            "type": "GeoProperty",
+            "value": {
+                "type": "Point",
+                "coordinates": []
+            },
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "object",
+                    "title": "Location of the water treatment plant",
+                    "order": 20
+                }
+            }
+        },
+        "dischargesTo": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:River:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Discharges to the water treatment plant"
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "WaterTreatmentPlant",
+                "title": "Water treatment plant",
+                "required": [
+                    "name",
+                    "location"
+                ],
+                "description": "Digital twin of a water treatment plant",
+                "minimum": 0
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:StormTank:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Name of the storm tank",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Name of the storm tank",
+                    "order": 22
+                }
+            }
+        },
+        "location": {
+            "type": "GeoProperty",
+            "value": {
+                "type": "Point",
+                "coordinates": []
+            },
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "object",
+                    "title": "Location of the storm tank",
+                    "order": 23
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "StormTank",
+                "title": "Storm tank",
+                "required": [
+                    "name",
+                    "location"
+                ],
+                "description": "Digital twin of the storm tank",
+                "minimum": 0
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:ControlPoint:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Name of the control point",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Name of the control point",
+                    "order": 24
+                }
+            }
+        },
+        "location": {
+            "type": "GeoProperty",
+            "value": {
+                "type": "Point",
+                "coordinates": []
+            },
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "object",
+                    "title": "Location of the control point",
+                    "order": 25
+                }
+            }
+        },
+        "source": {
+            "type": "Property",
+            "value": "sensor",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "enum": [
+                        "sensor",
+                        "lab",
+                        "citizen"
+                    ],
+                    "title": "Source of the control point",
+                    "order": 26
+                }
+            }
+        },
+        "ph": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "minimum": 0,
+                    "maximum": 14,
+                    "title": "pH value of the control point",
+                    "order": 27
+                }
+            }
+        },
+        "temperature": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "minimum": -20,
+                    "maximum": 100,
+                    "title": "Temperature of the control point",
+                    "order": 28
+                }
+            }
+        },
+        "conductivity": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "minimum": 0,
+                    "maximum": 1000,
+                    "title": "Conductivity of the control point",
+                    "order": 29
+                }
+            }
+        },
+        "dissolvedOxygen": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "minimum": 0,
+                    "maximum": 1000,
+                    "title": "Dissolved oxygen of the control point",
+                    "order": 30
+                }
+            }
+        },
+        "turbidity": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "minimum": 0,
+                    "maximum": 1000,
+                    "title": "Turbidity of the control point",
+                    "order": 31
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "ControlPoint",
+                "title": "Control point",
+                "required": [
+                    "name",
+                    "location",
+                    "source"
+                ],
+                "description": "Digital twin of a control point",
+                "minimum": 0
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:SamplingPoint:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Name of the sampling point",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Name of the sampling point",
+                    "order": 32
+                }
+            }
+        },
+        "location": {
+            "type": "GeoProperty",
+            "value": {
+                "type": "Point",
+                "coordinates": []
+            },
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "object",
+                    "title": "Location of the sampling point",
+                    "order": 33
+                }
+            }
+        },
+        "source": {
+            "type": "Property",
+            "value": "sensor",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "enum": [
+                        "sensor",
+                        "lab",
+                        "citizen"
+                    ],
+                    "title": "Source of the sampling point",
+                    "order": 34
+                }
+            }
+        },
+        "sampleVolume": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "minimum": 0,
+                    "maximum": 3,
+                    "title": "Sample volume of the sampling point",
+                    "order": 35
+                }
+            }
+        },
+        "usage": {
+            "type": "Property",
+            "value": "drinking",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "enum": [
+                        "drinking",
+                        "agricultural",
+                        "industrial",
+                        "unknown",
+                        "other"
+                    ],
+                    "title": "Usage of the sampling point",
+                    "order": 36
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "SamplingPoint",
+                "title": "Sampling point",
+                "required": [
+                    "name",
+                    "location",
+                    "source",
+                    "usage"
+                ],
+                "description": "Digital twin of a sampling point",
+                "minimum": 0
             }
         }
     }
