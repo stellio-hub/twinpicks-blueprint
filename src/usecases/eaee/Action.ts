@@ -156,11 +156,11 @@ export const ActionTemplate: StellioTemplate = {
 
     // #region ESPÈCES LIÉES À L'ACTION
     relatedSpecies: {
-        ...getMultiRelationshipProp(
-            "Espèces liées à l'action",
-            'Sélectionner une espèce',
-            'urn:ngsi-ld:Species:Template'
-        ),
+        ...getMultiRelationshipProp({
+            formLabel: "Espèces liées à l'action",
+            formLabelPerItem: 'Sélectionner une espèce',
+            templateObjectId: 'urn:ngsi-ld:Species:Template',
+        }),
         classification: getClassificationJsonProp(Structures.especesCibles),
         displayName: getDisplayNameProp("Espèces liées à l'action"),
     },

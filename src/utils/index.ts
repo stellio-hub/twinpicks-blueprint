@@ -18,7 +18,7 @@ const generateBlueprintFile = (blueprint: StellioTemplate[], usecasePathName?: s
     const from = `./${config.blueprintFileName}`;
     const to = `../../../src/${usecasePathName}/${config.blueprintFileName}`;
 
-    fse.writeFile(config.blueprintFileName, JSON.stringify(blueprint), function (err: any) {
+    fse.writeFile(config.blueprintFileName, JSON.stringify(blueprint, null, 4), function (err: any) {
         if (err) throw err;
         console.log('Blueprint Saved');
         moveBlueprintFile(from, to);

@@ -1,7 +1,7 @@
 {
     "name": "blueprints",
     "author": "junjou",
-    "version": "1.3.2",
+    "version": "1.3.3",
     "description": "blueprints for twinpicks",
     "scripts": {
         "tsc": "tsc",
@@ -18,7 +18,8 @@
         "irrigation": "npx tsc && cd ./dist/usecases/smart-irrigation && node index.js && cd ../../..",
         "irrigationUpdateBlueprint": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=smart-irrigation",
         "eaee": "npx tsc && cd ./dist/usecases/eaee && node index.js && cd ../../..",
-        "urbaquantum": "npx tsc && cd ./dist/usecases/water-management-urbaquantum && node index.js && cd ../../.."
+        "urbaquantum": "npx tsc && cd ./dist/usecases/water-management-urbaquantum && node index.js && cd ../../..",
+        "urbaquantumUpdate": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=water-management-urbaquantum"
     },
     "devDependencies": {
         "@types/geojson": "^7946.0.10",
