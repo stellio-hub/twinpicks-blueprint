@@ -511,7 +511,7 @@
         },
         "startTime": {
             "type": "Property",
-            "value": "2026-05-27T15:29:19.160Z",
+            "value": "2026-05-27T15:32:45.204Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
@@ -643,7 +643,8 @@
                 "type": "Property",
                 "value": {
                     "schemaType": "string",
-                    "title": "Zone d'irrigation"
+                    "title": "Zone d'irrigation",
+                    "order": 9
                 }
             }
         },

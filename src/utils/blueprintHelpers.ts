@@ -147,6 +147,7 @@ export const getRelationshipProp = (formLabel: string, targetTemplateObjectId: s
             value: {
                 schemaType: 'string',
                 title: formLabel,
+                order: order,
             },
         },
     };
