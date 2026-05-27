@@ -5,7 +5,7 @@ export const CombinedSewerTemplate: StellioTemplate = {
     id: 'urn:ngsi-ld:CombinedSewer:Template',
     type: 'Template',
     name: {
-        ...getSimpleTextProp('Name of the combined sewer'),
+        ...getSimpleTextProp({ title: 'Name of the combined sewer' }),
     },
     location: {
         ...getGeoPropertyProp('Geographical representation of the combined sewer', 'LineString'),

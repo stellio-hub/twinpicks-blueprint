@@ -1,8 +1,9 @@
-import { StellioTemplateGeoProp, StellioTemplateProp, StellioTemplateRelationship } from '../interfaces';
+import { JsonSchema } from 'src/interfaces/jsonSchema';
+import { StellioTemplateGeoProp, StellioTemplateProp, StellioTemplateRelationship } from 'src/interfaces';
 
 let order = 0;
 
-export const getSimpleTextProp = (title: string): StellioTemplateProp => {
+export const getSimpleTextProp = ({ title, ...rest }: Partial<JsonSchema>): StellioTemplateProp => {
     order++;
     return {
         type: 'Property',
@@ -10,15 +11,16 @@ export const getSimpleTextProp = (title: string): StellioTemplateProp => {
         jsonSchema: {
             type: 'Property',
             value: {
+                ...rest,
                 schemaType: 'string',
-                title: title,
-                order: order,
+                title,
+                order,
             },
         },
     };
 };
 
-export const getEnumProp = (title: string, enumValues: string[]): StellioTemplateProp => {
+export const getEnumProp = (title: string, enumValues: string[], allowMultiple = false): StellioTemplateProp => {
     order++;
     return {
         type: 'Property',
@@ -30,6 +32,7 @@ export const getEnumProp = (title: string, enumValues: string[]): StellioTemplat
                 enum: enumValues,
                 title: title,
                 order: order,
+                allowMultiple,
             },
         },
     };
@@ -69,7 +72,13 @@ export const getBooleanProp = (title: string): StellioTemplateProp => {
     };
 };
 
-export const getDateProp = (title: string): StellioTemplateProp => {
+export const getDateProp = ({
+    title,
+    dateMode = 'date',
+}: {
+    title: string;
+    dateMode?: JsonSchema['dateMode'];
+}): StellioTemplateProp => {
     order++;
     return {
         type: 'Property',
@@ -80,6 +89,7 @@ export const getDateProp = (title: string): StellioTemplateProp => {
                 schemaType: 'date',
                 title: title,
                 order: order,
+                dateMode,
             },
         },
     };

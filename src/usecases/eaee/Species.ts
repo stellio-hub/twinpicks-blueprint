@@ -32,27 +32,27 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Affichage sur site de l'ARBE"),
     },
     datePremierePublication: {
-        ...getDateProp('Date de première publication'),
+        ...getDateProp({ title: 'Date de première publication' }),
         classification: getClassificationJsonProp(Structures.ficheEspece),
         displayName: getDisplayNameProp('Date de première publication'),
     },
     version: {
-        ...getSimpleTextProp('Version'),
+        ...getSimpleTextProp({ title: 'Version' }),
         classification: getClassificationJsonProp(Structures.ficheEspece),
         displayName: getDisplayNameProp('Version'),
     },
     dateDerniereMiseAJour: {
-        ...getDateProp('Date de dernière mise à jour'),
+        ...getDateProp({ title: 'Date de dernière mise à jour' }),
         classification: getClassificationJsonProp(Structures.ficheEspece),
         displayName: getDisplayNameProp('Date de dernière mise à jour'),
     },
     auteur: {
-        ...getSimpleTextProp('Auteur'),
+        ...getSimpleTextProp({ title: 'Auteur' }),
         classification: getClassificationJsonProp(Structures.ficheEspece),
         displayName: getDisplayNameProp('Auteur'),
     },
     relecteur: {
-        ...getSimpleTextProp('Relecteur(s)'),
+        ...getSimpleTextProp({ title: 'Relecteur(s)' }),
         classification: getClassificationJsonProp(Structures.ficheEspece),
         displayName: getDisplayNameProp('Relecteur(s)'),
     },
@@ -80,27 +80,27 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Liste'),
     },
     ordre: {
-        ...getSimpleTextProp('Ordre'),
+        ...getSimpleTextProp({ title: 'Ordre' }),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Ordre'),
     },
     famille: {
-        ...getSimpleTextProp('Famille'),
+        ...getSimpleTextProp({ title: 'Famille' }),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Famille'),
     },
     cdRef: {
-        ...getIntegerProp('Code de référence'),
+        ...getIntegerProp('Code de référence', 0, 999999),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('CD Ref'),
     },
     nomValide: {
-        ...getSimpleTextProp('Nom valide'),
+        ...getSimpleTextProp({ title: 'Nom valide' }),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Nom valide'),
     },
     nomVernaculaire: {
-        ...getSimpleTextProp('Nom vernaculaire'),
+        ...getSimpleTextProp({ title: 'Nom vernaculaire' }),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Nom vernaculaire'),
     },
@@ -110,7 +110,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Rang'),
     },
     hybride: {
-        ...getSimpleTextProp('Hybride'),
+        ...getSimpleTextProp({ title: 'Hybride' }),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Hybride'),
     },
@@ -128,7 +128,7 @@ export const SpeciesTemplate: StellioTemplate = {
 
     // #region PRESENCE / ABSENCE
     source: {
-        ...getSimpleTextProp('Source'),
+        ...getSimpleTextProp({ title: 'Source' }),
         classification: getClassificationJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('Source'),
     },
@@ -168,7 +168,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('84'),
     },
     remarquesPresenceAbsence: {
-        ...getSimpleTextProp('Remarques sur la présence/absence'),
+        ...getSimpleTextProp({ title: 'Remarques sur la présence/absence' }),
         classification: getClassificationJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('Remarques'),
     },
@@ -181,12 +181,12 @@ export const SpeciesTemplate: StellioTemplate = {
 
     // #region INDIGENAT
     statutPresenceREG: {
-        ...getSimpleTextProp('Statut de présence REG'),
+        ...getSimpleTextProp({ title: 'Statut de présence REG' }),
         classification: getClassificationJsonProp(Structures.indigenat),
         displayName: getDisplayNameProp('Statut présence REG'),
     },
     statutBiologique: {
-        ...getSimpleTextProp('Statut biologique'),
+        ...getSimpleTextProp({ title: 'Statut biologique' }),
         classification: getClassificationJsonProp(Structures.indigenat),
         displayName: getDisplayNameProp('Statut biologique'),
     },
@@ -201,37 +201,37 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Catégorie'),
     },
     sourceIndigenat: {
-        ...getSimpleTextProp('Source indigénat'),
+        ...getSimpleTextProp({ title: 'Source indigénat' }),
         classification: getClassificationJsonProp(Structures.indigenat),
         displayName: getDisplayNameProp('Source indigénat'),
     },
     periodeEtLieuDIntroduction: {
-        ...getSimpleTextProp("Période et lieu d'introduction (France et région)"),
+        ...getSimpleTextProp({ title: "Période et lieu d'introduction (France et région)" }),
         classification: getClassificationJsonProp(Structures.indigenat),
         displayName: getDisplayNameProp("Période et lieu d'introduction (France et région)"),
     },
     sourcePeriodeEtLieuDIntroduction: {
-        ...getSimpleTextProp("Source période et lieu d'introduction (France et région)"),
+        ...getSimpleTextProp({ title: "Source période et lieu d'introduction (France et région)" }),
         classification: getClassificationJsonProp(Structures.indigenat),
         displayName: getDisplayNameProp("Source période et lieu d'introduction (France et région)"),
     },
     aireDorigine: {
-        ...getSimpleTextProp("Aire d'origine"),
+        ...getSimpleTextProp({ title: "Aire d'origine" }),
         classification: getClassificationJsonProp(Structures.indigenat),
         displayName: getDisplayNameProp("Aire d'origine"),
     },
     sourceAireDorigine: {
-        ...getSimpleTextProp("Source aire d'origine"),
+        ...getSimpleTextProp({ title: "Source aire d'origine" }),
         classification: getClassificationJsonProp(Structures.indigenat),
         displayName: getDisplayNameProp("Source aire d'origine"),
     },
     datePremiereEntreeSileneRegionSud: {
-        ...getDateProp('Date de la première entrée Silène en région Sud'),
+        ...getDateProp({ title: 'Date de la première entrée Silène en région Sud' }),
         classification: getClassificationJsonProp(Structures.indigenat),
         displayName: getDisplayNameProp('Date première entrée Silène région Sud'),
     },
     remarquesIndigenat: {
-        ...getSimpleTextProp("Remarques sur l'indigénat"),
+        ...getSimpleTextProp({ title: "Remarques sur l'indigénat" }),
         classification: getClassificationJsonProp(Structures.indigenat),
         displayName: getDisplayNameProp('Remarques'),
     },
@@ -250,7 +250,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Spontanéité'),
     },
     sourceSpontaneite: {
-        ...getSimpleTextProp('Source spontanéité'),
+        ...getSimpleTextProp({ title: 'Source spontanéité' }),
         classification: getClassificationJsonProp(Structures.autonomie),
         displayName: getDisplayNameProp('Source spontanéité'),
     },
@@ -268,12 +268,12 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Autonomie'),
     },
     sourceAutonomie: {
-        ...getSimpleTextProp('Source autonomie'),
+        ...getSimpleTextProp({ title: 'Source autonomie' }),
         classification: getClassificationJsonProp(Structures.autonomie),
         displayName: getDisplayNameProp('Source autonomie'),
     },
     remarquesAutonomie: {
-        ...getSimpleTextProp("Remarques sur l'autonomie"),
+        ...getSimpleTextProp({ title: "Remarques sur l'autonomie" }),
         classification: getClassificationJsonProp(Structures.autonomie),
         displayName: getDisplayNameProp('Remarques'),
     },
@@ -324,7 +324,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Statut biogéographique en France'),
     },
     interditDintroduction: {
-        ...getSimpleTextProp("Interdit d'introduction"),
+        ...getSimpleTextProp({ title: "Interdit d'introduction" }),
         classification: getClassificationJsonProp(Structures.informationsSupplementaires),
         displayName: getDisplayNameProp("Interdit d'introduction"),
     },
@@ -334,32 +334,32 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Arrêté ministériel'),
     },
     listeOccitanie: {
-        ...getSimpleTextProp("Liste d'Occitanie"),
+        ...getSimpleTextProp({ title: "Liste d'Occitanie" }),
         classification: getClassificationJsonProp(Structures.informationsSupplementaires),
         displayName: getDisplayNameProp('Liste Occitanie'),
     },
     auvergneRhoneAlpes: {
-        ...getSimpleTextProp('Auvergne-Rhône-Alpes'),
+        ...getSimpleTextProp({ title: 'Auvergne-Rhône-Alpes' }),
         classification: getClassificationJsonProp(Structures.informationsSupplementaires),
         displayName: getDisplayNameProp('Auvergne-Rhône-Alpes'),
     },
     italieRegionsLimitrophes: {
-        ...getSimpleTextProp('Italie - Régions limitrophes'),
+        ...getSimpleTextProp({ title: 'Italie - Régions limitrophes' }),
         classification: getClassificationJsonProp(Structures.informationsSupplementaires),
         displayName: getDisplayNameProp('Italie - Régions limitrophes'),
     },
     lienCentreDeRessource: {
-        ...getSimpleTextProp('Lien vers centre de ressource'),
+        ...getSimpleTextProp({ title: 'Lien vers centre de ressource' }),
         classification: getClassificationJsonProp(Structures.informationsSupplementaires),
         displayName: getDisplayNameProp('Lien centre de ressource'),
     },
     lienINPN: {
-        ...getSimpleTextProp('Lien vers INPN'),
+        ...getSimpleTextProp({ title: 'Lien vers INPN' }),
         classification: getClassificationJsonProp(Structures.informationsSupplementaires),
         displayName: getDisplayNameProp('Lien INPN'),
     },
     complementsInfo: {
-        ...getSimpleTextProp("Compléments d'information"),
+        ...getSimpleTextProp({ title: "Compléments d'information" }),
         classification: getClassificationJsonProp(Structures.informationsSupplementaires),
         displayName: getDisplayNameProp("Compléments d'information"),
     },
@@ -383,7 +383,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
     commentairesPotentielDeProliferation: {
-        ...getSimpleTextProp('Commentaires sur le potentiel de prolifération'),
+        ...getSimpleTextProp({ title: 'Commentaires sur le potentiel de prolifération' }),
         classification: getClassificationJsonProp(Structures.potentielDeProliferation),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -399,7 +399,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
     commentairesColonisationHabitatsNaturels: {
-        ...getSimpleTextProp('Commentaires sur la colonisation des habitats naturels'),
+        ...getSimpleTextProp({ title: 'Commentaires sur la colonisation des habitats naturels' }),
         classification: getClassificationJsonProp(Structures.colonisationHabitatsNaturels),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -415,7 +415,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
     commentairesPredation: {
-        ...getSimpleTextProp('Commentaires sur la prédation'),
+        ...getSimpleTextProp({ title: 'Commentaires sur la prédation' }),
         classification: getClassificationJsonProp(Structures.predation),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -431,7 +431,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
     commentairesCompetition: {
-        ...getSimpleTextProp('Commentaires sur la compétition'),
+        ...getSimpleTextProp({ title: 'Commentaires sur la compétition' }),
         classification: getClassificationJsonProp(Structures.competition),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -447,7 +447,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
     commentairesMaladies: {
-        ...getSimpleTextProp('Commentaires sur les maladies'),
+        ...getSimpleTextProp({ title: 'Commentaires sur les maladies' }),
         classification: getClassificationJsonProp(Structures.maladies),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -463,7 +463,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
     commentairesHybridation: {
-        ...getSimpleTextProp("Commentaires sur l'hybridation"),
+        ...getSimpleTextProp({ title: "Commentaires sur l'hybridation" }),
         classification: getClassificationJsonProp(Structures.hybridation),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -479,7 +479,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
     commentairesCyclesNaturels: {
-        ...getSimpleTextProp('Commentaires sur les cycles naturels'),
+        ...getSimpleTextProp({ title: 'Commentaires sur les cycles naturels' }),
         classification: getClassificationJsonProp(Structures.cyclesNaturels),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -495,7 +495,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
     commentairesAlterationsPhysiques: {
-        ...getSimpleTextProp('Commentaires sur alterations physiques'),
+        ...getSimpleTextProp({ title: 'Commentaires sur alterations physiques' }),
         classification: getClassificationJsonProp(Structures.alterationsPhysiques),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -511,7 +511,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
     commentairesSuccessionEcologiques: {
-        ...getSimpleTextProp('Commentaires sur succession écologiques'),
+        ...getSimpleTextProp({ title: 'Commentaires sur succession écologiques' }),
         classification: getClassificationJsonProp(Structures.successionEcologiques),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -527,7 +527,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
     commentairesReseauxTrophiques: {
-        ...getSimpleTextProp('Commentaires sur réseaux trophiques'),
+        ...getSimpleTextProp({ title: 'Commentaires sur réseaux trophiques' }),
         classification: getClassificationJsonProp(Structures.reseauxTrophiques),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -543,7 +543,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Impacts documentés'),
     },
     intensiteImpactsNegatifsEnvironnement: {
-        ...getSimpleTextProp("Intensité des impacts négatifs sur l'environnement"),
+        ...getSimpleTextProp({ title: "Intensité des impacts négatifs sur l'environnement" }),
         classification: getClassificationJsonProp(Structures.analyseIntensiteImpactsEnvironnementaux),
         displayName: getDisplayNameProp("Intensité des impacts négatifs sur l'environnement"),
     },
@@ -562,7 +562,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
     commentairesImpactsSurEconomie: {
-        ...getSimpleTextProp("Commentaires sur impacts sur l'économie"),
+        ...getSimpleTextProp({ title: "Commentaires sur impacts sur l'économie" }),
         classification: getClassificationJsonProp(Structures.impactsSurEconomie),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -578,7 +578,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
     commentairesImpactsSanitaires: {
-        ...getSimpleTextProp('Commentaires sur impacts sanitaires'),
+        ...getSimpleTextProp({ title: 'Commentaires sur impacts sanitaires' }),
         classification: getClassificationJsonProp(Structures.impactsSanitaires),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -594,7 +594,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
     commentairesAgriculture: {
-        ...getSimpleTextProp('Commentaires sur agriculture'),
+        ...getSimpleTextProp({ title: 'Commentaires sur agriculture' }),
         classification: getClassificationJsonProp(Structures.agriculture),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -610,7 +610,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
     commentairesForesterie: {
-        ...getSimpleTextProp('Commentaires sur foresterie'),
+        ...getSimpleTextProp({ title: 'Commentaires sur foresterie' }),
         classification: getClassificationJsonProp(Structures.foresterie),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -626,7 +626,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
     commentairesAquaculture: {
-        ...getSimpleTextProp('Commentaires sur aquaculture'),
+        ...getSimpleTextProp({ title: 'Commentaires sur aquaculture' }),
         classification: getClassificationJsonProp(Structures.aquaculture),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -642,7 +642,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
     commentairesIndustrie: {
-        ...getSimpleTextProp('Commentaires sur industrie'),
+        ...getSimpleTextProp({ title: 'Commentaires sur industrie' }),
         classification: getClassificationJsonProp(Structures.industrie),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -658,7 +658,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
     commentairesPatrimoine: {
-        ...getSimpleTextProp('Commentaires sur patrimoine'),
+        ...getSimpleTextProp({ title: 'Commentaires sur patrimoine' }),
         classification: getClassificationJsonProp(Structures.patrimoine),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -674,7 +674,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
     commentairesSecurite: {
-        ...getSimpleTextProp('Commentaires sur sécurité'),
+        ...getSimpleTextProp({ title: 'Commentaires sur sécurité' }),
         classification: getClassificationJsonProp(Structures.securite),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -690,7 +690,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
     commentairesLoisirs: {
-        ...getSimpleTextProp('Commentaires sur loisirs'),
+        ...getSimpleTextProp({ title: 'Commentaires sur loisirs' }),
         classification: getClassificationJsonProp(Structures.loisirs),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -706,7 +706,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
     commentairesAmenites: {
-        ...getSimpleTextProp('Commentaires sur aménities'),
+        ...getSimpleTextProp({ title: 'Commentaires sur aménities' }),
         classification: getClassificationJsonProp(Structures.amenites),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -737,7 +737,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Probabilité'),
     },
     commentairesIntroductionVolontaire: {
-        ...getSimpleTextProp("Commentaires sur l'introduction volontaire"),
+        ...getSimpleTextProp({ title: "Commentaires sur l'introduction volontaire" }),
         classification: getClassificationJsonProp(Structures.introductionVolontaire),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -748,7 +748,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Probabilité'),
     },
     commentairesIntroductionInvolontaire: {
-        ...getSimpleTextProp("Commentaires sur l'introduction involontaire"),
+        ...getSimpleTextProp({ title: "Commentaires sur l'introduction involontaire" }),
         classification: getClassificationJsonProp(Structures.introductionInvolontaire),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -759,7 +759,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Limitrophe'),
     },
     commentairesLimitrophe: {
-        ...getSimpleTextProp('Commentaires sur la limitrophe'),
+        ...getSimpleTextProp({ title: 'Commentaires sur la limitrophe' }),
         classification: getClassificationJsonProp(Structures.limitrophe),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -779,7 +779,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Score'),
     },
     commentairesDistributionSpatiale: {
-        ...getSimpleTextProp('Commentaires sur distribution spatiale'),
+        ...getSimpleTextProp({ title: 'Commentaires sur distribution spatiale' }),
         classification: getClassificationJsonProp(Structures.distributionSpatiale),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -796,7 +796,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Score'),
     },
     commentairesCoefficientDabondance: {
-        ...getSimpleTextProp("Commentaires sur coefficient d'abondance"),
+        ...getSimpleTextProp({ title: "Commentaires sur coefficient d'abondance" }),
         classification: getClassificationJsonProp(Structures.coefficientDabondance),
         displayName: getDisplayNameProp('Commentaires'),
     },
@@ -804,23 +804,23 @@ export const SpeciesTemplate: StellioTemplate = {
 
     // #region ANALYSE FINALE
     impactsIrreversibles: {
-        ...getSimpleTextProp('Impacts irréversibles'),
+        ...getSimpleTextProp({ title: 'Impacts irréversibles' }),
         classification: getClassificationJsonProp(Structures.analyseFinale),
         displayName: getDisplayNameProp('Impacts irréversibles'),
     },
     analyseDesRisquesDesTaxonsEvalues: {
-        ...getSimpleTextProp('Analyse des risques des taxons évalués'),
+        ...getSimpleTextProp({ title: 'Analyse des risques des taxons évalués' }),
         classification: getClassificationJsonProp(Structures.analyseFinale),
         displayName: getDisplayNameProp('Analyse des risques des taxons évalués'),
     },
     consequence: {
-        ...getSimpleTextProp('Conséquence'),
+        ...getSimpleTextProp({ title: 'Conséquence' }),
         classification: getClassificationJsonProp(Structures.analyseFinale),
         displayName: getDisplayNameProp('Conséquence'),
     },
 
     categorieFinale: {
-        ...getSimpleTextProp('Catégorie'),
+        ...getSimpleTextProp({ title: 'Catégorie' }),
         classification: getClassificationJsonProp(Structures.analyseFinale),
         displayName: getDisplayNameProp('Catégorie'),
     },

@@ -5,7 +5,7 @@ export const WaterTreatmentPlantTemplate: StellioTemplate = {
     id: 'urn:ngsi-ld:WaterTreatmentPlant:Template',
     type: 'Template',
     name: {
-        ...getSimpleTextProp('Name of the water treatment plant'),
+        ...getSimpleTextProp({ title: 'Name of the water treatment plant' }),
     },
     location: {
         ...getGeoPropertyProp('Location of the water treatment plant', 'Point'),

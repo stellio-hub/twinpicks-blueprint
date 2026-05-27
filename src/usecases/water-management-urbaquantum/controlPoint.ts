@@ -5,7 +5,7 @@ export const ControlPointTemplate: StellioTemplate = {
     id: 'urn:ngsi-ld:ControlPoint:Template',
     type: 'Template',
     name: {
-        ...getSimpleTextProp('Name of the control point'),
+        ...getSimpleTextProp({ title: 'Name of the control point' }),
     },
     location: {
         ...getGeoPropertyProp('Location of the control point', 'Point'),

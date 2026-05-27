@@ -98,6 +98,7 @@ export interface JsonSchema {
      *  Can be: "json", allow to input raw json
      *  Can be: "array" for multiproperty attributes; "object" for Geo properties
      *  Can be: "date" for a date picking input
+     *  Can be: "boolean" for a boolean picking input
      */
     schemaType: string;
     /**
@@ -154,4 +155,15 @@ export interface JsonSchema {
      * At the property level: used to order input fields in Twin Picks from top to bottom (1, 2 , 3, ...)
      */
     order?: number;
+    /**
+     * At the entity level: has no effects \
+     * At the property level: for schemaType "enum" only, if true, the property can have multiple values -- false by default
+     */
+    allowMultiple?: boolean;
+    /**
+     * At the entity level: has no effects \
+     * At the property level: for schemaType "date" only, set the date mode
+     *  "date" by default, "time" to display the date as a time picker
+     */
+    dateMode?: 'time' | 'date';
 }

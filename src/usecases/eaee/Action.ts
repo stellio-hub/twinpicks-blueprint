@@ -26,62 +26,62 @@ export const ActionTemplate: StellioTemplate = {
 
     // #region GENERALITES
     name: {
-        ...getSimpleTextProp("Nom de l'action"),
+        ...getSimpleTextProp({ title: "Nom de l'action" }),
         classification: getClassificationJsonProp(Structures.generalites),
         displayName: getDisplayNameProp("Nom de l'action"),
     },
     objectifsDeLaction: {
-        ...getSimpleTextProp("Objectifs de l'action"),
+        ...getSimpleTextProp({ title: "Objectifs de l'action" }),
         classification: getClassificationJsonProp(Structures.generalites),
         displayName: getDisplayNameProp("Objectifs de l'action"),
     },
     description: {
-        ...getSimpleTextProp("Description de l'action"),
+        ...getSimpleTextProp({ title: "Description de l'action" }),
         classification: getClassificationJsonProp(Structures.generalites),
         displayName: getDisplayNameProp("Description de l'action"),
     },
     dateDebut: {
-        ...getDateProp('Date de début'),
+        ...getDateProp({ title: 'Date de début' }),
         classification: getClassificationJsonProp(Structures.generalites),
         displayName: getDisplayNameProp('Date de début'),
     },
     dateFin: {
-        ...getDateProp('Date de fin'),
+        ...getDateProp({ title: 'Date de fin' }),
         classification: getClassificationJsonProp(Structures.generalites),
         displayName: getDisplayNameProp('Date de fin'),
     },
     descriptionDetailleeDeLintervention: {
-        ...getSimpleTextProp("Description détaillée de l'intervention"),
+        ...getSimpleTextProp({ title: "Description détaillée de l'intervention" }),
         classification: getClassificationJsonProp(Structures.generalites),
         displayName: getDisplayNameProp("Description détaillée de l'intervention"),
     },
     concertationAvecAutresActeursEtPartenaires: {
-        ...getSimpleTextProp("Concertation avec d'autres acteurs et partenaires"),
+        ...getSimpleTextProp({ title: "Concertation avec d'autres acteurs et partenaires" }),
         classification: getClassificationJsonProp(Structures.generalites),
         displayName: getDisplayNameProp("Concertation avec d'autres acteurs et partenaires"),
     },
     tempsAgentParMissionsEnHommeJour: {
-        ...getSimpleTextProp('Temps agent par missions en homme/jour'),
+        ...getSimpleTextProp({ title: 'Temps agent par missions en homme/jour' }),
         classification: getClassificationJsonProp(Structures.generalites),
         displayName: getDisplayNameProp('Temps agent par missions en homme/jour'),
     },
     financeurDeLoperation: {
-        ...getSimpleTextProp("Financeur de l'opération"),
+        ...getSimpleTextProp({ title: "Financeur de l'opération" }),
         classification: getClassificationJsonProp(Structures.generalites),
         displayName: getDisplayNameProp("Financeur de l'opération"),
     },
     coutDeLoperation: {
-        ...getSimpleTextProp("Coût(s) de l'opération"),
+        ...getSimpleTextProp({ title: "Coût(s) de l'opération" }),
         classification: getClassificationJsonProp(Structures.generalites),
         displayName: getDisplayNameProp("Coût(s) de l'opération"),
     },
     indicateurDeSuiviDeLactionDansLeTemps: {
-        ...getSimpleTextProp("Indicateur(s) de suivi de l'action dans le temps"),
+        ...getSimpleTextProp({ title: "Indicateur(s) de suivi de l'action dans le temps" }),
         classification: getClassificationJsonProp(Structures.generalites),
         displayName: getDisplayNameProp("Indicateur(s) de suivi de l'action dans le temps"),
     },
     detailDuOuDesSuivis: {
-        ...getSimpleTextProp('Détail du ou des suivis'),
+        ...getSimpleTextProp({ title: 'Détail du ou des suivis' }),
         classification: getClassificationJsonProp(Structures.generalites),
         displayName: getDisplayNameProp('Détail du ou des suivis'),
     },
@@ -89,7 +89,7 @@ export const ActionTemplate: StellioTemplate = {
 
     // #region PORTEURS DE PROJET
     nomStructurePilote: {
-        ...getSimpleTextProp('Nom de la structure pilote'),
+        ...getSimpleTextProp({ title: 'Nom de la structure pilote' }),
         classification: getClassificationJsonProp(Structures.structurePilote),
         displayName: getDisplayNameProp('Nom'),
     },
@@ -107,48 +107,48 @@ export const ActionTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Type'),
     },
     missionPrincipaleDeLaStructurePilote: {
-        ...getSimpleTextProp('Mission principale de la structure pilote'),
+        ...getSimpleTextProp({ title: 'Mission principale de la structure pilote' }),
         classification: getClassificationJsonProp(Structures.structurePilote),
         displayName: getDisplayNameProp('Mission principale'),
     },
     territoireDintervention: {
-        ...getSimpleTextProp("Territoire d'intervention de la structure pilote"),
+        ...getSimpleTextProp({ title: "Territoire d'intervention de la structure pilote" }),
         classification: getClassificationJsonProp(Structures.structurePilote),
         displayName: getDisplayNameProp("Territoire d'intervention"),
     },
     siteInternetDeLaStructurePilote: {
-        ...getSimpleTextProp('Site internet de la structure pilote'),
+        ...getSimpleTextProp({ title: 'Site internet de la structure pilote' }),
         classification: getClassificationJsonProp(Structures.structurePilote),
         displayName: getDisplayNameProp('Site internet'),
     },
 
     nomPersonneReferenteDeLaction: {
-        ...getSimpleTextProp("Nom de la personne référente de l'action"),
+        ...getSimpleTextProp({ title: "Nom de la personne référente de l'action" }),
         classification: getClassificationJsonProp(Structures.personneReferente),
         displayName: getDisplayNameProp('Nom'),
     },
     prenomPersonneReferenteDeLaction: {
-        ...getSimpleTextProp("Prénom de la personne référente de l'action"),
+        ...getSimpleTextProp({ title: "Prénom de la personne référente de l'action" }),
         classification: getClassificationJsonProp(Structures.personneReferente),
         displayName: getDisplayNameProp('Prénom'),
     },
     structurePersonneReferenteDeLaction: {
-        ...getSimpleTextProp("Structure de la personne référente de l'action"),
+        ...getSimpleTextProp({ title: "Structure de la personne référente de l'action" }),
         classification: getClassificationJsonProp(Structures.personneReferente),
         displayName: getDisplayNameProp('Structure'),
     },
     fonctionPersonneReferenteDeLaction: {
-        ...getSimpleTextProp("Fonction de la personne référente de l'action"),
+        ...getSimpleTextProp({ title: "Fonction de la personne référente de l'action" }),
         classification: getClassificationJsonProp(Structures.personneReferente),
         displayName: getDisplayNameProp('Fonction'),
     },
     email: {
-        ...getSimpleTextProp("Email de la personne référente de l'action"),
+        ...getSimpleTextProp({ title: "Email de la personne référente de l'action" }),
         classification: getClassificationJsonProp(Structures.personneReferente),
         displayName: getDisplayNameProp('Email'),
     },
     telephonePersonneReferenteDeLaction: {
-        ...getSimpleTextProp("Téléphone de la personne référente de l'action"),
+        ...getSimpleTextProp({ title: "Téléphone de la personne référente de l'action" }),
         classification: getClassificationJsonProp(Structures.personneReferente),
         displayName: getDisplayNameProp('Téléphone'),
     },
@@ -190,17 +190,17 @@ export const ActionTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Département d'intervention"),
     },
     commune: {
-        ...getSimpleTextProp('Service(s) de la collectivité associé(s)'),
+        ...getSimpleTextProp({ title: 'Service(s) de la collectivité associé(s)' }),
         classification: getClassificationJsonProp(Structures.lieuDeLaction),
         displayName: getDisplayNameProp('Service(s) de la collectivité associé(s)'),
     },
     nomDuSite: {
-        ...getSimpleTextProp('Nom du site'),
+        ...getSimpleTextProp({ title: 'Nom du site' }),
         classification: getClassificationJsonProp(Structures.lieuDeLaction),
         displayName: getDisplayNameProp('Nom du site'),
     },
     descriptionDuSite: {
-        ...getSimpleTextProp('Description du site'),
+        ...getSimpleTextProp({ title: 'Description du site' }),
         classification: getClassificationJsonProp(Structures.lieuDeLaction),
         displayName: getDisplayNameProp('Description du site'),
     },
@@ -362,7 +362,7 @@ export const ActionTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Autre'),
     },
     communicationLienVersRessources: {
-        ...getSimpleTextProp('Lien vers les ressources'),
+        ...getSimpleTextProp({ title: 'Lien vers les ressources' }),
         classification: getClassificationJsonProp(Structures.communication),
         displayName: getDisplayNameProp('Lien vers les ressources'),
     },
@@ -370,42 +370,42 @@ export const ActionTemplate: StellioTemplate = {
 
     // #region RESULTATS ET BILAN
     resultats: {
-        ...getSimpleTextProp('Résultats'),
+        ...getSimpleTextProp({ title: 'Résultats' }),
         classification: getClassificationJsonProp(Structures.resultatEtBilan),
         displayName: getDisplayNameProp('Résultats'),
     },
     bilan: {
-        ...getSimpleTextProp('Bilan'),
+        ...getSimpleTextProp({ title: 'Bilan' }),
         classification: getClassificationJsonProp(Structures.resultatEtBilan),
         displayName: getDisplayNameProp('Bilan'),
     },
     valorisationDesActions: {
-        ...getSimpleTextProp('Valorisation des actions'),
+        ...getSimpleTextProp({ title: 'Valorisation des actions' }),
         classification: getClassificationJsonProp(Structures.resultatEtBilan),
         displayName: getDisplayNameProp('Valorisation des actions'),
     },
     productionAssociée: {
-        ...getSimpleTextProp('Production(s) associée(s)'),
+        ...getSimpleTextProp({ title: 'Production(s) associée(s)' }),
         classification: getClassificationJsonProp(Structures.resultatEtBilan),
         displayName: getDisplayNameProp('Production(s) associée(s)'),
     },
     pointsDeVigilances: {
-        ...getSimpleTextProp('Points de vigilances'),
+        ...getSimpleTextProp({ title: 'Points de vigilances' }),
         classification: getClassificationJsonProp(Structures.resultatEtBilan),
         displayName: getDisplayNameProp('Points de vigilances'),
     },
     enseignementDuProjet: {
-        ...getSimpleTextProp('Enseignement du projet'),
+        ...getSimpleTextProp({ title: 'Enseignement du projet' }),
         classification: getClassificationJsonProp(Structures.resultatEtBilan),
         displayName: getDisplayNameProp('Enseignement du projet'),
     },
     perspectives: {
-        ...getSimpleTextProp('Perspectives'),
+        ...getSimpleTextProp({ title: 'Perspectives' }),
         classification: getClassificationJsonProp(Structures.resultatEtBilan),
         displayName: getDisplayNameProp('Perspectives'),
     },
     réglementation: {
-        ...getSimpleTextProp('Réglementation'),
+        ...getSimpleTextProp({ title: 'Réglementation' }),
         classification: getClassificationJsonProp(Structures.resultatEtBilan),
         displayName: getDisplayNameProp('Réglementation'),
     },
@@ -418,27 +418,27 @@ export const ActionTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Autorisation de publication sur le site de l'ARBE"),
     },
     dateRedaction: {
-        ...getDateProp('Date rédaction'),
+        ...getDateProp({ title: 'Date rédaction' }),
         classification: getClassificationJsonProp(Structures.ficheRex),
         displayName: getDisplayNameProp('Date rédaction'),
     },
     nomRedacteur: {
-        ...getSimpleTextProp('Nom(s) rédacteur(s)'),
+        ...getSimpleTextProp({ title: 'Nom(s) rédacteur(s)' }),
         classification: getClassificationJsonProp(Structures.ficheRex),
         displayName: getDisplayNameProp('Nom(s) rédacteur(s)'),
     },
     nomRelecteur: {
-        ...getSimpleTextProp('Nom(s) relecteur'),
+        ...getSimpleTextProp({ title: 'Nom(s) relecteur' }),
         classification: getClassificationJsonProp(Structures.ficheRex),
         displayName: getDisplayNameProp('Nom(s) relecteur'),
     },
     fichePublieeSurLeSiteDeLARBE: {
-        ...getSimpleTextProp("Fiche publiée sur le site de l'ARBE"),
+        ...getSimpleTextProp({ title: "Fiche publiée sur le site de l'ARBE" }),
         classification: getClassificationJsonProp(Structures.ficheRex),
         displayName: getDisplayNameProp("Fiche publiée sur le site de l'ARBE"),
     },
     datePublication: {
-        ...getDateProp('Date publication'),
+        ...getDateProp({ title: 'Date publication' }),
         classification: getClassificationJsonProp(Structures.ficheRex),
         displayName: getDisplayNameProp('Date publication'),
     },

@@ -5,7 +5,7 @@ export const SamplingPointTemplate: StellioTemplate = {
     id: 'urn:ngsi-ld:SamplingPoint:Template',
     type: 'Template',
     name: {
-        ...getSimpleTextProp('Name of the sampling point'),
+        ...getSimpleTextProp({ title: 'Name of the sampling point' }),
     },
     location: {
         ...getGeoPropertyProp('Location of the sampling point', 'Point'),
