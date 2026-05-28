@@ -511,7 +511,7 @@
         },
         "startTime": {
             "type": "Property",
-            "value": "2026-05-28T09:45:04.855Z",
+            "value": "2026-05-28T11:28:27.936Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
@@ -548,8 +548,7 @@
                         "Jours spécifiques"
                     ],
                     "title": "Mode d'activation des jours",
-                    "order": 4,
-                    "allowMultiple": false
+                    "order": 4
                 }
             }
         },
@@ -570,8 +569,7 @@
                         "Dimanche"
                     ],
                     "title": "Jour de démarrage de la règle tous les 2 jours",
-                    "order": 5,
-                    "allowMultiple": false
+                    "order": 5
                 }
             }
         },
@@ -592,8 +590,7 @@
                         "Dimanche"
                     ],
                     "title": "Jours d'activation spécifiques",
-                    "order": 6,
-                    "allowMultiple": true
+                    "order": 6
                 }
             }
         },
@@ -618,7 +615,8 @@
                 "type": "Property",
                 "value": {
                     "schemaType": "string",
-                    "canSelfInit": true
+                    "canSelfInit": true,
+                    "friendlyAttributeName": "Fréquence de répétition"
                 }
             }
         },
@@ -684,7 +682,7 @@
                     ],
                     "title": "Statut de la règle (pour ancien Econom'O, choisir 'documentationOnly')",
                     "order": 11,
-                    "allowMultiple": false
+                    "friendlyAttributeName": "Statut de la règle"
                 }
             }
         }

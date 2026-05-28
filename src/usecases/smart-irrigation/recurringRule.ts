@@ -52,16 +52,7 @@ export const RecurringRuleTemplate: StellioTemplate = {
     specificActivationWeekDays: {
         ...getEnumProp({
             title: "Jours d'activation spécifiques",
-            enum: [
-                "Jours d'activation spécifiques",
-                'Lundi',
-                'Mardi',
-                'Mercredi',
-                'Jeudi',
-                'Vendredi',
-                'Samedi',
-                'Dimanche',
-            ],
+            enum: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
         }),
     },
 
