@@ -5,19 +5,22 @@ export const SamplingPointTemplate: StellioTemplate = {
     id: 'urn:ngsi-ld:SamplingPoint:Template',
     type: 'Template',
     name: {
-        ...getSimpleTextProp('Name of the sampling point'),
+        ...getSimpleTextProp({ title: 'Name of the sampling point' }),
     },
     location: {
         ...getGeoPropertyProp('Location of the sampling point', 'Point'),
     },
     source: {
-        ...getEnumProp('Source of the sampling point', ['sensor', 'lab', 'citizen']),
+        ...getEnumProp({ title: 'Source of the sampling point', enum: ['sensor', 'lab', 'citizen'] }),
     },
     sampleVolume: {
-        ...getIntegerProp('Sample volume of the sampling point'),
+        ...getIntegerProp({ title: 'Sample volume of the sampling point' }),
     },
     usage: {
-        ...getEnumProp('Usage of the sampling point', ['drinking', 'agricultural', 'industrial', 'unknown', 'other']),
+        ...getEnumProp({
+            title: 'Usage of the sampling point',
+            enum: ['drinking', 'agricultural', 'industrial', 'unknown', 'other'],
+        }),
     },
     jsonSchema: {
         type: 'Property',

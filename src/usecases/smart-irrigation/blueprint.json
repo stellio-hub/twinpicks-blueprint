@@ -1,1 +1,690 @@
-[{"id":"urn:ngsi-ld:Field:Template","type":"Template","name":{"type":"Property","value":"Placeholder","jsonSchema":{"type":"Property","value":{"schemaType":"string","title":"Nom de la zone d'opération","friendlyAttributeName":"Nom"}}},"jsonSchema":{"type":"Property","value":{"schemaType":"Field","title":"Zone d'opération","minimum":1,"required":["name"],"description":"Une zone de plus haut niveau dans la gestion de l'irrigation. Peut-être typiquement le niveau de la ville, d'un service ou d'un quartier. La hiérarchie des zones est : Zone d'opération > Zone d'irrigation > Zone de gestion"}}},{"id":"urn:ngsi-ld:IrrigationArea:Template","type":"Template","jsonSchema":{"type":"Property","value":{"schemaType":"IrrigationArea","title":"Zone d'irrigation","minimum":1,"required":["name","belongsTo","location","hasWeatherForecasted"],"description":"Représentation géographique de taille intermédiaire qui regroupe en générale plusieurs petites zones controllées (ou zones en gestion)"}},"name":{"type":"Property","value":"Placeholder","jsonSchema":{"type":"Property","value":{"schemaType":"string","title":"Nom de la zone d'irrigation","friendlyAttributeName":"Nom"}}},"zoomLevel":{"type":"Property","value":18,"jsonSchema":{"type":"Property","value":{"schemaType":"integer","title":"Niveau de zoom sur la zone d'irrigation depuis la carte","friendlyAttributeName":"Niveau de zoom","canSelfInit":true}}},"waterConsumption":{"type":"Property","value":0,"jsonSchema":{"type":"Property","value":{"schemaType":"integer","friendlyAttributeName":"Consommation d'eau","canSelfInit":true}}},"belongsTo":{"type":"Relationship","object":"urn:ngsi-ld:Field:Template","jsonSchema":{"type":"Property","value":{"schemaType":"string","format":"uri","title":"Cette zone d'irrigation appartient à quel champ d'opération ?","friendlyAttributeName":"Appartient à","minimum":1,"maximum":1}}},"hasWeatherInformation":{"type":"Relationship","object":"urn:ngsi-ld:WeatherInformation:Template","jsonSchema":{"type":"Property","value":{"schemaType":"string","format":"uri","title":"Quelle est la Météo de référence pour cette zone d'irrigation ?","friendlyAttributeName":"Météo de référence","minimum":1,"maximum":1}}},"location":{"type":"GeoProperty","value":{"type":"Point","coordinates":[]},"jsonSchema":{"type":"Property","value":{"schemaType":"object","title":"Où se situe la zone d'irrigation ?","friendlyAttributeName":"Géolocalisation"}}}},{"id":"urn:ngsi-ld:ReferenceSoilArea:Template","type":"Template","name":{"type":"Property","value":"Placeholder","jsonSchema":{"type":"Property","value":{"schemaType":"string","title":"Nom du sol de référence où se situe le capteur","friendlyAttributeName":"Nom"}}},"location":{"type":"GeoProperty","value":{"type":"Point","coordinates":[]},"jsonSchema":{"type":"Property","value":{"schemaType":"object","title":"Où se situe le capteur et sol de référence ?","friendlyAttributeName":"Géolocalisation"}}},"volumetricMoistureFieldCapacity":{"type":"Property","value":0.27,"unitCode":"H60","jsonSchema":{"type":"Property","value":{"schemaType":"integer","title":"vM_FC : Valeur d'humidité volumetrique à capacité au champ","friendlyAttributeName":"Humidité volumetrique à capacité au champ","canSelfInit":true}}},"volumetricMoisturePermanentWiltingPoint":{"type":"Property","value":0.12,"unitCode":"H60","jsonSchema":{"type":"Property","value":{"schemaType":"integer","title":"vM_PWP : Valeur d'humidité volumetrique au point de fletrissement","friendlyAttributeName":"Humidité volumetrique au point de fletrissement","canSelfInit":true}}},"volumetricMoistureSaturation":{"type":"Property","value":0.37,"unitCode":"H60","jsonSchema":{"type":"Property","value":{"schemaType":"integer","title":"vM_SAT : Valeur d'humidité volumetrique à saturation","friendlyAttributeName":"Humidité volumetrique à saturation","canSelfInit":true}}},"cropCoefficient":{"type":"Property","value":1,"jsonSchema":{"type":"Property","value":{"schemaType":"integer","title":"Kc : Coefficient de culture","friendlyAttributeName":"Coefficient de culture","canSelfInit":true}}},"runoffCurveNumber":{"type":"Property","value":75,"jsonSchema":{"type":"Property","value":{"schemaType":"integer","title":"CN2 : Coefficient de ruissellement","friendlyAttributeName":"Coefficient de ruissellement","canSelfInit":true}}},"soilDepth":{"type":"Property","value":350,"unitCode":"MMT","jsonSchema":{"type":"Property","value":{"schemaType":"integer","title":"Z : Profondeur du sol","friendlyAttributeName":"Profondeur du sol","canSelfInit":true}}},"swcon":{"type":"Property","value":0.5,"unitCode":"H93","jsonSchema":{"type":"Property","value":{"schemaType":"integer","title":"SWCON : Quantité d'eau perdue par percolation en 1 jour par rapport à la quantité d'eau qui excède la capacité au champs","friendlyAttributeName":"SWCON","canSelfInit":true}}},"jsonSchema":{"type":"Property","value":{"schemaType":"ReferenceSoilArea","title":"Sol de référence pour le capteur","minimum":1,"required":["name","location","soilTemperature","volumetricMoisture","volumetricMoistureFieldCapacity","volumetricMoisturePermanentWiltingPoint","volumetricMoistureSaturation","cropCoefficient","runoffCurveNumber","soilDepth","swcon"],"description":"Représentation de la zone de sol à proximité du capteur. Sert de référence pour les données des zones de gestion alentours"}}},{"id":"urn:ngsi-ld:ManagedZone:Template","type":"Template","name":{"type":"Property","value":"Placeholder","jsonSchema":{"type":"Property","value":{"schemaType":"string","title":"Nom de la Zone de gestion","friendlyAttributeName":"Nom"}}},"description":{"type":"Property","value":"Placeholder","jsonSchema":{"type":"Property","value":{"schemaType":"string","title":"Description de la Zone de gestion","friendlyAttributeName":"Description"}}},"belongsTo":{"type":"Relationship","object":"urn:ngsi-ld:IrrigationArea:Template","jsonSchema":{"type":"Property","value":{"schemaType":"string","format":"uri","title":"Zone d'irrigation à laquelle appartient la zone de gestion","friendlyAttributeName":"Appartient à","minimum":1,"maximum":1}}},"surface":{"type":"Property","value":"","unitCode":"MTK","jsonSchema":{"type":"Property","value":{"schemaType":"integer","friendlyAttributeName":"Surface de la zone","title":"Surface de la Zone de gestion"}}},"valveNumber":{"type":"Property","value":"","jsonSchema":{"type":"Property","value":{"schemaType":"integer","friendlyAttributeName":"Numéro de vanne","title":"Numéro de voie de la vanne correspondant à cette zone de gestion"}}},"hasReferenceSoilArea":{"type":"Relationship","object":"urn:ngsi-ld:ReferenceSoilArea:Template","jsonSchema":{"type":"Property","value":{"schemaType":"string","format":"uri","title":"Capteur et sol de référence pour la zone de gestion","friendlyAttributeName":"Zone de sol de référence","minimum":1,"maximum":1}}},"location":{"type":"GeoProperty","value":{"type":"Polygon","coordinates":[]},"jsonSchema":{"type":"Property","value":{"schemaType":"object","title":"Dessiner la Zone de gestion sur la carte","friendlyAttributeName":"Géolocalisation"}}},"criticalThreshold":{"type":"Property","value":0.6,"unitCode":"H93","jsonSchema":{"type":"Property","value":{"schemaType":"integer","canSelfInit":true,"title":"Seuil critique : proportion de quantité d'eau dans le sol au dessous de laquelle on ne veut surtout pas descendre","friendlyAttributeName":"Seuil critique"}}},"saturationThreshold":{"type":"Property","value":1,"unitCode":"H93","jsonSchema":{"type":"Property","value":{"schemaType":"integer","canSelfInit":true,"title":"Seuil de saturation : proportion de quantité d'eau dans le sol à ne pas dépasser","friendlyAttributeName":"Seuil de saturation"}}},"comfortThreshold":{"type":"Property","value":0.8,"unitCode":"H93","jsonSchema":{"type":"Property","value":{"schemaType":"integer","canSelfInit":true,"title":"Seuil de confort : proportion de quantité d'eau dans le sol au dessous de laquelle on essaie de ne pas descendre","friendlyAttributeName":"Seuil de confort"}}},"isWateringLimitationEnabled":{"type":"Property","value":true,"jsonSchema":{"type":"Property","value":{"schemaType":"boolean","canSelfInit":true,"friendlyAttributeName":"Irrigation Intelligente"}}},"isWateringEnabled":{"type":"Property","value":true,"jsonSchema":{"type":"Property","value":{"schemaType":"boolean","canSelfInit":true,"friendlyAttributeName":"Statut de l'Irrigation"}}},"jsonSchema":{"type":"Property","value":{"schemaType":"ManagedZone","title":"Zone de gestion","minimum":1,"required":["name","hasReferenceSoilArea","location","surface","valveNumber","belongsTo","criticalThreshold","saturationThreshold","comfortThreshold"],"description":"Représentation géographique la plus petite, généralement de la taille d'un bout de jardin, précisément délimitée par un polygone"}}},{"id":"urn:ngsi-ld:WeatherInformation:Template","type":"Template","jsonSchema":{"type":"Property","value":{"schemaType":"WeatherInformation","title":"Information Météo","description":"Rassemble les informations météo d'une zone d'opération","minimum":1,"canEntityBeCreated":false}}}]
+[
+    {
+        "id": "urn:ngsi-ld:Field:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Placeholder",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Nom de la zone d'opération",
+                    "friendlyAttributeName": "Nom"
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "Field",
+                "title": "Zone d'opération",
+                "minimum": 1,
+                "required": [
+                    "name"
+                ],
+                "description": "Une zone de plus haut niveau dans la gestion de l'irrigation. Peut-être typiquement le niveau de la ville, d'un service ou d'un quartier. La hiérarchie des zones est : Zone d'opération > Zone d'irrigation > Zone de gestion"
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:IrrigationArea:Template",
+        "type": "Template",
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "IrrigationArea",
+                "title": "Zone d'irrigation",
+                "minimum": 1,
+                "required": [
+                    "name",
+                    "belongsTo",
+                    "location",
+                    "hasWeatherForecasted"
+                ],
+                "description": "Représentation géographique de taille intermédiaire qui regroupe en générale plusieurs petites zones controllées (ou zones en gestion)"
+            }
+        },
+        "name": {
+            "type": "Property",
+            "value": "Placeholder",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Nom de la zone d'irrigation",
+                    "friendlyAttributeName": "Nom"
+                }
+            }
+        },
+        "zoomLevel": {
+            "type": "Property",
+            "value": 18,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "title": "Niveau de zoom sur la zone d'irrigation depuis la carte",
+                    "friendlyAttributeName": "Niveau de zoom",
+                    "canSelfInit": true
+                }
+            }
+        },
+        "waterConsumption": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "friendlyAttributeName": "Consommation d'eau",
+                    "canSelfInit": true
+                }
+            }
+        },
+        "belongsTo": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Field:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "format": "uri",
+                    "title": "Cette zone d'irrigation appartient à quel champ d'opération ?",
+                    "friendlyAttributeName": "Appartient à",
+                    "minimum": 1,
+                    "maximum": 1
+                }
+            }
+        },
+        "hasWeatherInformation": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:WeatherInformation:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "format": "uri",
+                    "title": "Quelle est la Météo de référence pour cette zone d'irrigation ?",
+                    "friendlyAttributeName": "Météo de référence",
+                    "minimum": 1,
+                    "maximum": 1
+                }
+            }
+        },
+        "location": {
+            "type": "GeoProperty",
+            "value": {
+                "type": "Point",
+                "coordinates": []
+            },
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "object",
+                    "title": "Où se situe la zone d'irrigation ?",
+                    "friendlyAttributeName": "Géolocalisation"
+                }
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:ReferenceSoilArea:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Placeholder",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Nom du sol de référence où se situe le capteur",
+                    "friendlyAttributeName": "Nom"
+                }
+            }
+        },
+        "location": {
+            "type": "GeoProperty",
+            "value": {
+                "type": "Point",
+                "coordinates": []
+            },
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "object",
+                    "title": "Où se situe le capteur et sol de référence ?",
+                    "friendlyAttributeName": "Géolocalisation"
+                }
+            }
+        },
+        "volumetricMoistureFieldCapacity": {
+            "type": "Property",
+            "value": 0.27,
+            "unitCode": "H60",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "title": "vM_FC : Valeur d'humidité volumetrique à capacité au champ",
+                    "friendlyAttributeName": "Humidité volumetrique à capacité au champ",
+                    "canSelfInit": true
+                }
+            }
+        },
+        "volumetricMoisturePermanentWiltingPoint": {
+            "type": "Property",
+            "value": 0.12,
+            "unitCode": "H60",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "title": "vM_PWP : Valeur d'humidité volumetrique au point de fletrissement",
+                    "friendlyAttributeName": "Humidité volumetrique au point de fletrissement",
+                    "canSelfInit": true
+                }
+            }
+        },
+        "volumetricMoistureSaturation": {
+            "type": "Property",
+            "value": 0.37,
+            "unitCode": "H60",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "title": "vM_SAT : Valeur d'humidité volumetrique à saturation",
+                    "friendlyAttributeName": "Humidité volumetrique à saturation",
+                    "canSelfInit": true
+                }
+            }
+        },
+        "cropCoefficient": {
+            "type": "Property",
+            "value": 1,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "title": "Kc : Coefficient de culture",
+                    "friendlyAttributeName": "Coefficient de culture",
+                    "canSelfInit": true
+                }
+            }
+        },
+        "runoffCurveNumber": {
+            "type": "Property",
+            "value": 75,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "title": "CN2 : Coefficient de ruissellement",
+                    "friendlyAttributeName": "Coefficient de ruissellement",
+                    "canSelfInit": true
+                }
+            }
+        },
+        "soilDepth": {
+            "type": "Property",
+            "value": 350,
+            "unitCode": "MMT",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "title": "Z : Profondeur du sol",
+                    "friendlyAttributeName": "Profondeur du sol",
+                    "canSelfInit": true
+                }
+            }
+        },
+        "swcon": {
+            "type": "Property",
+            "value": 0.5,
+            "unitCode": "H93",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "title": "SWCON : Quantité d'eau perdue par percolation en 1 jour par rapport à la quantité d'eau qui excède la capacité au champs",
+                    "friendlyAttributeName": "SWCON",
+                    "canSelfInit": true
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "ReferenceSoilArea",
+                "title": "Sol de référence pour le capteur",
+                "minimum": 1,
+                "required": [
+                    "name",
+                    "location",
+                    "volumetricMoistureFieldCapacity",
+                    "volumetricMoisturePermanentWiltingPoint",
+                    "volumetricMoistureSaturation",
+                    "cropCoefficient",
+                    "runoffCurveNumber",
+                    "soilDepth",
+                    "swcon"
+                ],
+                "description": "Représentation de la zone de sol à proximité du capteur. Sert de référence pour les données des zones de gestion alentours"
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:ManagedZone:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Placeholder",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Nom de la Zone de gestion",
+                    "friendlyAttributeName": "Nom"
+                }
+            }
+        },
+        "description": {
+            "type": "Property",
+            "value": "Placeholder",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Description de la Zone de gestion",
+                    "friendlyAttributeName": "Description"
+                }
+            }
+        },
+        "belongsTo": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:IrrigationArea:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "format": "uri",
+                    "title": "Zone d'irrigation à laquelle appartient la zone de gestion",
+                    "friendlyAttributeName": "Appartient à",
+                    "minimum": 1,
+                    "maximum": 1
+                }
+            }
+        },
+        "surface": {
+            "type": "Property",
+            "value": "",
+            "unitCode": "MTK",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "friendlyAttributeName": "Surface de la zone",
+                    "title": "Surface de la Zone de gestion"
+                }
+            }
+        },
+        "valveNumber": {
+            "type": "Property",
+            "value": "",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "friendlyAttributeName": "Numéro de vanne",
+                    "title": "Numéro de voie de la vanne correspondant à cette zone de gestion"
+                }
+            }
+        },
+        "hasReferenceSoilArea": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ReferenceSoilArea:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "format": "uri",
+                    "title": "Capteur et sol de référence pour la zone de gestion",
+                    "friendlyAttributeName": "Zone de sol de référence",
+                    "minimum": 1,
+                    "maximum": 1
+                }
+            }
+        },
+        "location": {
+            "type": "GeoProperty",
+            "value": {
+                "type": "Polygon",
+                "coordinates": []
+            },
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "object",
+                    "title": "Dessiner la Zone de gestion sur la carte",
+                    "friendlyAttributeName": "Géolocalisation"
+                }
+            }
+        },
+        "criticalThreshold": {
+            "type": "Property",
+            "value": 0.6,
+            "unitCode": "H93",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "canSelfInit": true,
+                    "title": "Seuil critique : proportion de quantité d'eau dans le sol au dessous de laquelle on ne veut surtout pas descendre",
+                    "friendlyAttributeName": "Seuil critique"
+                }
+            }
+        },
+        "saturationThreshold": {
+            "type": "Property",
+            "value": 1,
+            "unitCode": "H93",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "canSelfInit": true,
+                    "title": "Seuil de saturation : proportion de quantité d'eau dans le sol à ne pas dépasser",
+                    "friendlyAttributeName": "Seuil de saturation"
+                }
+            }
+        },
+        "comfortThreshold": {
+            "type": "Property",
+            "value": 0.8,
+            "unitCode": "H93",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "canSelfInit": true,
+                    "title": "Seuil de confort : proportion de quantité d'eau dans le sol au dessous de laquelle on essaie de ne pas descendre",
+                    "friendlyAttributeName": "Seuil de confort"
+                }
+            }
+        },
+        "isWateringLimitationEnabled": {
+            "type": "Property",
+            "value": true,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "boolean",
+                    "canSelfInit": true,
+                    "friendlyAttributeName": "Irrigation Intelligente"
+                }
+            }
+        },
+        "isWateringEnabled": {
+            "type": "Property",
+            "value": true,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "boolean",
+                    "canSelfInit": true,
+                    "friendlyAttributeName": "Statut de l'Irrigation"
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "ManagedZone",
+                "title": "Zone de gestion",
+                "minimum": 1,
+                "required": [
+                    "name",
+                    "hasReferenceSoilArea",
+                    "location",
+                    "surface",
+                    "valveNumber",
+                    "belongsTo",
+                    "criticalThreshold",
+                    "saturationThreshold",
+                    "comfortThreshold"
+                ],
+                "description": "Représentation géographique la plus petite, généralement de la taille d'un bout de jardin, précisément délimitée par un polygone"
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:WeatherInformation:Template",
+        "type": "Template",
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "WeatherInformation",
+                "title": "Information Météo",
+                "description": "Rassemble les informations météo d'une zone d'opération",
+                "minimum": 1,
+                "canEntityBeCreated": false
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:RecurringRule:Template",
+        "type": "Template",
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "RecurringRule",
+                "title": "Programme",
+                "minimum": 0,
+                "required": [
+                    "name",
+                    "managedZones",
+                    "startTime",
+                    "duration",
+                    "activationDaysMode",
+                    "repetitionRulePerDayCount",
+                    "repetitionRulePerDayInterval",
+                    "irrigationArea",
+                    "managedZones",
+                    "status"
+                ],
+                "description": "Un programme d'irrigation applicable à une zone d'irrigation et ses zones de gestion"
+            }
+        },
+        "name": {
+            "type": "Property",
+            "value": "Nom de la règle récurrente",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Nom de la règle récurrente",
+                    "order": 1
+                }
+            }
+        },
+        "startTime": {
+            "type": "Property",
+            "value": "2026-05-28T11:28:27.936Z",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "date",
+                    "title": "Heure de départ",
+                    "order": 2,
+                    "dateMode": "time"
+                }
+            }
+        },
+        "duration": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "minimum": 1,
+                    "maximum": 120,
+                    "title": "Durée (en minutes)",
+                    "order": 3
+                }
+            }
+        },
+        "activationDaysMode": {
+            "type": "Property",
+            "value": "Tous les deux jours",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "enum": [
+                        "Tous les deux jours",
+                        "Jours spécifiques"
+                    ],
+                    "title": "Mode d'activation des jours",
+                    "order": 4
+                }
+            }
+        },
+        "everySecondDayWeekStartDay": {
+            "type": "Property",
+            "value": "Lundi",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "enum": [
+                        "Lundi",
+                        "Mardi",
+                        "Mercredi",
+                        "Jeudi",
+                        "Vendredi",
+                        "Samedi",
+                        "Dimanche"
+                    ],
+                    "title": "Jour de démarrage de la règle tous les 2 jours",
+                    "order": 5
+                }
+            }
+        },
+        "specificActivationWeekDays": {
+            "type": "Property",
+            "value": "Lundi",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "enum": [
+                        "Lundi",
+                        "Mardi",
+                        "Mercredi",
+                        "Jeudi",
+                        "Vendredi",
+                        "Samedi",
+                        "Dimanche"
+                    ],
+                    "title": "Jours d'activation spécifiques",
+                    "order": 6
+                }
+            }
+        },
+        "repetitionRulePerDayCount": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "minimum": 1,
+                    "maximum": 10,
+                    "title": "Nombre de répétitions par jour",
+                    "order": 7
+                }
+            }
+        },
+        "repetitionRulePerDayFrequency": {
+            "type": "Property",
+            "value": "MINUTELY",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "canSelfInit": true,
+                    "friendlyAttributeName": "Fréquence de répétition"
+                }
+            }
+        },
+        "repetitionRulePerDayInterval": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "minimum": 1,
+                    "maximum": 120,
+                    "title": "Intervalle entre les répétitions (en minutes)",
+                    "order": 8
+                }
+            }
+        },
+        "irrigationArea": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:IrrigationArea:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Zone d'irrigation cible du programme",
+                    "order": 9
+                }
+            }
+        },
+        "managedZones": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ManagedZone:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "order": 10,
+                    "title": "Zones gérées (attention à bien sélectionner les zones au sein de la zone d'irrigation sélectionnée précédemment)",
+                    "items": {
+                        "type": "Relationship",
+                        "object": "urn:ngsi-ld:ManagedZone:Template",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "string",
+                                "title": "Sélectionner une zone gérée"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "status": {
+            "type": "Property",
+            "value": "documentationOnly",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "enum": [
+                        "documentationOnly",
+                        "inactive"
+                    ],
+                    "title": "Statut de la règle (pour ancien Econom'O, choisir 'documentationOnly')",
+                    "order": 11,
+                    "friendlyAttributeName": "Statut de la règle"
+                }
+            }
+        }
+    }
+]

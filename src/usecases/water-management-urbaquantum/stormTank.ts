@@ -5,7 +5,7 @@ export const StormTankTemplate: StellioTemplate = {
     id: 'urn:ngsi-ld:StormTank:Template',
     type: 'Template',
     name: {
-        ...getSimpleTextProp('Name of the storm tank'),
+        ...getSimpleTextProp({ title: 'Name of the storm tank' }),
     },
     location: {
         ...getGeoPropertyProp('Location of the storm tank', 'Point'),
