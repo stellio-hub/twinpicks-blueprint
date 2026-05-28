@@ -38,7 +38,7 @@ export const getEnumProp = (title: string, enumValues: string[], allowMultiple =
     };
 };
 
-export const getIntegerProp = (title: string, minimum = 0, maximum = 3): StellioTemplateProp => {
+export const getIntegerProp = (title: string, minimum = 0, maximum?: number): StellioTemplateProp => {
     order++;
     return {
         type: 'Property',

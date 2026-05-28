@@ -41,7 +41,7 @@ export const RecurringRuleTemplate: StellioTemplate = {
     duration: { ...getIntegerProp('Durée (en minutes)', 1, 120) },
 
     activationDaysMode: {
-        ...getEnumProp("Mode d'activation des jours", ['everySecondDay', 'specificWeekDays']),
+        ...getEnumProp("Mode d'activation des jours", ['Tous les deux jours', 'Jours spécifiques']),
     },
     everySecondDayWeekStartDay: {
         ...getEnumProp('Jour de démarrage de la règle tous les 2 jours', [
@@ -74,13 +74,16 @@ export const RecurringRuleTemplate: StellioTemplate = {
             },
         },
     },
-    repetitionRulePerDayInterval: { ...getIntegerProp('Intervalle de répétitions par jour (en minutes)', 1, 120) },
+    repetitionRulePerDayInterval: { ...getIntegerProp('Intervalle entre les répétitions (en minutes)', 1, 120) },
 
-    irrigationArea: { ...getRelationshipProp("Zone d'irrigation", 'urn:ngsi-ld:IrrigationArea:Template') },
+    irrigationArea: {
+        ...getRelationshipProp("Zone d'irrigation cible du programme", 'urn:ngsi-ld:IrrigationArea:Template'),
+    },
     managedZones: {
         ...getMultiRelationshipProp({
-            formLabel: 'Zones gérées',
-            formLabelPerItem: 'Zone gérée',
+            formLabel:
+                "Zones gérées (attention à bien sélectionner les zones au sein de la zone d'irrigation sélectionnée précédemment)",
+            formLabelPerItem: 'Sélectionner une zone gérée',
             templateObjectId: 'urn:ngsi-ld:ManagedZone:Template',
         }),
     },

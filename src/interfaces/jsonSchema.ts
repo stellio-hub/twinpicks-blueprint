@@ -28,11 +28,13 @@ export interface JsonSchema {
     /**
      * At the entity level: is used to limit to a specific number of entities before provisioning is allowed \
      * At the property level: is used to limit to a maximum number of relationships before entity can be created
+     * At the property level: for an integer property, is used to limit to a maximum value
      */
     maximum?: number;
     /**
      * At the entity level: is used to force a minimum number of entities before provisioning is allowed (1 by default if omitted) \
      * At the property level: is used to force a minimum number of relationships before entity can be created
+     * At the property level: for an integer property, is used to limit to a minimum value
      */
     minimum?: number;
 
