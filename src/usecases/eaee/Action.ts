@@ -94,15 +94,18 @@ export const ActionTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Nom'),
     },
     structurePiloteType: {
-        ...getEnumProp('Type de la structure pilote', [
-            'Association',
-            'Collectivité',
-            'Entreprise',
-            'Etablissement scolaire',
-            'Fondation',
-            'Gestionnaire de milieux',
-            'Autres',
-        ]),
+        ...getEnumProp({
+            title: 'Type de la structure pilote',
+            enum: [
+                'Association',
+                'Collectivité',
+                'Entreprise',
+                'Etablissement scolaire',
+                'Fondation',
+                'Gestionnaire de milieux',
+                'Autres',
+            ],
+        }),
         classification: getClassificationJsonProp(Structures.structurePilote),
         displayName: getDisplayNameProp('Type'),
     },
@@ -168,24 +171,27 @@ export const ActionTemplate: StellioTemplate = {
 
     // #region LIEU DE L'ACTION
     echelleTerritorialeDeLaction: {
-        ...getEnumProp("Échelle territoriale de l'action", [
-            'Bassin versant',
-            'Commune',
-            'Communauté de communes',
-            "Communautés d'Agglomération ou urbaine",
-            'Métrople',
-            "Parc d'activités",
-            'Pays / Parc régional / Parc national',
-            'Département',
-            'Région',
-            'Etablissement',
-            'Autre',
-        ]),
+        ...getEnumProp({
+            title: "Échelle territoriale de l'action",
+            enum: [
+                'Bassin versant',
+                'Commune',
+                'Communauté de communes',
+                "Communautés d'Agglomération ou urbaine",
+                'Métrople',
+                "Parc d'activités",
+                'Pays / Parc régional / Parc national',
+                'Département',
+                'Région',
+                'Etablissement',
+                'Autre',
+            ],
+        }),
         classification: getClassificationJsonProp(Structures.lieuDeLaction),
         displayName: getDisplayNameProp('Échelle territoriale'),
     },
     departementDinterventionDeLaction: {
-        ...getEnumProp("Département d'intervention de l'action", ['04', '05', '06', '13', '83', '84']),
+        ...getEnumProp({ title: "Département d'intervention de l'action", enum: ['04', '05', '06', '13', '83', '84'] }),
         classification: getClassificationJsonProp(Structures.lieuDeLaction),
         displayName: getDisplayNameProp("Département d'intervention"),
     },
@@ -210,14 +216,10 @@ export const ActionTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Localisation du site'),
     },
     surface: {
-        ...getEnumProp('Surface du site', [
-            '< ou = à 10 m²',
-            '11 à 100 m²',
-            '101 à 1000 m²',
-            '1001 à 10000 m²',
-            '> à 10001 m²',
-            'Inconnue',
-        ]),
+        ...getEnumProp({
+            title: 'Surface du site',
+            enum: ['< ou = à 10 m²', '11 à 100 m²', '101 à 1000 m²', '1001 à 10000 m²', '> à 10001 m²', 'Inconnue'],
+        }),
         classification: getClassificationJsonProp(Structures.lieuDeLaction),
         displayName: getDisplayNameProp('Surface'),
     },

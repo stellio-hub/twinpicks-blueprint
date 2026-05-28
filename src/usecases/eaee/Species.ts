@@ -27,7 +27,7 @@ export const SpeciesTemplate: StellioTemplate = {
 
     // #region FICHE ESPÈCE
     affichageSurSiteArbe: {
-        ...getEnumProp("Affichage sur site de l'ARBE", ['Oui', 'Non', 'En cours', 'A faire', 'NA']),
+        ...getEnumProp({ title: "Affichage sur site de l'ARBE", enum: ['Oui', 'Non', 'En cours', 'A faire', 'NA'] }),
         classification: getClassificationJsonProp(Structures.ficheEspece),
         displayName: getDisplayNameProp("Affichage sur site de l'ARBE"),
     },
@@ -60,22 +60,25 @@ export const SpeciesTemplate: StellioTemplate = {
 
     // #region TAXONOMIE
     taxon: {
-        ...getEnumProp("Taxon de l'espèce", [
-            'Mammifere',
-            'Oiseau',
-            'Reptile',
-            'Ampibien',
-            'Poisson',
-            'Crustace',
-            'Mollusque',
-            'Arthropode',
-            'Autres',
-        ]),
+        ...getEnumProp({
+            title: "Taxon de l'espèce",
+            enum: [
+                'Mammifere',
+                'Oiseau',
+                'Reptile',
+                'Ampibien',
+                'Poisson',
+                'Crustace',
+                'Mollusque',
+                'Arthropode',
+                'Autres',
+            ],
+        }),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Taxon'),
     },
     liste: {
-        ...getEnumProp('Liste', [...filtreXEnumValues, 'A mettre à jour']),
+        ...getEnumProp({ title: 'Liste', enum: [...filtreXEnumValues, 'A mettre à jour'] }),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Liste'),
     },
@@ -90,7 +93,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Famille'),
     },
     cdRef: {
-        ...getIntegerProp('Code de référence', 0, 999999),
+        ...getIntegerProp({ title: 'Code de référence', minimum: 0, maximum: 999999 }),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('CD Ref'),
     },
@@ -105,7 +108,10 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Nom vernaculaire'),
     },
     rang: {
-        ...getEnumProp('Rang', ['OR', 'FN', 'SBFM', 'GN', 'SSGN', 'ES', 'SSES', 'FO', 'RACE', 'Autre']),
+        ...getEnumProp({
+            title: 'Rang',
+            enum: ['OR', 'FN', 'SBFM', 'GN', 'SSGN', 'ES', 'SSES', 'FO', 'RACE', 'Autre'],
+        }),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Rang'),
     },
@@ -115,12 +121,12 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Hybride'),
     },
     especeProtegee: {
-        ...getEnumProp('Est-ce une espèce protégée ?', ['Oui', 'Non']),
+        ...getEnumProp({ title: 'Est-ce une espèce protégée ?', enum: ['Oui', 'Non'] }),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Espèce protégée'),
     },
     filtreTaxonomique: {
-        ...getEnumProp('Filtre taxonomique', filtreXEnumValues),
+        ...getEnumProp({ title: 'Filtre taxonomique', enum: filtreXEnumValues }),
         classification: getClassificationJsonProp(Structures.taxonomie),
         displayName: getDisplayNameProp('Filtre taxonomique'),
     },
@@ -133,37 +139,37 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Source'),
     },
     region: {
-        ...getEnumProp('Région', presenceAbsenceEnumValues),
+        ...getEnumProp({ title: 'Région', enum: presenceAbsenceEnumValues }),
         classification: getClassificationJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('Région'),
     },
     '04': {
-        ...getEnumProp('04', presenceAbsenceEnumValues),
+        ...getEnumProp({ title: '04', enum: presenceAbsenceEnumValues }),
         classification: getClassificationJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('04'),
     },
     '05': {
-        ...getEnumProp('05', presenceAbsenceEnumValues),
+        ...getEnumProp({ title: '05', enum: presenceAbsenceEnumValues }),
         classification: getClassificationJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('05'),
     },
     '06': {
-        ...getEnumProp('06', presenceAbsenceEnumValues),
+        ...getEnumProp({ title: '06', enum: presenceAbsenceEnumValues }),
         classification: getClassificationJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('06'),
     },
     '13': {
-        ...getEnumProp('13', presenceAbsenceEnumValues),
+        ...getEnumProp({ title: '13', enum: presenceAbsenceEnumValues }),
         classification: getClassificationJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('13'),
     },
     '83': {
-        ...getEnumProp('83', presenceAbsenceEnumValues),
+        ...getEnumProp({ title: '83', enum: presenceAbsenceEnumValues }),
         classification: getClassificationJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('83'),
     },
     '84': {
-        ...getEnumProp('84', presenceAbsenceEnumValues),
+        ...getEnumProp({ title: '84', enum: presenceAbsenceEnumValues }),
         classification: getClassificationJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('84'),
     },
@@ -173,7 +179,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Remarques'),
     },
     filtreDePresence: {
-        ...getEnumProp('Filtre de présence', filtreXEnumValues),
+        ...getEnumProp({ title: 'Filtre de présence', enum: filtreXEnumValues }),
         classification: getClassificationJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('Filtre de présence'),
     },
@@ -191,12 +197,12 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Statut biologique'),
     },
     indigenat: {
-        ...getEnumProp('Indigénat', ['Indigène', 'Exogène', 'Cryptogène', 'Inconnu', 'A évaluer']),
+        ...getEnumProp({ title: 'Indigénat', enum: ['Indigène', 'Exogène', 'Cryptogène', 'Inconnu', 'A évaluer'] }),
         classification: getClassificationJsonProp(Structures.indigenat),
         displayName: getDisplayNameProp('Indigénat'),
     },
     categorie: {
-        ...getEnumProp('Catégorie', ['Archéozoaire', 'Néozoaire', 'Inconnu', 'A évaluer', 'NA']),
+        ...getEnumProp({ title: 'Catégorie', enum: ['Archéozoaire', 'Néozoaire', 'Inconnu', 'A évaluer', 'NA'] }),
         classification: getClassificationJsonProp(Structures.indigenat),
         displayName: getDisplayNameProp('Catégorie'),
     },
@@ -236,7 +242,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Remarques'),
     },
     filtreIndigenat: {
-        ...getEnumProp("Filtre d'indigénat", filtreXEnumValues),
+        ...getEnumProp({ title: "Filtre d'indigénat", enum: filtreXEnumValues }),
         classification: getClassificationJsonProp(Structures.indigenat),
         displayName: getDisplayNameProp("Filtre d'indigénat"),
     },
@@ -245,7 +251,10 @@ export const SpeciesTemplate: StellioTemplate = {
 
     // #region AUTONOMIE
     spontaneite: {
-        ...getEnumProp('Spontanéité', ['Taxon sauvage', 'Taxon féral', 'Taxon domestiqué', 'Inconnu', 'NA']),
+        ...getEnumProp({
+            title: 'Spontanéité',
+            enum: ['Taxon sauvage', 'Taxon féral', 'Taxon domestiqué', 'Inconnu', 'NA'],
+        }),
         classification: getClassificationJsonProp(Structures.autonomie),
         displayName: getDisplayNameProp('Spontanéité'),
     },
@@ -255,15 +264,10 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Source spontanéité'),
     },
     autonomie: {
-        ...getEnumProp('Autonomie', [
-            'Captif',
-            'Autonome',
-            'Accidentel',
-            'Acclimaté',
-            'Etabli',
-            'Inconnu',
-            'A évaluer',
-        ]),
+        ...getEnumProp({
+            title: 'Autonomie',
+            enum: ['Captif', 'Autonome', 'Accidentel', 'Acclimaté', 'Etabli', 'Inconnu', 'A évaluer'],
+        }),
         classification: getClassificationJsonProp(Structures.autonomie),
         displayName: getDisplayNameProp('Autonomie'),
     },
@@ -278,7 +282,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Remarques'),
     },
     filtreDAutonomie: {
-        ...getEnumProp("Filtre d'autonomie", filtreXEnumValues),
+        ...getEnumProp({ title: "Filtre d'autonomie", enum: filtreXEnumValues }),
         classification: getClassificationJsonProp(Structures.autonomie),
         displayName: getDisplayNameProp("Filtre d'autonomie"),
     },
@@ -287,39 +291,45 @@ export const SpeciesTemplate: StellioTemplate = {
 
     // #region INFORMATION SUPPLEMENTAIRES
     habitat: {
-        ...getEnumProp('Habitat', [
-            'Marin',
-            'Eau douce',
-            'Terrestre',
-            'Marin et eau douce',
-            'Marin et terrestre',
-            'Eau saumâtre',
-            'Continental',
-            'A évaluer',
-            'Inconnu',
-        ]),
+        ...getEnumProp({
+            title: 'Habitat',
+            enum: [
+                'Marin',
+                'Eau douce',
+                'Terrestre',
+                'Marin et eau douce',
+                'Marin et terrestre',
+                'Eau saumâtre',
+                'Continental',
+                'A évaluer',
+                'Inconnu',
+            ],
+        }),
         classification: getClassificationJsonProp(Structures.informationsSupplementaires),
         displayName: getDisplayNameProp('Habitat'),
     },
     statutBiogeographiqueEnFrance: {
-        ...getEnumProp('Statut biogéographique en France', [
-            'Présent (indigène ou indéterminé)',
-            'Endémique',
-            'Subendémique',
-            'Cryptogène',
-            'Introduit',
-            'Introduit envahissant',
-            'Introduit non établi (dont cultivé / domestique)',
-            'Occasionnel',
-            'Douteux',
-            'Mentionné par erreur',
-            'Absent',
-            'Disparu',
-            'Eteint',
-            'Introduit éteint',
-            'Inconnu',
-            'A évaluer',
-        ]),
+        ...getEnumProp({
+            title: 'Statut biogéographique en France',
+            enum: [
+                'Présent (indigène ou indéterminé)',
+                'Endémique',
+                'Subendémique',
+                'Cryptogène',
+                'Introduit',
+                'Introduit envahissant',
+                'Introduit non établi (dont cultivé / domestique)',
+                'Occasionnel',
+                'Douteux',
+                'Mentionné par erreur',
+                'Absent',
+                'Disparu',
+                'Eteint',
+                'Introduit éteint',
+                'Inconnu',
+                'A évaluer',
+            ],
+        }),
         classification: getClassificationJsonProp(Structures.informationsSupplementaires),
         displayName: getDisplayNameProp('Statut biogéographique en France'),
     },
@@ -329,7 +339,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Interdit d'introduction"),
     },
     arreteMinisterielle: {
-        ...getEnumProp('Arrêté ministériel', ['Oui', 'Non', 'A évaluer']),
+        ...getEnumProp({ title: 'Arrêté ministériel', enum: ['Oui', 'Non', 'A évaluer'] }),
         classification: getClassificationJsonProp(Structures.informationsSupplementaires),
         displayName: getDisplayNameProp('Arrêté ministériel'),
     },
@@ -364,7 +374,7 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp("Compléments d'information"),
     },
     listeDeTravail: {
-        ...getEnumProp('Liste de travail', [...filtreXEnumValues, 'A mettre à jour']),
+        ...getEnumProp({ title: 'Liste de travail', enum: [...filtreXEnumValues, 'A mettre à jour'] }),
         classification: getClassificationJsonProp(Structures.informationsSupplementaires),
         displayName: getDisplayNameProp('Liste de travail'),
     },
@@ -373,12 +383,12 @@ export const SpeciesTemplate: StellioTemplate = {
 
     // #region ANALYSE DE L'INTENSITE DES IMPACTS ENVIRONNEMENTAUX
     scorePotentielDeProliferation: {
-        ...getIntegerProp('Score du potentiel de prolifération', 0, 3),
+        ...getIntegerProp({ title: 'Score du potentiel de prolifération', minimum: 0, maximum: 3 }),
         classification: getClassificationJsonProp(Structures.potentielDeProliferation),
         displayName: getDisplayNameProp('Score'),
     },
     niveauIncertitudePotentielDeProliferation: {
-        ...getEnumProp("Niveau d'incertitude du potentiel de prolifération", incertitudeEnumValues),
+        ...getEnumProp({ title: "Niveau d'incertitude du potentiel de prolifération", enum: incertitudeEnumValues }),
         classification: getClassificationJsonProp(Structures.potentielDeProliferation),
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
@@ -389,12 +399,15 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreColonisationHabitatsNaturels: {
-        ...getIntegerProp('Score de colonisation des habitats naturels', 0, 3),
+        ...getIntegerProp({ title: 'Score de colonisation des habitats naturels', minimum: 0, maximum: 3 }),
         classification: getClassificationJsonProp(Structures.colonisationHabitatsNaturels),
         displayName: getDisplayNameProp('Score'),
     },
     niveauIncertitudeColonisationHabitatsNaturels: {
-        ...getEnumProp("Niveau d'incertitude de colonisation des habitats naturels", incertitudeEnumValues),
+        ...getEnumProp({
+            title: "Niveau d'incertitude de colonisation des habitats naturels",
+            enum: incertitudeEnumValues,
+        }),
         classification: getClassificationJsonProp(Structures.colonisationHabitatsNaturels),
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
@@ -405,12 +418,12 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scorePredation: {
-        ...getIntegerProp('Score de prédation', 0, 3),
+        ...getIntegerProp({ title: 'Score de prédation', minimum: 0, maximum: 3 }),
         classification: getClassificationJsonProp(Structures.predation),
         displayName: getDisplayNameProp('Score'),
     },
     niveauIncertitudePredation: {
-        ...getEnumProp("Niveau d'incertitude de prédation", incertitudeEnumValues),
+        ...getEnumProp({ title: "Niveau d'incertitude de prédation", enum: incertitudeEnumValues }),
         classification: getClassificationJsonProp(Structures.predation),
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
@@ -421,12 +434,12 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreCompetition: {
-        ...getIntegerProp('Score de compétition', 0, 3),
+        ...getIntegerProp({ title: 'Score de compétition', minimum: 0, maximum: 3 }),
         classification: getClassificationJsonProp(Structures.competition),
         displayName: getDisplayNameProp('Score'),
     },
     niveauIncertitudeCompetition: {
-        ...getEnumProp("Niveau d'incertitude de compétition", incertitudeEnumValues),
+        ...getEnumProp({ title: "Niveau d'incertitude de compétition", enum: incertitudeEnumValues }),
         classification: getClassificationJsonProp(Structures.competition),
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
@@ -437,12 +450,12 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreMaladies: {
-        ...getIntegerProp('Score de maladies', 0, 3),
+        ...getIntegerProp({ title: 'Score de maladies', minimum: 0, maximum: 3 }),
         classification: getClassificationJsonProp(Structures.maladies),
         displayName: getDisplayNameProp('Score'),
     },
     niveauIncertitudeMaladies: {
-        ...getEnumProp("Niveau d'incertitude de maladies", incertitudeEnumValues),
+        ...getEnumProp({ title: "Niveau d'incertitude de maladies", enum: incertitudeEnumValues }),
         classification: getClassificationJsonProp(Structures.maladies),
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
@@ -453,12 +466,12 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreHybridation: {
-        ...getIntegerProp("Score d'hybridation", 0, 3),
+        ...getIntegerProp({ title: "Score d'hybridation", minimum: 0, maximum: 3 }),
         classification: getClassificationJsonProp(Structures.hybridation),
         displayName: getDisplayNameProp('Score'),
     },
     niveauIncertitudeHybridation: {
-        ...getEnumProp("Niveau d'incertitude de hybridation", incertitudeEnumValues),
+        ...getEnumProp({ title: "Niveau d'incertitude de hybridation", enum: incertitudeEnumValues }),
         classification: getClassificationJsonProp(Structures.hybridation),
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
@@ -469,12 +482,12 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreCyclesNaturels: {
-        ...getIntegerProp('Score de cycles naturels', 0, 3),
+        ...getIntegerProp({ title: 'Score de cycles naturels', minimum: 0, maximum: 3 }),
         classification: getClassificationJsonProp(Structures.cyclesNaturels),
         displayName: getDisplayNameProp('Score'),
     },
     niveauIncertitudeCyclesNaturels: {
-        ...getEnumProp("Niveau d'incertitude de cycles naturels", incertitudeEnumValues),
+        ...getEnumProp({ title: "Niveau d'incertitude de cycles naturels", enum: incertitudeEnumValues }),
         classification: getClassificationJsonProp(Structures.cyclesNaturels),
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
@@ -485,12 +498,12 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreAlterationsPhysiques: {
-        ...getIntegerProp('Score alterations physiques', 0, 3),
+        ...getIntegerProp({ title: 'Score alterations physiques', minimum: 0, maximum: 3 }),
         classification: getClassificationJsonProp(Structures.alterationsPhysiques),
         displayName: getDisplayNameProp('Score'),
     },
     niveauIncertitudeAlterationsPhysiques: {
-        ...getEnumProp("Niveau d'incertitude alterations physiques", incertitudeEnumValues),
+        ...getEnumProp({ title: "Niveau d'incertitude alterations physiques", enum: incertitudeEnumValues }),
         classification: getClassificationJsonProp(Structures.alterationsPhysiques),
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
@@ -501,12 +514,12 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreSuccessionEcologiques: {
-        ...getIntegerProp('Score succession écologiques', 0, 3),
+        ...getIntegerProp({ title: 'Score succession écologiques', minimum: 0, maximum: 3 }),
         classification: getClassificationJsonProp(Structures.successionEcologiques),
         displayName: getDisplayNameProp('Score'),
     },
     niveauIncertitudeSuccessionEcologiques: {
-        ...getEnumProp("Niveau d'incertitude succession écologiques", incertitudeEnumValues),
+        ...getEnumProp({ title: "Niveau d'incertitude succession écologiques", enum: incertitudeEnumValues }),
         classification: getClassificationJsonProp(Structures.successionEcologiques),
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
@@ -517,12 +530,12 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreReseauxTrophiques: {
-        ...getIntegerProp('Score réseaux trophiques', 0, 3),
+        ...getIntegerProp({ title: 'Score réseaux trophiques', minimum: 0, maximum: 3 }),
         classification: getClassificationJsonProp(Structures.reseauxTrophiques),
         displayName: getDisplayNameProp('Score'),
     },
     niveauIncertitudeReseauxTrophiques: {
-        ...getEnumProp("Niveau d'incertitude réseaux trophiques", incertitudeEnumValues),
+        ...getEnumProp({ title: "Niveau d'incertitude réseaux trophiques", enum: incertitudeEnumValues }),
         classification: getClassificationJsonProp(Structures.reseauxTrophiques),
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
@@ -533,12 +546,12 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreISEIA: {
-        ...getIntegerProp('Score ISEIA', 0, 12),
+        ...getIntegerProp({ title: 'Score ISEIA', minimum: 0, maximum: 12 }),
         classification: getClassificationJsonProp(Structures.analyseIntensiteImpactsEnvironnementaux),
         displayName: getDisplayNameProp('Score ISEIA'),
     },
     impactsDocumentesISEIA: {
-        ...getEnumProp('Impacts documentés', ['Oui', 'Non', 'A faire', 'NA']),
+        ...getEnumProp({ title: 'Impacts documentés', enum: ['Oui', 'Non', 'A faire', 'NA'] }),
         classification: getClassificationJsonProp(Structures.analyseIntensiteImpactsEnvironnementaux),
         displayName: getDisplayNameProp('Impacts documentés'),
     },
@@ -552,12 +565,12 @@ export const SpeciesTemplate: StellioTemplate = {
 
     // #region ANALYSE DE L'INTENSITE DES IMPACTS SOCIO-ECONOMIQUES SANITAIRES
     scoreImpactsSurEconomie: {
-        ...getIntegerProp("Score impacts sur l'économie", 0, 3),
+        ...getIntegerProp({ title: "Score impacts sur l'économie", minimum: 0, maximum: 3 }),
         classification: getClassificationJsonProp(Structures.impactsSurEconomie),
         displayName: getDisplayNameProp('Score'),
     },
     niveauIncertitudeImpactsSurEconomie: {
-        ...getEnumProp("Niveau d'incertitude impacts sur l'économie", incertitudeEnumValues),
+        ...getEnumProp({ title: "Niveau d'incertitude impacts sur l'économie", enum: incertitudeEnumValues }),
         classification: getClassificationJsonProp(Structures.impactsSurEconomie),
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
@@ -568,12 +581,12 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreImpactsSanitaires: {
-        ...getIntegerProp('Score impacts sanitaires', 0, 3),
+        ...getIntegerProp({ title: 'Score impacts sanitaires', minimum: 0, maximum: 3 }),
         classification: getClassificationJsonProp(Structures.impactsSanitaires),
         displayName: getDisplayNameProp('Score'),
     },
     niveauIncertitudeImpactsSanitaires: {
-        ...getEnumProp("Niveau d'incertitude impacts sanitaires", incertitudeEnumValues),
+        ...getEnumProp({ title: "Niveau d'incertitude impacts sanitaires", enum: incertitudeEnumValues }),
         classification: getClassificationJsonProp(Structures.impactsSanitaires),
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
@@ -584,12 +597,12 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreAgriculture: {
-        ...getIntegerProp('Score agriculture', 0, 3),
+        ...getIntegerProp({ title: 'Score agriculture', minimum: 0, maximum: 3 }),
         classification: getClassificationJsonProp(Structures.agriculture),
         displayName: getDisplayNameProp('Score'),
     },
     niveauIncertitudeAgriculture: {
-        ...getEnumProp("Niveau d'incertitude agriculture", incertitudeEnumValues),
+        ...getEnumProp({ title: "Niveau d'incertitude agriculture", enum: incertitudeEnumValues }),
         classification: getClassificationJsonProp(Structures.agriculture),
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
@@ -600,12 +613,12 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreForesterie: {
-        ...getIntegerProp('Score foresterie', 0, 3),
+        ...getIntegerProp({ title: 'Score foresterie', minimum: 0, maximum: 3 }),
         classification: getClassificationJsonProp(Structures.foresterie),
         displayName: getDisplayNameProp('Score'),
     },
     niveauIncertitudeForesterie: {
-        ...getEnumProp("Niveau d'incertitude foresterie", incertitudeEnumValues),
+        ...getEnumProp({ title: "Niveau d'incertitude foresterie", enum: incertitudeEnumValues }),
         classification: getClassificationJsonProp(Structures.foresterie),
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
@@ -616,12 +629,12 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreAquaculture: {
-        ...getIntegerProp('Score aquaculture', 0, 3),
+        ...getIntegerProp({ title: 'Score aquaculture', minimum: 0, maximum: 3 }),
         classification: getClassificationJsonProp(Structures.aquaculture),
         displayName: getDisplayNameProp('Score'),
     },
     niveauIncertitudeAquaculture: {
-        ...getEnumProp("Niveau d'incertitude aquaculture", incertitudeEnumValues),
+        ...getEnumProp({ title: "Niveau d'incertitude aquaculture", enum: incertitudeEnumValues }),
         classification: getClassificationJsonProp(Structures.aquaculture),
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
@@ -632,12 +645,12 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreIndustrie: {
-        ...getIntegerProp('Score industrie', 0, 3),
+        ...getIntegerProp({ title: 'Score industrie', minimum: 0, maximum: 3 }),
         classification: getClassificationJsonProp(Structures.industrie),
         displayName: getDisplayNameProp('Score'),
     },
     niveauIncertitudeIndustrie: {
-        ...getEnumProp("Niveau d'incertitude industrie", incertitudeEnumValues),
+        ...getEnumProp({ title: "Niveau d'incertitude industrie", enum: incertitudeEnumValues }),
         classification: getClassificationJsonProp(Structures.industrie),
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
@@ -648,12 +661,12 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scorePatrimoine: {
-        ...getIntegerProp('Score patrimoine', 0, 3),
+        ...getIntegerProp({ title: 'Score patrimoine', minimum: 0, maximum: 3 }),
         classification: getClassificationJsonProp(Structures.patrimoine),
         displayName: getDisplayNameProp('Score'),
     },
     niveauIncertitudePatrimoine: {
-        ...getEnumProp("Niveau d'incertitude patrimoine", incertitudeEnumValues),
+        ...getEnumProp({ title: "Niveau d'incertitude patrimoine", enum: incertitudeEnumValues }),
         classification: getClassificationJsonProp(Structures.patrimoine),
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
@@ -664,12 +677,12 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreSecurite: {
-        ...getIntegerProp('Score sécurité', 0, 3),
+        ...getIntegerProp({ title: 'Score sécurité', minimum: 0, maximum: 3 }),
         classification: getClassificationJsonProp(Structures.securite),
         displayName: getDisplayNameProp('Score'),
     },
     niveauIncertitudeSecurite: {
-        ...getEnumProp("Niveau d'incertitude sécurité", incertitudeEnumValues),
+        ...getEnumProp({ title: "Niveau d'incertitude sécurité", enum: incertitudeEnumValues }),
         classification: getClassificationJsonProp(Structures.securite),
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
@@ -680,12 +693,12 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreLoisirs: {
-        ...getIntegerProp('Score loisirs', 0, 3),
+        ...getIntegerProp({ title: 'Score loisirs', minimum: 0, maximum: 3 }),
         classification: getClassificationJsonProp(Structures.loisirs),
         displayName: getDisplayNameProp('Score'),
     },
     niveauIncertitudeLoisirs: {
-        ...getEnumProp("Niveau d'incertitude loisirs", incertitudeEnumValues),
+        ...getEnumProp({ title: "Niveau d'incertitude loisirs", enum: incertitudeEnumValues }),
         classification: getClassificationJsonProp(Structures.loisirs),
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
@@ -696,12 +709,12 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreAmenites: {
-        ...getIntegerProp('Score aménities', 0, 3),
+        ...getIntegerProp({ title: 'Score aménities', minimum: 0, maximum: 3 }),
         classification: getClassificationJsonProp(Structures.amenites),
         displayName: getDisplayNameProp('Score'),
     },
     niveauIncertitudeAmenites: {
-        ...getEnumProp("Niveau d'incertitude aménities", incertitudeEnumValues),
+        ...getEnumProp({ title: "Niveau d'incertitude aménities", enum: incertitudeEnumValues }),
         classification: getClassificationJsonProp(Structures.amenites),
         displayName: getDisplayNameProp("Niveau d'incertitude"),
     },
@@ -712,18 +725,21 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreISSIA: {
-        ...getIntegerProp('Score ISSIA', 0, 12),
+        ...getIntegerProp({ title: 'Score ISSIA', minimum: 0, maximum: 12 }),
         classification: getClassificationJsonProp(Structures.impactSurBienEtreHumain),
         displayName: getDisplayNameProp('Score ISSIA'),
     },
     impactsDocumentesISSIA: {
-        ...getEnumProp('Impacts documentés', ['Oui', 'Non', 'A faire', 'NA']),
+        ...getEnumProp({ title: 'Impacts documentés', enum: ['Oui', 'Non', 'A faire', 'NA'] }),
         classification: getClassificationJsonProp(Structures.impactSurBienEtreHumain),
         displayName: getDisplayNameProp('Impacts documentés'),
     },
 
     intensiteImpactsSocioEconomiquesSanitaires: {
-        ...getEnumProp('Intensité des impacts négatifs socio-économiques sanitaires', ['Élevée', 'Modérée', 'Faible']),
+        ...getEnumProp({
+            title: 'Intensité des impacts négatifs socio-économiques sanitaires',
+            enum: ['Élevée', 'Modérée', 'Faible'],
+        }),
         classification: getClassificationJsonProp(Structures.analyseIntensiteImpactsSocioEconomiquesSanitaires),
         displayName: getDisplayNameProp('Intensité des impacts négatifs'),
     },
@@ -732,7 +748,7 @@ export const SpeciesTemplate: StellioTemplate = {
 
     // #region ANALYSE DE RISQUES DES TAXONS EVALUES
     probabiliteIntroductionVolontaire: {
-        ...getEnumProp("Probabilité d'introduction volontaire", probabiliteEnumValues),
+        ...getEnumProp({ title: "Probabilité d'introduction volontaire", enum: probabiliteEnumValues }),
         classification: getClassificationJsonProp(Structures.introductionVolontaire),
         displayName: getDisplayNameProp('Probabilité'),
     },
@@ -743,7 +759,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     probabiliteIntroductionInvolontaire: {
-        ...getEnumProp("Probabilité d'introduction involontaire", probabiliteEnumValues),
+        ...getEnumProp({ title: "Probabilité d'introduction involontaire", enum: probabiliteEnumValues }),
         classification: getClassificationJsonProp(Structures.introductionInvolontaire),
         displayName: getDisplayNameProp('Probabilité'),
     },
@@ -754,7 +770,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     probabiliteLimitrophe: {
-        ...getEnumProp('Probabilité limitrophe', probabiliteEnumValues),
+        ...getEnumProp({ title: 'Probabilité limitrophe', enum: probabiliteEnumValues }),
         classification: getClassificationJsonProp(Structures.limitrophe),
         displayName: getDisplayNameProp('Limitrophe'),
     },
@@ -765,7 +781,7 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     probaMax: {
-        ...getEnumProp('Probabilité MAX', probabiliteEnumValues),
+        ...getEnumProp({ title: 'Probabilité MAX', enum: probabiliteEnumValues }),
         classification: getClassificationJsonProp(Structures.analyseRisquesDesTaxonsEvalues),
         displayName: getDisplayNameProp('Proba Max'),
     },
@@ -774,7 +790,10 @@ export const SpeciesTemplate: StellioTemplate = {
 
     // #region CRITERES INFORMATIFS
     scoreDistributionSpatiale: {
-        ...getEnumProp('Score distribution spatiale', ['Absente', 'Rare', 'Répandue', 'Très répandue', 'NA']),
+        ...getEnumProp({
+            title: 'Score distribution spatiale',
+            enum: ['Absente', 'Rare', 'Répandue', 'Très répandue', 'NA'],
+        }),
         classification: getClassificationJsonProp(Structures.distributionSpatiale),
         displayName: getDisplayNameProp('Score'),
     },
@@ -785,13 +804,10 @@ export const SpeciesTemplate: StellioTemplate = {
     },
 
     scoreCoefficientDabondance: {
-        ...getEnumProp("Score coefficient d'abondance", [
-            'Absente',
-            'Peu abondante',
-            'Abondante',
-            'Très abondante',
-            'NA',
-        ]),
+        ...getEnumProp({
+            title: "Score coefficient d'abondance",
+            enum: ['Absente', 'Peu abondante', 'Abondante', 'Très abondante', 'NA'],
+        }),
         classification: getClassificationJsonProp(Structures.coefficientDabondance),
         displayName: getDisplayNameProp('Score'),
     },
@@ -825,30 +841,36 @@ export const SpeciesTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Catégorie'),
     },
     categorieAjustee: {
-        ...getEnumProp('Catégorie ajustée', [
-            'Majeure',
-            'Modérée',
-            'Emergente',
-            'Alerte',
-            'Prévention',
-            'Exotique non envahissante',
-            'NA',
-            'A évaluer',
-        ]),
+        ...getEnumProp({
+            title: 'Catégorie ajustée',
+            enum: [
+                'Majeure',
+                'Modérée',
+                'Emergente',
+                'Alerte',
+                'Prévention',
+                'Exotique non envahissante',
+                'NA',
+                'A évaluer',
+            ],
+        }),
         classification: getClassificationJsonProp(Structures.analyseFinale),
         displayName: getDisplayNameProp('Catégorie ajustée'),
     },
     categorieAffichee: {
-        ...getEnumProp('Catégorie affichée', [
-            'Majeure',
-            'Modérée',
-            'Emergente',
-            'Alerte',
-            'Prévention',
-            'Exotique non envahissante',
-            'NA',
-            'A évaluer',
-        ]),
+        ...getEnumProp({
+            title: 'Catégorie affichée',
+            enum: [
+                'Majeure',
+                'Modérée',
+                'Emergente',
+                'Alerte',
+                'Prévention',
+                'Exotique non envahissante',
+                'NA',
+                'A évaluer',
+            ],
+        }),
         classification: getClassificationJsonProp(Structures.analyseFinale),
         displayName: getDisplayNameProp('Catégorie affichée'),
     },

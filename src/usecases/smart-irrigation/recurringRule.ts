@@ -38,31 +38,36 @@ export const RecurringRuleTemplate: StellioTemplate = {
     // #region Properties
     name: { ...getSimpleTextProp({ title: 'Nom de la règle récurrente' }) },
     startTime: { ...getDateProp({ title: 'Heure de départ', dateMode: 'time' }) },
-    duration: { ...getIntegerProp('Durée (en minutes)', 1, 120) },
+    duration: { ...getIntegerProp({ title: 'Durée (en minutes)', minimum: 1, maximum: 120 }) },
 
     activationDaysMode: {
-        ...getEnumProp("Mode d'activation des jours", ['Tous les deux jours', 'Jours spécifiques']),
+        ...getEnumProp({ title: "Mode d'activation des jours", enum: ['Tous les deux jours', 'Jours spécifiques'] }),
     },
     everySecondDayWeekStartDay: {
-        ...getEnumProp('Jour de démarrage de la règle tous les 2 jours', [
-            'Lundi',
-            'Mardi',
-            'Mercredi',
-            'Jeudi',
-            'Vendredi',
-            'Samedi',
-            'Dimanche',
-        ]),
+        ...getEnumProp({
+            title: 'Jour de démarrage de la règle tous les 2 jours',
+            enum: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
+        }),
     },
     specificActivationWeekDays: {
-        ...getEnumProp(
-            "Jours d'activation spécifiques",
-            ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
-            true
-        ),
+        ...getEnumProp({
+            title: "Jours d'activation spécifiques",
+            enum: [
+                "Jours d'activation spécifiques",
+                'Lundi',
+                'Mardi',
+                'Mercredi',
+                'Jeudi',
+                'Vendredi',
+                'Samedi',
+                'Dimanche',
+            ],
+        }),
     },
 
-    repetitionRulePerDayCount: { ...getIntegerProp('Nombre de répétitions par jour', 1, 10) },
+    repetitionRulePerDayCount: {
+        ...getIntegerProp({ title: 'Nombre de répétitions par jour', minimum: 1, maximum: 10 }),
+    },
     repetitionRulePerDayFrequency: {
         type: 'Property',
         value: 'MINUTELY',
@@ -71,10 +76,13 @@ export const RecurringRuleTemplate: StellioTemplate = {
             value: {
                 schemaType: 'string',
                 canSelfInit: true,
+                friendlyAttributeName: 'Fréquence de répétition',
             },
         },
     },
-    repetitionRulePerDayInterval: { ...getIntegerProp('Intervalle entre les répétitions (en minutes)', 1, 120) },
+    repetitionRulePerDayInterval: {
+        ...getIntegerProp({ title: 'Intervalle entre les répétitions (en minutes)', minimum: 1, maximum: 120 }),
+    },
 
     irrigationArea: {
         ...getRelationshipProp("Zone d'irrigation cible du programme", 'urn:ngsi-ld:IrrigationArea:Template'),
@@ -85,14 +93,16 @@ export const RecurringRuleTemplate: StellioTemplate = {
                 "Zones gérées (attention à bien sélectionner les zones au sein de la zone d'irrigation sélectionnée précédemment)",
             formLabelPerItem: 'Sélectionner une zone gérée',
             templateObjectId: 'urn:ngsi-ld:ManagedZone:Template',
+            friendlyAttributeName: 'Zones gérées',
         }),
     },
 
     status: {
-        ...getEnumProp("Statut de la règle (pour ancien Econom'O, choisir 'documentationOnly')", [
-            'documentationOnly',
-            'inactive',
-        ]),
+        ...getEnumProp({
+            title: "Statut de la règle (pour ancien Econom'O, choisir 'documentationOnly')",
+            enum: ['documentationOnly', 'inactive'],
+            friendlyAttributeName: 'Statut de la règle',
+        }),
     },
     // #endregion
 };

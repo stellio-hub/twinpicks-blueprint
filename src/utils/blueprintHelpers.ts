@@ -20,11 +20,16 @@ export const getSimpleTextProp = ({ title, ...rest }: Partial<JsonSchema>): Stel
     };
 };
 
-export const getEnumProp = (title: string, enumValues: string[], allowMultiple = false): StellioTemplateProp => {
+export const getEnumProp = ({
+    title,
+    enum: enumValues,
+    allowMultiple,
+    ...rest
+}: Partial<JsonSchema>): StellioTemplateProp => {
     order++;
     return {
         type: 'Property',
-        value: enumValues[0],
+        value: enumValues?.[0],
         jsonSchema: {
             type: 'Property',
             value: {
@@ -33,12 +38,13 @@ export const getEnumProp = (title: string, enumValues: string[], allowMultiple =
                 title: title,
                 order: order,
                 allowMultiple,
+                ...rest,
             },
         },
     };
 };
 
-export const getIntegerProp = (title: string, minimum = 0, maximum?: number): StellioTemplateProp => {
+export const getIntegerProp = ({ title, minimum, maximum, ...rest }: Partial<JsonSchema>): StellioTemplateProp => {
     order++;
     return {
         type: 'Property',
@@ -51,6 +57,7 @@ export const getIntegerProp = (title: string, minimum = 0, maximum?: number): St
                 maximum: maximum,
                 title: title,
                 order: order,
+                ...rest,
             },
         },
     };
@@ -101,7 +108,7 @@ type MultiRelationshipProp = {
     templateObjectId: string;
     minimum?: number;
     maximum?: number;
-};
+} & Partial<JsonSchema>;
 export const getMultiRelationshipProp = ({
     formLabel,
     formLabelPerItem,
