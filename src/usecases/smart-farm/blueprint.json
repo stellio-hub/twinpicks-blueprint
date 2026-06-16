@@ -673,23 +673,9 @@
             "jsonSchema": {
                 "type": "Property",
                 "value": {
-                    "schemaType": "array",
-                    "format": "uri",
+                    "schemaType": "string",
                     "title": "What are the requirements for this operation ?",
-                    "friendlyAttributeName": "Reference Tool Requirements",
-                    "minItems": 1,
-                    "items": {
-                        "type": "Relationship",
-                        "object": "urn:ngsi-ld:ToolRequirements:Template",
-                        "jsonSchema": {
-                            "type": "Property",
-                            "value": {
-                                "schemaType": "string",
-                                "format": "uri",
-                                "title": "Select a tool requirement"
-                            }
-                        }
-                    }
+                    "order": 1
                 }
             }
         },
@@ -1978,7 +1964,7 @@
                 "type": "Property",
                 "value": {
                     "schemaType": "array",
-                    "order": 1,
+                    "order": 2,
                     "title": "What crops can the operation be performed on?",
                     "minimum": 1,
                     "items": {
@@ -2008,7 +1994,7 @@
                         "High"
                     ],
                     "title": "optimal weed pressure to do the operation",
-                    "order": 2
+                    "order": 3
                 }
             }
         },
@@ -2027,7 +2013,7 @@
                         "low stone content"
                     ],
                     "title": "optimal soil type to do the operation",
-                    "order": 3
+                    "order": 4
                 }
             }
         },
@@ -2051,7 +2037,7 @@
                         "self-mulching clay"
                     ],
                     "title": "optimal soil type to do the operation",
-                    "order": 4
+                    "order": 5
                 }
             }
         },
@@ -2065,7 +2051,7 @@
                     "minimum": 0,
                     "maximum": 100,
                     "title": "max BBCH stage the the operation can be done at",
-                    "order": 5
+                    "order": 6
                 }
             }
         },
@@ -2079,7 +2065,7 @@
                     "minimum": 0,
                     "maximum": 100,
                     "title": "minimal BBCH stage the the operation can be done at",
-                    "order": 6
+                    "order": 7
                 }
             }
         }
