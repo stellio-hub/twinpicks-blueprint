@@ -59,6 +59,32 @@ export const AgriOperationTemplate: StellioTemplate = {
                 title: 'Category' },
         },
     },
+    hasToolRequirements:{
+        type: 'Relationship',
+        object: 'urn:ngsi-ld:ToolRequirements:Template',
+        jsonSchema: {
+            type: 'Property',
+            value: {
+                schemaType: 'array',
+                format: 'uri',
+                title: "What are the requirements for this operation ?",
+                friendlyAttributeName: 'Reference Tool Requirements',
+                minItems: 1,
+                items: {
+                    type: "Relationship",
+                    object: "urn:ngsi-ld:ToolRequirements:Template",
+                    jsonSchema: {
+                        type: "Property",
+                        value: {
+                            schemaType: "string",
+                            format: "uri",
+                            title: "Select a tool requirement"
+                        }
+                    }
+                }
+            },
+        },
+    },
     jsonSchema: {
         type: 'Property',
         value: {
