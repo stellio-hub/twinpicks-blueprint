@@ -64,26 +64,26 @@ export const AgronomicPracticesTemplate: StellioTemplate = {
                 title: 'Farming Systems' },
         },
     },
-    hasTreatment: {
+    hasOperation: {
         type: 'Relationship',
-        object: 'urn:ngsi-ld:Treatment:Template',
+        object: 'urn:ngsi-ld:Operation:Template',
         jsonSchema: {
             type: 'Property',
             value: {
                 schemaType: 'array',
                 format: 'uri',
-                title: "What treatment has been used in this area ?",
-                friendlyAttributeName: 'Reference treatment',
+                title: "What operation has been donne in this area ?",
+                friendlyAttributeName: 'Reference Operation',
                 minItems: 1,
                 items: {
                     type: "Relationship",
-                    object: "urn:ngsi-ld:Treatment:Template",
+                    object: "urn:ngsi-ld:Operation:Template",
                     jsonSchema: {
                         type: "Property",
                         value: {
                             schemaType: "string",
                             format: "uri",
-                            title: "Select a treatment"
+                            title: "Select a operation"
                         }
                     }
                 }
