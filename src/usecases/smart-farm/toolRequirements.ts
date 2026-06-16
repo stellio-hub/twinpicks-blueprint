@@ -6,7 +6,7 @@ import {
     getMultiRelationshipProp,
 } from '../../utils/blueprintHelpers';
 
-export const agriToolRequirementsTemplate: StellioTemplate = {
+export const ToolRequirementsTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:ToolRequirements:Template`,
     type: 'Template',
     jsonSchema: {
@@ -15,7 +15,7 @@ export const agriToolRequirementsTemplate: StellioTemplate = {
             schemaType: "ToolRequirements",
             title: "ToolRequirements",
             minimum: 0,
-            required: ['hasCrops',"WeedPresure","SoilTypes","SoilTextures"],
+            required: ['hasCrops',"WeedPresure","SoilTypes","SoilTextures","maxBbch","minBbch"],
             description: `This represents a Crop`,
         },  
     },
