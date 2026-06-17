@@ -16,7 +16,7 @@ import { SocialEconomicTemplate } from './socialEconomic';
 import { SoilMicrobiomeTemplate } from './soilMicrobiome';
 import { SoilNutrientTemplate } from './soilNutrient'
 import { ReferenceSoilAreaTemplate } from './referenceSoilArea';
-import { TreatmentTemplate } from './treatment';
+import { ToolRequirementsTemplate } from './toolRequirements';
 import { WeatherInformationTemplate } from './weatherInformation';
 import { WeedSpeciesTemplate } from './weedSpecies';
 
@@ -43,7 +43,7 @@ const blueprint = [
     SoilMicrobiomeTemplate,
     SoilNutrientTemplate,
     ReferenceSoilAreaTemplate,
-    TreatmentTemplate,
+    ToolRequirementsTemplate,
     WeatherInformationTemplate,
     WeedSpeciesTemplate,
 ];

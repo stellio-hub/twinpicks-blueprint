@@ -1,4 +1,7 @@
 import { StellioTemplate } from 'src/interfaces';
+import {
+    getMultiRelationshipProp,
+} from '../../utils/blueprintHelpers';
 
 const soilManagmentCategories = [
     "Crop Rotation",
@@ -64,31 +67,13 @@ export const AgronomicPracticesTemplate: StellioTemplate = {
                 title: 'Farming Systems' },
         },
     },
-    hasTreatment: {
-        type: 'Relationship',
-        object: 'urn:ngsi-ld:Treatment:Template',
-        jsonSchema: {
-            type: 'Property',
-            value: {
-                schemaType: 'array',
-                format: 'uri',
-                title: "What treatment has been used in this area ?",
-                friendlyAttributeName: 'Reference treatment',
-                minItems: 1,
-                items: {
-                    type: "Relationship",
-                    object: "urn:ngsi-ld:Treatment:Template",
-                    jsonSchema: {
-                        type: "Property",
-                        value: {
-                            schemaType: "string",
-                            format: "uri",
-                            title: "Select a treatment"
-                        }
-                    }
-                }
-            },
-        },
+    hasOperation: {
+        ...getMultiRelationshipProp({
+            formLabel: "What operation were donne in this area ?",
+            formLabelPerItem: "Select a operation",
+            templateObjectId: "urn:ngsi-ld:Operation:Template",
+            minimum: 1
+        })
     }, 
     weedManagement: {
         type: 'Property',

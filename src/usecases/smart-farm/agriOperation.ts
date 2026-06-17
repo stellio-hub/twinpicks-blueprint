@@ -1,4 +1,7 @@
 import { StellioTemplate } from 'src/interfaces';
+import {
+    getRelationshipProp,
+} from '../../utils/blueprintHelpers';
 
 const categoryCategories = [
     "Crop rotation",
@@ -58,6 +61,12 @@ export const AgriOperationTemplate: StellioTemplate = {
                 enum:categoryCategories,
                 title: 'Category' },
         },
+    },
+    hasToolRequirements:{
+        ...getRelationshipProp(
+            "What are the requirements for this operation ?",
+            'urn:ngsi-ld:ToolRequirements:Template'
+        )
     },
     jsonSchema: {
         type: 'Property',
