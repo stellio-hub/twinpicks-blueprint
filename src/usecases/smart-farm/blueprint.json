@@ -1033,10 +1033,9 @@
                 "type": "Property",
                 "value": {
                     "schemaType": "array",
-                    "format": "uri",
-                    "title": "What operation has been donne in this area ?",
-                    "friendlyAttributeName": "Reference Operation",
-                    "minItems": 1,
+                    "order": 2,
+                    "title": "What operation were donne in this area ?",
+                    "minimum": 1,
                     "items": {
                         "type": "Relationship",
                         "object": "urn:ngsi-ld:Operation:Template",
@@ -1044,7 +1043,6 @@
                             "type": "Property",
                             "value": {
                                 "schemaType": "string",
-                                "format": "uri",
                                 "title": "Select a operation"
                             }
                         }
@@ -1964,7 +1962,7 @@
                 "type": "Property",
                 "value": {
                     "schemaType": "array",
-                    "order": 2,
+                    "order": 3,
                     "title": "What crops can the operation be performed on?",
                     "minimum": 1,
                     "items": {
@@ -1981,7 +1979,7 @@
                 }
             }
         },
-        "WeedPresure": {
+        "weedPresure": {
             "type": "Property",
             "value": "Low",
             "jsonSchema": {
@@ -1994,11 +1992,11 @@
                         "High"
                     ],
                     "title": "optimal weed pressure to do the operation",
-                    "order": 3
+                    "order": 4
                 }
             }
         },
-        "SoilTypes": {
+        "soilTypes": {
             "type": "Property",
             "value": "light soils",
             "jsonSchema": {
@@ -2013,11 +2011,11 @@
                         "low stone content"
                     ],
                     "title": "optimal soil type to do the operation",
-                    "order": 4
+                    "order": 5
                 }
             }
         },
-        "SoilTextures": {
+        "soilTextures": {
             "type": "Property",
             "value": "coarse sand",
             "jsonSchema": {
@@ -2037,7 +2035,7 @@
                         "self-mulching clay"
                     ],
                     "title": "optimal soil type to do the operation",
-                    "order": 5
+                    "order": 6
                 }
             }
         },
@@ -2051,7 +2049,7 @@
                     "minimum": 0,
                     "maximum": 100,
                     "title": "max BBCH stage the the operation can be done at",
-                    "order": 6
+                    "order": 7
                 }
             }
         },
@@ -2065,7 +2063,7 @@
                     "minimum": 0,
                     "maximum": 100,
                     "title": "minimal BBCH stage the the operation can be done at",
-                    "order": 7
+                    "order": 8
                 }
             }
         }

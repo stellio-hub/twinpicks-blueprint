@@ -27,7 +27,7 @@ export const ToolRequirementsTemplate: StellioTemplate = {
             minimum: 1,
         })
     },
-    WeedPresure:{
+    weedPresure:{
         ...getEnumProp({
             title: 'optimal weed pressure to do the operation',
             enum: [
@@ -37,7 +37,7 @@ export const ToolRequirementsTemplate: StellioTemplate = {
             ],
         }),
     },
-    SoilTypes:{
+    soilTypes:{
         ...getEnumProp({
             title: 'optimal soil type to do the operation',
             enum: [
@@ -49,7 +49,7 @@ export const ToolRequirementsTemplate: StellioTemplate = {
             ],
         }),
     },
-    SoilTextures:{
+    soilTextures:{
         ...getEnumProp({
             title: 'optimal soil type to do the operation',
             enum: [
