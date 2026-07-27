@@ -126,18 +126,15 @@
                 }
             }
         },
-        "placement": {
-            "type": "GeoProperty",
-            "value": {
-                "type": "Point",
-                "coordinates": []
-            },
+        "isCultivatedOn": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ParcelArea:Template",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
-                    "schemaType": "object",
-                    "title": "Place a point on the map",
-                    "friendlyAttributeName": "Geolocation"
+                    "schemaType": "string",
+                    "title": "What is the parcel area where the crop is planted?",
+                    "order": 1
                 }
             }
         },
@@ -370,7 +367,7 @@
                 "value": {
                     "schemaType": "array",
                     "format": "uri",
-                    "title": "What is growing in this area ?",
+                    "title": "What Crops are growing in this area ?",
                     "friendlyAttributeName": "Reference crop",
                     "minItems": 1,
                     "items": {
@@ -463,7 +460,7 @@
                 "value": {
                     "schemaType": "array",
                     "format": "uri",
-                    "title": "What is growing in this area ?",
+                    "title": "What weeds are growing in this area ?",
                     "friendlyAttributeName": "Reference weed",
                     "minItems": 1,
                     "items": {
@@ -675,7 +672,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "What are the requirements for this operation ?",
-                    "order": 1
+                    "order": 2
                 }
             }
         },
@@ -1033,7 +1030,7 @@
                 "type": "Property",
                 "value": {
                     "schemaType": "array",
-                    "order": 2,
+                    "order": 3,
                     "title": "What operation were donne in this area ?",
                     "minimum": 1,
                     "items": {
@@ -1962,7 +1959,7 @@
                 "type": "Property",
                 "value": {
                     "schemaType": "array",
-                    "order": 3,
+                    "order": 4,
                     "title": "What crops can the operation be performed on?",
                     "minimum": 1,
                     "items": {
@@ -1992,7 +1989,7 @@
                         "High"
                     ],
                     "title": "optimal weed pressure to do the operation",
-                    "order": 4
+                    "order": 5
                 }
             }
         },
@@ -2011,7 +2008,7 @@
                         "low stone content"
                     ],
                     "title": "optimal soil type to do the operation",
-                    "order": 5
+                    "order": 6
                 }
             }
         },
@@ -2035,7 +2032,7 @@
                         "self-mulching clay"
                     ],
                     "title": "optimal soil type to do the operation",
-                    "order": 6
+                    "order": 7
                 }
             }
         },
@@ -2049,7 +2046,7 @@
                     "minimum": 0,
                     "maximum": 100,
                     "title": "max BBCH stage the the operation can be done at",
-                    "order": 7
+                    "order": 8
                 }
             }
         },
@@ -2063,7 +2060,7 @@
                     "minimum": 0,
                     "maximum": 100,
                     "title": "minimal BBCH stage the the operation can be done at",
-                    "order": 8
+                    "order": 9
                 }
             }
         }
