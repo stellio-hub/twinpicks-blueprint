@@ -102,6 +102,46 @@ export const getDateProp = ({
     };
 };
 
+type MultiAttributeProp = {
+    formLabel: string;
+    formLabelPerItem: string;
+    subProps: [string, StellioTemplateProp][];
+} & Partial<JsonSchema>;
+export const getMultiAttributeProp = ({
+    schemaType = 'string',
+    formLabel,
+    formLabelPerItem,
+    subProps,
+    ...rest
+}: MultiAttributeProp): StellioTemplateProp => {
+    order++;
+    return {
+        ...Object.fromEntries(subProps),
+        type: 'Property',
+        value: 'placeholder',
+        jsonSchema: {
+            type: 'Property',
+            value: {
+                schemaType: 'array',
+                title: formLabel,
+                order: order,
+                items: {
+                    type: 'Property',
+                    value: 'placeholder',
+                    jsonSchema: {
+                        type: 'Property',
+                        value: {
+                            title: formLabelPerItem,
+                            schemaType,
+                            ...rest,
+                        },
+                    },
+                },
+            },
+        },
+    };
+};
+
 type MultiRelationshipProp = {
     formLabel: string;
     formLabelPerItem: string;

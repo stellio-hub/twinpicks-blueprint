@@ -1,0 +1,720 @@
+[
+    {
+        "id": "urn:ngsi-ld:Streetlight:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Nom du point lumineux",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Nom",
+                    "schemaType": "string",
+                    "title": "Nom du point lumineux",
+                    "order": 1
+                }
+            }
+        },
+        "description": {
+            "type": "Property",
+            "value": "Description",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Description",
+                    "order": 2
+                }
+            }
+        },
+        "location": {
+            "type": "GeoProperty",
+            "value": {
+                "type": "Point",
+                "coordinates": []
+            },
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "object",
+                    "title": "Pointer la position du point lumineux sur la carte",
+                    "order": 3
+                }
+            }
+        },
+        "streetAddress": {
+            "type": "Property",
+            "value": "Adresse",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Adresse",
+                    "order": 4
+                }
+            }
+        },
+        "circuit": {
+            "type": "Property",
+            "value": "Circuit électrique",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Circuit électrique",
+                    "order": 5
+                }
+            }
+        },
+        "controllingMethod": {
+            "type": "Property",
+            "value": "Groupe",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "enum": [
+                        "Groupe",
+                        "Individuel"
+                    ],
+                    "title": "Mode de commande",
+                    "order": 6
+                }
+            }
+        },
+        "locationCategory": {
+            "type": "Property",
+            "value": "Route",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "enum": [
+                        "Route",
+                        "Piste piétonne",
+                        "Jardin",
+                        "Parking",
+                        "Pont",
+                        "Tunnel",
+                        "Façade",
+                        "Playground",
+                        "Île centrale"
+                    ],
+                    "title": "Catégorie de localisation",
+                    "order": 7
+                }
+            }
+        },
+        "refStreetlightGroup": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:StreetlightGroup:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Groupe de points lumineux",
+                    "order": 8
+                }
+            }
+        },
+        "refStreetlightControlCabinet": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:StreetlightControlCabinet:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Armoire de commande",
+                    "order": 9
+                }
+            }
+        },
+        "lanternHeight": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "minimum": 0,
+                    "title": "Hauteur de la lanterne (m)",
+                    "order": 10
+                }
+            }
+        },
+        "streetPoleNum": {
+            "type": "Property",
+            "value": "Numéro de mât",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Numéro de mât",
+                    "order": 11
+                }
+            }
+        },
+        "feederPillarNum": {
+            "type": "Property",
+            "value": "Numéro de feeder pillar",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Numéro de feeder pillar",
+                    "order": 12
+                }
+            }
+        },
+        "dateServiceStarted": {
+            "type": "Property",
+            "value": "2026-08-10T12:49:17.605Z",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "date",
+                    "title": "Date de mise en service",
+                    "order": 13,
+                    "dateMode": "date"
+                }
+            }
+        },
+        "dateLastLampChange": {
+            "type": "Property",
+            "value": "2026-08-10T12:49:17.605Z",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "date",
+                    "title": "Date du dernier changement de lampe",
+                    "order": 14,
+                    "dateMode": "date"
+                }
+            }
+        },
+        "dateLastSwitchingOn": {
+            "type": "Property",
+            "value": "2026-08-10T12:49:17.605Z",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "date",
+                    "title": "Date de la dernière mise sous tension",
+                    "order": 15,
+                    "dateMode": "date"
+                }
+            }
+        },
+        "dateLastSwitchingOff": {
+            "type": "Property",
+            "value": "2026-08-10T12:49:17.605Z",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "date",
+                    "title": "Date de la dernière coupure",
+                    "order": 16,
+                    "dateMode": "date"
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "Streetlight",
+                "title": "Point lumineux",
+                "required": [
+                    "name",
+                    "location"
+                ],
+                "description": "Un point lumineux représente tout type d'éclairage extérieur sur la carte",
+                "minimum": 1
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:StreetlightControlCabinet:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Nom de l'armoire de commande",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Nom",
+                    "schemaType": "string",
+                    "title": "Nom de l'armoire de commande",
+                    "order": 17
+                }
+            }
+        },
+        "observation": {
+            "observationDate": {
+                "type": "Property",
+                "value": "2026-08-10T12:49:17.606Z",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "date",
+                        "title": "Date de l'observation",
+                        "order": 18,
+                        "dateMode": "date"
+                    }
+                }
+            },
+            "type": "Property",
+            "value": "placeholder",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "title": "Observations",
+                    "order": 19,
+                    "items": {
+                        "type": "Property",
+                        "value": "placeholder",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "title": "Saisir une observation",
+                                "schemaType": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "location": {
+            "type": "GeoProperty",
+            "value": {
+                "type": "Point",
+                "coordinates": []
+            },
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "object",
+                    "title": "Pointer la position de l'armoire de commande sur la carte",
+                    "order": 20
+                }
+            }
+        },
+        "serialNumber": {
+            "type": "Property",
+            "value": "Numéro de série",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Numéro de série",
+                    "order": 21
+                }
+            }
+        },
+        "brandName": {
+            "type": "Property",
+            "value": "Marque",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Marque",
+                    "order": 22
+                }
+            }
+        },
+        "modelName": {
+            "type": "Property",
+            "value": "Modèle",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Modèle",
+                    "order": 23
+                }
+            }
+        },
+        "manufacturerName": {
+            "type": "Property",
+            "value": "Fabricant",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Fabricant",
+                    "order": 24
+                }
+            }
+        },
+        "commandedBy": {
+            "type": "Property",
+            "value": "Fabricant",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Fabricant",
+                    "order": 25
+                }
+            }
+        },
+        "cupboardMadeOf": {
+            "type": "Property",
+            "value": "Métal",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "enum": [
+                        "Métal",
+                        "Béton",
+                        "Plastique",
+                        "Autre"
+                    ],
+                    "title": "Matériau du coffret",
+                    "order": 26
+                }
+            }
+        },
+        "responsible": {
+            "type": "Property",
+            "value": "Responsable de l'armoire",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Responsable de l'armoire",
+                    "order": 27
+                }
+            }
+        },
+        "dateServiceStarted": {
+            "type": "Property",
+            "value": "2026-08-10T12:49:17.606Z",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "date",
+                    "title": "Date de mise en service",
+                    "order": 28,
+                    "dateMode": "date"
+                }
+            }
+        },
+        "dateLastProgramming": {
+            "type": "Property",
+            "value": "2026-08-10T12:49:17.606Z",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "date",
+                    "title": "Date de la dernière programmation",
+                    "order": 29,
+                    "dateMode": "date"
+                }
+            }
+        },
+        "nextActuationDeadline": {
+            "type": "Property",
+            "value": "2026-08-10T12:49:17.606Z",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "date",
+                    "title": "Échéance de la prochaine action",
+                    "order": 30,
+                    "dateMode": "date"
+                }
+            }
+        },
+        "dateMeteringStarted": {
+            "type": "Property",
+            "value": "2026-08-10T12:49:17.606Z",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "date",
+                    "title": "Date de début du comptage énergétique",
+                    "order": 31,
+                    "dateMode": "date"
+                }
+            }
+        },
+        "maximumPowerAvailable": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "minimum": 0,
+                    "title": "Puissance maximale disponible (kW)",
+                    "order": 32
+                }
+            }
+        },
+        "energyCost": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "minimum": 0,
+                    "title": "Coût de l'énergie consommée",
+                    "order": 33
+                }
+            }
+        },
+        "totalActivePower": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "minimum": 0,
+                    "title": "Puissance active totale (kW)",
+                    "order": 34
+                }
+            }
+        },
+        "totalReactivePower": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "minimum": 0,
+                    "title": "Puissance réactive totale (kVAr)",
+                    "order": 35
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "StreetlightControlCabinet",
+                "title": "Armoire de commande",
+                "required": [
+                    "name",
+                    "location"
+                ],
+                "description": "Armoire de commande des points lumineux, permettant la gestion et la supervision des groupes d'éclairage.",
+                "minimum": 0
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:StreetlightGroup:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Nom du groupe de points lumineux",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Nom",
+                    "schemaType": "string",
+                    "title": "Nom du groupe de points lumineux",
+                    "order": 36
+                }
+            }
+        },
+        "location": {
+            "type": "GeoProperty",
+            "value": {
+                "type": "MultiLineString",
+                "coordinates": []
+            },
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "object",
+                    "title": "Relier les points lumineux sur la carte",
+                    "order": 37
+                }
+            }
+        },
+        "refStreetlightControlCabinet": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:StreetlightControlCabinet:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Armoire de commande",
+                    "order": 38
+                }
+            }
+        },
+        "circuitId": {
+            "type": "Property",
+            "value": "Identifiant du circuit",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Identifiant du circuit",
+                    "order": 39
+                }
+            }
+        },
+        "illuminanceLevel": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "title": "Niveau d'éclairement relatif du groupe (0 à 1)",
+                    "order": 40
+                }
+            }
+        },
+        "dateLastSwitchingOn": {
+            "type": "Property",
+            "value": "2026-08-10T12:49:17.606Z",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "date",
+                    "title": "Date de la dernière mise sous tension",
+                    "order": 41,
+                    "dateMode": "date"
+                }
+            }
+        },
+        "dateLastSwitchingOff": {
+            "type": "Property",
+            "value": "2026-08-10T12:49:17.606Z",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "date",
+                    "title": "Date de la dernière coupure",
+                    "order": 42,
+                    "dateMode": "date"
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "StreetlightGroup",
+                "title": "Groupe de points lumineux",
+                "required": [
+                    "name",
+                    "location"
+                ],
+                "description": "Groupe de points lumineux partageant une même logique de commande et de commutation.",
+                "minimum": 0
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:DeliveryPoint:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Nom du point de livraison",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Nom",
+                    "schemaType": "string",
+                    "title": "Nom du point de livraison",
+                    "order": 43
+                }
+            }
+        },
+        "description": {
+            "type": "Property",
+            "value": "Description",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Description",
+                    "order": 44
+                }
+            }
+        },
+        "deliveryPointNumber": {
+            "type": "Property",
+            "value": "Identifiant du point de livraison",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Identifiant du point de livraison",
+                    "order": 45
+                }
+            }
+        },
+        "fluidType": {
+            "type": "Property",
+            "value": "Eau",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "enum": [
+                        "Eau",
+                        "Gaz",
+                        "Electricité"
+                    ],
+                    "title": "Type de fluide",
+                    "order": 46
+                }
+            }
+        },
+        "location": {
+            "type": "GeoProperty",
+            "value": {
+                "type": "Point",
+                "coordinates": []
+            },
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "object",
+                    "title": "Localisation",
+                    "order": 47
+                }
+            }
+        },
+        "isObserving": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:StreetlightControlCabinet:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Est en train d'observer",
+                    "order": 48
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "DeliveryPoint",
+                "title": "Point de livraison",
+                "required": [
+                    "name",
+                    "deliveryPointNumber",
+                    "fluidType",
+                    "location"
+                ],
+                "description": "Point de livraison regroupant le type d'énergie, les données du distributeur et celles du fournisseur.",
+                "minimum": 0,
+                "identifier": "deliveryPointNumber"
+            }
+        }
+    }
+]
