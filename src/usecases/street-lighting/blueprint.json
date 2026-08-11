@@ -66,6 +66,26 @@
                 }
             }
         },
+        "status": {
+            "type": "Property",
+            "value": "ok",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "enum": [
+                        "ok",
+                        "defectiveLamp",
+                        "columnIssue",
+                        "brokenLantern"
+                    ],
+                    "title": "État général",
+                    "order": 6,
+                    "canSelfInit": true,
+                    "friendlyAttributeName": "État"
+                }
+            }
+        },
         "controllingMethod": {
             "type": "Property",
             "value": "Groupe",
@@ -78,7 +98,7 @@
                         "Individuel"
                     ],
                     "title": "Mode de commande",
-                    "order": 6
+                    "order": 7
                 }
             }
         },
@@ -101,7 +121,7 @@
                         "Île centrale"
                     ],
                     "title": "Catégorie de localisation",
-                    "order": 7
+                    "order": 8
                 }
             }
         },
@@ -113,7 +133,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Groupe de points lumineux",
-                    "order": 8
+                    "order": 9
                 }
             }
         },
@@ -125,7 +145,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Armoire de commande",
-                    "order": 9
+                    "order": 10
                 }
             }
         },
@@ -138,7 +158,7 @@
                     "schemaType": "integer",
                     "minimum": 0,
                     "title": "Hauteur de la lanterne (m)",
-                    "order": 10
+                    "order": 11
                 }
             }
         },
@@ -150,7 +170,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Numéro de mât",
-                    "order": 11
+                    "order": 12
                 }
             }
         },
@@ -162,58 +182,58 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Numéro de feeder pillar",
-                    "order": 12
+                    "order": 13
                 }
             }
         },
         "dateServiceStarted": {
             "type": "Property",
-            "value": "2026-08-10T12:49:17.605Z",
+            "value": "2026-08-11T13:31:10.131Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "date",
                     "title": "Date de mise en service",
-                    "order": 13,
+                    "order": 14,
                     "dateMode": "date"
                 }
             }
         },
         "dateLastLampChange": {
             "type": "Property",
-            "value": "2026-08-10T12:49:17.605Z",
+            "value": "2026-08-11T13:31:10.131Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "date",
                     "title": "Date du dernier changement de lampe",
-                    "order": 14,
+                    "order": 15,
                     "dateMode": "date"
                 }
             }
         },
         "dateLastSwitchingOn": {
             "type": "Property",
-            "value": "2026-08-10T12:49:17.605Z",
+            "value": "2026-08-11T13:31:10.131Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "date",
                     "title": "Date de la dernière mise sous tension",
-                    "order": 15,
+                    "order": 16,
                     "dateMode": "date"
                 }
             }
         },
         "dateLastSwitchingOff": {
             "type": "Property",
-            "value": "2026-08-10T12:49:17.605Z",
+            "value": "2026-08-11T13:31:10.131Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "date",
                     "title": "Date de la dernière coupure",
-                    "order": 16,
+                    "order": 17,
                     "dateMode": "date"
                 }
             }
@@ -225,7 +245,8 @@
                 "title": "Point lumineux",
                 "required": [
                     "name",
-                    "location"
+                    "location",
+                    "status"
                 ],
                 "description": "Un point lumineux représente tout type d'éclairage extérieur sur la carte",
                 "minimum": 1
@@ -244,43 +265,7 @@
                     "friendlyAttributeName": "Nom",
                     "schemaType": "string",
                     "title": "Nom de l'armoire de commande",
-                    "order": 17
-                }
-            }
-        },
-        "observation": {
-            "observationDate": {
-                "type": "Property",
-                "value": "2026-08-10T12:49:17.606Z",
-                "jsonSchema": {
-                    "type": "Property",
-                    "value": {
-                        "schemaType": "date",
-                        "title": "Date de l'observation",
-                        "order": 18,
-                        "dateMode": "date"
-                    }
-                }
-            },
-            "type": "Property",
-            "value": "placeholder",
-            "jsonSchema": {
-                "type": "Property",
-                "value": {
-                    "schemaType": "array",
-                    "title": "Observations",
-                    "order": 19,
-                    "items": {
-                        "type": "Property",
-                        "value": "placeholder",
-                        "jsonSchema": {
-                            "type": "Property",
-                            "value": {
-                                "title": "Saisir une observation",
-                                "schemaType": "string"
-                            }
-                        }
-                    }
+                    "order": 18
                 }
             }
         },
@@ -295,7 +280,7 @@
                 "value": {
                     "schemaType": "object",
                     "title": "Pointer la position de l'armoire de commande sur la carte",
-                    "order": 20
+                    "order": 19
                 }
             }
         },
@@ -307,7 +292,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Numéro de série",
-                    "order": 21
+                    "order": 20
                 }
             }
         },
@@ -319,7 +304,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Marque",
-                    "order": 22
+                    "order": 21
                 }
             }
         },
@@ -331,7 +316,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Modèle",
-                    "order": 23
+                    "order": 22
                 }
             }
         },
@@ -343,7 +328,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Fabricant",
-                    "order": 24
+                    "order": 23
                 }
             }
         },
@@ -355,7 +340,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Fabricant",
-                    "order": 25
+                    "order": 24
                 }
             }
         },
@@ -373,7 +358,26 @@
                         "Autre"
                     ],
                     "title": "Matériau du coffret",
-                    "order": 26
+                    "order": 25
+                }
+            }
+        },
+        "status": {
+            "type": "Property",
+            "value": "ok",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "enum": [
+                        "ok",
+                        "maintenanceRequired",
+                        "outOfOrder"
+                    ],
+                    "title": "État opérationnel",
+                    "order": 26,
+                    "canSelfInit": true,
+                    "friendlyAttributeName": "État"
                 }
             }
         },
@@ -391,7 +395,7 @@
         },
         "dateServiceStarted": {
             "type": "Property",
-            "value": "2026-08-10T12:49:17.606Z",
+            "value": "2026-08-11T13:31:10.131Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
@@ -404,7 +408,7 @@
         },
         "dateLastProgramming": {
             "type": "Property",
-            "value": "2026-08-10T12:49:17.606Z",
+            "value": "2026-08-11T13:31:10.131Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
@@ -417,7 +421,7 @@
         },
         "nextActuationDeadline": {
             "type": "Property",
-            "value": "2026-08-10T12:49:17.606Z",
+            "value": "2026-08-11T13:31:10.131Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
@@ -430,7 +434,7 @@
         },
         "dateMeteringStarted": {
             "type": "Property",
-            "value": "2026-08-10T12:49:17.606Z",
+            "value": "2026-08-11T13:31:10.131Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
@@ -493,6 +497,42 @@
                 }
             }
         },
+        "observation": {
+            "observationDate": {
+                "type": "Property",
+                "value": "2026-08-11T13:31:10.131Z",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "date",
+                        "title": "Date de l'observation",
+                        "order": 36,
+                        "dateMode": "date"
+                    }
+                }
+            },
+            "type": "Property",
+            "value": "placeholder",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "title": "Observations",
+                    "order": 37,
+                    "items": {
+                        "type": "Property",
+                        "value": "placeholder",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "title": "Saisir une observation",
+                                "schemaType": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "jsonSchema": {
             "type": "Property",
             "value": {
@@ -500,7 +540,8 @@
                 "title": "Armoire de commande",
                 "required": [
                     "name",
-                    "location"
+                    "location",
+                    "status"
                 ],
                 "description": "Armoire de commande des points lumineux, permettant la gestion et la supervision des groupes d'éclairage.",
                 "minimum": 0
@@ -519,7 +560,7 @@
                     "friendlyAttributeName": "Nom",
                     "schemaType": "string",
                     "title": "Nom du groupe de points lumineux",
-                    "order": 36
+                    "order": 38
                 }
             }
         },
@@ -534,7 +575,7 @@
                 "value": {
                     "schemaType": "object",
                     "title": "Relier les points lumineux sur la carte",
-                    "order": 37
+                    "order": 39
                 }
             }
         },
@@ -546,7 +587,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Armoire de commande",
-                    "order": 38
+                    "order": 40
                 }
             }
         },
@@ -558,7 +599,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Identifiant du circuit",
-                    "order": 39
+                    "order": 41
                 }
             }
         },
@@ -572,32 +613,32 @@
                     "minimum": 0,
                     "maximum": 1,
                     "title": "Niveau d'éclairement relatif du groupe (0 à 1)",
-                    "order": 40
+                    "order": 42
                 }
             }
         },
         "dateLastSwitchingOn": {
             "type": "Property",
-            "value": "2026-08-10T12:49:17.606Z",
+            "value": "2026-08-11T13:31:10.132Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "date",
                     "title": "Date de la dernière mise sous tension",
-                    "order": 41,
+                    "order": 43,
                     "dateMode": "date"
                 }
             }
         },
         "dateLastSwitchingOff": {
             "type": "Property",
-            "value": "2026-08-10T12:49:17.606Z",
+            "value": "2026-08-11T13:31:10.132Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "date",
                     "title": "Date de la dernière coupure",
-                    "order": 42,
+                    "order": 44,
                     "dateMode": "date"
                 }
             }
@@ -628,7 +669,7 @@
                     "friendlyAttributeName": "Nom",
                     "schemaType": "string",
                     "title": "Nom du point de livraison",
-                    "order": 43
+                    "order": 45
                 }
             }
         },
@@ -640,7 +681,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Description",
-                    "order": 44
+                    "order": 46
                 }
             }
         },
@@ -652,7 +693,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Identifiant du point de livraison",
-                    "order": 45
+                    "order": 47
                 }
             }
         },
@@ -669,7 +710,7 @@
                         "Electricité"
                     ],
                     "title": "Type de fluide",
-                    "order": 46
+                    "order": 48
                 }
             }
         },
@@ -684,7 +725,7 @@
                 "value": {
                     "schemaType": "object",
                     "title": "Localisation",
-                    "order": 47
+                    "order": 49
                 }
             }
         },
@@ -696,7 +737,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Est en train d'observer",
-                    "order": 48
+                    "order": 50
                 }
             }
         },
