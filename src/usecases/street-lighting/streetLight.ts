@@ -28,6 +28,14 @@ export const StreetlightTemplate: StellioTemplate = {
     circuit: {
         ...getSimpleTextProp({ title: 'Circuit électrique' }),
     },
+    status: {
+        ...getEnumProp({
+            title: 'État général',
+            enum: ['ok', 'defectiveLamp', 'columnIssue', 'brokenLantern'],
+            canSelfInit: true,
+            friendlyAttributeName: 'État',
+        }),
+    },
     controllingMethod: {
         ...getEnumProp({
             title: 'Mode de commande',

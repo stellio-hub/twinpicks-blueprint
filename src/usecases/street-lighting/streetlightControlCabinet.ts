@@ -41,6 +41,14 @@ export const StreetlightControlCabinetTemplate: StellioTemplate = {
             enum: ['Métal', 'Béton', 'Plastique', 'Autre'],
         }),
     },
+    status: {
+        ...getEnumProp({
+            title: 'État opérationnel',
+            enum: ['ok', 'maintenanceRequired', 'outOfOrder'],
+            canSelfInit: true,
+            friendlyAttributeName: 'État',
+        }),
+    },
     responsible: {
         ...getSimpleTextProp({ title: "Responsable de l'armoire" }),
     },
