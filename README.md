@@ -21,7 +21,7 @@ A blueprint is a global definition of a specific use case type. It is following 
 # How to define entity types within the blueprint
 
 - Each entity is define by a "Template" and has its own file within `/src/usecases/[NEW_USECASE_TYPE]`
-- Then each file must export a "Template" entity. Consider for example the description of an entity of type "ParkingSpot" in the "Template" below:
+- Then each file must export a "Template" entity. The next section describes helper functions that generate the same structure more easily (recommended). Consider for example the description of an entity of type "ParkingSpot" in the "Template" below:
     ```js
     const parkingSpotTemplate: StellioTemplate = {
         id: `urn:ngsi-ld:ParkingSpot:Template`,
@@ -141,6 +141,116 @@ A blueprint is a global definition of a specific use case type. It is following 
         - For multi attributes, the datasets definition must be placed under `items`
 
     >💡 **Tip:** See the full documentation of supported jsonSchema options in the file located here: `/src/interfaces/jsonSchema.ts`
+
+# Using helper functions (recommended)
+
+Helper functions in `/src/utils/blueprintHelpers.ts` generate the NGSI-LD property / relationship / geo-property boilerplate for you. They are **recommended** to make blueprint creation easier and more consistent, but they are **not mandatory** — you can still write templates by hand as in the examples above.
+
+Import them from a template file like this:
+
+```js
+import {
+    getSimpleTextProp,
+    getEnumProp,
+    getIntegerProp,
+    getBooleanProp,
+    getDateProp,
+    getGeoPropertyProp,
+    getRelationshipProp,
+    getMultiRelationshipProp,
+    getMultiAttributeProp,
+} from '../../utils/blueprintHelpers';
+```
+
+Then spread the result onto each attribute of the `StellioTemplate`:
+
+```js
+name: {
+    ...getSimpleTextProp({ title: 'Name of the place', friendlyAttributeName: 'Name' }),
+},
+location: {
+    ...getGeoPropertyProp('Point the center of the place on the map', 'Point'),
+},
+```
+
+Most helpers accept extra `jsonSchema` options (`friendlyAttributeName`, `canSelfInit`, `canBeEdited`, …) via the remaining object fields. Those are forwarded into the generated schema.
+
+> 📒 **Note:** Each helper call increments a shared `order` counter, so input fields appear in Twin·Picks in the same order as they are declared in the template file.
+
+## Available helpers
+
+- **`getSimpleTextProp({ title, ...rest })`** — string Property.
+    ```js
+    name: {
+        ...getSimpleTextProp({ title: 'Name of the place', friendlyAttributeName: 'Name' }),
+    },
+    ```
+- **`getEnumProp({ title, enum, allowMultiple, ...rest })`** — string Property restricted to a list of values. Set `allowMultiple: true` to let the user pick several values.
+    ```js
+    status: {
+        ...getEnumProp({
+            title: 'General status',
+            enum: ['ok', 'defectiveLamp', 'columnIssue'],
+            canSelfInit: true,
+        }),
+    },
+    ```
+- **`getIntegerProp({ title, minimum, maximum, ...rest })`** — integer Property, with optional min/max bounds.
+    ```js
+    duration: {
+        ...getIntegerProp({ title: 'Duration (minutes)', minimum: 1, maximum: 120 }),
+    },
+    ```
+- **`getBooleanProp(title)`** — boolean Property (default value `false`).
+    ```js
+    isOccupied: {
+        ...getBooleanProp('Occupation status'),
+    },
+    ```
+- **`getDateProp({ title, dateMode })`** — date Property. `dateMode` defaults to `'date'`; use `'time'` for a time picker.
+    ```js
+    dateServiceStarted: {
+        ...getDateProp({ title: 'Commissioning date' }),
+    },
+    startTime: {
+        ...getDateProp({ title: 'Start time', dateMode: 'time' }),
+    },
+    ```
+- **`getGeoPropertyProp(title, geometryType)`** — GeoProperty. `geometryType` must be one of `'Point'`, `'LineString'`, `'MultiLineString'`, `'Polygon'`, `'MultiPolygon'`.
+    ```js
+    location: {
+        ...getGeoPropertyProp('Geographical representation of the combined sewer', 'LineString'),
+    },
+    ```
+- **`getRelationshipProp(formLabel, targetTemplateObjectId)`** — single Relationship towards another Template in the same use case.
+    ```js
+    irrigationArea: {
+        ...getRelationshipProp("Target irrigation area", 'urn:ngsi-ld:IrrigationArea:Template'),
+    },
+    ```
+- **`getMultiRelationshipProp({ formLabel, formLabelPerItem, templateObjectId, minimum, maximum })`** — multi Relationship (`schemaType: 'array'`). `formLabel` is the group label; `formLabelPerItem` is the label for each item. Optional `minimum` / `maximum` limit how many relations can be set.
+    ```js
+    dischargesTo: {
+        ...getMultiRelationshipProp({
+            formLabel: 'List of rivers that receive flows from the combined sewer',
+            formLabelPerItem: 'Select a river',
+            templateObjectId: 'urn:ngsi-ld:River:Template',
+        }),
+    },
+    ```
+- **`getMultiAttributeProp({ schemaType, formLabel, formLabelPerItem, subProps, ...rest })`** — multi Property (`schemaType: 'array'`). `subProps` is a list of `[attributeName, helperResult]` pairs for nested sub-attributes on each item. `schemaType` defaults to `'string'`.
+    ```js
+    observation: {
+        ...getMultiAttributeProp({
+            schemaType: 'string',
+            formLabel: 'Observations',
+            formLabelPerItem: 'Enter an observation',
+            subProps: [['observationDate', getDateProp({ title: 'Observation date' })]],
+        }),
+    },
+    ```
+
+>💡 **Tip:** See existing use cases such as `/src/usecases/street-lighting` or `/src/usecases/water-management-urbaquantum` for complete templates built with these helpers.
 
 # How to make a blueprint available into Twin·Picks
 1. A context needs to be created with all the terms used in the blueprint. See https://github.com/easy-global-market/ngsild-api-data-models
