@@ -1,0 +1,206 @@
+[
+    {
+        "id": "urn:ngsi-ld:InVoice:Template",
+        "type": "Template",
+        "supplierReference": {
+            "type": "Property",
+            "value": "Référence fournisseur",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Référence fournisseur",
+                    "order": 1
+                }
+            }
+        },
+        "invoiceNumber": {
+            "type": "Property",
+            "value": "Numéro de facture",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Numéro de facture",
+                    "order": 2
+                }
+            }
+        },
+        "startDate": {
+            "type": "Property",
+            "value": "2026-08-19T15:00:26.567Z",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "date",
+                    "title": "Date de facture",
+                    "order": 3,
+                    "dateMode": "date"
+                }
+            }
+        },
+        "totalCostHT": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "title": "Montant de facture",
+                    "order": 4
+                }
+            }
+        },
+        "relatedDeliveryPoint": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:DeliveryPoint:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "DeliveryPoint",
+                    "order": 5
+                }
+            }
+        },
+        "relatedDeliveryPoints": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:DeliveryPoint:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "order": 6,
+                    "title": "hab",
+                    "minimum": 0,
+                    "items": {
+                        "type": "Relationship",
+                        "object": "urn:ngsi-ld:DeliveryPoint:Template",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "string",
+                                "title": "cabc"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "InVoice",
+                "title": "Invoice",
+                "required": [
+                    "supplierReference",
+                    "startDate",
+                    "relatedDeliveryPoints"
+                ],
+                "description": "jjcjo",
+                "minimum": 0
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:DeliveryPoint:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Nom du point de livraison",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Nom",
+                    "schemaType": "string",
+                    "title": "Nom du point de livraison",
+                    "order": 7
+                }
+            }
+        },
+        "description": {
+            "type": "Property",
+            "value": "Description",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Description",
+                    "order": 8
+                }
+            }
+        },
+        "deliveryPointNumber": {
+            "type": "Property",
+            "value": "Identifiant du point de livraison",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Identifiant du point de livraison",
+                    "order": 9
+                }
+            }
+        },
+        "fluidType": {
+            "type": "Property",
+            "value": "Eau",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "enum": [
+                        "Eau",
+                        "Gaz",
+                        "Electricité"
+                    ],
+                    "title": "Type de fluide",
+                    "order": 10
+                }
+            }
+        },
+        "location": {
+            "type": "GeoProperty",
+            "value": {
+                "type": "Point",
+                "coordinates": []
+            },
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "object",
+                    "title": "Localisation",
+                    "order": 11
+                }
+            }
+        },
+        "isObserving": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:StreetlightControlCabinet:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Est en train d'observer",
+                    "order": 12
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "DeliveryPoint",
+                "title": "Point de livraison",
+                "required": [
+                    "name",
+                    "deliveryPointNumber",
+                    "fluidType",
+                    "location"
+                ],
+                "description": "Point de livraison regroupant le type d'énergie, les données du distributeur et celles du fournisseur.",
+                "minimum": 0,
+                "identifier": "deliveryPointNumber"
+            }
+        }
+    }
+]
