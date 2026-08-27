@@ -1,5 +1,5 @@
 import { StellioTemplate } from 'src/interfaces';
-import { getEnumProp, getGeoPropertyProp, getRelationshipProp, getSimpleTextProp } from '../../utils/blueprintHelpers';
+import { getEnumProp, getMultiAttributeProp, getSimpleTextProp } from '../../utils/blueprintHelpers';
 
 const entityType = 'DeliveryPoint';
 
@@ -21,18 +21,37 @@ export const DeliveryPointTemplate: StellioTemplate = {
             enum: ['Eau', 'Gaz', 'Electricité'],
         }),
     },
-    location: {
-        ...getGeoPropertyProp('Localisation', 'Point'),
+    index: {
+        ...getMultiAttributeProp({
+            schemaType: 'integer',
+            formLabel: 'Index',
+            formLabelPerItem: "Valeur d'index",
+            canSetObservedAt: true,
+            subProps: [
+                ['datasetId', getEnumProp({ title: 'Type de relevé', enum: ['measured', 'estimated'] })],
+                ['providedBy', getEnumProp({ title: 'Fourni par', enum: ['distributor', 'supplier'] })],
+            ],
+        }),
     },
     isObserving: {
-        ...getRelationshipProp("Est en train d'observer", 'urn:ngsi-ld:StreetlightControlCabinet:Template'),
+        type: 'Relationship',
+        object: 'urn:ngsi-ld:Building:Template',
+        jsonSchema: {
+            type: 'Property',
+            value: {
+                schemaType: 'string',
+                format: 'uri',
+                title: "Est en train d'observer",
+                listOfAllowedRelationships: ['urn:ngsi-ld:Building:Template', 'urn:ngsi-ld:Site:Template'],
+            },
+        },
     },
     jsonSchema: {
         type: 'Property',
         value: {
             schemaType: entityType,
             title: 'Point de livraison',
-            required: ['name', 'deliveryPointNumber', 'fluidType', 'location'],
+            required: ['name', 'deliveryPointNumber', 'fluidType', 'isObserving'],
             description: `Point de livraison regroupant le type d'énergie, les données du distributeur et celles du fournisseur.`,
             minimum: 0,
             identifier: 'deliveryPointNumber',

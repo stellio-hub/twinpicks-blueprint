@@ -1,86 +1,86 @@
 [
     {
-        "id": "urn:ngsi-ld:InVoice:Template",
+        "id": "urn:ngsi-ld:Site:Template",
         "type": "Template",
-        "supplierReference": {
+        "name": {
             "type": "Property",
-            "value": "Référence fournisseur",
+            "value": "Nom du site",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
+                    "friendlyAttributeName": "Nom",
                     "schemaType": "string",
-                    "title": "Référence fournisseur",
+                    "title": "Nom du site",
                     "order": 1
                 }
             }
         },
-        "invoiceNumber": {
+        "postalAddress": {
+            "postalCode": {
+                "type": "Property",
+                "value": "Code postal",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "string",
+                        "title": "Code postal",
+                        "order": 2
+                    }
+                }
+            },
+            "addressLocality": {
+                "type": "Property",
+                "value": "Ville",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "string",
+                        "title": "Ville",
+                        "order": 3
+                    }
+                }
+            },
+            "addressCountry": {
+                "type": "Property",
+                "value": "Pays",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "string",
+                        "title": "Pays",
+                        "order": 4
+                    }
+                }
+            },
             "type": "Property",
-            "value": "Numéro de facture",
+            "value": "Adresse postale",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "string",
-                    "title": "Numéro de facture",
-                    "order": 2
-                }
-            }
-        },
-        "startDate": {
-            "type": "Property",
-            "value": "2026-08-19T15:00:26.567Z",
-            "jsonSchema": {
-                "type": "Property",
-                "value": {
-                    "schemaType": "date",
-                    "title": "Date de facture",
-                    "order": 3,
-                    "dateMode": "date"
-                }
-            }
-        },
-        "totalCostHT": {
-            "type": "Property",
-            "value": 0,
-            "jsonSchema": {
-                "type": "Property",
-                "value": {
-                    "schemaType": "integer",
-                    "title": "Montant de facture",
-                    "order": 4
-                }
-            }
-        },
-        "relatedDeliveryPoint": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:DeliveryPoint:Template",
-            "jsonSchema": {
-                "type": "Property",
-                "value": {
-                    "schemaType": "string",
-                    "title": "DeliveryPoint",
+                    "title": "Adresse postale",
                     "order": 5
                 }
             }
         },
-        "relatedDeliveryPoints": {
+        "hasPart": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:DeliveryPoint:Template",
+            "object": "urn:ngsi-ld:Building:Template",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "array",
                     "order": 6,
-                    "title": "hab",
+                    "title": "Bâtiments du site",
                     "minimum": 0,
                     "items": {
                         "type": "Relationship",
-                        "object": "urn:ngsi-ld:DeliveryPoint:Template",
+                        "object": "urn:ngsi-ld:Building:Template",
                         "jsonSchema": {
                             "type": "Property",
                             "value": {
                                 "schemaType": "string",
-                                "title": "cabc"
+                                "title": "Sélectionner un bâtiment"
                             }
                         }
                     }
@@ -90,30 +90,29 @@
         "jsonSchema": {
             "type": "Property",
             "value": {
-                "schemaType": "InVoice",
-                "title": "Invoice",
+                "schemaType": "Site",
+                "title": "Site",
                 "required": [
-                    "supplierReference",
-                    "startDate",
-                    "relatedDeliveryPoints"
+                    "name"
                 ],
-                "description": "jjcjo",
-                "minimum": 0
+                "description": "Site de consommation regroupant un ou plusieurs bâtiments ou assets.",
+                "minimum": 0,
+                "identifier": "name"
             }
         }
     },
     {
-        "id": "urn:ngsi-ld:DeliveryPoint:Template",
+        "id": "urn:ngsi-ld:Building:Template",
         "type": "Template",
         "name": {
             "type": "Property",
-            "value": "Nom du point de livraison",
+            "value": "Nom du bâtiment",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "friendlyAttributeName": "Nom",
                     "schemaType": "string",
-                    "title": "Nom du point de livraison",
+                    "title": "Nom du bâtiment",
                     "order": 7
                 }
             }
@@ -130,6 +129,192 @@
                 }
             }
         },
+        "location": {
+            "type": "GeoProperty",
+            "value": {
+                "type": "Polygon",
+                "coordinates": []
+            },
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "object",
+                    "title": "Sélectionner le bâtiment sur la carte",
+                    "order": 9
+                }
+            }
+        },
+        "rnb": {
+            "type": "JsonProperty",
+            "json": "{}",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "json",
+                    "canSelfInit": true,
+                    "friendlyAttributeName": "Référentiel National des Bâtiments"
+                }
+            }
+        },
+        "isContainedIn": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Site:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Site auquel appartient le bâtiment",
+                    "order": 10
+                }
+            }
+        },
+        "hasUsage": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Usage:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "order": 11,
+                    "title": "Usages du bâtiment",
+                    "minimum": 0,
+                    "items": {
+                        "type": "Relationship",
+                        "object": "urn:ngsi-ld:Usage:Template",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "string",
+                                "title": "Sélectionner un usage"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "hasDeliveryPoint": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:DeliveryPoint:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "order": 12,
+                    "title": "Points de livraison",
+                    "minimum": 0,
+                    "items": {
+                        "type": "Relationship",
+                        "object": "urn:ngsi-ld:DeliveryPoint:Template",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "string",
+                                "title": "Sélectionner un point de livraison"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "Building",
+                "title": "Bâtiment",
+                "required": [
+                    "name",
+                    "location",
+                    "isContainedIn"
+                ],
+                "description": "Bâtiment ou asset rattaché à un site, identifié via le Référentiel National des Bâtiments.",
+                "minimum": 0,
+                "identifier": "name"
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Usage:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Nom de l'usage",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Nom",
+                    "schemaType": "string",
+                    "title": "Nom de l'usage",
+                    "order": 13
+                }
+            }
+        },
+        "code": {
+            "type": "Property",
+            "value": "Code de l'usage",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Code de l'usage",
+                    "order": 14
+                }
+            }
+        },
+        "nomenclatureSource": {
+            "type": "Property",
+            "value": "Source de nomenclature",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Source de nomenclature",
+                    "order": 15
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "Usage",
+                "title": "Usage",
+                "required": [
+                    "name",
+                    "code"
+                ],
+                "description": "Usage d'un bâtiment ou d'un asset, issu d'une nomenclature de référence.",
+                "minimum": 0,
+                "identifier": "code"
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:DeliveryPoint:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Nom du point de livraison",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Nom",
+                    "schemaType": "string",
+                    "title": "Nom du point de livraison",
+                    "order": 16
+                }
+            }
+        },
+        "description": {
+            "type": "Property",
+            "value": "Description",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Description",
+                    "order": 17
+                }
+            }
+        },
         "deliveryPointNumber": {
             "type": "Property",
             "value": "Identifiant du point de livraison",
@@ -138,7 +323,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Identifiant du point de livraison",
-                    "order": 9
+                    "order": 18
                 }
             }
         },
@@ -155,34 +340,79 @@
                         "Electricité"
                     ],
                     "title": "Type de fluide",
-                    "order": 10
+                    "order": 19
                 }
             }
         },
-        "location": {
-            "type": "GeoProperty",
-            "value": {
-                "type": "Point",
-                "coordinates": []
+        "index": {
+            "datasetId": {
+                "type": "Property",
+                "value": "measured",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "string",
+                        "enum": [
+                            "measured",
+                            "estimated"
+                        ],
+                        "title": "Type de relevé",
+                        "order": 20
+                    }
+                }
             },
+            "providedBy": {
+                "type": "Property",
+                "value": "distributor",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "string",
+                        "enum": [
+                            "distributor",
+                            "supplier"
+                        ],
+                        "title": "Fourni par",
+                        "order": 21
+                    }
+                }
+            },
+            "type": "Property",
+            "value": "placeholder",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
-                    "schemaType": "object",
-                    "title": "Localisation",
-                    "order": 11
+                    "schemaType": "array",
+                    "title": "Index",
+                    "order": 22,
+                    "items": {
+                        "type": "Property",
+                        "value": "placeholder",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "title": "Valeur d'index",
+                                "schemaType": "integer",
+                                "canSetObservedAt": true
+                            }
+                        }
+                    }
                 }
             }
         },
         "isObserving": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:StreetlightControlCabinet:Template",
+            "object": "urn:ngsi-ld:Building:Template",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "string",
+                    "format": "uri",
                     "title": "Est en train d'observer",
-                    "order": 12
+                    "listOfAllowedRelationships": [
+                        "urn:ngsi-ld:Building:Template",
+                        "urn:ngsi-ld:Site:Template"
+                    ]
                 }
             }
         },
@@ -195,11 +425,233 @@
                     "name",
                     "deliveryPointNumber",
                     "fluidType",
-                    "location"
+                    "isObserving"
                 ],
                 "description": "Point de livraison regroupant le type d'énergie, les données du distributeur et celles du fournisseur.",
                 "minimum": 0,
                 "identifier": "deliveryPointNumber"
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Invoice:Template",
+        "type": "Template",
+        "supplierReference": {
+            "type": "Property",
+            "value": "Référence fournisseur",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Référence",
+                    "schemaType": "string",
+                    "title": "Référence fournisseur",
+                    "order": 23
+                }
+            }
+        },
+        "invoiceNumber": {
+            "type": "Property",
+            "value": "Numéro de facture",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Numéro de facture",
+                    "order": 24
+                }
+            }
+        },
+        "startAt": {
+            "type": "Property",
+            "value": "2026-08-27T13:36:48.808Z",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "date",
+                    "title": "Date de début",
+                    "order": 25,
+                    "dateMode": "date"
+                }
+            }
+        },
+        "endAt": {
+            "type": "Property",
+            "value": "2026-08-27T13:36:48.809Z",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "date",
+                    "title": "Date de fin",
+                    "order": 26,
+                    "dateMode": "date"
+                }
+            }
+        },
+        "oldIndex": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "minimum": 0,
+                    "title": "Ancien index",
+                    "order": 27
+                }
+            }
+        },
+        "newIndex": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "minimum": 0,
+                    "title": "Nouvel index",
+                    "order": 28
+                }
+            }
+        },
+        "totalCostHT": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "minimum": 0,
+                    "title": "Montant total HT",
+                    "order": 29
+                }
+            }
+        },
+        "totalCostTTC": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "minimum": 0,
+                    "title": "Montant total TTC",
+                    "order": 30
+                }
+            }
+        },
+        "taxes": {
+            "type": "Property",
+            "value": 0,
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "minimum": 0,
+                    "title": "Montant des taxes",
+                    "order": 31
+                }
+            }
+        },
+        "invoiceLines": {
+            "item": {
+                "type": "Property",
+                "value": "Article",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "string",
+                        "title": "Article",
+                        "order": 32
+                    }
+                }
+            },
+            "quantity": {
+                "type": "Property",
+                "value": 0,
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "integer",
+                        "minimum": 0,
+                        "title": "Quantité",
+                        "order": 33
+                    }
+                }
+            },
+            "unit": {
+                "type": "Property",
+                "value": "Unité",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "string",
+                        "title": "Unité",
+                        "order": 34
+                    }
+                }
+            },
+            "unitCost": {
+                "type": "Property",
+                "value": 0,
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "integer",
+                        "minimum": 0,
+                        "title": "Coût unitaire",
+                        "order": 35
+                    }
+                }
+            },
+            "type": "Property",
+            "value": "placeholder",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "title": "Lignes de facture",
+                    "order": 36,
+                    "items": {
+                        "type": "Property",
+                        "value": "placeholder",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "title": "Ligne de facture",
+                                "schemaType": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "relatedDeliveryPoint": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:DeliveryPoint:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Point de livraison",
+                    "order": 37
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "Invoice",
+                "title": "Facture",
+                "required": [
+                    "invoiceNumber",
+                    "supplierReference",
+                    "startAt",
+                    "endAt",
+                    "relatedDeliveryPoint"
+                ],
+                "description": "Facture énergétique rattachée à un point de livraison, avec période de facturation, index de compteur et lignes de facture.",
+                "minimum": 0,
+                "identifier": "invoiceNumber"
             }
         }
     }
