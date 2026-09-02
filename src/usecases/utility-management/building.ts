@@ -22,7 +22,6 @@ export const BuildingTemplate: StellioTemplate = {
             type: 'Property',
             value: {
                 schemaType: 'json',
-                canSelfInit: true,
                 friendlyAttributeName: 'Référentiel National des Bâtiments',
             },
         },
@@ -54,7 +53,6 @@ export const BuildingTemplate: StellioTemplate = {
             required: ['name', 'location', 'isContainedIn'],
             description: 'Bâtiment ou asset rattaché à un site, identifié via le Référentiel National des Bâtiments.',
             minimum: 0,
-            identifier: 'name',
         },
     },
 };

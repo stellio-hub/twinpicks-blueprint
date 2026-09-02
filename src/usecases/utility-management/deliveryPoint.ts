@@ -28,7 +28,7 @@ export const DeliveryPointTemplate: StellioTemplate = {
             formLabelPerItem: "Valeur d'index",
             canSetObservedAt: true,
             subProps: [
-                ['datasetId', getEnumProp({ title: 'Type de relevé', enum: ['measured', 'estimated'] })],
+                ['meterReading', getEnumProp({ title: 'Type de relevé', enum: ['measured', 'estimated'] })],
                 ['providedBy', getEnumProp({ title: 'Fourni par', enum: ['distributor', 'supplier'] })],
             ],
         }),
