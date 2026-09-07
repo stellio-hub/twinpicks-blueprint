@@ -1,50 +1,43 @@
 import { StellioTemplate } from 'src/interfaces';
-import {
-    getMultiRelationshipProp,
-} from '../../utils/blueprintHelpers';
+import { getMultiRelationshipProp } from '../../utils/blueprintHelpers';
 
 const soilManagmentCategories = [
-    "Crop Rotation",
-    "Reduced Tillage",
-    "Cover Cropping",
-    "Organic Mulching",
-    "Green Manuring",
-    "Nutrient Management",
-    "Biochar Application",
-]
+    'Crop Rotation',
+    'Reduced Tillage',
+    'Cover Cropping',
+    'Organic Mulching',
+    'Green Manuring',
+    'Nutrient Management',
+    'Biochar Application',
+];
 
 const weedManagementCategories = [
-    "Crop Rotation",
-    "Cover Crops",
-    "Reduced Tillage",
-    "Mechanical Weeding",
-    "Chemical Control",
-    "Biological Control",
-    "Natural Herbicides",
-    "Mulching",
-    "Precision Agriculture Techniques",
-]
+    'Crop Rotation',
+    'Cover Crops',
+    'Reduced Tillage',
+    'Mechanical Weeding',
+    'Chemical Control',
+    'Biological Control',
+    'Natural Herbicides',
+    'Mulching',
+    'Precision Agriculture Techniques',
+];
 
 const irrigationManagmentCategories = [
-    "Drip Irrigation",
-    "Sprinkler Irrigation",
-    "Surface Irrigation",
-    "Subsurface Irrigation",
-]
+    'Drip Irrigation',
+    'Sprinkler Irrigation',
+    'Surface Irrigation',
+    'Subsurface Irrigation',
+];
 
 const fertilizersCategories = [
-    "Organic Fertilizers",
-    "Inorganic Fertilizers",
-    "Slow-Release Fertilizers",
-    "Liquid Fertilizers",
-    "Green Manures",
-]
-const farmingSystemsCategories = [
-    "Organic Farming",
-    "Conventional Farming",
-    "Integrated Farming",
-]
-
+    'Organic Fertilizers',
+    'Inorganic Fertilizers',
+    'Slow-Release Fertilizers',
+    'Liquid Fertilizers',
+    'Green Manures',
+];
+const farmingSystemsCategories = ['Organic Farming', 'Conventional Farming', 'Integrated Farming'];
 
 export const AgronomicPracticesTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:agronomicPractices:Template`,
@@ -62,27 +55,23 @@ export const AgronomicPracticesTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string',
-                enum: farmingSystemsCategories,
-                title: 'Farming Systems' },
+            value: { schemaType: 'string', enum: farmingSystemsCategories, title: 'Farming Systems' },
         },
     },
     hasOperation: {
         ...getMultiRelationshipProp({
-            formLabel: "What operation were donne in this area ?",
-            formLabelPerItem: "Select a operation",
-            templateObjectId: "urn:ngsi-ld:Operation:Template",
-            minimum: 1
-        })
-    }, 
+            formLabel: 'What operation were donne in this area ?',
+            formLabelPerItem: 'Select a operation',
+            targetTemplateObjectId: 'urn:ngsi-ld:Operation:Template',
+            minimum: 1,
+        }),
+    },
     weedManagement: {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string',
-                enum: weedManagementCategories,
-                title: 'Weed Management Strategy' },
+            value: { schemaType: 'string', enum: weedManagementCategories, title: 'Weed Management Strategy' },
         },
     },
     soilManagement: {
@@ -90,9 +79,7 @@ export const AgronomicPracticesTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string',
-                enum: soilManagmentCategories,
-                title: 'Soil Management Technique' },
+            value: { schemaType: 'string', enum: soilManagmentCategories, title: 'Soil Management Technique' },
         },
     },
     irrigationMethods: {
@@ -100,9 +87,7 @@ export const AgronomicPracticesTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string',
-                enum: irrigationManagmentCategories,
-                title: "Irrigation Methods" },
+            value: { schemaType: 'string', enum: irrigationManagmentCategories, title: 'Irrigation Methods' },
         },
     },
     fertilizerType: {
@@ -110,9 +95,7 @@ export const AgronomicPracticesTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'string',
-                enum: fertilizersCategories,
-                title: "Fertilizer Type" },
+            value: { schemaType: 'string', enum: fertilizersCategories, title: 'Fertilizer Type' },
         },
     },
     fertilizerQuantity: {
@@ -120,7 +103,7 @@ export const AgronomicPracticesTemplate: StellioTemplate = {
         value: 'Placeholder',
         jsonSchema: {
             type: 'Property',
-            value: { schemaType: 'integer', title: "Fertilizer Quantity" },
+            value: { schemaType: 'integer', title: 'Fertilizer Quantity' },
         },
     },
     rowSpacing: {
@@ -150,8 +133,8 @@ export const AgronomicPracticesTemplate: StellioTemplate = {
     jsonSchema: {
         type: 'Property',
         value: {
-            schemaType: "AgronomicPractices",
-            title: "Agronomic Practices",
+            schemaType: 'AgronomicPractices',
+            title: 'Agronomic Practices',
             minimum: 0,
             required: ['name'],
             description: `This represents a Agronomic Practices`,

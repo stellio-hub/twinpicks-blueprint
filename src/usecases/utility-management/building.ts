@@ -1,5 +1,10 @@
 import { StellioTemplate } from 'src/interfaces';
-import { getGeoPropertyProp, getMultiRelationshipProp, getRelationshipProp, getSimpleTextProp } from '../../utils/blueprintHelpers';
+import {
+    getGeoPropertyProp,
+    getMultiRelationshipProp,
+    getRelationshipProp,
+    getSimpleTextProp,
+} from '../../utils/blueprintHelpers';
 
 const entityType = 'Building';
 
@@ -33,7 +38,7 @@ export const BuildingTemplate: StellioTemplate = {
         ...getMultiRelationshipProp({
             formLabel: 'Usages du bâtiment',
             formLabelPerItem: 'Sélectionner un usage',
-            templateObjectId: 'urn:ngsi-ld:Usage:Template',
+            targetTemplateObjectId: 'urn:ngsi-ld:Usage:Template',
             minimum: 0,
         }),
     },
@@ -41,7 +46,7 @@ export const BuildingTemplate: StellioTemplate = {
         ...getMultiRelationshipProp({
             formLabel: 'Points de livraison',
             formLabelPerItem: 'Sélectionner un point de livraison',
-            templateObjectId: 'urn:ngsi-ld:DeliveryPoint:Template',
+            targetTemplateObjectId: 'urn:ngsi-ld:DeliveryPoint:Template',
             minimum: 0,
         }),
     },

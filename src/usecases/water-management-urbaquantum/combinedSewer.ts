@@ -14,21 +14,21 @@ export const CombinedSewerTemplate: StellioTemplate = {
         ...getMultiRelationshipProp({
             formLabel: 'List of rivers that receive flows from the combined sewer',
             formLabelPerItem: 'Select a river',
-            templateObjectId: 'urn:ngsi-ld:River:Template',
+            targetTemplateObjectId: 'urn:ngsi-ld:River:Template',
         }),
     },
     refControlPoint: {
         ...getMultiRelationshipProp({
             formLabel: 'List of control points',
             formLabelPerItem: 'Select a control point',
-            templateObjectId: 'urn:ngsi-ld:ControlPoint:Template',
+            targetTemplateObjectId: 'urn:ngsi-ld:ControlPoint:Template',
         }),
     },
     refSamplingPoint: {
         ...getMultiRelationshipProp({
             formLabel: 'List of sampling points',
             formLabelPerItem: 'Select a sampling point',
-            templateObjectId: 'urn:ngsi-ld:SamplingPoint:Template',
+            targetTemplateObjectId: 'urn:ngsi-ld:SamplingPoint:Template',
         }),
     },
     jsonSchema: {

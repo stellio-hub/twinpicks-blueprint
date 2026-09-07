@@ -83,7 +83,7 @@ export const RecurringRuleTemplate: StellioTemplate = {
             formLabel:
                 "Zones gérées (attention à bien sélectionner les zones au sein de la zone d'irrigation sélectionnée précédemment)",
             formLabelPerItem: 'Sélectionner une zone gérée',
-            templateObjectId: 'urn:ngsi-ld:ManagedZone:Template',
+            targetTemplateObjectId: 'urn:ngsi-ld:ManagedZone:Template',
             friendlyAttributeName: 'Zones gérées',
         }),
     },

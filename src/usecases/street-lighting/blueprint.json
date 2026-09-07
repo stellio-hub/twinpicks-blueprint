@@ -72,7 +72,9 @@
             "jsonSchema": {
                 "type": "Property",
                 "value": {
-                    "schemaType": "string",
+                    "canSelfInit": true,
+                    "friendlyAttributeName": "État",
+                    "schemaType": "enum",
                     "enum": [
                         "ok",
                         "defectiveLamp",
@@ -80,9 +82,7 @@
                         "brokenLantern"
                     ],
                     "title": "État général",
-                    "order": 6,
-                    "canSelfInit": true,
-                    "friendlyAttributeName": "État"
+                    "order": 6
                 }
             }
         },
@@ -92,7 +92,7 @@
             "jsonSchema": {
                 "type": "Property",
                 "value": {
-                    "schemaType": "string",
+                    "schemaType": "enum",
                     "enum": [
                         "Groupe",
                         "Individuel"
@@ -108,7 +108,7 @@
             "jsonSchema": {
                 "type": "Property",
                 "value": {
-                    "schemaType": "string",
+                    "schemaType": "enum",
                     "enum": [
                         "Route",
                         "Piste piétonne",
@@ -188,7 +188,7 @@
         },
         "dateServiceStarted": {
             "type": "Property",
-            "value": "2026-08-11T13:31:10.131Z",
+            "value": "2026-09-07T13:49:54.147Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
@@ -201,7 +201,7 @@
         },
         "dateLastLampChange": {
             "type": "Property",
-            "value": "2026-08-11T13:31:10.131Z",
+            "value": "2026-09-07T13:49:54.147Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
@@ -214,7 +214,7 @@
         },
         "dateLastSwitchingOn": {
             "type": "Property",
-            "value": "2026-08-11T13:31:10.131Z",
+            "value": "2026-09-07T13:49:54.147Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
@@ -227,7 +227,7 @@
         },
         "dateLastSwitchingOff": {
             "type": "Property",
-            "value": "2026-08-11T13:31:10.131Z",
+            "value": "2026-09-07T13:49:54.147Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
@@ -245,8 +245,7 @@
                 "title": "Point lumineux",
                 "required": [
                     "name",
-                    "location",
-                    "status"
+                    "location"
                 ],
                 "description": "Un point lumineux représente tout type d'éclairage extérieur sur la carte",
                 "minimum": 1
@@ -350,7 +349,7 @@
             "jsonSchema": {
                 "type": "Property",
                 "value": {
-                    "schemaType": "string",
+                    "schemaType": "enum",
                     "enum": [
                         "Métal",
                         "Béton",
@@ -368,16 +367,16 @@
             "jsonSchema": {
                 "type": "Property",
                 "value": {
-                    "schemaType": "string",
+                    "canSelfInit": true,
+                    "friendlyAttributeName": "État",
+                    "schemaType": "enum",
                     "enum": [
                         "ok",
                         "maintenanceRequired",
                         "outOfOrder"
                     ],
                     "title": "État opérationnel",
-                    "order": 26,
-                    "canSelfInit": true,
-                    "friendlyAttributeName": "État"
+                    "order": 26
                 }
             }
         },
@@ -395,7 +394,7 @@
         },
         "dateServiceStarted": {
             "type": "Property",
-            "value": "2026-08-11T13:31:10.131Z",
+            "value": "2026-09-07T13:49:54.147Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
@@ -408,7 +407,7 @@
         },
         "dateLastProgramming": {
             "type": "Property",
-            "value": "2026-08-11T13:31:10.131Z",
+            "value": "2026-09-07T13:49:54.147Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
@@ -421,7 +420,7 @@
         },
         "nextActuationDeadline": {
             "type": "Property",
-            "value": "2026-08-11T13:31:10.131Z",
+            "value": "2026-09-07T13:49:54.147Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
@@ -434,7 +433,7 @@
         },
         "dateMeteringStarted": {
             "type": "Property",
-            "value": "2026-08-11T13:31:10.131Z",
+            "value": "2026-09-07T13:49:54.147Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
@@ -500,7 +499,7 @@
         "observation": {
             "observationDate": {
                 "type": "Property",
-                "value": "2026-08-11T13:31:10.131Z",
+                "value": "2026-09-07T13:49:54.147Z",
                 "jsonSchema": {
                     "type": "Property",
                     "value": {
@@ -525,8 +524,35 @@
                         "jsonSchema": {
                             "type": "Property",
                             "value": {
-                                "title": "Saisir une observation",
-                                "schemaType": "string"
+                                "schemaType": "string",
+                                "title": "Saisir une observation"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "digitalInput": {
+            "type": "Property",
+            "value": "placeholder",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "title": "Statut ouverture des portes",
+                    "order": 38,
+                    "items": {
+                        "type": "Property",
+                        "value": "placeholder",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "enum",
+                                "enum": [
+                                    0,
+                                    1
+                                ],
+                                "title": "Saisir le statut de la porte (0: ouvert, 1: fermé)"
                             }
                         }
                     }
@@ -540,8 +566,7 @@
                 "title": "Armoire de commande",
                 "required": [
                     "name",
-                    "location",
-                    "status"
+                    "location"
                 ],
                 "description": "Armoire de commande des points lumineux, permettant la gestion et la supervision des groupes d'éclairage.",
                 "minimum": 0
@@ -560,7 +585,7 @@
                     "friendlyAttributeName": "Nom",
                     "schemaType": "string",
                     "title": "Nom du groupe de points lumineux",
-                    "order": 38
+                    "order": 39
                 }
             }
         },
@@ -575,7 +600,7 @@
                 "value": {
                     "schemaType": "object",
                     "title": "Relier les points lumineux sur la carte",
-                    "order": 39
+                    "order": 40
                 }
             }
         },
@@ -587,7 +612,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Armoire de commande",
-                    "order": 40
+                    "order": 41
                 }
             }
         },
@@ -599,7 +624,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Identifiant du circuit",
-                    "order": 41
+                    "order": 42
                 }
             }
         },
@@ -613,32 +638,32 @@
                     "minimum": 0,
                     "maximum": 1,
                     "title": "Niveau d'éclairement relatif du groupe (0 à 1)",
-                    "order": 42
+                    "order": 43
                 }
             }
         },
         "dateLastSwitchingOn": {
             "type": "Property",
-            "value": "2026-08-11T13:31:10.132Z",
+            "value": "2026-09-07T13:49:54.148Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "date",
                     "title": "Date de la dernière mise sous tension",
-                    "order": 43,
+                    "order": 44,
                     "dateMode": "date"
                 }
             }
         },
         "dateLastSwitchingOff": {
             "type": "Property",
-            "value": "2026-08-11T13:31:10.132Z",
+            "value": "2026-09-07T13:49:54.148Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "date",
                     "title": "Date de la dernière coupure",
-                    "order": 44,
+                    "order": 45,
                     "dateMode": "date"
                 }
             }
@@ -669,7 +694,7 @@
                     "friendlyAttributeName": "Nom",
                     "schemaType": "string",
                     "title": "Nom du point de livraison",
-                    "order": 45
+                    "order": 46
                 }
             }
         },
@@ -681,7 +706,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Description",
-                    "order": 46
+                    "order": 47
                 }
             }
         },
@@ -693,7 +718,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Identifiant du point de livraison",
-                    "order": 47
+                    "order": 48
                 }
             }
         },
@@ -703,14 +728,14 @@
             "jsonSchema": {
                 "type": "Property",
                 "value": {
-                    "schemaType": "string",
+                    "schemaType": "enum",
                     "enum": [
                         "Eau",
                         "Gaz",
                         "Electricité"
                     ],
                     "title": "Type de fluide",
-                    "order": 48
+                    "order": 49
                 }
             }
         },
@@ -725,7 +750,7 @@
                 "value": {
                     "schemaType": "object",
                     "title": "Localisation",
-                    "order": 49
+                    "order": 50
                 }
             }
         },
@@ -737,7 +762,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Est en train d'observer",
-                    "order": 50
+                    "order": 51
                 }
             }
         },

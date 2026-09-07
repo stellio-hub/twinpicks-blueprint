@@ -162,7 +162,7 @@ export const ActionTemplate: StellioTemplate = {
         ...getMultiRelationshipProp({
             formLabel: "Espèces liées à l'action",
             formLabelPerItem: 'Sélectionner une espèce',
-            templateObjectId: 'urn:ngsi-ld:Species:Template',
+            targetTemplateObjectId: 'urn:ngsi-ld:Species:Template',
         }),
         classification: getClassificationJsonProp(Structures.especesCibles),
         displayName: getDisplayNameProp("Espèces liées à l'action"),
@@ -227,139 +227,139 @@ export const ActionTemplate: StellioTemplate = {
 
     // #region TYPE D'ACTION
     documentDePlanification: {
-        ...getBooleanProp('Document de planification'),
+        ...getBooleanProp({ title: 'Document de planification' }),
         classification: getClassificationJsonProp(Structures.typeDaction),
         displayName: getDisplayNameProp('Document de planification'),
     },
     veille: {
-        ...getBooleanProp('Veille'),
+        ...getBooleanProp({ title: 'Veille' }),
         classification: getClassificationJsonProp(Structures.typeDaction),
         displayName: getDisplayNameProp('Veille'),
     },
     prospection: {
-        ...getBooleanProp('Prospection'),
+        ...getBooleanProp({ title: 'Prospection' }),
         classification: getClassificationJsonProp(Structures.typeDaction),
         displayName: getDisplayNameProp('Prospection'),
     },
 
     gestionObjectifsExperimentation: {
-        ...getBooleanProp('Expérimentation'),
+        ...getBooleanProp({ title: 'Expérimentation' }),
         classification: getClassificationJsonProp(Structures.objectifs),
         displayName: getDisplayNameProp('Expérimentation'),
     },
     gestionObjectifsControle: {
-        ...getBooleanProp('Contrôle'),
+        ...getBooleanProp({ title: 'Contrôle' }),
         classification: getClassificationJsonProp(Structures.objectifs),
         displayName: getDisplayNameProp('Controle'),
     },
     gestionObjectifsEradication: {
-        ...getBooleanProp('Eradication'),
+        ...getBooleanProp({ title: 'Eradication' }),
         classification: getClassificationJsonProp(Structures.objectifs),
         displayName: getDisplayNameProp('Eradication'),
     },
     gestionObjectifsRegulation: {
-        ...getBooleanProp('Régulation'),
+        ...getBooleanProp({ title: 'Régulation' }),
         classification: getClassificationJsonProp(Structures.objectifs),
         displayName: getDisplayNameProp('Régulation'),
     },
     gestionObjectifsConfinement: {
-        ...getBooleanProp('Confinement'),
+        ...getBooleanProp({ title: 'Confinement' }),
         classification: getClassificationJsonProp(Structures.objectifs),
         displayName: getDisplayNameProp('Confinement'),
     },
     gestionObjectifsAutre: {
-        ...getBooleanProp('Autre'),
+        ...getBooleanProp({ title: 'Autre' }),
         classification: getClassificationJsonProp(Structures.objectifs),
         displayName: getDisplayNameProp('Autre'),
     },
 
     gestionEtatDesLieuxAvantTravaux: {
-        ...getBooleanProp('Etat des lieux avant travaux'),
+        ...getBooleanProp({ title: 'Etat des lieux avant travaux' }),
         classification: getClassificationJsonProp(Structures.gestion),
         displayName: getDisplayNameProp('Etat des lieux avant travaux'),
     },
 
     gestionOperationsPiegeage: {
-        ...getBooleanProp('Piégeage'),
+        ...getBooleanProp({ title: 'Piégeage' }),
         classification: getClassificationJsonProp(Structures.operations),
         displayName: getDisplayNameProp('Piégeage'),
     },
 
     gestionOperationsAbattage: {
-        ...getBooleanProp('Abattage'),
+        ...getBooleanProp({ title: 'Abattage' }),
         classification: getClassificationJsonProp(Structures.operations),
         displayName: getDisplayNameProp('Abattage'),
     },
     gestionOperationsLutteChimique: {
-        ...getBooleanProp('Lutte chimique'),
+        ...getBooleanProp({ title: 'Lutte chimique' }),
         classification: getClassificationJsonProp(Structures.operations),
         displayName: getDisplayNameProp('Lutte chimique'),
     },
     gestionOperationsLutteBiologique: {
-        ...getBooleanProp('Lutte biologique'),
+        ...getBooleanProp({ title: 'Lutte biologique' }),
         classification: getClassificationJsonProp(Structures.operations),
         displayName: getDisplayNameProp('Lutte biologique'),
     },
     gestionOperationsAutre: {
-        ...getBooleanProp('Autre'),
+        ...getBooleanProp({ title: 'Autre' }),
         classification: getClassificationJsonProp(Structures.operations),
         displayName: getDisplayNameProp('Autre'),
     },
 
     gestionSuiviDesOperationAucun: {
-        ...getBooleanProp('Auncun suivi'),
+        ...getBooleanProp({ title: 'Auncun suivi' }),
         classification: getClassificationJsonProp(Structures.suiviDesOperation),
         displayName: getDisplayNameProp('Auncun suivi'),
     },
     gestionSuiviDesOperationPartiel: {
-        ...getBooleanProp('Suivi partiel'),
+        ...getBooleanProp({ title: 'Suivi partiel' }),
         classification: getClassificationJsonProp(Structures.suiviDesOperation),
         displayName: getDisplayNameProp('Suivi partiel'),
     },
     gestionSuiviDesOperationAvecRepasse: {
-        ...getBooleanProp('Suivi avec repasse'),
+        ...getBooleanProp({ title: 'Suivi avec repasse' }),
         classification: getClassificationJsonProp(Structures.suiviDesOperation),
         displayName: getDisplayNameProp('Suivi avec repasse'),
     },
     gestionSuiviDesOperationDetail: {
-        ...getBooleanProp('Detail'),
+        ...getBooleanProp({ title: 'Detail' }),
         classification: getClassificationJsonProp(Structures.suiviDesOperation),
         displayName: getDisplayNameProp('Detail'),
     },
 
     gestionDevenirDesEspecesMiseAMort: {
-        ...getBooleanProp('Mise à mort'),
+        ...getBooleanProp({ title: 'Mise à mort' }),
         classification: getClassificationJsonProp(Structures.devenirDesEspeces),
         displayName: getDisplayNameProp('Mise à mort'),
     },
     gestionDevenirDesEspecesTransfertDansUnRefuge: {
-        ...getBooleanProp('Transfert dans un refuge'),
+        ...getBooleanProp({ title: 'Transfert dans un refuge' }),
         classification: getClassificationJsonProp(Structures.devenirDesEspeces),
         displayName: getDisplayNameProp('Transfert dans un refuge'),
     },
     gestionDevenirDesEspecesAutre: {
-        ...getBooleanProp('Autre'),
+        ...getBooleanProp({ title: 'Autre' }),
         classification: getClassificationJsonProp(Structures.devenirDesEspeces),
         displayName: getDisplayNameProp('Autre'),
     },
 
     communicationInformation: {
-        ...getBooleanProp('Information'),
+        ...getBooleanProp({ title: 'Information' }),
         classification: getClassificationJsonProp(Structures.communication),
         displayName: getDisplayNameProp('Information'),
     },
     communicationSensibilisation: {
-        ...getBooleanProp('Sensibilisation'),
+        ...getBooleanProp({ title: 'Sensibilisation' }),
         classification: getClassificationJsonProp(Structures.communication),
         displayName: getDisplayNameProp('Sensibilisation'),
     },
     communicationFormation: {
-        ...getBooleanProp('Formation'),
+        ...getBooleanProp({ title: 'Formation' }),
         classification: getClassificationJsonProp(Structures.communication),
         displayName: getDisplayNameProp('Formation'),
     },
     communicationAutre: {
-        ...getBooleanProp('Autre'),
+        ...getBooleanProp({ title: 'Autre' }),
         classification: getClassificationJsonProp(Structures.communication),
         displayName: getDisplayNameProp('Autre'),
     },
@@ -415,7 +415,7 @@ export const ActionTemplate: StellioTemplate = {
 
     // #region FICHE REX
     autorisationDePublicationSurLeSiteDeLARBE: {
-        ...getBooleanProp("Autorisation de publication sur le site de l'ARBE"),
+        ...getBooleanProp({ title: "Autorisation de publication sur le site de l'ARBE" }),
         classification: getClassificationJsonProp(Structures.ficheRex),
         displayName: getDisplayNameProp("Autorisation de publication sur le site de l'ARBE"),
     },

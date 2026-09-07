@@ -1,5 +1,11 @@
 import { StellioTemplate } from 'src/interfaces';
-import { getSimpleTextProp, getDateProp, getIntegerProp, getRelationshipProp, getMultiAttributeProp } from '../../utils/blueprintHelpers';
+import {
+    getSimpleTextProp,
+    getDateProp,
+    getIntegerProp,
+    getRelationshipProp,
+    getMultiAttributeProp,
+} from '../../utils/blueprintHelpers';
 
 const entityType = 'Invoice';
 
@@ -35,7 +41,7 @@ export const InvoiceTemplate: StellioTemplate = {
     },
     invoiceLines: {
         ...getMultiAttributeProp({
-            schemaType: 'string',
+            propertySchemaDefinition: { schemaType: 'string' },
             formLabel: 'Lignes de facture',
             formLabelPerItem: 'Ligne de facture',
             subProps: [
