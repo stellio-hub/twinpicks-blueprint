@@ -32,7 +32,7 @@
     },
     "dependencies": {
         "axios": "^1.16.1",
-        "fs-extra": "^11.3.5",
+        "fs-extra": "^11.3.6",
         "geojson": "^0.5.0"
     }
 }
