@@ -25,7 +25,7 @@ export const SiteTemplate: StellioTemplate = {
         ...getMultiRelationshipProp({
             formLabel: 'Bâtiments du site',
             formLabelPerItem: 'Sélectionner un bâtiment',
-            templateObjectId: 'urn:ngsi-ld:Building:Template',
+            targetTemplateObjectId: 'urn:ngsi-ld:Building:Template',
             minimum: 0,
         }),
     },

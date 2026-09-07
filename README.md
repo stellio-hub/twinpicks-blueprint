@@ -78,16 +78,17 @@ A blueprint is a global definition of a specific use case type. It is following 
     };
     ```
     - As you can see in the above example, the information required to define a "ParkingSpot" entity type must be placed in the value object of the "jsonSchema" property. There are two supported levels for the "jsonSchema" property:
-        - At the entity level to define high level information such as:
-            - schemaType: to set the entity type
-            - minimum/maximum: to set limits to the number of entities of this type (to be created through TP)
-            - required: to set the required properties that the user must fill before creating an entity of this type
-            - ...
-        - At the property level as a subproperty, to define its parent:
-            - schemaType: to set the value type
-            - title: to set the input's label used to display to the user
-            - friendlyAttributeName: to display a friendlier version of the attribute name
-            - ...
+        - **Entity level** (`EntityLevelJsonSchema`) — high level information such as:
+            - `schemaType`: the NGSI-LD entity type name (e.g. `"ParkingSpot"`)
+            - `minimum` / `maximum`: limits on the number of entities of this type (to be created through Twin·Picks)
+            - `required`: properties the user must fill before creating an entity of this type
+            - `title`, `description`, `canEntityBeCreated`, `identifier`, …
+        - **Property level** (`PropertyLevelJsonSchema`) — defines how Twin·Picks renders each attribute input:
+            - `schemaType`: the value type — `"string"`, `"integer"`, `"number"`, `"boolean"`, `"date"`, `"enum"`, `"array"`, `"object"`, `"json"`
+            - `title`: label displayed to the user
+            - `friendlyAttributeName`: friendlier version of the attribute name
+            - `canSelfInit`, `canBeEdited`, `order`, …
+            - When `schemaType` is `"enum"`, the `enum` array is **required** (list of allowed string or number values). Use `allowMultiple: true` to allow several selections.
     - Sub attributes can also be defined with their own "jsonSchema" values
     - A simple relationship would be defined like this:
         ```json
@@ -99,9 +100,8 @@ A blueprint is a global definition of a specific use case type. It is following 
                     "type": "Property",
                     "value": {
                         "schemaType": "string",
-                        "format": "uri",
                         "title": "Which place is related?",
-                        "friendlyAttributeName": "Related place",
+                        "friendlyAttributeName": "Related place"
                     }
                 }
             }
@@ -128,7 +128,6 @@ A blueprint is a global definition of a specific use case type. It is following 
                                 "type": "Property",
                                 "value": {
                                     "schemaType": "string",
-                                    "format": "uri",
                                     "title": "Select a place"
                                 }
                             }
@@ -140,7 +139,7 @@ A blueprint is a global definition of a specific use case type. It is following 
         ```
         - For multi attributes, the datasets definition must be placed under `items`
 
-    >💡 **Tip:** See the full documentation of supported jsonSchema options in the file located here: `/src/interfaces/jsonSchema.ts`
+    >💡 **Tip:** See the full TypeScript documentation of supported jsonSchema options in `/src/interfaces/jsonSchema.ts`. Property-level and entity-level schemas are typed separately (`PropertyLevelJsonSchema` and `EntityLevelJsonSchema`).
 
 # Using helper functions (recommended)
 
@@ -173,7 +172,7 @@ location: {
 },
 ```
 
-Most helpers accept extra `jsonSchema` options (`friendlyAttributeName`, `canSelfInit`, `canBeEdited`, …) via the remaining object fields. Those are forwarded into the generated schema.
+Most helpers accept extra `jsonSchema` options (`friendlyAttributeName`, `canSelfInit`, `canBeEdited`, …) via the remaining object fields. Those are forwarded into the generated schema. Each helper is typed to accept only the fields relevant to the schema variant it produces.
 
 > 📒 **Note:** Each helper call increments a shared `order` counter, so input fields appear in Twin·Picks in the same order as they are declared in the template file.
 
@@ -185,26 +184,25 @@ Most helpers accept extra `jsonSchema` options (`friendlyAttributeName`, `canSel
         ...getSimpleTextProp({ title: 'Name of the place', friendlyAttributeName: 'Name' }),
     },
     ```
-- **`getEnumProp({ title, enum, allowMultiple, ...rest })`** — string Property restricted to a list of values. Set `allowMultiple: true` to let the user pick several values.
+- **`getEnumProp({ title, enum, allowMultiple, ...rest })`** — enum Property (`schemaType: 'enum'`). The `enum` array is required. Set `allowMultiple: true` to let the user pick several values.
     ```js
     status: {
         ...getEnumProp({
             title: 'General status',
             enum: ['ok', 'defectiveLamp', 'columnIssue'],
-            canSelfInit: true,
         }),
     },
     ```
-- **`getIntegerProp({ title, minimum, maximum, ...rest })`** — integer Property, with optional min/max bounds.
+- **`getIntegerProp({ title, minimum, maximum, ...rest })`** — integer Property (`schemaType: 'integer'`), with optional min/max bounds.
     ```js
     duration: {
         ...getIntegerProp({ title: 'Duration (minutes)', minimum: 1, maximum: 120 }),
     },
     ```
-- **`getBooleanProp(title)`** — boolean Property (default value `false`).
+- **`getBooleanProp({ title, ...rest })`** — boolean Property (`schemaType: 'boolean'`, default value `false`).
     ```js
     isOccupied: {
-        ...getBooleanProp('Occupation status'),
+        ...getBooleanProp({ title: 'Occupation status' }),
     },
     ```
 - **`getDateProp({ title, dateMode })`** — date Property. `dateMode` defaults to `'date'`; use `'time'` for a time picker.
@@ -228,24 +226,31 @@ Most helpers accept extra `jsonSchema` options (`friendlyAttributeName`, `canSel
         ...getRelationshipProp("Target irrigation area", 'urn:ngsi-ld:IrrigationArea:Template'),
     },
     ```
-- **`getMultiRelationshipProp({ formLabel, formLabelPerItem, templateObjectId, minimum, maximum })`** — multi Relationship (`schemaType: 'array'`). `formLabel` is the group label; `formLabelPerItem` is the label for each item. Optional `minimum` / `maximum` limit how many relations can be set.
+- **`getMultiRelationshipProp({ formLabel, formLabelPerItem, targetTemplateObjectId, minimum, maximum })`** — multi Relationship (`schemaType: 'array'`). `formLabel` is the group label; `formLabelPerItem` is the label for each item. Optional `minimum` / `maximum` limit how many relations can be set.
     ```js
     dischargesTo: {
         ...getMultiRelationshipProp({
             formLabel: 'List of rivers that receive flows from the combined sewer',
             formLabelPerItem: 'Select a river',
-            templateObjectId: 'urn:ngsi-ld:River:Template',
+            targetTemplateObjectId: 'urn:ngsi-ld:River:Template',
         }),
     },
     ```
-- **`getMultiAttributeProp({ schemaType, formLabel, formLabelPerItem, subProps, ...rest })`** — multi Property (`schemaType: 'array'`). `subProps` is a list of `[attributeName, helperResult]` pairs for nested sub-attributes on each item. `schemaType` defaults to `'string'`.
+- **`getMultiAttributeProp({ formLabel, formLabelPerItem, propertySchemaDefinition, subProps })`** — multi Property (`schemaType: 'array'`). `propertySchemaDefinition` is a full property-level schema describing each item (e.g. `{ schemaType: 'string' }` or `{ schemaType: 'enum', enum: [0, 1] }`). `subProps` is an optional list of `[attributeName, helperResult]` pairs for nested sub-attributes on each item.
     ```js
     observation: {
         ...getMultiAttributeProp({
-            schemaType: 'string',
+            propertySchemaDefinition: { schemaType: 'string' },
             formLabel: 'Observations',
             formLabelPerItem: 'Enter an observation',
             subProps: [['observationDate', getDateProp({ title: 'Observation date' })]],
+        }),
+    },
+    digitalInput: {
+        ...getMultiAttributeProp({
+            propertySchemaDefinition: { schemaType: 'enum', enum: [0, 1] },
+            formLabel: 'Door open/close status',
+            formLabelPerItem: 'Enter door status (0: open, 1: closed)',
         }),
     },
     ```
