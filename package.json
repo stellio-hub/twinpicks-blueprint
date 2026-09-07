@@ -24,7 +24,7 @@
         "stlUpdate": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=street-lighting"
     },
     "devDependencies": {
-        "@types/geojson": "^7946.0.10",
+        "@types/geojson": "^7946.0.16",
         "@types/node": "^25.9.1",
         "git-cz": "^4.9.0",
         "prettier": "^3.8.3",
