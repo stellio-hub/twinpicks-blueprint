@@ -59,11 +59,15 @@ export const getEnumProp = ({
     };
 };
 
-export const getIntegerProp = ({ title, minimum, maximum, ...rest }: IntegerWithoutSchemaType): StellioTemplateProp => {
+export const getIntegerProp = (
+    { title, minimum, maximum, ...rest }: IntegerWithoutSchemaType,
+    unitCode?: string
+): StellioTemplateProp => {
     order++;
     return {
         type: 'Property',
         value: 0,
+        unitCode,
         jsonSchema: {
             type: 'Property',
             value: {

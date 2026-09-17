@@ -10,6 +10,12 @@ export const ControlPointTemplate: StellioTemplate = {
     location: {
         ...getGeoPropertyProp('Location of the control point', 'Point'),
     },
+    inflow: {
+        ...getIntegerProp({ title: 'Inflow' }, 'MTQ'),
+    },
+    waterLevel: {
+        ...getIntegerProp({ title: 'Water level' }, 'MTR'),
+    },
     source: {
         ...getEnumProp({ title: 'Source of the control point', enum: ['sensor', 'lab', 'citizen'] }),
     },
