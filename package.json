@@ -1,7 +1,7 @@
 {
     "name": "blueprints",
     "author": "junjou",
-    "version": "1.4.1",
+    "version": "1.4.2",
     "description": "blueprints for twinpicks",
     "scripts": {
         "tsc": "tsc",
@@ -21,7 +21,9 @@
         "urbaquantum": "npx tsc && cd ./dist/usecases/water-management-urbaquantum && node index.js && cd ../../..",
         "urbaquantumUpdate": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=water-management-urbaquantum",
         "stl": "npx tsc && cd ./dist/usecases/street-lighting && node index.js && cd ../../..",
-        "stlUpdate": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=street-lighting"
+        "stlUpdate": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=street-lighting",
+        "utility": "npx tsc && cd ./dist/usecases/utility-management && node index.js && cd ../../..",
+        "utilityUpdate": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=utility-management"
     },
     "devDependencies": {
         "@types/geojson": "^7946.0.10",

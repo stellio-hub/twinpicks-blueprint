@@ -151,6 +151,7 @@
                 "type": "Property",
                 "value": {
                     "schemaType": "json",
+                    "canSelfInit": true,
                     "friendlyAttributeName": "Référentiel National des Bâtiments"
                 }
             }
@@ -331,7 +332,7 @@
             "jsonSchema": {
                 "type": "Property",
                 "value": {
-                    "schemaType": "string",
+                    "schemaType": "enum",
                     "enum": [
                         "Eau",
                         "Gaz",
@@ -349,7 +350,7 @@
                 "jsonSchema": {
                     "type": "Property",
                     "value": {
-                        "schemaType": "string",
+                        "schemaType": "enum",
                         "enum": [
                             "measured",
                             "estimated"
@@ -365,7 +366,7 @@
                 "jsonSchema": {
                     "type": "Property",
                     "value": {
-                        "schemaType": "string",
+                        "schemaType": "enum",
                         "enum": [
                             "distributor",
                             "supplier"
@@ -389,9 +390,9 @@
                         "jsonSchema": {
                             "type": "Property",
                             "value": {
-                                "title": "Valeur d'index",
                                 "schemaType": "integer",
-                                "canSetObservedAt": true
+                                "canSetObservedAt": true,
+                                "title": "Valeur d'index"
                             }
                         }
                     }
@@ -461,7 +462,7 @@
         },
         "startAt": {
             "type": "Property",
-            "value": "2026-09-01T15:15:19.589Z",
+            "value": "2026-09-22T08:31:45.296Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
@@ -474,7 +475,7 @@
         },
         "endAt": {
             "type": "Property",
-            "value": "2026-09-01T15:15:19.589Z",
+            "value": "2026-09-22T08:31:45.296Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
@@ -615,8 +616,8 @@
                         "jsonSchema": {
                             "type": "Property",
                             "value": {
-                                "title": "Ligne de facture",
-                                "schemaType": "string"
+                                "schemaType": "string",
+                                "title": "Ligne de facture"
                             }
                         }
                     }

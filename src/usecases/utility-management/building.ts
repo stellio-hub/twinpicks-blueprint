@@ -17,6 +17,10 @@ export const BuildingTemplate: StellioTemplate = {
     description: {
         ...getSimpleTextProp({ title: 'Description' }),
     },
+    /**
+     * A GeoProperty in a Building will display the RNB selector component in TP
+     * It will fill the rnb property automatically
+     */
     location: {
         ...getGeoPropertyProp('Sélectionner le bâtiment sur la carte', 'Polygon'),
     },
@@ -27,6 +31,7 @@ export const BuildingTemplate: StellioTemplate = {
             type: 'Property',
             value: {
                 schemaType: 'json',
+                canSelfInit: true,
                 friendlyAttributeName: 'Référentiel National des Bâtiments',
             },
         },
