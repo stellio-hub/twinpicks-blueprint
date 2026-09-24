@@ -13,9 +13,8 @@ export const ElectricalCabinetTemplate: StellioTemplate = {
         ...getSimpleTextProp({ title: 'Description' }),
     },
     electricalCabinetId: {
-        ...getSimpleTextProp({ title: `Identifiant de l'armoire électrique'` }),
+        ...getSimpleTextProp({ title: `Identifiant de l'armoire électrique` }),
     },
-
     isFedBy: {
         ...getRelationshipProp({
             formLabel: 'Est alimentée par',
@@ -25,16 +24,10 @@ export const ElectricalCabinetTemplate: StellioTemplate = {
             ],
         }),
     },
-    isContainedIn: {
+    isPartOf: {
         ...getRelationshipProp({
             formLabel: "Local dans lequel est située l'armoire électrique",
             targetTemplateObjectId: 'urn:ngsi-ld:Space:Template',
-        }),
-    },
-    hasConnectivityNode: {
-        ...getRelationshipProp({
-            formLabel: 'Points de sortie électrique',
-            targetTemplateObjectId: 'urn:ngsi-ld:ConnectivityNode:Template',
         }),
     },
     jsonSchema: {
@@ -42,7 +35,7 @@ export const ElectricalCabinetTemplate: StellioTemplate = {
         value: {
             schemaType: entityType,
             title: 'Armoire électrique',
-            required: ['name', 'isContainedIn'],
+            required: ['name', 'isPartOf'],
             description: `Armoire électrique contenant des sorties électriques`,
             minimum: 0,
             identifier: 'name',

@@ -21,14 +21,6 @@ export const SiteTemplate: StellioTemplate = {
         },
         ...getSimpleTextProp({ title: 'Adresse postale' }),
     },
-    hasPart: {
-        ...getMultiRelationshipProp({
-            formLabel: 'Bâtiments du site',
-            formLabelPerItem: 'Sélectionner un bâtiment',
-            targetTemplateObjectId: 'urn:ngsi-ld:Building:Template',
-            minimum: 1,
-        }),
-    },
     jsonSchema: {
         type: 'Property',
         value: {

@@ -24,6 +24,19 @@ Site
         └── Space
 ```
 
+Relationships in the blueprint (NGSI-LD attribute names):
+
+| Entity | Relationship | Target | Notes |
+|--------|--------------|--------|--------|
+| `Site` | `hasPart` | `Building` | One or more buildings per site |
+| `Building` | `hasUsage` | `Usage` | Optional classification of building use (nomenclature) |
+| `Storey` | `isPartOf` | `Building` | Floor / level within a building (`level` integer for ordering) |
+| `Space` | `isPartOf` | `Storey` | One or more storeys per space (array relationship) |
+
+BOT often expresses containment with `bot:hasStorey` / `bot:hasSpace` on the parent. This blueprint uses the inverse `isPartOf` on children (and `Site.hasPart` on the site) as an NGSI-LD-oriented pattern consistent across spatial and electrical entities.
+
+A `Building` may also reference one or more `Usage` entities through `hasUsage`, for example to describe the primary activity or nomenclature code of the building without duplicating usage definitions on each space.
+
 A `Room` is represented as a particular kind of `Space`. BOT and SAREF4BLDG do not define `Room` as a separate core class, while IFC represents rooms through `IfcSpace` and its attributes or classifications.
 
 > **Compatibility note:** This approach differs from the current `Room` representation used in QAI. The mapping or migration strategy between QAI `Room` entities and blueprint `Space` entities must therefore be defined.
@@ -34,9 +47,9 @@ The initial implementation focuses on the electricity network while remaining as
 
 The objective is to describe the delivery tree starting from a `DeliveryPoint`. For electricity networks, the IEC Common Information Model (CIM) is used as the main reference. SAREF may complement this model when representing devices and appliances.
 
-The supply network of a site or building starts with a `DeliveryPoint`, which supplies an `ElectricalCabinet`. The cabinet is located in a `Space` within the `Building` and contains breakers, timers, meters, and related equipment.
+The supply network of a site or building starts with a `DeliveryPoint`, which supplies an `ElectricalCabinet`. The cabinet is located in a `Space` (`ElectricalCabinet.isPartOf` → `Space`) and groups breakers, timers, meters, and related equipment. Electrical outlets are modeled as `ConnectivityNode` entities linked to the cabinet through `ConnectivityNode.isPartOf` → `ElectricalCabinet`.
 
-IEC CIM distinguishes between the physical asset view and the electrical connectivity view. A cabinet may be represented as a physical `AssetContainer`, whereas connectivity is represented through equipment, terminals, and connectivity nodes. Consequently, a direct relationship from `ElectricalCabinet` to `ConnectivityNode`, `Terminal`, or `ACLineSegment` is a useful NGSI-LD simplification, but it is not a strict inheritance of the complete CIM model.
+IEC CIM distinguishes between the physical asset view and the electrical connectivity view. A cabinet may be represented as a physical `AssetContainer`, whereas connectivity is represented through equipment, terminals, and connectivity nodes. Linking `ConnectivityNode` to `ElectricalCabinet` (and optionally onward to `Terminal` or `ACLineSegment`) is a useful NGSI-LD simplification, but it is not a strict inheritance of the complete CIM model.
 
 A more complete approach would introduce an `EquipmentContainer` associated with the `ElectricalCabinet`, with the `EquipmentContainer` containing one or more `ConnectivityNode` entities. This intermediate entity could be introduced later.
 
@@ -45,18 +58,24 @@ For the first version, the following simplified model is retained:
 ```text
 DeliveryPoint (PDL)
         │
-        │ feed (1:1) / isFedBy
+        │ isFedBy (parent may be DeliveryPoint or upstream ElectricalCabinet)
         ▼
-ElectricalCabinet
-        │
-        │ hasConnectivityNode
-        ▼
-ConnectivityNode
+ElectricalCabinet ──isPartOf──► Space
+        ▲
+        │ isPartOf
+ConnectivityNode (phaseCode: AN, BN, CN, …)
 ```
 
 A `ConnectivityNode` may later be connected, through terminals and conducting equipment where appropriate, to an `ACLineSegment`, another `ElectricalCabinet`, or other components of the electrical network.
 
 ## Model Alignment
+
+### Storey
+
+The blueprint `Storey` entity is aligned with:
+
+- IFC `IfcBuildingStorey`.
+- W3C BOT `bot:Storey`.
 
 ### Space
 
@@ -65,6 +84,12 @@ The blueprint `Space` entity is aligned with:
 - IFC `IfcSpace`, representing a space, room, or area (`Espace`, `Pièce`, or `Local`).
 - SAREF4BLDG `s4bldg:BuildingSpace`.
 - W3C BOT `bot:Space`.
+
+Spaces are attached to storeys via `isPartOf`, not directly to the building, so the spatial tree matches BOT’s building → storey → space hierarchy.
+
+### Usage
+
+The `Usage` entity holds nomenclature fields (`code`, `source`, etc.). Buildings reference usages through `hasUsage`; spaces do not embed usage types in this version of the blueprint.
 
 ## References
 
