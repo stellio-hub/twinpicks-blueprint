@@ -1,10 +1,10 @@
 import { StellioTemplate } from 'src/interfaces';
-import { getSimpleTextProp } from '../../utils/blueprintHelpers';
+import { getGeoPropertyProp, getJsonPropertyProp, getSimpleTextProp } from '../../utils/blueprintHelpers';
 
 const entityType = 'Building';
 
 export const BuildingTemplate: StellioTemplate = {
-    id: 'urn:ngsi-ld:Building:Template',
+    id: `urn:ngsi-ld:${entityType}:Template`,
     type: 'Template',
     name: {
         ...getSimpleTextProp({ title: 'Nom du bâtiment', friendlyAttributeName: 'Nom' }),
@@ -17,34 +17,17 @@ export const BuildingTemplate: StellioTemplate = {
      * A GeoProperty in a Building will display the RNB selector component in TP
      */
     location: {
-        type: 'GeoProperty',
-        value: {
-            type: 'Polygon',
-            coordinates: [],
-        },
-        jsonSchema: {
-            type: 'Property',
-            value: {
-                schemaType: 'object',
-                title: 'Sélectionner le bâtiment sur la carte',
-            },
-        },
+        ...getGeoPropertyProp({
+            formLabel: 'Sélectionner le bâtiment sur la carte',
+            geometryType: 'Polygon',
+        }),
     },
     /**
      *  The `rnb` JsonProperty must be present in the blueprint if required \
      *  It won't be added to the entity otherwise
      */
     rnb: {
-        type: 'JsonProperty',
-        json: '{}',
-        jsonSchema: {
-            type: 'Property',
-            value: {
-                schemaType: 'json',
-                canSelfInit: true,
-                friendlyAttributeName: 'Référentiel National des Bâtiments',
-            },
-        },
+        ...getJsonPropertyProp({ formLabel: 'Référentiel National des Bâtiments', canSelfInit: true }),
     },
     jsonSchema: {
         type: 'Property',
@@ -53,7 +36,7 @@ export const BuildingTemplate: StellioTemplate = {
             title: 'Bâtiment',
             required: ['name', 'location'],
             minimum: 1,
-            description: "Jumeau numérique du bâtiment",
+            description: 'Jumeau numérique du bâtiment',
         },
     },
 };

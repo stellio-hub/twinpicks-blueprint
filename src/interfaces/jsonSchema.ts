@@ -216,3 +216,5 @@ export type PropertyIntegerJsonSchema = JsonSchemaInteger & JsonSchemaOtherPrope
 export type PropertyDateJsonSchema = JsonSchemaDate & JsonSchemaOtherPropertyFields;
 export type PropertyBooleanJsonSchema = JsonSchemaBoolean & JsonSchemaOtherPropertyFields;
 export type PropertyArrayJsonSchema = JsonSchemaArray & JsonSchemaOtherPropertyFields;
+export type PropertyGeoJsonSchema = JsonSchemaObject & JsonSchemaOtherPropertyFields;
+export type PropertyJsonJsonSchema = JsonSchemaJson & JsonSchemaOtherPropertyFields;
