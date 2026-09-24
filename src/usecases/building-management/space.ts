@@ -1,5 +1,10 @@
 import { StellioTemplate } from 'src/interfaces';
-import { getSimpleTextProp, getEnumProp, getRelationshipProp } from '../../utils/blueprintHelpers';
+import {
+    getSimpleTextProp,
+    getEnumProp,
+    getRelationshipProp,
+    getMultiRelationshipProp,
+} from '../../utils/blueprintHelpers';
 
 const entityType = 'Space';
 
@@ -12,17 +17,17 @@ export const SpaceTemplate: StellioTemplate = {
     description: {
         ...getSimpleTextProp({ title: `Description de l'espace` }),
     },
-
     spaceType: {
         ...getEnumProp({
             title: `Type d'espace`,
             enum: [`Espace`, `Pièce`, `Local`],
         }),
     },
-    isContainedIn: {
-        ...getRelationshipProp({
-            formLabel: "Bâtiment auquel appartient l'espace",
-            targetTemplateObjectId: 'urn:ngsi-ld:Building:Template',
+    isPartOf: {
+        ...getMultiRelationshipProp({
+            formLabel: "Niveaux de l'espace",
+            formLabelPerItem: 'Choisir un niveau',
+            targetTemplateObjectId: 'urn:ngsi-ld:Storey:Template',
         }),
     },
     jsonSchema: {
@@ -31,7 +36,7 @@ export const SpaceTemplate: StellioTemplate = {
             schemaType: entityType,
             title: 'Espace',
             minimum: 1,
-            required: ['name', 'isContainedIn'],
+            required: ['name', 'isPartOf'],
             description: `Jumeau numérique de l'espace au sein du bâtiment`,
         },
     },

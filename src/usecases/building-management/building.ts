@@ -1,5 +1,10 @@
 import { StellioTemplate } from 'src/interfaces';
-import { getGeoPropertyProp, getJsonPropertyProp, getSimpleTextProp } from '../../utils/blueprintHelpers';
+import {
+    getGeoPropertyProp,
+    getJsonPropertyProp,
+    getMultiRelationshipProp,
+    getSimpleTextProp,
+} from '../../utils/blueprintHelpers';
 
 const entityType = 'Building';
 
@@ -11,6 +16,13 @@ export const BuildingTemplate: StellioTemplate = {
     },
     description: {
         ...getSimpleTextProp({ title: 'Description du bâtiment' }),
+    },
+    hasUsage: {
+        ...getMultiRelationshipProp({
+            formLabel: 'Utilisation du bâtiment',
+            formLabelPerItem: "Choisir un type d'usage",
+            targetTemplateObjectId: 'urn:ngsi-ld:Usage:Template',
+        }),
     },
 
     /**
