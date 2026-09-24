@@ -63,30 +63,6 @@
                 }
             }
         },
-        "hasPart": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:Building:Template",
-            "jsonSchema": {
-                "type": "Property",
-                "value": {
-                    "schemaType": "array",
-                    "order": 6,
-                    "title": "Bâtiments du site",
-                    "minimum": 1,
-                    "items": {
-                        "type": "Relationship",
-                        "object": "urn:ngsi-ld:Building:Template",
-                        "jsonSchema": {
-                            "type": "Property",
-                            "value": {
-                                "schemaType": "string",
-                                "title": "Sélectionner un bâtiment"
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "jsonSchema": {
             "type": "Property",
             "value": {
@@ -112,7 +88,7 @@
                     "friendlyAttributeName": "Nom",
                     "schemaType": "string",
                     "title": "Nom du bâtiment",
-                    "order": 7
+                    "order": 6
                 }
             }
         },
@@ -124,7 +100,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Description du bâtiment",
-                    "order": 8
+                    "order": 7
                 }
             }
         },
@@ -135,7 +111,7 @@
                 "type": "Property",
                 "value": {
                     "schemaType": "array",
-                    "order": 9,
+                    "order": 8,
                     "title": "Utilisation du bâtiment",
                     "items": {
                         "type": "Relationship",
@@ -148,6 +124,18 @@
                             }
                         }
                     }
+                }
+            }
+        },
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Site:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "relationship",
+                    "title": "Appartient au site",
+                    "order": 9
                 }
             }
         },

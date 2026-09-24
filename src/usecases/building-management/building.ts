@@ -3,6 +3,7 @@ import {
     getGeoPropertyProp,
     getJsonPropertyProp,
     getMultiRelationshipProp,
+    getRelationshipProp,
     getSimpleTextProp,
 } from '../../utils/blueprintHelpers';
 
@@ -22,6 +23,12 @@ export const BuildingTemplate: StellioTemplate = {
             formLabel: 'Utilisation du bâtiment',
             formLabelPerItem: "Choisir un type d'usage",
             targetTemplateObjectId: 'urn:ngsi-ld:Usage:Template',
+        }),
+    },
+    isPartOf: {
+        ...getRelationshipProp({
+            formLabel: 'Appartient au site',
+            targetTemplateObjectId: 'urn:ngsi-ld:Site:Template',
         }),
     },
 
