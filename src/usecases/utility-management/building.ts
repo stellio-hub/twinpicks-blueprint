@@ -29,7 +29,10 @@ export const BuildingTemplate: StellioTemplate = {
         ...getJsonPropertyProp({ formLabel: 'Référentiel National des Bâtiments', canSelfInit: true }),
     },
     isContainedIn: {
-        ...getRelationshipProp('Site auquel appartient le bâtiment', 'urn:ngsi-ld:Site:Template'),
+        ...getRelationshipProp({
+            formLabel: 'Site auquel appartient le bâtiment',
+            targetTemplateObjectId: 'urn:ngsi-ld:Site:Template',
+        }),
     },
     hasUsage: {
         ...getMultiRelationshipProp({

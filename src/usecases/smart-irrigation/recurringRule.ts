@@ -76,7 +76,10 @@ export const RecurringRuleTemplate: StellioTemplate = {
     },
 
     irrigationArea: {
-        ...getRelationshipProp("Zone d'irrigation cible du programme", 'urn:ngsi-ld:IrrigationArea:Template'),
+        ...getRelationshipProp({
+            formLabel: "Zone d'irrigation cible du programme",
+            targetTemplateObjectId: 'urn:ngsi-ld:IrrigationArea:Template',
+        }),
     },
     managedZones: {
         ...getMultiRelationshipProp({

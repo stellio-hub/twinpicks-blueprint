@@ -53,7 +53,10 @@ export const InvoiceTemplate: StellioTemplate = {
         }),
     },
     relatedDeliveryPoint: {
-        ...getRelationshipProp('Point de livraison', 'urn:ngsi-ld:DeliveryPoint:Template'),
+        ...getRelationshipProp({
+            formLabel: 'Point de livraison',
+            targetTemplateObjectId: 'urn:ngsi-ld:DeliveryPoint:Template',
+        }),
     },
     jsonSchema: {
         type: 'Property',

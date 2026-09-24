@@ -24,7 +24,10 @@ export const StreetlightGroupTemplate: StellioTemplate = {
         }),
     },
     refStreetlightControlCabinet: {
-        ...getRelationshipProp('Armoire de commande', 'urn:ngsi-ld:StreetlightControlCabinet:Template'),
+        ...getRelationshipProp({
+            formLabel: 'Armoire de commande',
+            targetTemplateObjectId: 'urn:ngsi-ld:StreetlightControlCabinet:Template',
+        }),
     },
     circuitId: {
         ...getSimpleTextProp({ title: 'Identifiant du circuit' }),

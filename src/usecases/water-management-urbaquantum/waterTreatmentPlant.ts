@@ -13,7 +13,10 @@ export const WaterTreatmentPlantTemplate: StellioTemplate = {
         ...getGeoPropertyProp({ formLabel: 'Location of the water treatment plant', geometryType: 'Point' }),
     },
     dischargesTo: {
-        ...getRelationshipProp('Discharges to the water treatment plant', 'urn:ngsi-ld:River:Template'),
+        ...getRelationshipProp({
+            formLabel: 'Discharges to the water treatment plant',
+            targetTemplateObjectId: 'urn:ngsi-ld:River:Template',
+        }),
     },
     jsonSchema: {
         type: 'Property',

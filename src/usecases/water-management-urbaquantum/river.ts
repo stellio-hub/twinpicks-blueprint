@@ -21,7 +21,10 @@ export const RiverTemplate: StellioTemplate = {
         ...getGeoPropertyProp({ formLabel: 'Geographical location of the river', geometryType: 'LineString' }),
     },
     hasRiverBasin: {
-        ...getRelationshipProp('River basin of the river', 'urn:ngsi-ld:RiverBasin:Template'),
+        ...getRelationshipProp({
+            formLabel: 'River basin of the river',
+            targetTemplateObjectId: 'urn:ngsi-ld:RiverBasin:Template',
+        }),
     },
     flowsFrom: {
         ...getMultiRelationshipProp({

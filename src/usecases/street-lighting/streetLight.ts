@@ -62,10 +62,16 @@ export const StreetlightTemplate: StellioTemplate = {
         }),
     },
     refStreetlightGroup: {
-        ...getRelationshipProp('Groupe de points lumineux', 'urn:ngsi-ld:StreetlightGroup:Template'),
+        ...getRelationshipProp({
+            formLabel: 'Groupe de points lumineux',
+            targetTemplateObjectId: 'urn:ngsi-ld:StreetlightGroup:Template',
+        }),
     },
     refStreetlightControlCabinet: {
-        ...getRelationshipProp('Armoire de commande', 'urn:ngsi-ld:StreetlightControlCabinet:Template'),
+        ...getRelationshipProp({
+            formLabel: 'Armoire de commande',
+            targetTemplateObjectId: 'urn:ngsi-ld:StreetlightControlCabinet:Template',
+        }),
     },
     lanternHeight: {
         ...getIntegerProp({ title: 'Hauteur de la lanterne (m)', minimum: 0 }),

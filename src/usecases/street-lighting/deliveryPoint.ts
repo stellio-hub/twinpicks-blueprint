@@ -25,7 +25,10 @@ export const DeliveryPointTemplate: StellioTemplate = {
         ...getGeoPropertyProp({ formLabel: 'Localisation', geometryType: 'Point' }),
     },
     isObserving: {
-        ...getRelationshipProp("Est en train d'observer", 'urn:ngsi-ld:StreetlightControlCabinet:Template'),
+        ...getRelationshipProp({
+            formLabel: "Est en train d'observer",
+            targetTemplateObjectId: 'urn:ngsi-ld:StreetlightControlCabinet:Template',
+        }),
     },
     jsonSchema: {
         type: 'Property',
