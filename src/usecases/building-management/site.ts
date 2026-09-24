@@ -37,7 +37,6 @@ export const SiteTemplate: StellioTemplate = {
             required: ['name'],
             description: 'Site regroupant un ou plusieurs bâtiments.',
             minimum: 1,
-            identifier: 'name',
         },
     },
 };

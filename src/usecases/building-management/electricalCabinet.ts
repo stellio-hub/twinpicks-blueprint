@@ -12,7 +12,7 @@ export const ElectricalCabinetTemplate: StellioTemplate = {
     description: {
         ...getSimpleTextProp({ title: 'Description' }),
     },
-    ElectricalCabinetId: {
+    electricalCabinetId: {
         ...getSimpleTextProp({ title: `Identifiant de l'armoire électrique'` }),
     },
 

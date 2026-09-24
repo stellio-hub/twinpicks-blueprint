@@ -96,8 +96,7 @@
                     "name"
                 ],
                 "description": "Site regroupant un ou plusieurs bâtiments.",
-                "minimum": 1,
-                "identifier": "name"
+                "minimum": 1
             }
         }
     },
@@ -483,7 +482,7 @@
                 }
             }
         },
-        "ElectricalCabinetId": {
+        "electricalCabinetId": {
             "type": "Property",
             "value": "Identifiant de l'armoire électrique'",
             "jsonSchema": {
