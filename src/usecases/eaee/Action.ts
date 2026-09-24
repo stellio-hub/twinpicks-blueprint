@@ -211,7 +211,7 @@ export const ActionTemplate: StellioTemplate = {
         displayName: getDisplayNameProp('Description du site'),
     },
     localisationDuSite: {
-        ...getGeoPropertyProp('Localisation du site', 'Point'),
+        ...getGeoPropertyProp({ formLabel: 'Localisation du site', geometryType: 'Point' }),
         classification: getClassificationJsonProp(Structures.lieuDeLaction),
         displayName: getDisplayNameProp('Localisation du site'),
     },

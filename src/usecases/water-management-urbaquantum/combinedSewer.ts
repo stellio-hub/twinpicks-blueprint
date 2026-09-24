@@ -1,14 +1,19 @@
 import { StellioTemplate } from 'src/interfaces';
 import { getGeoPropertyProp, getMultiRelationshipProp, getSimpleTextProp } from '../../utils/blueprintHelpers';
 
+const entityType = 'CombinedSewer';
+
 export const CombinedSewerTemplate: StellioTemplate = {
-    id: 'urn:ngsi-ld:CombinedSewer:Template',
+    id: `urn:ngsi-ld:${entityType}:Template`,
     type: 'Template',
     name: {
         ...getSimpleTextProp({ title: 'Name of the combined sewer' }),
     },
     location: {
-        ...getGeoPropertyProp('Geographical representation of the combined sewer', 'LineString'),
+        ...getGeoPropertyProp({
+            formLabel: 'Geographical representation of the combined sewer',
+            geometryType: 'LineString',
+        }),
     },
     dischargesTo: {
         ...getMultiRelationshipProp({

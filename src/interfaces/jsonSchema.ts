@@ -160,6 +160,16 @@ type JsonSchemaJson = JsonSchemaCommon & {
     schemaType: 'json';
 };
 
+type JsonSchemaRelationship = JsonSchemaCommon & {
+    schemaType: 'relationship';
+    /**
+     * When a relationship can be towards more than only one type,
+     * Use this array of ids to accept more than one
+     * The string id contained in "object" will be ignored
+     */
+    listOfAllowedRelationships?: string[];
+};
+
 export type PropertySchemaVariant =
     | JsonSchemaString
     | JsonSchemaInteger
@@ -168,7 +178,8 @@ export type PropertySchemaVariant =
     | JsonSchemaDate
     | JsonSchemaArray
     | JsonSchemaObject
-    | JsonSchemaJson;
+    | JsonSchemaJson
+    | JsonSchemaRelationship;
 
 type JsonSchemaOtherPropertyFields = {
     /**
@@ -183,13 +194,6 @@ type JsonSchemaOtherPropertyFields = {
      *  To be set manually on Twin Picks
      */
     canSelfInit?: boolean;
-    /**
-     * At the property level:
-     *  When a relationship can be towards more than only one type
-     *  Use this array of ids to accept more than one
-     *  The string id contained in "object" will be ignored
-     */
-    listOfAllowedRelationships?: string[];
     /**
      * At the property level: allows to set a date in the observedAt sub core property
      */
@@ -216,3 +220,6 @@ export type PropertyIntegerJsonSchema = JsonSchemaInteger & JsonSchemaOtherPrope
 export type PropertyDateJsonSchema = JsonSchemaDate & JsonSchemaOtherPropertyFields;
 export type PropertyBooleanJsonSchema = JsonSchemaBoolean & JsonSchemaOtherPropertyFields;
 export type PropertyArrayJsonSchema = JsonSchemaArray & JsonSchemaOtherPropertyFields;
+export type PropertyGeoJsonSchema = JsonSchemaObject & JsonSchemaOtherPropertyFields;
+export type PropertyJsonJsonSchema = JsonSchemaJson & JsonSchemaOtherPropertyFields;
+export type PropertyRelationshipJsonSchema = JsonSchemaRelationship & JsonSchemaOtherPropertyFields;

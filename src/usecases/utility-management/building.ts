@@ -1,6 +1,7 @@
 import { StellioTemplate } from 'src/interfaces';
 import {
     getGeoPropertyProp,
+    getJsonPropertyProp,
     getMultiRelationshipProp,
     getRelationshipProp,
     getSimpleTextProp,
@@ -22,22 +23,16 @@ export const BuildingTemplate: StellioTemplate = {
      * It will fill the rnb property automatically
      */
     location: {
-        ...getGeoPropertyProp('Sélectionner le bâtiment sur la carte', 'Polygon'),
+        ...getGeoPropertyProp({ formLabel: 'Sélectionner le bâtiment sur la carte', geometryType: 'Polygon' }),
     },
     rnb: {
-        type: 'JsonProperty',
-        json: '{}',
-        jsonSchema: {
-            type: 'Property',
-            value: {
-                schemaType: 'json',
-                canSelfInit: true,
-                friendlyAttributeName: 'Référentiel National des Bâtiments',
-            },
-        },
+        ...getJsonPropertyProp({ formLabel: 'Référentiel National des Bâtiments', canSelfInit: true }),
     },
     isContainedIn: {
-        ...getRelationshipProp('Site auquel appartient le bâtiment', 'urn:ngsi-ld:Site:Template'),
+        ...getRelationshipProp({
+            formLabel: 'Site auquel appartient le bâtiment',
+            targetTemplateObjectId: 'urn:ngsi-ld:Site:Template',
+        }),
     },
     hasUsage: {
         ...getMultiRelationshipProp({

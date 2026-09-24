@@ -23,7 +23,9 @@
         "stl": "npx tsc && cd ./dist/usecases/street-lighting && node index.js && cd ../../..",
         "stlUpdate": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=street-lighting",
         "utility": "npx tsc && cd ./dist/usecases/utility-management && node index.js && cd ../../..",
-        "utilityUpdate": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=utility-management"
+        "utilityUpdate": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=utility-management",
+        "building": "npx tsc && cd ./dist/usecases/building-management && node index.js && cd ../../..",
+        "buildingUpdate": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=building-management"
     },
     "devDependencies": {
         "@types/geojson": "^7946.0.10",

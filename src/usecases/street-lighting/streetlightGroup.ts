@@ -18,10 +18,16 @@ export const StreetlightGroupTemplate: StellioTemplate = {
         ...getSimpleTextProp({ title: 'Nom du groupe de points lumineux', friendlyAttributeName: 'Nom' }),
     },
     location: {
-        ...getGeoPropertyProp('Relier les points lumineux sur la carte', 'MultiLineString'),
+        ...getGeoPropertyProp({
+            formLabel: 'Relier les points lumineux sur la carte',
+            geometryType: 'MultiLineString',
+        }),
     },
     refStreetlightControlCabinet: {
-        ...getRelationshipProp('Armoire de commande', 'urn:ngsi-ld:StreetlightControlCabinet:Template'),
+        ...getRelationshipProp({
+            formLabel: 'Armoire de commande',
+            targetTemplateObjectId: 'urn:ngsi-ld:StreetlightControlCabinet:Template',
+        }),
     },
     circuitId: {
         ...getSimpleTextProp({ title: 'Identifiant du circuit' }),

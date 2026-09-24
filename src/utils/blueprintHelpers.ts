@@ -6,8 +6,16 @@ import {
     PropertyLevelJsonSchema,
     PropertyStringJsonSchema,
     PropertyArrayJsonSchema,
+    PropertyGeoJsonSchema,
+    PropertyJsonJsonSchema,
+    PropertyRelationshipJsonSchema,
 } from 'src/interfaces/jsonSchema';
-import { StellioTemplateGeoProp, StellioTemplateProp, StellioTemplateRelationship } from 'src/interfaces';
+import {
+    StellioTemplateGeoProp,
+    StellioTemplateJsonProp,
+    StellioTemplateProp,
+    StellioTemplateRelationship,
+} from 'src/interfaces';
 
 let order = 0;
 
@@ -17,6 +25,9 @@ type IntegerWithoutSchemaType = Omit<PropertyIntegerJsonSchema, 'schemaType'>;
 type BooleanWithoutSchemaType = Omit<PropertyBooleanJsonSchema, 'schemaType'>;
 type DateWithoutSchemaType = Omit<PropertyDateJsonSchema, 'schemaType'>;
 type ArrayWithoutSchemaType = Omit<PropertyArrayJsonSchema, 'schemaType'>;
+type GeoPropertyWithoutSchemaType = Omit<PropertyGeoJsonSchema, 'schemaType'>;
+type JsonPropertyWithoutSchemaType = Omit<PropertyJsonJsonSchema, 'schemaType'>;
+type RelationshipWithoutSchemaType = Omit<PropertyRelationshipJsonSchema, 'schemaType'>;
 
 export const getSimpleTextProp = ({ title, ...rest }: StringWithoutSchemaType): StellioTemplateProp => {
     order++;
@@ -197,26 +208,43 @@ export const getMultiRelationshipProp = ({
     };
 };
 
-export const getRelationshipProp = (formLabel: string, targetTemplateObjectId: string): StellioTemplateRelationship => {
+type GetRelationshipPropParams = {
+    formLabel: string;
+    targetTemplateObjectId?: string;
+    listOfAllowedRelationships?: string[];
+} & RelationshipWithoutSchemaType;
+export const getRelationshipProp = ({
+    formLabel,
+    targetTemplateObjectId,
+    listOfAllowedRelationships,
+    ...rest
+}: GetRelationshipPropParams): StellioTemplateRelationship => {
     order++;
     return {
         type: 'Relationship',
-        object: targetTemplateObjectId,
+        object: targetTemplateObjectId ?? 'urn:ngsi-ld',
         jsonSchema: {
             type: 'Property',
             value: {
-                schemaType: 'string',
+                schemaType: 'relationship',
                 title: formLabel,
                 order: order,
+                listOfAllowedRelationships,
+                ...rest,
             },
         },
     };
 };
 
-export const getGeoPropertyProp = (
-    title: string,
-    geometryType: 'Point' | 'LineString' | 'MultiLineString' | 'Polygon' | 'MultiPolygon'
-): StellioTemplateGeoProp => {
+type GetGeoPropertyPropParams = {
+    formLabel: string;
+    geometryType: 'Point' | 'LineString' | 'MultiLineString' | 'Polygon' | 'MultiPolygon';
+} & GeoPropertyWithoutSchemaType;
+export const getGeoPropertyProp = ({
+    formLabel,
+    geometryType,
+    ...rest
+}: GetGeoPropertyPropParams): StellioTemplateGeoProp => {
     order++;
     return {
         type: 'GeoProperty',
@@ -227,9 +255,35 @@ export const getGeoPropertyProp = (
         jsonSchema: {
             type: 'Property',
             value: {
+                ...rest,
                 schemaType: 'object',
-                title: title,
                 order: order,
+                title: formLabel,
+            },
+        },
+    };
+};
+
+type GetJsonPropertyPropParams = {
+    formLabel: string;
+    json?: string;
+} & JsonPropertyWithoutSchemaType;
+export const getJsonPropertyProp = ({
+    formLabel,
+    json,
+    ...rest
+}: GetJsonPropertyPropParams): StellioTemplateJsonProp => {
+    order++;
+    return {
+        type: 'JsonProperty',
+        json: json || '{}',
+        jsonSchema: {
+            type: 'Property',
+            value: {
+                schemaType: 'json',
+                order: order,
+                title: formLabel,
+                ...rest,
             },
         },
     };

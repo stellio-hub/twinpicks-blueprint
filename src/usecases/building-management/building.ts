@@ -10,8 +10,9 @@ export const BuildingTemplate: StellioTemplate = {
         ...getSimpleTextProp({ title: 'Nom du bâtiment', friendlyAttributeName: 'Nom' }),
     },
     description: {
-        ...getSimpleTextProp({ title: 'Description du bâtiment', friendlyAttributeName: 'Description' }),
+        ...getSimpleTextProp({ title: 'Description du bâtiment' }),
     },
+
     /**
      * A GeoProperty in a Building will display the RNB selector component in TP
      */
@@ -22,7 +23,7 @@ export const BuildingTemplate: StellioTemplate = {
         }),
     },
     /**
-     *  The `rnb` JsonProperty must be present in the blueprint if required with canSelfInit set to true \
+     *  The `rnb` JsonProperty must be present in the blueprint if required \
      *  It won't be added to the entity otherwise
      */
     rnb: {
@@ -35,7 +36,7 @@ export const BuildingTemplate: StellioTemplate = {
             title: 'Bâtiment',
             required: ['name', 'location'],
             minimum: 1,
-            description: "Jumeau numérique du bâtiment d'où proviennent les données",
+            description: 'Jumeau numérique du bâtiment',
         },
     },
 };

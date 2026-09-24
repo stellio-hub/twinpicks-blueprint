@@ -1,0 +1,627 @@
+[
+    {
+        "id": "urn:ngsi-ld:Site:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Nom du site",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Nom",
+                    "schemaType": "string",
+                    "title": "Nom du site",
+                    "order": 1
+                }
+            }
+        },
+        "postalAddress": {
+            "postalCode": {
+                "type": "Property",
+                "value": "Code postal",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "string",
+                        "title": "Code postal",
+                        "order": 2
+                    }
+                }
+            },
+            "addressLocality": {
+                "type": "Property",
+                "value": "Ville",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "string",
+                        "title": "Ville",
+                        "order": 3
+                    }
+                }
+            },
+            "addressCountry": {
+                "type": "Property",
+                "value": "Pays",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "string",
+                        "title": "Pays",
+                        "order": 4
+                    }
+                }
+            },
+            "type": "Property",
+            "value": "Adresse postale",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Adresse postale",
+                    "order": 5
+                }
+            }
+        },
+        "hasPart": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Building:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "order": 6,
+                    "title": "Bâtiments du site",
+                    "minimum": 1,
+                    "items": {
+                        "type": "Relationship",
+                        "object": "urn:ngsi-ld:Building:Template",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "string",
+                                "title": "Sélectionner un bâtiment"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "Site",
+                "title": "Site",
+                "required": [
+                    "name"
+                ],
+                "description": "Site regroupant un ou plusieurs bâtiments.",
+                "minimum": 1
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Building:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Nom du bâtiment",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Nom",
+                    "schemaType": "string",
+                    "title": "Nom du bâtiment",
+                    "order": 7
+                }
+            }
+        },
+        "description": {
+            "type": "Property",
+            "value": "Description du bâtiment",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Description du bâtiment",
+                    "order": 8
+                }
+            }
+        },
+        "location": {
+            "type": "GeoProperty",
+            "value": {
+                "type": "Polygon",
+                "coordinates": []
+            },
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "object",
+                    "order": 9,
+                    "title": "Sélectionner le bâtiment sur la carte"
+                }
+            }
+        },
+        "rnb": {
+            "type": "JsonProperty",
+            "json": "{}",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "json",
+                    "order": 10,
+                    "title": "Référentiel National des Bâtiments",
+                    "canSelfInit": true
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "Building",
+                "title": "Bâtiment",
+                "required": [
+                    "name",
+                    "location"
+                ],
+                "minimum": 1,
+                "description": "Jumeau numérique du bâtiment"
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Space:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Nom de l'espace",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Nom",
+                    "schemaType": "string",
+                    "title": "Nom de l'espace",
+                    "order": 11
+                }
+            }
+        },
+        "description": {
+            "type": "Property",
+            "value": "Description de l'espace",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Description de l'espace",
+                    "order": 12
+                }
+            }
+        },
+        "spaceType": {
+            "type": "Property",
+            "value": "Espace",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "enum",
+                    "enum": [
+                        "Espace",
+                        "Pièce",
+                        "Local"
+                    ],
+                    "title": "Type d'espace",
+                    "order": 13
+                }
+            }
+        },
+        "isContainedIn": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Building:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "relationship",
+                    "title": "Bâtiment auquel appartient l'espace",
+                    "order": 14
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "Space",
+                "title": "Espace",
+                "minimum": 1,
+                "required": [
+                    "name",
+                    "isContainedIn"
+                ],
+                "description": "Jumeau numérique de l'espace au sein du bâtiment"
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Usage:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Nom de l'usage",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Nom",
+                    "schemaType": "string",
+                    "title": "Nom de l'usage",
+                    "order": 15
+                }
+            }
+        },
+        "code": {
+            "type": "Property",
+            "value": "Code de l'usage",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Code de l'usage",
+                    "order": 16
+                }
+            }
+        },
+        "nomenclatureSource": {
+            "type": "Property",
+            "value": "Source de nomenclature",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Source de nomenclature",
+                    "order": 17
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "Usage",
+                "title": "Usage",
+                "required": [
+                    "name",
+                    "code"
+                ],
+                "description": "Usage d'un bâtiment ou d'un asset, issu d'une nomenclature de référence.",
+                "minimum": 0,
+                "identifier": "code"
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:DeliveryPoint:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Nom du point de livraison",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Nom",
+                    "schemaType": "string",
+                    "title": "Nom du point de livraison",
+                    "order": 18
+                }
+            }
+        },
+        "description": {
+            "type": "Property",
+            "value": "Description",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Description",
+                    "order": 19
+                }
+            }
+        },
+        "deliveryPointNumber": {
+            "type": "Property",
+            "value": "Identifiant du point de livraison",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Identifiant du point de livraison",
+                    "order": 20
+                }
+            }
+        },
+        "fluidType": {
+            "type": "Property",
+            "value": "Eau",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "enum",
+                    "enum": [
+                        "Eau",
+                        "Gaz",
+                        "Electricité"
+                    ],
+                    "title": "Type de fluide",
+                    "order": 21
+                }
+            }
+        },
+        "index": {
+            "meterReading": {
+                "type": "Property",
+                "value": "mesuré",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "enum",
+                        "enum": [
+                            "mesuré",
+                            "estimé"
+                        ],
+                        "title": "Type de relevé",
+                        "order": 22
+                    }
+                }
+            },
+            "providedBy": {
+                "type": "Property",
+                "value": "distributeur",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "enum",
+                        "enum": [
+                            "distributeur",
+                            "fournisseur"
+                        ],
+                        "title": "Fourni par",
+                        "order": 23
+                    }
+                }
+            },
+            "type": "Property",
+            "value": "placeholder",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "title": "Index",
+                    "order": 24,
+                    "items": {
+                        "type": "Property",
+                        "value": "placeholder",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "integer",
+                                "canSetObservedAt": true,
+                                "title": "Valeur d'index"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "isObserving": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "relationship",
+                    "title": "Est en train d'observer",
+                    "order": 25,
+                    "listOfAllowedRelationships": [
+                        "urn:ngsi-ld:Building:Template",
+                        "urn:ngsi-ld:Site:Template"
+                    ]
+                }
+            }
+        },
+        "isFeeding": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ElectricalCabinet:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "relationship",
+                    "title": "Alimente électriquement",
+                    "order": 26
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "DeliveryPoint",
+                "title": "Point de livraison",
+                "required": [
+                    "name",
+                    "deliveryPointNumber",
+                    "fluidType",
+                    "isObserving"
+                ],
+                "description": "Point de livraison regroupant le type d'énergie, les données du distributeur et celles du fournisseur.",
+                "minimum": 0,
+                "identifier": "deliveryPointNumber"
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:ElectricalCabinet:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Nom de l'armoire électrique",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Nom",
+                    "schemaType": "string",
+                    "title": "Nom de l'armoire électrique",
+                    "order": 27
+                }
+            }
+        },
+        "description": {
+            "type": "Property",
+            "value": "Description",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Description",
+                    "order": 28
+                }
+            }
+        },
+        "electricalCabinetId": {
+            "type": "Property",
+            "value": "Identifiant de l'armoire électrique'",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Identifiant de l'armoire électrique'",
+                    "order": 29
+                }
+            }
+        },
+        "isFedBy": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "relationship",
+                    "title": "Est alimentée par",
+                    "order": 30,
+                    "listOfAllowedRelationships": [
+                        "urn:ngsi-ld:DeliveryPoint:Template",
+                        "urn:ngsi-ld:ElectricalCabinet:Template"
+                    ]
+                }
+            }
+        },
+        "isContainedIn": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Space:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "relationship",
+                    "title": "Local dans lequel est située l'armoire électrique",
+                    "order": 31
+                }
+            }
+        },
+        "hasConnectivityNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ConnectivityNode:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "relationship",
+                    "title": "Points de sortie électrique",
+                    "order": 32
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "ElectricalCabinet",
+                "title": "Armoire électrique",
+                "required": [
+                    "name",
+                    "isContainedIn"
+                ],
+                "description": "Armoire électrique contenant des sorties électriques",
+                "minimum": 0,
+                "identifier": "name"
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:ConnectivityNode:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Nom de la sortie électrique",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Nom",
+                    "schemaType": "string",
+                    "title": "Nom de la sortie électrique",
+                    "order": 33
+                }
+            }
+        },
+        "description": {
+            "type": "Property",
+            "value": "Description",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Description",
+                    "order": 34
+                }
+            }
+        },
+        "deliveryPointNumber": {
+            "type": "Property",
+            "value": "Identifiant de la sortie électrique ",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Identifiant de la sortie électrique ",
+                    "order": 35
+                }
+            }
+        },
+        "PhaseCode": {
+            "type": "Property",
+            "value": "AN",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "enum",
+                    "enum": [
+                        "AN",
+                        "BN",
+                        "CN",
+                        "XN",
+                        "ABCN",
+                        "ABN"
+                    ],
+                    "title": "Phasage de la sortie (phase A, B ou C; phase inconnue X; Neutre N) ",
+                    "order": 36
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "ConnectivityNode",
+                "title": "Sortie électrique",
+                "required": [
+                    "name",
+                    "phaseCode"
+                ],
+                "description": "Point de sortie électrique, possiblement protégé/contrôlé par d'autres équiepemtns de l'armoire électrique",
+                "minimum": 0,
+                "identifier": "deliveryPointNumber"
+            }
+        }
+    }
+]

@@ -1,5 +1,10 @@
 import { StellioTemplate } from 'src/interfaces';
-import { getEnumProp, getGeoPropertyProp, getRelationshipProp, getSimpleTextProp } from '../../utils/blueprintHelpers';
+import {
+    getEnumProp,
+    getMultiAttributeProp,
+    getSimpleTextProp,
+    getRelationshipProp,
+} from '../../utils/blueprintHelpers';
 
 const entityType = 'DeliveryPoint';
 
@@ -21,13 +26,27 @@ export const DeliveryPointTemplate: StellioTemplate = {
             enum: ['Eau', 'Gaz', 'Electricité'],
         }),
     },
-    location: {
-        ...getGeoPropertyProp({ formLabel: 'Localisation', geometryType: 'Point' }),
+    index: {
+        ...getMultiAttributeProp({
+            propertySchemaDefinition: { schemaType: 'integer', canSetObservedAt: true },
+            formLabel: 'Index',
+            formLabelPerItem: "Valeur d'index",
+            subProps: [
+                ['meterReading', getEnumProp({ title: 'Type de relevé', enum: ['mesuré', 'estimé'] })],
+                ['providedBy', getEnumProp({ title: 'Fourni par', enum: ['distributeur', 'fournisseur'] })],
+            ],
+        }),
     },
     isObserving: {
         ...getRelationshipProp({
             formLabel: "Est en train d'observer",
-            targetTemplateObjectId: 'urn:ngsi-ld:StreetlightControlCabinet:Template',
+            listOfAllowedRelationships: ['urn:ngsi-ld:Building:Template', 'urn:ngsi-ld:Site:Template'],
+        }),
+    },
+    isFeeding: {
+        ...getRelationshipProp({
+            formLabel: 'Alimente électriquement',
+            targetTemplateObjectId: 'urn:ngsi-ld:ElectricalCabinet:Template',
         }),
     },
     jsonSchema: {
@@ -35,7 +54,7 @@ export const DeliveryPointTemplate: StellioTemplate = {
         value: {
             schemaType: entityType,
             title: 'Point de livraison',
-            required: ['name', 'deliveryPointNumber', 'fluidType', 'location'],
+            required: ['name', 'deliveryPointNumber', 'fluidType', 'isObserving'],
             description: `Point de livraison regroupant le type d'énergie, les données du distributeur et celles du fournisseur.`,
             minimum: 0,
             identifier: 'deliveryPointNumber',

@@ -1,0 +1,51 @@
+import { StellioTemplate } from 'src/interfaces';
+import { getRelationshipProp, getSimpleTextProp } from '../../utils/blueprintHelpers';
+
+const entityType = 'ElectricalCabinet';
+
+export const ElectricalCabinetTemplate: StellioTemplate = {
+    id: `urn:ngsi-ld:${entityType}:Template`,
+    type: 'Template',
+    name: {
+        ...getSimpleTextProp({ title: `Nom de l'armoire électrique`, friendlyAttributeName: 'Nom' }),
+    },
+    description: {
+        ...getSimpleTextProp({ title: 'Description' }),
+    },
+    electricalCabinetId: {
+        ...getSimpleTextProp({ title: `Identifiant de l'armoire électrique'` }),
+    },
+
+    isFedBy: {
+        ...getRelationshipProp({
+            formLabel: 'Est alimentée par',
+            listOfAllowedRelationships: [
+                'urn:ngsi-ld:DeliveryPoint:Template',
+                'urn:ngsi-ld:ElectricalCabinet:Template',
+            ],
+        }),
+    },
+    isContainedIn: {
+        ...getRelationshipProp({
+            formLabel: "Local dans lequel est située l'armoire électrique",
+            targetTemplateObjectId: 'urn:ngsi-ld:Space:Template',
+        }),
+    },
+    hasConnectivityNode: {
+        ...getRelationshipProp({
+            formLabel: 'Points de sortie électrique',
+            targetTemplateObjectId: 'urn:ngsi-ld:ConnectivityNode:Template',
+        }),
+    },
+    jsonSchema: {
+        type: 'Property',
+        value: {
+            schemaType: entityType,
+            title: 'Armoire électrique',
+            required: ['name', 'isContainedIn'],
+            description: `Armoire électrique contenant des sorties électriques`,
+            minimum: 0,
+            identifier: 'name',
+        },
+    },
+};
