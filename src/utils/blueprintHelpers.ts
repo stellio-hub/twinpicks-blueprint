@@ -8,6 +8,7 @@ import {
     PropertyArrayJsonSchema,
     PropertyGeoJsonSchema,
     PropertyJsonJsonSchema,
+    PropertyRelationshipJsonSchema,
 } from 'src/interfaces/jsonSchema';
 import {
     StellioTemplateGeoProp,
@@ -26,6 +27,7 @@ type DateWithoutSchemaType = Omit<PropertyDateJsonSchema, 'schemaType'>;
 type ArrayWithoutSchemaType = Omit<PropertyArrayJsonSchema, 'schemaType'>;
 type GeoPropertyWithoutSchemaType = Omit<PropertyGeoJsonSchema, 'schemaType'>;
 type JsonPropertyWithoutSchemaType = Omit<PropertyJsonJsonSchema, 'schemaType'>;
+type RelationshipWithoutSchemaType = Omit<PropertyRelationshipJsonSchema, 'schemaType'>;
 
 export const getSimpleTextProp = ({ title, ...rest }: StringWithoutSchemaType): StellioTemplateProp => {
     order++;
@@ -206,17 +208,29 @@ export const getMultiRelationshipProp = ({
     };
 };
 
-export const getRelationshipProp = (formLabel: string, targetTemplateObjectId: string): StellioTemplateRelationship => {
+type GetRelationshipPropParams = {
+    formLabel: string;
+    targetTemplateObjectId?: string;
+    listOfAllowedRelationships?: string[];
+} & RelationshipWithoutSchemaType;
+export const getRelationshipProp = ({
+    formLabel,
+    targetTemplateObjectId,
+    listOfAllowedRelationships,
+    ...rest
+}: GetRelationshipPropParams): StellioTemplateRelationship => {
     order++;
     return {
         type: 'Relationship',
-        object: targetTemplateObjectId,
+        object: targetTemplateObjectId ?? 'urn:ngsi-ld',
         jsonSchema: {
             type: 'Property',
             value: {
-                schemaType: 'string',
+                schemaType: 'relationship',
                 title: formLabel,
                 order: order,
+                listOfAllowedRelationships,
+                ...rest,
             },
         },
     };

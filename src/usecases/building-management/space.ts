@@ -1,12 +1,12 @@
 import { StellioTemplate } from 'src/interfaces';
-import { getSimpleTextProp, getEnumProp } from '../../utils/blueprintHelpers';
+import { getSimpleTextProp, getEnumProp, getRelationshipProp } from '../../utils/blueprintHelpers';
 
 const entityType = 'Space';
 
 export const SpaceTemplate: StellioTemplate = {
-    id: 'urn:ngsi-ld:Space:Template',
+    id: `urn:ngsi-ld:${entityType}:Template`,
     type: 'Template',
-        name: {
+    name: {
         ...getSimpleTextProp({ title: `Nom de l'espace`, friendlyAttributeName: 'Nom' }),
     },
     description: {
@@ -20,23 +20,15 @@ export const SpaceTemplate: StellioTemplate = {
         }),
     },
     isContainedIn: {
-        type: 'Relationship',
-        object: 'urn:ngsi-ld:Building:Template',
-        jsonSchema: {
-            type: 'Property',
-            value: {
-                schemaType: 'string',
-                format: 'uri',
-                title: `Bâtiment auquel appartient l'espace`,
-                minimum: 1,
-                maximum: 1,
-            },
-        },
+        ...getRelationshipProp({
+            formLabel: "Bâtiment auquel appartient l'espace",
+            targetTemplateObjectId: 'urn:ngsi-ld:Building:Template',
+        }),
     },
     jsonSchema: {
         type: 'Property',
         value: {
-            schemaType: 'Space',
+            schemaType: entityType,
             title: 'Espace',
             minimum: 1,
             required: ['name', 'isContainedIn'],

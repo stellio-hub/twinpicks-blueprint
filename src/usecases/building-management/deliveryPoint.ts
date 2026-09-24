@@ -1,5 +1,10 @@
 import { StellioTemplate } from 'src/interfaces';
-import { getEnumProp, getMultiAttributeProp, getSimpleTextProp } from '../../utils/blueprintHelpers';
+import {
+    getEnumProp,
+    getMultiAttributeProp,
+    getSimpleTextProp,
+    getRelationshipProp,
+} from '../../utils/blueprintHelpers';
 
 const entityType = 'DeliveryPoint';
 
@@ -33,30 +38,16 @@ export const DeliveryPointTemplate: StellioTemplate = {
         }),
     },
     isObserving: {
-        type: 'Relationship',
-        object: 'urn:ngsi-ld:Building:Template',
-        jsonSchema: {
-            type: 'Property',
-            value: {
-                schemaType: 'string',
-                format: 'uri',
-                title: "Est en train d'observer",
-                listOfAllowedRelationships: ['urn:ngsi-ld:Building:Template', 'urn:ngsi-ld:Site:Template'],
-            },
-        },
+        ...getRelationshipProp({
+            formLabel: "Est en train d'observer",
+            listOfAllowedRelationships: ['urn:ngsi-ld:Building:Template', 'urn:ngsi-ld:Site:Template'],
+        }),
     },
     isFeeding: {
-        type: 'Relationship',
-        object: 'urn:ngsi-ld:electricalCabinet:Template',
-        jsonSchema: {
-            type: 'Property',
-            value: {
-                schemaType: 'string',
-                format: 'uri',
-                title: "Alimente électriquement: ",
-                listOfAllowedRelationships: ['urn:ngsi-ld:ElectricalCabinet:Template'],
-            },
-        },
+        ...getRelationshipProp({
+            formLabel: 'Alimente électriquement',
+            targetTemplateObjectId: 'urn:ngsi-ld:ElectricalCabinet:Template',
+        }),
     },
     jsonSchema: {
         type: 'Property',
