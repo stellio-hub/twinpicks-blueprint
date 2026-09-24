@@ -18,7 +18,10 @@ export const StreetlightControlCabinetTemplate: StellioTemplate = {
         ...getSimpleTextProp({ title: "Nom de l'armoire de commande", friendlyAttributeName: 'Nom' }),
     },
     location: {
-        ...getGeoPropertyProp("Pointer la position de l'armoire de commande sur la carte", 'Point'),
+        ...getGeoPropertyProp({
+            formLabel: "Pointer la position de l'armoire de commande sur la carte",
+            geometryType: 'Point',
+        }),
     },
     serialNumber: {
         ...getSimpleTextProp({ title: 'Numéro de série' }),

@@ -1,14 +1,16 @@
 import { StellioTemplate } from 'src/interfaces';
 import { getGeoPropertyProp, getRelationshipProp, getSimpleTextProp } from '../../utils/blueprintHelpers';
 
+const entityType = 'WaterTreatmentPlant';
+
 export const WaterTreatmentPlantTemplate: StellioTemplate = {
-    id: 'urn:ngsi-ld:WaterTreatmentPlant:Template',
+    id: `urn:ngsi-ld:${entityType}:Template`,
     type: 'Template',
     name: {
         ...getSimpleTextProp({ title: 'Name of the water treatment plant' }),
     },
     location: {
-        ...getGeoPropertyProp('Location of the water treatment plant', 'Point'),
+        ...getGeoPropertyProp({ formLabel: 'Location of the water treatment plant', geometryType: 'Point' }),
     },
     dischargesTo: {
         ...getRelationshipProp('Discharges to the water treatment plant', 'urn:ngsi-ld:River:Template'),
@@ -16,7 +18,7 @@ export const WaterTreatmentPlantTemplate: StellioTemplate = {
     jsonSchema: {
         type: 'Property',
         value: {
-            schemaType: 'WaterTreatmentPlant',
+            schemaType: entityType,
             title: 'Water treatment plant',
             required: ['name', 'location'],
             description: 'Digital twin of a water treatment plant',

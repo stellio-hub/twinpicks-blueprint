@@ -22,7 +22,7 @@ export const DeliveryPointTemplate: StellioTemplate = {
         }),
     },
     location: {
-        ...getGeoPropertyProp('Localisation', 'Point'),
+        ...getGeoPropertyProp({ formLabel: 'Localisation', geometryType: 'Point' }),
     },
     isObserving: {
         ...getRelationshipProp("Est en train d'observer", 'urn:ngsi-ld:StreetlightControlCabinet:Template'),

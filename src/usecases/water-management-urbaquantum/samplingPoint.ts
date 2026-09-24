@@ -1,14 +1,16 @@
 import { StellioTemplate } from 'src/interfaces';
 import { getEnumProp, getGeoPropertyProp, getIntegerProp, getSimpleTextProp } from '../../utils/blueprintHelpers';
 
+const entityType = 'SamplingPoint';
+
 export const SamplingPointTemplate: StellioTemplate = {
-    id: 'urn:ngsi-ld:SamplingPoint:Template',
+    id: `urn:ngsi-ld:${entityType}:Template`,
     type: 'Template',
     name: {
         ...getSimpleTextProp({ title: 'Name of the sampling point' }),
     },
     location: {
-        ...getGeoPropertyProp('Location of the sampling point', 'Point'),
+        ...getGeoPropertyProp({ formLabel: 'Location of the sampling point', geometryType: 'Point' }),
     },
     source: {
         ...getEnumProp({ title: 'Source of the sampling point', enum: ['sensor', 'lab', 'citizen'] }),

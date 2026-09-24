@@ -20,7 +20,10 @@ export const StreetlightTemplate: StellioTemplate = {
         ...getSimpleTextProp({ title: 'Description' }),
     },
     location: {
-        ...getGeoPropertyProp('Pointer la position du point lumineux sur la carte', 'Point'),
+        ...getGeoPropertyProp({
+            formLabel: 'Pointer la position du point lumineux sur la carte',
+            geometryType: 'Point',
+        }),
     },
     streetAddress: {
         ...getSimpleTextProp({ title: 'Adresse' }),
