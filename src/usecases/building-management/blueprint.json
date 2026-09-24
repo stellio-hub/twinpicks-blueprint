@@ -583,12 +583,12 @@
         },
         "electricalCabinetId": {
             "type": "Property",
-            "value": "Identifiant de l'armoire électrique'",
+            "value": "Identifiant de l'armoire électrique",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "string",
-                    "title": "Identifiant de l'armoire électrique'",
+                    "title": "Identifiant de l'armoire électrique",
                     "order": 34
                 }
             }
@@ -715,7 +715,8 @@
                 "title": "Sortie électrique",
                 "required": [
                     "name",
-                    "phaseCode"
+                    "phaseCode",
+                    "isPartOf"
                 ],
                 "description": "Point de sortie électrique, possiblement protégé/contrôlé par d'autres équiepemtns de l'armoire électrique",
                 "minimum": 0,
