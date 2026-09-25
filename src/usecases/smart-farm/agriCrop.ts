@@ -1,8 +1,7 @@
 import { StellioTemplate } from 'src/interfaces';
+import { getRelationshipProp } from '../../utils/blueprintHelpers';
 
-const severity = [
-    1,2,3,4,5,6,7,8,9,10
-]
+const severity = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 export const AgriCropTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:Crop:Template`,
@@ -19,7 +18,7 @@ export const AgriCropTemplate: StellioTemplate = {
         type: 'Property',
         value: 'Placeholder',
         jsonSchema: {
-            type: 'Property',   
+            type: 'Property',
             value: { schemaType: 'number', enum: severity, title: 'Pathogen serverity' },
         },
     },
@@ -92,20 +91,11 @@ export const AgriCropTemplate: StellioTemplate = {
             },
         },
     },
-    placement: {
-        type: 'GeoProperty',
-        value: {
-            type: 'Point',
-            coordinates: [],
-        },
-        jsonSchema: {
-            type: 'Property',
-            value: {
-                schemaType: 'object',
-                title: 'Place a point on the map',
-                friendlyAttributeName: 'Geolocation',
-            },
-        },
+    isCultivatedOn: {
+        ...getRelationshipProp({
+            formLabel: 'What is the parcel area where the crop is planted?',
+            targetTemplateObjectId: 'urn:ngsi-ld:ParcelArea:Template',
+        }),
     },
     yield: {
         type: 'Property',
@@ -118,11 +108,11 @@ export const AgriCropTemplate: StellioTemplate = {
     jsonSchema: {
         type: 'Property',
         value: {
-            schemaType: "Crop",
-            title: "Crop",
+            schemaType: 'Crop',
+            title: 'Crop',
             minimum: 0,
-            required: ['name','hasCropSpecies','startAt'],
+            required: ['name', 'hasCropSpecies', 'startAt'],
             description: `This represents a Crop`,
-        },  
-    }
+        },
+    },
 };

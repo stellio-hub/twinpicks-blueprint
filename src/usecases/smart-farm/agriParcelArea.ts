@@ -34,7 +34,7 @@ export const AgriParcelAreaTemplate: StellioTemplate = {
             value: {
                 schemaType: 'array',
                 format: 'uri',
-                title: "What is growing in this area ?",
+                title: "What Crops are growing in this area ?",
                 friendlyAttributeName: 'Reference crop',
                 minItems: 1,
                 items: {
@@ -124,7 +124,7 @@ export const AgriParcelAreaTemplate: StellioTemplate = {
             value: {
                 schemaType: 'array',
                 format: 'uri',
-                title: "What is growing in this area ?",
+                title: "What weeds are growing in this area ?",
                 friendlyAttributeName: 'Reference weed',
                 minItems: 1,
                 items: {

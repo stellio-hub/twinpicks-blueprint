@@ -1,5 +1,11 @@
 import { StellioTemplate } from 'src/interfaces';
-import { getGeoPropertyProp, getJsonPropertyProp, getSimpleTextProp } from '../../utils/blueprintHelpers';
+import {
+    getGeoPropertyProp,
+    getJsonPropertyProp,
+    getMultiRelationshipProp,
+    getRelationshipProp,
+    getSimpleTextProp,
+} from '../../utils/blueprintHelpers';
 
 const entityType = 'Building';
 
@@ -10,8 +16,22 @@ export const BuildingTemplate: StellioTemplate = {
         ...getSimpleTextProp({ title: 'Nom du bâtiment', friendlyAttributeName: 'Nom' }),
     },
     description: {
-        ...getSimpleTextProp({ title: 'Description du bâtiment', friendlyAttributeName: 'Description' }),
+        ...getSimpleTextProp({ title: 'Description du bâtiment' }),
     },
+    hasUsage: {
+        ...getMultiRelationshipProp({
+            formLabel: 'Utilisation du bâtiment',
+            formLabelPerItem: "Choisir un type d'usage",
+            targetTemplateObjectId: 'urn:ngsi-ld:Usage:Template',
+        }),
+    },
+    isPartOf: {
+        ...getRelationshipProp({
+            formLabel: 'Appartient au site',
+            targetTemplateObjectId: 'urn:ngsi-ld:Site:Template',
+        }),
+    },
+
     /**
      * A GeoProperty in a Building will display the RNB selector component in TP
      */
@@ -22,7 +42,7 @@ export const BuildingTemplate: StellioTemplate = {
         }),
     },
     /**
-     *  The `rnb` JsonProperty must be present in the blueprint if required with canSelfInit set to true \
+     *  The `rnb` JsonProperty must be present in the blueprint if required \
      *  It won't be added to the entity otherwise
      */
     rnb: {
@@ -35,7 +55,7 @@ export const BuildingTemplate: StellioTemplate = {
             title: 'Bâtiment',
             required: ['name', 'location'],
             minimum: 1,
-            description: "Jumeau numérique du bâtiment d'où proviennent les données",
+            description: 'Jumeau numérique du bâtiment',
         },
     },
 };

@@ -48,7 +48,8 @@
                 "type": "Property",
                 "value": {
                     "schemaType": "string",
-                    "title": "River basin of the river"
+                    "title": "River basin of the river",
+                    "order": 4
                 }
             }
         },
@@ -402,7 +403,8 @@
                 "type": "Property",
                 "value": {
                     "schemaType": "string",
-                    "title": "Discharges to the water treatment plant"
+                    "title": "Discharges to the water treatment plant",
+                    "order": 21
                 }
             }
         },
@@ -494,20 +496,46 @@
                 }
             }
         },
+        "inflow": {
+            "type": "Property",
+            "value": 0,
+            "unitCode": "MTQ",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "title": "Inflow",
+                    "order": 26
+                }
+            }
+        },
+        "waterLevel": {
+            "type": "Property",
+            "value": 0,
+            "unitCode": "MTR",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "integer",
+                    "title": "Water level",
+                    "order": 27
+                }
+            }
+        },
         "source": {
             "type": "Property",
             "value": "sensor",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
-                    "schemaType": "string",
+                    "schemaType": "enum",
                     "enum": [
                         "sensor",
                         "lab",
                         "citizen"
                     ],
                     "title": "Source of the control point",
-                    "order": 26
+                    "order": 28
                 }
             }
         },
@@ -521,7 +549,7 @@
                     "minimum": 0,
                     "maximum": 14,
                     "title": "pH value of the control point",
-                    "order": 27
+                    "order": 29
                 }
             }
         },
@@ -535,7 +563,7 @@
                     "minimum": -20,
                     "maximum": 100,
                     "title": "Temperature of the control point",
-                    "order": 28
+                    "order": 30
                 }
             }
         },
@@ -549,7 +577,7 @@
                     "minimum": 0,
                     "maximum": 1000,
                     "title": "Conductivity of the control point",
-                    "order": 29
+                    "order": 31
                 }
             }
         },
@@ -563,7 +591,7 @@
                     "minimum": 0,
                     "maximum": 1000,
                     "title": "Dissolved oxygen of the control point",
-                    "order": 30
+                    "order": 32
                 }
             }
         },
@@ -577,7 +605,7 @@
                     "minimum": 0,
                     "maximum": 1000,
                     "title": "Turbidity of the control point",
-                    "order": 31
+                    "order": 33
                 }
             }
         },
@@ -607,7 +635,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Name of the sampling point",
-                    "order": 32
+                    "order": 34
                 }
             }
         },
@@ -622,7 +650,7 @@
                 "value": {
                     "schemaType": "object",
                     "title": "Location of the sampling point",
-                    "order": 33
+                    "order": 35
                 }
             }
         },
@@ -632,14 +660,14 @@
             "jsonSchema": {
                 "type": "Property",
                 "value": {
-                    "schemaType": "string",
+                    "schemaType": "enum",
                     "enum": [
                         "sensor",
                         "lab",
                         "citizen"
                     ],
                     "title": "Source of the sampling point",
-                    "order": 34
+                    "order": 36
                 }
             }
         },
@@ -650,10 +678,8 @@
                 "type": "Property",
                 "value": {
                     "schemaType": "integer",
-                    "minimum": 0,
-                    "maximum": 3,
                     "title": "Sample volume of the sampling point",
-                    "order": 35
+                    "order": 37
                 }
             }
         },
@@ -663,7 +689,7 @@
             "jsonSchema": {
                 "type": "Property",
                 "value": {
-                    "schemaType": "string",
+                    "schemaType": "enum",
                     "enum": [
                         "drinking",
                         "agricultural",
@@ -672,7 +698,7 @@
                         "other"
                     ],
                     "title": "Usage of the sampling point",
-                    "order": 36
+                    "order": 38
                 }
             }
         },

@@ -1,4 +1,4 @@
-import { JsonSchema } from 'src/interfaces/jsonSchema';
+import { EntityLevelJsonSchema, JsonSchemaCommon, PropertyLevelJsonSchema } from 'src/interfaces/jsonSchema';
 import { GeometryObject } from 'geojson';
 
 interface EntityBaseProps {
@@ -67,19 +67,19 @@ type NgsildPossibleValue =
     | undefined;
 
 export type StellioTemplateProp = StellioProp & {
-    jsonSchema: StellioProp<JsonSchema>;
+    jsonSchema: StellioProp<PropertyLevelJsonSchema>;
 };
 
 export type StellioTemplateRelationship = StellioRelationship & {
-    jsonSchema: StellioProp<JsonSchema>;
+    jsonSchema: StellioProp<PropertyLevelJsonSchema>;
 };
 
 export type StellioTemplateJsonProp = StellioJsonProp & {
-    jsonSchema: StellioProp<JsonSchema>;
+    jsonSchema: StellioProp<PropertyLevelJsonSchema>;
 };
 
 export type StellioTemplateGeoProp = StellioGeoProp & {
-    jsonSchema: StellioProp<JsonSchema>;
+    jsonSchema: StellioProp<PropertyLevelJsonSchema>;
 };
 
 export interface StellioTemplate extends EntityBaseProps {
@@ -89,5 +89,7 @@ export interface StellioTemplate extends EntityBaseProps {
         | StellioTemplateRelationship
         | StellioTemplateJsonProp
         | StellioTemplateGeoProp;
-    jsonSchema: StellioProp<JsonSchema>;
+    jsonSchema: StellioProp<EntityLevelJsonSchema>;
 }
+
+export type { EntityLevelJsonSchema, JsonSchemaCommon, PropertyLevelJsonSchema };

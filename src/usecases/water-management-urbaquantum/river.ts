@@ -6,8 +6,10 @@ import {
     getSimpleTextProp,
 } from '../../utils/blueprintHelpers';
 
+const entityType = 'River';
+
 export const RiverTemplate: StellioTemplate = {
-    id: 'urn:ngsi-ld:River:Template',
+    id: `urn:ngsi-ld:${entityType}:Template`,
     type: 'Template',
     name: {
         ...getSimpleTextProp({ title: 'Name of the river' }),
@@ -16,44 +18,47 @@ export const RiverTemplate: StellioTemplate = {
         ...getSimpleTextProp({ title: 'Description of the river' }),
     },
     location: {
-        ...getGeoPropertyProp('Geographical location of the river', 'LineString'),
+        ...getGeoPropertyProp({ formLabel: 'Geographical location of the river', geometryType: 'LineString' }),
     },
     hasRiverBasin: {
-        ...getRelationshipProp('River basin of the river', 'urn:ngsi-ld:RiverBasin:Template'),
+        ...getRelationshipProp({
+            formLabel: 'River basin of the river',
+            targetTemplateObjectId: 'urn:ngsi-ld:RiverBasin:Template',
+        }),
     },
     flowsFrom: {
         ...getMultiRelationshipProp({
             formLabel: 'List of input rivers',
             formLabelPerItem: 'Select an input river',
-            templateObjectId: 'urn:ngsi-ld:River:Template',
+            targetTemplateObjectId: 'urn:ngsi-ld:River:Template',
         }),
     },
     flowsTo: {
         ...getMultiRelationshipProp({
             formLabel: 'List of output rivers',
             formLabelPerItem: 'Select an output river',
-            templateObjectId: 'urn:ngsi-ld:River:Template',
+            targetTemplateObjectId: 'urn:ngsi-ld:River:Template',
         }),
     },
     hasStormTank: {
         ...getMultiRelationshipProp({
             formLabel: 'List of Storm tanks of the river',
             formLabelPerItem: 'Storm tank',
-            templateObjectId: 'urn:ngsi-ld:StormTank:Template',
+            targetTemplateObjectId: 'urn:ngsi-ld:StormTank:Template',
         }),
     },
     refControlPoint: {
         ...getMultiRelationshipProp({
             formLabel: 'List of control points',
             formLabelPerItem: 'Select a control point',
-            templateObjectId: 'urn:ngsi-ld:ControlPoint:Template',
+            targetTemplateObjectId: 'urn:ngsi-ld:ControlPoint:Template',
         }),
     },
     refSamplingPoint: {
         ...getMultiRelationshipProp({
             formLabel: 'List of sampling points',
             formLabelPerItem: 'Select a sampling point',
-            templateObjectId: 'urn:ngsi-ld:SamplingPoint:Template',
+            targetTemplateObjectId: 'urn:ngsi-ld:SamplingPoint:Template',
         }),
     },
     jsonSchema: {

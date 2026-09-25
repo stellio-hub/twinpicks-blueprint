@@ -1,14 +1,22 @@
 import { StellioTemplate } from 'src/interfaces';
 import { getEnumProp, getGeoPropertyProp, getIntegerProp, getSimpleTextProp } from '../../utils/blueprintHelpers';
 
+const entityType = 'ControlPoint';
+
 export const ControlPointTemplate: StellioTemplate = {
-    id: 'urn:ngsi-ld:ControlPoint:Template',
+    id: `urn:ngsi-ld:${entityType}:Template`,
     type: 'Template',
     name: {
         ...getSimpleTextProp({ title: 'Name of the control point' }),
     },
     location: {
-        ...getGeoPropertyProp('Location of the control point', 'Point'),
+        ...getGeoPropertyProp({ formLabel: 'Location of the control point', geometryType: 'Point' }),
+    },
+    inflow: {
+        ...getIntegerProp({ title: 'Inflow' }, 'MTQ'),
+    },
+    waterLevel: {
+        ...getIntegerProp({ title: 'Water level' }, 'MTR'),
     },
     source: {
         ...getEnumProp({ title: 'Source of the control point', enum: ['sensor', 'lab', 'citizen'] }),

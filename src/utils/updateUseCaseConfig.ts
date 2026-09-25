@@ -6,26 +6,124 @@ interface EnvConfig {
     keycloakBaseUrl: string;
     gatewayServer: string;
     clientId: string;
-    grantType: string;
-    username: string;
-    password: string;
+    grantType?: string;
+    username?: string;
+    password?: string;
     clientSecret: string;
+    realm: string;
+    tenant: string;
+}
+
+interface CliArgs {
+    directoryName?: string;
+    useCaseConfigId?: string;
+    realms: string[];
+}
+
+interface UpdateResult {
+    ok: boolean;
     realm: string;
     tenant: string;
     useCaseConfigId: string;
 }
 
-const getKeycloakToken = async (realmConfig?: EnvConfig) => {
-    if (!realmConfig?.clientId) return process.stdout.write('Realm config error, check environment variables');
+const parseCsv = (value: string) =>
+    value
+        .split(',')
+        .map((token) => token.trim())
+        .filter((token) => token.length > 0);
 
-    let accessToken = '';
+const parseArgs = (argv: string[]): CliArgs => {
+    const args: CliArgs = { realms: [] };
+
+    for (const arg of argv) {
+        if (arg.startsWith('--directoryName=')) {
+            args.directoryName = arg.slice('--directoryName='.length).trim();
+            continue;
+        }
+
+        if (arg.startsWith('--useCaseConfigId=')) {
+            args.useCaseConfigId = arg.slice('--useCaseConfigId='.length).trim();
+            continue;
+        }
+
+        if (arg.startsWith('--realms=')) {
+            args.realms = parseCsv(arg.slice('--realms='.length));
+        }
+    }
+
+    return args;
+};
+
+const loadTargets = (): EnvConfig[] => {
+    const raw = process.env.BLUEPRINT_UPDATE_REALM_CONFIG;
+
+    if (!raw) {
+        console.error('BLUEPRINT_UPDATE_REALM_CONFIG is missing');
+        process.exit(1);
+    }
+
+    let parsed: unknown;
+    try {
+        parsed = JSON.parse(raw);
+    } catch {
+        console.error('BLUEPRINT_UPDATE_REALM_CONFIG is not valid JSON');
+        process.exit(1);
+    }
+
+    if (Array.isArray(parsed)) {
+        return parsed as EnvConfig[];
+    }
+
+    if (parsed && typeof parsed === 'object') {
+        return [parsed as EnvConfig];
+    }
+
+    console.error('BLUEPRINT_UPDATE_REALM_CONFIG must be a JSON object or array');
+    process.exit(1);
+};
+
+const listAvailableRealms = (targets: EnvConfig[]) => {
+    for (const target of targets) {
+        console.error(`  - ${target.realm}`);
+    }
+};
+
+const selectTargets = (targets: EnvConfig[], realmSelectors: string[]): EnvConfig[] => {
+    if (realmSelectors.length === 0) {
+        console.error('Missing --realms=<realm>,...');
+        process.exit(1);
+    }
+
+    const selected: EnvConfig[] = [];
+
+    for (const selector of realmSelectors) {
+        const match = targets.find((target) => target.realm === selector);
+
+        if (!match) {
+            console.error(`No realm matching "${selector}". Available:`);
+            listAvailableRealms(targets);
+            process.exit(1);
+        }
+
+        selected.push(match);
+    }
+
+    return selected;
+};
+
+const getKeycloakToken = async (realmConfig: EnvConfig) => {
+    if (!realmConfig.clientId) {
+        console.error(`Realm config error for ${realmConfig.realm}, check environment variables`);
+        return;
+    }
 
     const params = new URLSearchParams({
         grant_type: realmConfig.grantType ?? 'password',
         client_id: realmConfig.clientId,
-        client_secret: realmConfig.clientSecret,
-        username: realmConfig.username,
-        password: realmConfig.password,
+        client_secret: realmConfig.clientSecret ?? '',
+        username: realmConfig.username ?? '',
+        password: realmConfig.password ?? '',
     });
 
     try {
@@ -37,59 +135,124 @@ const getKeycloakToken = async (realmConfig?: EnvConfig) => {
             }
         );
 
-        if (!keycloakResponse.data.access_token) return console.log(keycloakResponse.data);
+        if (!keycloakResponse.data.access_token) {
+            console.log(keycloakResponse.data);
+            return;
+        }
 
-        accessToken = keycloakResponse.data.access_token;
+        return keycloakResponse.data.access_token as string;
     } catch (error) {
         console.log(error);
     }
-
-    return accessToken;
 };
 
-const updateUseCaseConfig = async (realmConfig?: EnvConfig) => {
-    const usecaseDirectoryName = process.argv[2] && process.argv[2].split('=')[1]?.trim();
-    console.log({ usecaseDirectoryName });
+const updateTarget = async (
+    realmConfig: EnvConfig,
+    useCaseConfigId: string,
+    blueprint: unknown
+): Promise<UpdateResult> => {
+    const result: UpdateResult = {
+        ok: false,
+        realm: realmConfig.realm,
+        tenant: realmConfig.tenant,
+        useCaseConfigId,
+    };
 
-    if (!realmConfig?.clientId) return process.stdout.write('Realm config error, check environment variables');
+    if (!realmConfig.clientId) {
+        console.error(`Realm config error for ${realmConfig.realm}, check environment variables`);
+        return result;
+    }
 
-    fse.readFile(`./src/usecases/${usecaseDirectoryName}/blueprint.json`, 'utf8', async (err: any, data: string) => {
-        if (err) return console.error(err);
+    const accessToken = await getKeycloakToken(realmConfig);
 
-        const accessToken = await getKeycloakToken(realmConfig);
-        const headers: RawAxiosRequestHeaders = {
-            Authorization: `Bearer ${accessToken || 'token not found'}`,
-            Link: `<${process.env.LINK_CONTEXT_URI}>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"`,
-            'NGSILD-Tenant': realmConfig.tenant,
-            'Content-Type': 'application/json',
-        };
+    if (!accessToken) {
+        console.error(`Could not get access token for realm ${realmConfig.realm}`);
+        return result;
+    }
 
-        try {
-            const response = await axios.patch(
-                `${realmConfig.gatewayServer}/ngsi-ld/v1/entities/${realmConfig.useCaseConfigId}`,
-                {
-                    blueprint: {
-                        type: 'JsonProperty',
-                        json: JSON.parse(data),
-                    },
+    const headers: RawAxiosRequestHeaders = {
+        Authorization: `Bearer ${accessToken}`,
+        Link: `<${process.env.LINK_CONTEXT_URI}>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"`,
+        'NGSILD-Tenant': realmConfig.tenant,
+        'Content-Type': 'application/json',
+    };
+
+    try {
+        const response = await axios.patch(
+            `${realmConfig.gatewayServer}/ngsi-ld/v1/entities/${useCaseConfigId}`,
+            {
+                blueprint: {
+                    type: 'JsonProperty',
+                    json: blueprint,
                 },
-                {
-                    headers,
-                }
-            );
+            },
+            {
+                headers,
+            }
+        );
 
-            if (response.status === 204) {
-                console.log(`Use case config ${realmConfig.useCaseConfigId} updated successfully`);
-            }
-        } catch (error) {
-            console.log('Error - Could not update use case config');
-            if (isAxiosError(error)) {
-                console.log(error.response?.data);
-            }
+        if (response.status === 204) {
+            console.log(`Use case config ${useCaseConfigId} updated successfully on ${realmConfig.realm}`);
+            result.ok = true;
         }
-    });
+    } catch (error) {
+        console.log(`Error - Could not update use case config ${useCaseConfigId} on ${realmConfig.realm}`);
+        if (isAxiosError(error)) {
+            console.log(error.response?.data);
+        }
+    }
+
+    return result;
 };
 
-const parsed = JSON.parse(process.env.BLUEPRINT_UPDATE_REALM_CONFIG ?? '');
+const updateUseCaseConfig = async () => {
+    const args = parseArgs(process.argv.slice(2));
+    const directoryName = args.directoryName;
+    const useCaseConfigId = args.useCaseConfigId;
 
-updateUseCaseConfig(parsed);
+    if (!directoryName) {
+        console.error('Missing --directoryName=<use-case-folder>');
+        process.exit(1);
+    }
+
+    if (!useCaseConfigId) {
+        console.error('Missing --useCaseConfigId=<urn>');
+        process.exit(1);
+    }
+
+    console.log({ usecaseDirectoryName: directoryName, useCaseConfigId, realms: args.realms });
+
+    const selectedTargets = selectTargets(await loadTargets(), args.realms);
+    const blueprintPath = `./src/usecases/${directoryName}/blueprint.json`;
+
+    let data: string;
+    try {
+        data = await fse.readFile(blueprintPath, 'utf8');
+    } catch (error) {
+        console.error(error);
+        process.exit(1);
+    }
+
+    const blueprint = JSON.parse(data);
+    const results: UpdateResult[] = [];
+
+    for (const target of selectedTargets) {
+        console.log(`Updating ${target.realm} (${useCaseConfigId})...`);
+        results.push(await updateTarget(target, useCaseConfigId, blueprint));
+    }
+
+    console.log('\nSummary:');
+    for (const result of results) {
+        const status = result.ok ? 'ok' : 'failed';
+        console.log(`${status}  ${result.realm}  ${result.useCaseConfigId}`);
+    }
+
+    if (results.some((result) => !result.ok)) {
+        process.exit(1);
+    }
+};
+
+updateUseCaseConfig().catch((error) => {
+    console.error(error);
+    process.exit(1);
+});

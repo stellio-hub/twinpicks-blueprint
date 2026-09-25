@@ -9,7 +9,7 @@ export const IrrigationAreaTemplate: StellioTemplate = {
             schemaType: 'IrrigationArea',
             title: "Zone d'irrigation",
             minimum: 1,
-            required: ['name', 'belongsTo', 'location', 'hasWeatherForecasted'],
+            required: ['name', 'k', 'belongsTo', 'location', 'hasWeatherForecasted'],
             description:
                 'Représentation géographique de taille intermédiaire qui regroupe en générale plusieurs petites zones controllées (ou zones en gestion)',
         },
@@ -44,6 +44,18 @@ export const IrrigationAreaTemplate: StellioTemplate = {
                 schemaType: 'integer',
                 friendlyAttributeName: "Consommation d'eau",
                 canSelfInit: true,
+            },
+        },
+    },
+    k: {
+        type: 'Property',
+        value: 1,
+        jsonSchema: {
+            type: 'Property',
+            value: {
+                schemaType: 'integer',
+                title: 'Facteur de conversion des impulsions en litres (L/pulse)',
+                friendlyAttributeName: 'Facteur k',
             },
         },
     },
