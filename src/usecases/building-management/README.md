@@ -122,3 +122,29 @@ IEC CIM is the main reference for the electricity-network model. SAREF is used t
 - [IEC CIM — Line](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Wires/Line).
 - [IEC CIM glossary](https://ontology.tno.nl/IEC_CIM/all-Glossary.html).
 - [IEC CIM — ConnectivityNodeContainer](https://ontology.tno.nl/IEC_CIM/cim_ConnectivityNodeContainer.html).
+
+## Model overview
+### French
+| Entité            | Description courte                                                                                                |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Site              | Ensemble immobilier regroupant un ou plusieurs bâtiments, identifié par son nom et son adresse.                   |
+| Building          | Jumeau numérique d’un bâtiment, localisé géographiquement et éventuellement associé au RNB et à plusieurs usages. |
+| Storey            | Niveau ou étage appartenant à un bâtiment.                                                                        |
+| Space             | Espace, pièce ou local rattaché à un ou plusieurs niveaux.                                                        |
+| Usage             | Type d’utilisation normalisé d’un bâtiment ou d’un équipement, défini par un nom et un code.                      |
+| DeliveryPoint     | Point de livraison d’eau, de gaz ou d’électricité, avec ses relevés d’index.                                      |
+| ElectricalCabinet | Armoire électrique située dans un espace et alimentée par un point de livraison ou une autre armoire.             |
+| ConnectivityNode  | Sortie électrique d’une armoire, caractérisée notamment par son phasage.                                          |
+
+**Relations principales**
+Building → Site : un bâtiment isPartOf un site.
+Building → Usage : un bâtiment hasUsage un ou plusieurs usages.
+Storey → Building : un niveau isPartOf un bâtiment.
+Space → Storey : un espace isPartOf un ou plusieurs niveaux.
+DeliveryPoint → Site ou Building : un point de livraison isObserving le site ou le bâtiment dont il mesure la consommation.
+DeliveryPoint → ElectricalCabinet : un point de livraison isFeeding une armoire électrique.
+ElectricalCabinet → DeliveryPoint ou ElectricalCabinet : une armoire isFedBy un point de livraison ou une autre armoire.
+ElectricalCabinet → Space : une armoire isPartOf l’espace dans lequel elle est installée.
+ConnectivityNode → ElectricalCabinet : une sortie électrique isPartOf une armoire.
+
+La structure générale est donc : Site → Bâtiment → Niveau → Espace → Armoire électrique → Sortie électrique, avec en parallèle les usages et les points de livraison énergétique
