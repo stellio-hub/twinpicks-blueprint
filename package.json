@@ -7,32 +7,29 @@
         "tsc": "tsc",
         "commit": "git cz && npm version patch",
         "qai": "npx tsc && cd ./dist/usecases/air-quality-monitoring && node index.js && cd ../../..",
-        "qaiUpdateBlueprint": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=air-quality-monitoring",
+        "qaiUpdate:all": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=air-quality-monitoring --useCaseConfigId=urn:ngsi-ld:UseCaseConfig:AirQuality --realms=stellio-dev,antibes,egm-showcase,carf,fabrico",
         "greenhouse": "npx tsc && cd ./dist/usecases/greenhouse-management && node index.js && cd ../../..",
-        "biorecer": "npx tsc && cd ./dist/usecases/biorecer && node index.js && cd ../../..",
-        "biorecerUpdateBlueprint": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=biorecer",
-        "lotus": "npx tsc && cd ./dist/usecases/lotus && node index.js && cd ../../..",
-        "pollutec": "npx tsc && cd ./dist/usecases/pollutec && node index.js && cd ../../..",
         "schoolMapping": "npx tsc && cd ./dist/usecases/school-mapping && node index.js && cd ../../..",
         "smartParking": "npx tsc && cd ./dist/usecases/smart-parking && node index.js && cd ../../..",
         "irrigation": "npx tsc && cd ./dist/usecases/smart-irrigation && node index.js && cd ../../..",
-        "irrigationUpdateBlueprint": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=smart-irrigation",
+        "irrigationUpdate:all": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=smart-irrigation --useCaseConfigId=urn:ngsi-ld:UseCaseConfig:SmartIrrigation --realms=stellio-dev,antibes,egm-showcase,carf",
         "eaee": "npx tsc && cd ./dist/usecases/eaee && node index.js && cd ../../..",
         "urbaquantum": "npx tsc && cd ./dist/usecases/water-management-urbaquantum && node index.js && cd ../../..",
-        "urbaquantumUpdate": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=water-management-urbaquantum",
+        "urbaquantumUpdate": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=water-management-urbaquantum --realms=urbaquantum",
         "stl": "npx tsc && cd ./dist/usecases/street-lighting && node index.js && cd ../../..",
-        "stlUpdate": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=street-lighting",
-        "utility": "npx tsc && cd ./dist/usecases/utility-management && node index.js && cd ../../..",
-        "utilityUpdate": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=utility-management",
+        "stlUpdate:all": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=street-lighting --realms=stellio-dev,egm-showcase",
         "building": "npx tsc && cd ./dist/usecases/building-management && node index.js && cd ../../..",
-        "buildingUpdate": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=building-management"
+        "buildingUpdate:all": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=building-management --realms=stellio-dev,egm-showcase,carf"
     },
     "devDependencies": {
         "@types/geojson": "^7946.0.10",
         "@types/node": "^26.1.0",
         "git-cz": "^4.9.0",
         "prettier": "^3.9.4",
-        "typescript": "^5.1.6"
+        "typescript": "^5.9.3"
+    },
+    "engines": {
+        "node": ">=24"
     },
     "dependencies": {
         "axios": "^1.16.1",

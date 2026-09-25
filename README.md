@@ -3,7 +3,7 @@ A blueprint is a global definition of a specific use case type. It is following 
 
 # How to create a new blueprint
 
-1. If you don't have it, install node (https://github.com/nvm-sh/nvm or for windows https://github.com/coreybutler/nvm-windows) and use version at least 16+
+1. If you don't have it, install node (https://github.com/nvm-sh/nvm or for windows https://github.com/coreybutler/nvm-windows) and use version 24+
 1. Clone repository `git clone https://github.com/easy-global-market/twinpicks-blueprint.git`
 1. Do `npm install` 
     if any errors occured try:
@@ -296,13 +296,40 @@ Most helpers accept extra `jsonSchema` options (`friendlyAttributeName`, `canSel
     ```
 > 📒 **Note:** The `contextString` value must be the direct URL to the context's raw JSON 
 
-1. That's it! Twin·Picks' users will be able to instantiate a new use case and create entities based on this Blueprint. 
-1. Optional: add a `.env` file to simplify the process (see .env.example for variables definition). Then adapt the commands below depending on the use case directory name:
-    - For 'smart-irrigation' blueprint generation:
+That's it!
+
+Twin·Picks' users will be able to instantiate a new use case and create entities based on this Blueprint. 
+
+# How to update a blueprint
+
+You will probably need to frequently update your blueprint (at least at the begining). This is optional, but if you want to make the process smoother, follow instructions below:
+
+Add a `.env` file (see `.env.example` for variables definition). `BLUEPRINT_UPDATE_REALM_CONFIG` is a JSON **array of realms** (credentials, gateway, realm, tenant URN). List each realm once. A single object is still accepted for backward compatibility.
+
+The update command supplies the local blueprint folder, the UseCaseConfig entity id (**which is expected to be the same id in each tenant database**), and the realms to PATCH (comma-separated `realm` values, for example `tenantA,tenantB,tenantC`):
+
+Then adapt the commands below depending on the use case directory name:
+
+- For 'smart-irrigation' blueprint generation:
+
         ```sh
         npx tsc && cd ./dist/usecases/smart-irrigation && node index.js && cd ../../..
         ```
-    - For 'smart-irrigation' UseCaseConfig entity update:
+    
+- For 'smart-irrigation' UseCaseConfig entity update (one realm):
+
         ```sh
-        npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=smart-irrigation
+        npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js \
+          --directoryName=smart-irrigation \
+          --useCaseConfigId=urn:ngsi-ld:UseCaseConfig:SmartIrrigation \
+          --realms=egm-showcase
+        ```
+
+- For 'smart-irrigation' UseCaseConfig entity update (several realms):
+
+        ```sh
+        npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js \
+          --directoryName=smart-irrigation \
+          --useCaseConfigId=urn:ngsi-ld:UseCaseConfig:SmartIrrigation \
+          --realms=tenantA,tenantB,tenantC
         ```
