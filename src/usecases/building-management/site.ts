@@ -1,5 +1,5 @@
 import { StellioTemplate } from 'src/interfaces';
-import { getMultiRelationshipProp, getSimpleTextProp } from '../../utils/blueprintHelpers';
+import { getSimpleTextProp } from '../../utils/blueprintHelpers';
 
 const entityType = 'Site';
 
