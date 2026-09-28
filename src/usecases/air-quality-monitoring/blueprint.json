@@ -229,27 +229,27 @@
             },
             "startTime": {
                 "type": "Property",
-                "value": "2026-09-28T09:51:36.786Z",
+                "value": "Heure de début (HH:mm)",
                 "jsonSchema": {
                     "type": "Property",
                     "value": {
-                        "schemaType": "date",
-                        "title": "Heure de début",
-                        "order": 8,
-                        "dateMode": "time"
+                        "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$",
+                        "schemaType": "string",
+                        "title": "Heure de début (HH:mm)",
+                        "order": 8
                     }
                 }
             },
             "endTime": {
                 "type": "Property",
-                "value": "2026-09-28T09:51:36.786Z",
+                "value": "Heure de fin (HH:mm)",
                 "jsonSchema": {
                     "type": "Property",
                     "value": {
-                        "schemaType": "date",
-                        "title": "Heure de fin",
-                        "order": 9,
-                        "dateMode": "time"
+                        "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$",
+                        "schemaType": "string",
+                        "title": "Heure de fin (HH:mm)",
+                        "order": 9
                     }
                 }
             },

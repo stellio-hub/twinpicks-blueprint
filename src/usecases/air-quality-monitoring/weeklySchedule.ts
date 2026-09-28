@@ -1,7 +1,10 @@
 import { StellioTemplate } from 'src/interfaces';
-import { getDateProp, getEnumProp, getMultiAttributeProp, getSimpleTextProp } from '../../utils/blueprintHelpers';
+import { getEnumProp, getMultiAttributeProp, getSimpleTextProp } from '../../utils/blueprintHelpers';
 
 const entityType = 'WeeklySchedule';
+
+/** 24h time in HH:mm format, e.g. 08:00 or 17:30 */
+const timePattern = '^([01][0-9]|2[0-3]):[0-5][0-9]$';
 
 export const WeeklyScheduleTemplate: StellioTemplate = {
     id: `urn:ngsi-ld:${entityType}:Template`,
@@ -23,8 +26,8 @@ export const WeeklyScheduleTemplate: StellioTemplate = {
                         allowMultiple: true,
                     }),
                 ],
-                ['startTime', getDateProp({ title: 'Heure de début', dateMode: 'time' })],
-                ['endTime', getDateProp({ title: 'Heure de fin', dateMode: 'time' })],
+                ['startTime', getSimpleTextProp({ title: 'Heure de début (HH:mm)', pattern: timePattern })],
+                ['endTime', getSimpleTextProp({ title: 'Heure de fin (HH:mm)', pattern: timePattern })],
             ],
         }),
     },
