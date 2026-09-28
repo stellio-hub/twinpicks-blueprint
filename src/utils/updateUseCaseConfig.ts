@@ -1,6 +1,20 @@
-import axios, { isAxiosError, RawAxiosRequestHeaders } from 'axios';
+import axios, { isAxiosError } from 'axios';
 
 const fse = require('fs-extra');
+
+const JSON_LD_CONTEXT_REL = 'http://www.w3.org/ns/json-ld#context';
+
+const buildJsonLdLinkHeader = () =>
+    `<${process.env.LINK_CONTEXT_URI}>; rel="${JSON_LD_CONTEXT_REL}"; type="application/ld+json"`;
+
+// Axios 1.20 treats `link` as an HTTP method. During header flattening it
+// deletes any top-level `Link` value so it never reaches the wire. Restore
+// it after that step. See https://github.com/axios/axios/pull/11156
+const ngsiLdClient = axios.create();
+ngsiLdClient.interceptors.request.use((config) => {
+    config.headers.set('Link', buildJsonLdLinkHeader());
+    return config;
+});
 
 interface EnvConfig {
     keycloakBaseUrl: string;
@@ -170,15 +184,8 @@ const updateTarget = async (
         return result;
     }
 
-    const headers: RawAxiosRequestHeaders = {
-        Authorization: `Bearer ${accessToken}`,
-        Link: `<${process.env.LINK_CONTEXT_URI}>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"`,
-        'NGSILD-Tenant': realmConfig.tenant,
-        'Content-Type': 'application/json',
-    };
-
     try {
-        const response = await axios.patch(
+        const response = await ngsiLdClient.patch(
             `${realmConfig.gatewayServer}/ngsi-ld/v1/entities/${useCaseConfigId}`,
             {
                 blueprint: {
@@ -187,7 +194,11 @@ const updateTarget = async (
                 },
             },
             {
-                headers,
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                    'NGSILD-Tenant': realmConfig.tenant,
+                    'Content-Type': 'application/json',
+                },
             }
         );
 
