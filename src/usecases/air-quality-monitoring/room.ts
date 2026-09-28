@@ -1,4 +1,5 @@
 import { StellioTemplate } from 'src/interfaces';
+import { getRelationshipProp } from '../../utils/blueprintHelpers';
 
 export const RoomTemplate: StellioTemplate = {
     id: 'urn:ngsi-ld:Room:Template',
@@ -38,6 +39,12 @@ export const RoomTemplate: StellioTemplate = {
                 maximum: 1,
             },
         },
+    },
+    hasSchedule: {
+        ...getRelationshipProp({
+            formLabel: 'Planning de présence hebdomadaire de la pièce',
+            targetTemplateObjectId: 'urn:ngsi-ld:WeeklySchedule:Template',
+        }),
     },
     jsonSchema: {
         type: 'Property',
