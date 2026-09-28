@@ -109,6 +109,18 @@
                 }
             }
         },
+        "hasSchedule": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:WeeklySchedule:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "relationship",
+                    "title": "Planning de présence hebdomadaire de la pièce",
+                    "order": 5
+                }
+            }
+        },
         "jsonSchema": {
             "type": "Property",
             "value": {
@@ -173,6 +185,107 @@
                     "location"
                 ],
                 "description": "Jumeau numérique de l'observation de la qualité de l'air extérieur"
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:WeeklySchedule:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Nom du planning",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Nom",
+                    "schemaType": "string",
+                    "title": "Nom du planning",
+                    "order": 6
+                }
+            }
+        },
+        "timeSlots": {
+            "days": {
+                "type": "Property",
+                "value": 1,
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "enum",
+                        "enum": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7
+                        ],
+                        "title": "Jours",
+                        "order": 7,
+                        "allowMultiple": true
+                    }
+                }
+            },
+            "startTime": {
+                "type": "Property",
+                "value": "2026-09-28T09:51:36.786Z",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "date",
+                        "title": "Heure de début",
+                        "order": 8,
+                        "dateMode": "time"
+                    }
+                }
+            },
+            "endTime": {
+                "type": "Property",
+                "value": "2026-09-28T09:51:36.786Z",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "date",
+                        "title": "Heure de fin",
+                        "order": 9,
+                        "dateMode": "time"
+                    }
+                }
+            },
+            "type": "Property",
+            "value": "placeholder",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "title": "Créneaux horaires",
+                    "order": 10,
+                    "items": {
+                        "type": "Property",
+                        "value": "placeholder",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "string",
+                                "title": "Libellé du créneau (optionnel)"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "WeeklySchedule",
+                "title": "Planning hebdomadaire",
+                "minimum": 0,
+                "required": [
+                    "name",
+                    "timeSlots"
+                ],
+                "description": "Planning hebdomadaire composé d'un ou plusieurs créneaux horaires"
             }
         }
     }
