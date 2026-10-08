@@ -7,7 +7,14 @@ import {
     incertitudeEnumValues,
     probabiliteEnumValues,
 } from './utils';
-import { getSimpleTextProp, getDateProp, getEnumProp, getIntegerProp } from '../../utils/blueprintHelpers';
+import {
+    getSimpleTextProp,
+    getDateProp,
+    getEnumProp,
+    getIntegerProp,
+    getGeoPropertyProp,
+    getMultiAttributeProp,
+} from '../../utils/blueprintHelpers';
 import * as Structures from './speciesDataStructures';
 
 export const SpeciesTemplate: StellioTemplate = {
@@ -182,6 +189,20 @@ export const SpeciesTemplate: StellioTemplate = {
         ...getEnumProp({ title: 'Filtre de présence', enum: filtreXEnumValues }),
         classification: getClassificationJsonProp(Structures.presenceAbsence),
         displayName: getDisplayNameProp('Filtre de présence'),
+    },
+    observationSpace: {
+        ...getGeoPropertyProp({ formLabel: "Zone d'observation", geometryType: 'Polygon' }),
+        classification: getClassificationJsonProp(Structures.presenceAbsence),
+        displayName: getDisplayNameProp("Zone d'observation"),
+    },
+    location: {
+        ...getMultiAttributeProp({
+            formLabel: 'Points de localisation',
+            propertySchemaDefinition: getGeoPropertyProp({ formLabel: 'Point', geometryType: 'Point' }),
+            subProps: [['city', getSimpleTextProp({ title: 'Ville' })]],
+        }),
+        classification: getClassificationJsonProp(Structures.presenceAbsence),
+        displayName: getDisplayNameProp('Points de localisation'),
     },
     // #endregion
 

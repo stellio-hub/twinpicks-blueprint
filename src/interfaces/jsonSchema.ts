@@ -1,4 +1,4 @@
-import { StellioTemplateProp, StellioTemplateRelationship } from 'src/interfaces';
+import { StellioTemplateGeoProp, StellioTemplateProp, StellioTemplateRelationship } from 'src/interfaces';
 
 /**
  * This JsonSchema type use this gist as a base:
@@ -10,15 +10,7 @@ import { StellioTemplateProp, StellioTemplateRelationship } from 'src/interfaces
 
 /** Property-level schema types understood by Twin Picks */
 export type JsonSchemaPropertyType =
-    | 'string'
-    | 'integer'
-    | 'number'
-    | 'json'
-    | 'array'
-    | 'object'
-    | 'date'
-    | 'boolean'
-    | 'enum';
+    'string' | 'integer' | 'number' | 'json' | 'array' | 'object' | 'date' | 'boolean' | 'enum';
 
 /**
  * Fields shared across all schema variants
@@ -130,7 +122,7 @@ type JsonSchemaArray = JsonSchemaCommon & {
      * At the entity level: has no effects \
      * At the property level: allows to define the schema for each item of the array.
      */
-    items?: StellioTemplateProp | StellioTemplateRelationship;
+    items?: StellioTemplateProp | StellioTemplateGeoProp | StellioTemplateRelationship;
     /**
      * At the entity level: has no effects \
      * At the property level: allows to limit a specific number of items.

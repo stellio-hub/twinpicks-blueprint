@@ -130,13 +130,11 @@ export const getDateProp = ({ title, dateMode = 'date', ...rest }: DateWithoutSc
 
 type GetMultiAttributePropParams = {
     formLabel: string;
-    formLabelPerItem: string;
-    propertySchemaDefinition: PropertyLevelJsonSchema;
+    propertySchemaDefinition: StellioTemplateProp | StellioTemplateGeoProp;
     subProps?: [string, StellioTemplateProp][];
 };
 export const getMultiAttributeProp = ({
     formLabel,
-    formLabelPerItem,
     subProps,
     propertySchemaDefinition,
 }: GetMultiAttributePropParams): StellioTemplateProp => {
@@ -151,14 +149,7 @@ export const getMultiAttributeProp = ({
                 schemaType: 'array',
                 title: formLabel,
                 order: order,
-                items: {
-                    type: 'Property',
-                    value: 'placeholder',
-                    jsonSchema: {
-                        type: 'Property',
-                        value: { ...propertySchemaDefinition, title: formLabelPerItem },
-                    },
-                },
+                items: propertySchemaDefinition,
             },
         },
     };
