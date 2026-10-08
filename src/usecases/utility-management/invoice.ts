@@ -41,9 +41,8 @@ export const InvoiceTemplate: StellioTemplate = {
     },
     invoiceLines: {
         ...getMultiAttributeProp({
-            propertySchemaDefinition: { schemaType: 'string' },
+            propertySchemaDefinition: getSimpleTextProp({ title: 'Ligne de facture' }),
             formLabel: 'Lignes de facture',
-            formLabelPerItem: 'Ligne de facture',
             subProps: [
                 ['item', getSimpleTextProp({ title: 'Article' })],
                 ['quantity', getIntegerProp({ title: 'Quantité', minimum: 0 })],

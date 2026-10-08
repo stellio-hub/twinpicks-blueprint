@@ -14,9 +14,8 @@ export const WeeklyScheduleTemplate: StellioTemplate = {
     },
     timeSlots: {
         ...getMultiAttributeProp({
-            propertySchemaDefinition: { schemaType: 'string' },
+            propertySchemaDefinition: getSimpleTextProp({ title: 'Libellé du créneau (optionnel)' }),
             formLabel: 'Créneaux horaires',
-            formLabelPerItem: 'Libellé du créneau (optionnel)',
             subProps: [
                 [
                     'days',

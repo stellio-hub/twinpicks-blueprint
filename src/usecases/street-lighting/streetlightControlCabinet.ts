@@ -81,17 +81,18 @@ export const StreetlightControlCabinetTemplate: StellioTemplate = {
     },
     observation: {
         ...getMultiAttributeProp({
-            propertySchemaDefinition: { schemaType: 'string' },
+            propertySchemaDefinition: getSimpleTextProp({ title: 'Saisir une observation' }),
             formLabel: 'Observations',
-            formLabelPerItem: 'Saisir une observation',
             subProps: [['observationDate', getDateProp({ title: "Date de l'observation" })]],
         }),
     },
     digitalInput: {
         ...getMultiAttributeProp({
-            propertySchemaDefinition: { schemaType: 'enum', enum: [0, 1] },
+            propertySchemaDefinition: getEnumProp({
+                title: 'Saisir le statut de la porte (0: ouvert, 1: fermé)',
+                enum: [0, 1],
+            }),
             formLabel: 'Statut ouverture des portes',
-            formLabelPerItem: 'Saisir le statut de la porte (0: ouvert, 1: fermé)',
         }),
     },
     jsonSchema: {
