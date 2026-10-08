@@ -14,7 +14,7 @@
                         "D"
                     ],
                     "title": "13",
-                    "order": 23
+                    "order": 26
                 }
             },
             "classification": {
@@ -58,7 +58,7 @@
                         "D"
                     ],
                     "title": "83",
-                    "order": 24
+                    "order": 27
                 }
             },
             "classification": {
@@ -102,7 +102,7 @@
                         "D"
                     ],
                     "title": "84",
-                    "order": 25
+                    "order": 28
                 }
             },
             "classification": {
@@ -193,7 +193,7 @@
         },
         "datePremierePublication": {
             "type": "Property",
-            "value": "2026-10-08T09:06:23.862Z",
+            "value": "2026-10-08T12:35:49.049Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
@@ -270,7 +270,7 @@
         },
         "dateDerniereMiseAJour": {
             "type": "Property",
-            "value": "2026-10-08T09:06:23.862Z",
+            "value": "2026-10-08T12:35:49.049Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
@@ -383,6 +383,120 @@
                 }
             }
         },
+        "structuresIntervenantSurLEspece": {
+            "type": "Property",
+            "value": "Structures intervenant sur l'espèce",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Structures intervenant sur l'espèce",
+                    "order": 7
+                }
+            },
+            "classification": {
+                "type": "JsonProperty",
+                "json": {
+                    "0": "ficheEspece"
+                },
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "json",
+                        "title": "Configuration de la catégorie",
+                        "canSelfInit": true
+                    }
+                }
+            },
+            "displayName": {
+                "type": "Property",
+                "value": "Structures intervenant sur l'espèce",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "string",
+                        "title": "Nom d'affichage de la colonne",
+                        "canSelfInit": true
+                    }
+                }
+            }
+        },
+        "signaler": {
+            "type": "Property",
+            "value": "Signaler",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Signaler",
+                    "order": 8
+                }
+            },
+            "classification": {
+                "type": "JsonProperty",
+                "json": {
+                    "0": "ficheEspece"
+                },
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "json",
+                        "title": "Configuration de la catégorie",
+                        "canSelfInit": true
+                    }
+                }
+            },
+            "displayName": {
+                "type": "Property",
+                "value": "Signaler",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "string",
+                        "title": "Nom d'affichage de la colonne",
+                        "canSelfInit": true
+                    }
+                }
+            }
+        },
+        "actionEnRegion": {
+            "type": "Property",
+            "value": "Action en région",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Action en région",
+                    "order": 9
+                }
+            },
+            "classification": {
+                "type": "JsonProperty",
+                "json": {
+                    "0": "ficheEspece"
+                },
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "json",
+                        "title": "Configuration de la catégorie",
+                        "canSelfInit": true
+                    }
+                }
+            },
+            "displayName": {
+                "type": "Property",
+                "value": "Action en région",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "string",
+                        "title": "Nom d'affichage de la colonne",
+                        "canSelfInit": true
+                    }
+                }
+            }
+        },
         "taxon": {
             "type": "Property",
             "value": "Mammifere",
@@ -402,7 +516,7 @@
                         "Autres"
                     ],
                     "title": "Taxon de l'espèce",
-                    "order": 7
+                    "order": 10
                 }
             },
             "classification": {
@@ -447,7 +561,7 @@
                         "A mettre à jour"
                     ],
                     "title": "Liste",
-                    "order": 8
+                    "order": 11
                 }
             },
             "classification": {
@@ -485,7 +599,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Ordre",
-                    "order": 9
+                    "order": 12
                 }
             },
             "classification": {
@@ -523,7 +637,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Famille",
-                    "order": 10
+                    "order": 13
                 }
             },
             "classification": {
@@ -563,7 +677,7 @@
                     "minimum": 0,
                     "maximum": 999999,
                     "title": "Code de référence",
-                    "order": 11
+                    "order": 14
                 }
             },
             "classification": {
@@ -601,7 +715,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Nom valide",
-                    "order": 12
+                    "order": 15
                 }
             },
             "classification": {
@@ -639,7 +753,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Nom vernaculaire",
-                    "order": 13
+                    "order": 16
                 }
             },
             "classification": {
@@ -689,7 +803,7 @@
                         "Autre"
                     ],
                     "title": "Rang",
-                    "order": 14
+                    "order": 17
                 }
             },
             "classification": {
@@ -727,7 +841,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Hybride",
-                    "order": 15
+                    "order": 18
                 }
             },
             "classification": {
@@ -769,7 +883,7 @@
                         "Non"
                     ],
                     "title": "Est-ce une espèce protégée ?",
-                    "order": 16
+                    "order": 19
                 }
             },
             "classification": {
@@ -813,7 +927,7 @@
                         "A évaluer"
                     ],
                     "title": "Filtre taxonomique",
-                    "order": 17
+                    "order": 20
                 }
             },
             "classification": {
@@ -851,7 +965,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Source",
-                    "order": 18
+                    "order": 21
                 }
             },
             "classification": {
@@ -895,7 +1009,7 @@
                         "D"
                     ],
                     "title": "Région",
-                    "order": 19
+                    "order": 22
                 }
             },
             "classification": {
@@ -939,7 +1053,7 @@
                         "D"
                     ],
                     "title": "04",
-                    "order": 20
+                    "order": 23
                 }
             },
             "classification": {
@@ -983,7 +1097,7 @@
                         "D"
                     ],
                     "title": "05",
-                    "order": 21
+                    "order": 24
                 }
             },
             "classification": {
@@ -1027,7 +1141,7 @@
                         "D"
                     ],
                     "title": "06",
-                    "order": 22
+                    "order": 25
                 }
             },
             "classification": {
@@ -1065,7 +1179,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Remarques sur la présence/absence",
-                    "order": 26
+                    "order": 29
                 }
             },
             "classification": {
@@ -1109,7 +1223,7 @@
                         "A évaluer"
                     ],
                     "title": "Filtre de présence",
-                    "order": 27
+                    "order": 30
                 }
             },
             "classification": {
@@ -1149,7 +1263,7 @@
                 "type": "Property",
                 "value": {
                     "schemaType": "object",
-                    "order": 28,
+                    "order": 31,
                     "title": "Zone d'observation"
                 }
             },
@@ -1189,7 +1303,7 @@
                     "value": {
                         "schemaType": "string",
                         "title": "Ville",
-                        "order": 30
+                        "order": 33
                     }
                 }
             },
@@ -1200,7 +1314,7 @@
                 "value": {
                     "schemaType": "array",
                     "title": "Points de localisation",
-                    "order": 31,
+                    "order": 34,
                     "items": {
                         "type": "GeoProperty",
                         "value": {
@@ -1211,7 +1325,7 @@
                             "type": "Property",
                             "value": {
                                 "schemaType": "object",
-                                "order": 29,
+                                "order": 32,
                                 "title": "Point"
                             }
                         }
@@ -1253,7 +1367,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Statut de présence REG",
-                    "order": 32
+                    "order": 35
                 }
             },
             "classification": {
@@ -1291,7 +1405,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Statut biologique",
-                    "order": 33
+                    "order": 36
                 }
             },
             "classification": {
@@ -1336,7 +1450,7 @@
                         "A évaluer"
                     ],
                     "title": "Indigénat",
-                    "order": 34
+                    "order": 37
                 }
             },
             "classification": {
@@ -1381,7 +1495,7 @@
                         "NA"
                     ],
                     "title": "Catégorie",
-                    "order": 35
+                    "order": 38
                 }
             },
             "classification": {
@@ -1419,7 +1533,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Source indigénat",
-                    "order": 36
+                    "order": 39
                 }
             },
             "classification": {
@@ -1457,7 +1571,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Période et lieu d'introduction (France et région)",
-                    "order": 37
+                    "order": 40
                 }
             },
             "classification": {
@@ -1495,7 +1609,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Source période et lieu d'introduction (France et région)",
-                    "order": 38
+                    "order": 41
                 }
             },
             "classification": {
@@ -1533,7 +1647,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Aire d'origine",
-                    "order": 39
+                    "order": 42
                 }
             },
             "classification": {
@@ -1571,7 +1685,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Source aire d'origine",
-                    "order": 40
+                    "order": 43
                 }
             },
             "classification": {
@@ -1603,13 +1717,13 @@
         },
         "datePremiereEntreeSileneRegionSud": {
             "type": "Property",
-            "value": "2026-10-08T09:06:23.863Z",
+            "value": "2026-10-08T12:35:49.049Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "date",
                     "title": "Date de la première entrée Silène en région Sud",
-                    "order": 41,
+                    "order": 44,
                     "dateMode": "date"
                 }
             },
@@ -1648,7 +1762,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Remarques sur l'indigénat",
-                    "order": 42
+                    "order": 45
                 }
             },
             "classification": {
@@ -1692,7 +1806,7 @@
                         "A évaluer"
                     ],
                     "title": "Filtre d'indigénat",
-                    "order": 43
+                    "order": 46
                 }
             },
             "classification": {
@@ -1737,7 +1851,7 @@
                         "NA"
                     ],
                     "title": "Spontanéité",
-                    "order": 44
+                    "order": 47
                 }
             },
             "classification": {
@@ -1775,7 +1889,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Source spontanéité",
-                    "order": 45
+                    "order": 48
                 }
             },
             "classification": {
@@ -1822,7 +1936,7 @@
                         "A évaluer"
                     ],
                     "title": "Autonomie",
-                    "order": 46
+                    "order": 49
                 }
             },
             "classification": {
@@ -1860,7 +1974,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Source autonomie",
-                    "order": 47
+                    "order": 50
                 }
             },
             "classification": {
@@ -1898,7 +2012,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Remarques sur l'autonomie",
-                    "order": 48
+                    "order": 51
                 }
             },
             "classification": {
@@ -1942,7 +2056,7 @@
                         "A évaluer"
                     ],
                     "title": "Filtre d'autonomie",
-                    "order": 49
+                    "order": 52
                 }
             },
             "classification": {
@@ -1991,7 +2105,7 @@
                         "Inconnu"
                     ],
                     "title": "Habitat",
-                    "order": 50
+                    "order": 53
                 }
             },
             "classification": {
@@ -2047,7 +2161,7 @@
                         "A évaluer"
                     ],
                     "title": "Statut biogéographique en France",
-                    "order": 51
+                    "order": 54
                 }
             },
             "classification": {
@@ -2085,7 +2199,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Interdit d'introduction",
-                    "order": 52
+                    "order": 55
                 }
             },
             "classification": {
@@ -2128,7 +2242,7 @@
                         "A évaluer"
                     ],
                     "title": "Arrêté ministériel",
-                    "order": 53
+                    "order": 56
                 }
             },
             "classification": {
@@ -2166,7 +2280,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Liste d'Occitanie",
-                    "order": 54
+                    "order": 57
                 }
             },
             "classification": {
@@ -2204,7 +2318,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Auvergne-Rhône-Alpes",
-                    "order": 55
+                    "order": 58
                 }
             },
             "classification": {
@@ -2242,7 +2356,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Italie - Régions limitrophes",
-                    "order": 56
+                    "order": 59
                 }
             },
             "classification": {
@@ -2280,7 +2394,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Lien vers centre de ressource",
-                    "order": 57
+                    "order": 60
                 }
             },
             "classification": {
@@ -2318,7 +2432,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Lien vers INPN",
-                    "order": 58
+                    "order": 61
                 }
             },
             "classification": {
@@ -2356,7 +2470,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Compléments d'information",
-                    "order": 59
+                    "order": 62
                 }
             },
             "classification": {
@@ -2386,6 +2500,44 @@
                 }
             }
         },
+        "descriptionEtBiologie": {
+            "type": "Property",
+            "value": "Description et biologie",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Description et biologie",
+                    "order": 63
+                }
+            },
+            "classification": {
+                "type": "JsonProperty",
+                "json": {
+                    "0": "informationsSupplementaires"
+                },
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "json",
+                        "title": "Configuration de la catégorie",
+                        "canSelfInit": true
+                    }
+                }
+            },
+            "displayName": {
+                "type": "Property",
+                "value": "Description et biologie",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "string",
+                        "title": "Nom d'affichage de la colonne",
+                        "canSelfInit": true
+                    }
+                }
+            }
+        },
         "listeDeTravail": {
             "type": "Property",
             "value": "OK",
@@ -2401,7 +2553,7 @@
                         "A mettre à jour"
                     ],
                     "title": "Liste de travail",
-                    "order": 60
+                    "order": 64
                 }
             },
             "classification": {
@@ -2441,7 +2593,7 @@
                     "minimum": 0,
                     "maximum": 3,
                     "title": "Score du potentiel de prolifération",
-                    "order": 61
+                    "order": 65
                 }
             },
             "classification": {
@@ -2485,7 +2637,7 @@
                         "NA"
                     ],
                     "title": "Niveau d'incertitude du potentiel de prolifération",
-                    "order": 62
+                    "order": 66
                 }
             },
             "classification": {
@@ -2524,7 +2676,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur le potentiel de prolifération",
-                    "order": 63
+                    "order": 67
                 }
             },
             "classification": {
@@ -2565,7 +2717,7 @@
                     "minimum": 0,
                     "maximum": 3,
                     "title": "Score de colonisation des habitats naturels",
-                    "order": 64
+                    "order": 68
                 }
             },
             "classification": {
@@ -2609,7 +2761,7 @@
                         "NA"
                     ],
                     "title": "Niveau d'incertitude de colonisation des habitats naturels",
-                    "order": 65
+                    "order": 69
                 }
             },
             "classification": {
@@ -2648,7 +2800,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur la colonisation des habitats naturels",
-                    "order": 66
+                    "order": 70
                 }
             },
             "classification": {
@@ -2689,7 +2841,7 @@
                     "minimum": 0,
                     "maximum": 3,
                     "title": "Score de prédation",
-                    "order": 67
+                    "order": 71
                 }
             },
             "classification": {
@@ -2734,7 +2886,7 @@
                         "NA"
                     ],
                     "title": "Niveau d'incertitude de prédation",
-                    "order": 68
+                    "order": 72
                 }
             },
             "classification": {
@@ -2774,7 +2926,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur la prédation",
-                    "order": 69
+                    "order": 73
                 }
             },
             "classification": {
@@ -2816,7 +2968,7 @@
                     "minimum": 0,
                     "maximum": 3,
                     "title": "Score de compétition",
-                    "order": 70
+                    "order": 74
                 }
             },
             "classification": {
@@ -2861,7 +3013,7 @@
                         "NA"
                     ],
                     "title": "Niveau d'incertitude de compétition",
-                    "order": 71
+                    "order": 75
                 }
             },
             "classification": {
@@ -2901,7 +3053,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur la compétition",
-                    "order": 72
+                    "order": 76
                 }
             },
             "classification": {
@@ -2943,7 +3095,7 @@
                     "minimum": 0,
                     "maximum": 3,
                     "title": "Score de maladies",
-                    "order": 73
+                    "order": 77
                 }
             },
             "classification": {
@@ -2988,7 +3140,7 @@
                         "NA"
                     ],
                     "title": "Niveau d'incertitude de maladies",
-                    "order": 74
+                    "order": 78
                 }
             },
             "classification": {
@@ -3028,7 +3180,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur les maladies",
-                    "order": 75
+                    "order": 79
                 }
             },
             "classification": {
@@ -3070,7 +3222,7 @@
                     "minimum": 0,
                     "maximum": 3,
                     "title": "Score d'hybridation",
-                    "order": 76
+                    "order": 80
                 }
             },
             "classification": {
@@ -3115,7 +3267,7 @@
                         "NA"
                     ],
                     "title": "Niveau d'incertitude de hybridation",
-                    "order": 77
+                    "order": 81
                 }
             },
             "classification": {
@@ -3155,7 +3307,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur l'hybridation",
-                    "order": 78
+                    "order": 82
                 }
             },
             "classification": {
@@ -3197,7 +3349,7 @@
                     "minimum": 0,
                     "maximum": 3,
                     "title": "Score de cycles naturels",
-                    "order": 79
+                    "order": 83
                 }
             },
             "classification": {
@@ -3242,7 +3394,7 @@
                         "NA"
                     ],
                     "title": "Niveau d'incertitude de cycles naturels",
-                    "order": 80
+                    "order": 84
                 }
             },
             "classification": {
@@ -3282,7 +3434,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur les cycles naturels",
-                    "order": 81
+                    "order": 85
                 }
             },
             "classification": {
@@ -3324,7 +3476,7 @@
                     "minimum": 0,
                     "maximum": 3,
                     "title": "Score alterations physiques",
-                    "order": 82
+                    "order": 86
                 }
             },
             "classification": {
@@ -3369,7 +3521,7 @@
                         "NA"
                     ],
                     "title": "Niveau d'incertitude alterations physiques",
-                    "order": 83
+                    "order": 87
                 }
             },
             "classification": {
@@ -3409,7 +3561,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur alterations physiques",
-                    "order": 84
+                    "order": 88
                 }
             },
             "classification": {
@@ -3451,7 +3603,7 @@
                     "minimum": 0,
                     "maximum": 3,
                     "title": "Score succession écologiques",
-                    "order": 85
+                    "order": 89
                 }
             },
             "classification": {
@@ -3496,7 +3648,7 @@
                         "NA"
                     ],
                     "title": "Niveau d'incertitude succession écologiques",
-                    "order": 86
+                    "order": 90
                 }
             },
             "classification": {
@@ -3536,7 +3688,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur succession écologiques",
-                    "order": 87
+                    "order": 91
                 }
             },
             "classification": {
@@ -3578,7 +3730,7 @@
                     "minimum": 0,
                     "maximum": 3,
                     "title": "Score réseaux trophiques",
-                    "order": 88
+                    "order": 92
                 }
             },
             "classification": {
@@ -3623,7 +3775,7 @@
                         "NA"
                     ],
                     "title": "Niveau d'incertitude réseaux trophiques",
-                    "order": 89
+                    "order": 93
                 }
             },
             "classification": {
@@ -3663,7 +3815,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur réseaux trophiques",
-                    "order": 90
+                    "order": 94
                 }
             },
             "classification": {
@@ -3705,7 +3857,7 @@
                     "minimum": 0,
                     "maximum": 12,
                     "title": "Score ISEIA",
-                    "order": 91
+                    "order": 95
                 }
             },
             "classification": {
@@ -3749,7 +3901,7 @@
                         "NA"
                     ],
                     "title": "Impacts documentés",
-                    "order": 92
+                    "order": 96
                 }
             },
             "classification": {
@@ -3787,7 +3939,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Intensité des impacts négatifs sur l'environnement",
-                    "order": 93
+                    "order": 97
                 }
             },
             "classification": {
@@ -3827,7 +3979,7 @@
                     "minimum": 0,
                     "maximum": 3,
                     "title": "Score impacts sur l'économie",
-                    "order": 94
+                    "order": 98
                 }
             },
             "classification": {
@@ -3871,7 +4023,7 @@
                         "NA"
                     ],
                     "title": "Niveau d'incertitude impacts sur l'économie",
-                    "order": 95
+                    "order": 99
                 }
             },
             "classification": {
@@ -3910,7 +4062,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur impacts sur l'économie",
-                    "order": 96
+                    "order": 100
                 }
             },
             "classification": {
@@ -3951,7 +4103,7 @@
                     "minimum": 0,
                     "maximum": 3,
                     "title": "Score impacts sanitaires",
-                    "order": 97
+                    "order": 101
                 }
             },
             "classification": {
@@ -3995,7 +4147,7 @@
                         "NA"
                     ],
                     "title": "Niveau d'incertitude impacts sanitaires",
-                    "order": 98
+                    "order": 102
                 }
             },
             "classification": {
@@ -4034,7 +4186,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur impacts sanitaires",
-                    "order": 99
+                    "order": 103
                 }
             },
             "classification": {
@@ -4075,7 +4227,7 @@
                     "minimum": 0,
                     "maximum": 3,
                     "title": "Score agriculture",
-                    "order": 100
+                    "order": 104
                 }
             },
             "classification": {
@@ -4120,7 +4272,7 @@
                         "NA"
                     ],
                     "title": "Niveau d'incertitude agriculture",
-                    "order": 101
+                    "order": 105
                 }
             },
             "classification": {
@@ -4160,7 +4312,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur agriculture",
-                    "order": 102
+                    "order": 106
                 }
             },
             "classification": {
@@ -4202,7 +4354,7 @@
                     "minimum": 0,
                     "maximum": 3,
                     "title": "Score foresterie",
-                    "order": 103
+                    "order": 107
                 }
             },
             "classification": {
@@ -4247,7 +4399,7 @@
                         "NA"
                     ],
                     "title": "Niveau d'incertitude foresterie",
-                    "order": 104
+                    "order": 108
                 }
             },
             "classification": {
@@ -4287,7 +4439,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur foresterie",
-                    "order": 105
+                    "order": 109
                 }
             },
             "classification": {
@@ -4329,7 +4481,7 @@
                     "minimum": 0,
                     "maximum": 3,
                     "title": "Score aquaculture",
-                    "order": 106
+                    "order": 110
                 }
             },
             "classification": {
@@ -4374,7 +4526,7 @@
                         "NA"
                     ],
                     "title": "Niveau d'incertitude aquaculture",
-                    "order": 107
+                    "order": 111
                 }
             },
             "classification": {
@@ -4414,7 +4566,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur aquaculture",
-                    "order": 108
+                    "order": 112
                 }
             },
             "classification": {
@@ -4456,7 +4608,7 @@
                     "minimum": 0,
                     "maximum": 3,
                     "title": "Score industrie",
-                    "order": 109
+                    "order": 113
                 }
             },
             "classification": {
@@ -4501,7 +4653,7 @@
                         "NA"
                     ],
                     "title": "Niveau d'incertitude industrie",
-                    "order": 110
+                    "order": 114
                 }
             },
             "classification": {
@@ -4541,7 +4693,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur industrie",
-                    "order": 111
+                    "order": 115
                 }
             },
             "classification": {
@@ -4583,7 +4735,7 @@
                     "minimum": 0,
                     "maximum": 3,
                     "title": "Score patrimoine",
-                    "order": 112
+                    "order": 116
                 }
             },
             "classification": {
@@ -4628,7 +4780,7 @@
                         "NA"
                     ],
                     "title": "Niveau d'incertitude patrimoine",
-                    "order": 113
+                    "order": 117
                 }
             },
             "classification": {
@@ -4668,7 +4820,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur patrimoine",
-                    "order": 114
+                    "order": 118
                 }
             },
             "classification": {
@@ -4710,7 +4862,7 @@
                     "minimum": 0,
                     "maximum": 3,
                     "title": "Score sécurité",
-                    "order": 115
+                    "order": 119
                 }
             },
             "classification": {
@@ -4755,7 +4907,7 @@
                         "NA"
                     ],
                     "title": "Niveau d'incertitude sécurité",
-                    "order": 116
+                    "order": 120
                 }
             },
             "classification": {
@@ -4795,7 +4947,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur sécurité",
-                    "order": 117
+                    "order": 121
                 }
             },
             "classification": {
@@ -4837,7 +4989,7 @@
                     "minimum": 0,
                     "maximum": 3,
                     "title": "Score loisirs",
-                    "order": 118
+                    "order": 122
                 }
             },
             "classification": {
@@ -4882,7 +5034,7 @@
                         "NA"
                     ],
                     "title": "Niveau d'incertitude loisirs",
-                    "order": 119
+                    "order": 123
                 }
             },
             "classification": {
@@ -4922,7 +5074,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur loisirs",
-                    "order": 120
+                    "order": 124
                 }
             },
             "classification": {
@@ -4964,7 +5116,7 @@
                     "minimum": 0,
                     "maximum": 3,
                     "title": "Score aménities",
-                    "order": 121
+                    "order": 125
                 }
             },
             "classification": {
@@ -5009,7 +5161,7 @@
                         "NA"
                     ],
                     "title": "Niveau d'incertitude aménities",
-                    "order": 122
+                    "order": 126
                 }
             },
             "classification": {
@@ -5049,7 +5201,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur aménities",
-                    "order": 123
+                    "order": 127
                 }
             },
             "classification": {
@@ -5091,7 +5243,7 @@
                     "minimum": 0,
                     "maximum": 12,
                     "title": "Score ISSIA",
-                    "order": 124
+                    "order": 128
                 }
             },
             "classification": {
@@ -5136,7 +5288,7 @@
                         "NA"
                     ],
                     "title": "Impacts documentés",
-                    "order": 125
+                    "order": 129
                 }
             },
             "classification": {
@@ -5180,7 +5332,7 @@
                         "Faible"
                     ],
                     "title": "Intensité des impacts négatifs socio-économiques sanitaires",
-                    "order": 126
+                    "order": 130
                 }
             },
             "classification": {
@@ -5223,7 +5375,7 @@
                         "Peu Probable"
                     ],
                     "title": "Probabilité d'introduction volontaire",
-                    "order": 127
+                    "order": 131
                 }
             },
             "classification": {
@@ -5262,7 +5414,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur l'introduction volontaire",
-                    "order": 128
+                    "order": 132
                 }
             },
             "classification": {
@@ -5306,7 +5458,7 @@
                         "Peu Probable"
                     ],
                     "title": "Probabilité d'introduction involontaire",
-                    "order": 129
+                    "order": 133
                 }
             },
             "classification": {
@@ -5345,7 +5497,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur l'introduction involontaire",
-                    "order": 130
+                    "order": 134
                 }
             },
             "classification": {
@@ -5389,7 +5541,7 @@
                         "Peu Probable"
                     ],
                     "title": "Probabilité limitrophe",
-                    "order": 131
+                    "order": 135
                 }
             },
             "classification": {
@@ -5428,7 +5580,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur la limitrophe",
-                    "order": 132
+                    "order": 136
                 }
             },
             "classification": {
@@ -5472,7 +5624,7 @@
                         "Peu Probable"
                     ],
                     "title": "Probabilité MAX",
-                    "order": 133
+                    "order": 137
                 }
             },
             "classification": {
@@ -5517,7 +5669,7 @@
                         "NA"
                     ],
                     "title": "Score distribution spatiale",
-                    "order": 134
+                    "order": 138
                 }
             },
             "classification": {
@@ -5556,7 +5708,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur distribution spatiale",
-                    "order": 135
+                    "order": 139
                 }
             },
             "classification": {
@@ -5602,7 +5754,7 @@
                         "NA"
                     ],
                     "title": "Score coefficient d'abondance",
-                    "order": 136
+                    "order": 140
                 }
             },
             "classification": {
@@ -5641,7 +5793,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Commentaires sur coefficient d'abondance",
-                    "order": 137
+                    "order": 141
                 }
             },
             "classification": {
@@ -5680,7 +5832,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Impacts irréversibles",
-                    "order": 138
+                    "order": 142
                 }
             },
             "classification": {
@@ -5718,7 +5870,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Analyse des risques des taxons évalués",
-                    "order": 139
+                    "order": 143
                 }
             },
             "classification": {
@@ -5756,7 +5908,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Conséquence",
-                    "order": 140
+                    "order": 144
                 }
             },
             "classification": {
@@ -5794,7 +5946,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Catégorie",
-                    "order": 141
+                    "order": 145
                 }
             },
             "classification": {
@@ -5842,7 +5994,7 @@
                         "A évaluer"
                     ],
                     "title": "Catégorie ajustée",
-                    "order": 142
+                    "order": 146
                 }
             },
             "classification": {
@@ -5890,7 +6042,7 @@
                         "A évaluer"
                     ],
                     "title": "Catégorie affichée",
-                    "order": 143
+                    "order": 147
                 }
             },
             "classification": {
@@ -5944,7 +6096,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Nom de l'action",
-                    "order": 144
+                    "order": 148
                 }
             },
             "classification": {
@@ -5982,7 +6134,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Objectifs de l'action",
-                    "order": 145
+                    "order": 149
                 }
             },
             "classification": {
@@ -6020,7 +6172,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Description de l'action",
-                    "order": 146
+                    "order": 150
                 }
             },
             "classification": {
@@ -6052,13 +6204,13 @@
         },
         "dateDebut": {
             "type": "Property",
-            "value": "2026-10-08T09:06:23.865Z",
+            "value": "2026-10-08T12:35:49.051Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "date",
                     "title": "Date de début",
-                    "order": 147,
+                    "order": 151,
                     "dateMode": "date"
                 }
             },
@@ -6091,13 +6243,13 @@
         },
         "dateFin": {
             "type": "Property",
-            "value": "2026-10-08T09:06:23.865Z",
+            "value": "2026-10-08T12:35:49.051Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "date",
                     "title": "Date de fin",
-                    "order": 148,
+                    "order": 152,
                     "dateMode": "date"
                 }
             },
@@ -6136,7 +6288,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Description détaillée de l'intervention",
-                    "order": 149
+                    "order": 153
                 }
             },
             "classification": {
@@ -6174,7 +6326,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Concertation avec d'autres acteurs et partenaires",
-                    "order": 150
+                    "order": 154
                 }
             },
             "classification": {
@@ -6212,7 +6364,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Temps agent par missions en homme/jour",
-                    "order": 151
+                    "order": 155
                 }
             },
             "classification": {
@@ -6250,7 +6402,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Financeur de l'opération",
-                    "order": 152
+                    "order": 156
                 }
             },
             "classification": {
@@ -6288,7 +6440,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Coût(s) de l'opération",
-                    "order": 153
+                    "order": 157
                 }
             },
             "classification": {
@@ -6326,7 +6478,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Indicateur(s) de suivi de l'action dans le temps",
-                    "order": 154
+                    "order": 158
                 }
             },
             "classification": {
@@ -6364,7 +6516,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Détail du ou des suivis",
-                    "order": 155
+                    "order": 159
                 }
             },
             "classification": {
@@ -6402,7 +6554,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Nom de la structure pilote",
-                    "order": 156
+                    "order": 160
                 }
             },
             "classification": {
@@ -6450,7 +6602,7 @@
                         "Autres"
                     ],
                     "title": "Type de la structure pilote",
-                    "order": 157
+                    "order": 161
                 }
             },
             "classification": {
@@ -6489,7 +6641,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Mission principale de la structure pilote",
-                    "order": 158
+                    "order": 162
                 }
             },
             "classification": {
@@ -6528,7 +6680,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Territoire d'intervention de la structure pilote",
-                    "order": 159
+                    "order": 163
                 }
             },
             "classification": {
@@ -6567,7 +6719,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Site internet de la structure pilote",
-                    "order": 160
+                    "order": 164
                 }
             },
             "classification": {
@@ -6606,7 +6758,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Nom de la personne référente de l'action",
-                    "order": 161
+                    "order": 165
                 }
             },
             "classification": {
@@ -6645,7 +6797,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Prénom de la personne référente de l'action",
-                    "order": 162
+                    "order": 166
                 }
             },
             "classification": {
@@ -6684,7 +6836,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Structure de la personne référente de l'action",
-                    "order": 163
+                    "order": 167
                 }
             },
             "classification": {
@@ -6723,7 +6875,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Fonction de la personne référente de l'action",
-                    "order": 164
+                    "order": 168
                 }
             },
             "classification": {
@@ -6762,7 +6914,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Email de la personne référente de l'action",
-                    "order": 165
+                    "order": 169
                 }
             },
             "classification": {
@@ -6801,7 +6953,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Téléphone de la personne référente de l'action",
-                    "order": 166
+                    "order": 170
                 }
             },
             "classification": {
@@ -6839,7 +6991,7 @@
                 "type": "Property",
                 "value": {
                     "schemaType": "array",
-                    "order": 167,
+                    "order": 171,
                     "title": "Espèces liées à l'action",
                     "items": {
                         "type": "Relationship",
@@ -6902,7 +7054,7 @@
                         "Autre"
                     ],
                     "title": "Échelle territoriale de l'action",
-                    "order": 168
+                    "order": 172
                 }
             },
             "classification": {
@@ -6948,7 +7100,7 @@
                         "84"
                     ],
                     "title": "Département d'intervention de l'action",
-                    "order": 169
+                    "order": 173
                 }
             },
             "classification": {
@@ -6986,7 +7138,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Service(s) de la collectivité associé(s)",
-                    "order": 170
+                    "order": 174
                 }
             },
             "classification": {
@@ -7024,7 +7176,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Nom du site",
-                    "order": 171
+                    "order": 175
                 }
             },
             "classification": {
@@ -7062,7 +7214,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Description du site",
-                    "order": 172
+                    "order": 176
                 }
             },
             "classification": {
@@ -7102,7 +7254,7 @@
                 "type": "Property",
                 "value": {
                     "schemaType": "object",
-                    "order": 173,
+                    "order": 177,
                     "title": "Localisation du site"
                 }
             },
@@ -7149,7 +7301,7 @@
                         "Inconnue"
                     ],
                     "title": "Surface du site",
-                    "order": 174
+                    "order": 178
                 }
             },
             "classification": {
@@ -7187,7 +7339,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Document de planification",
-                    "order": 175
+                    "order": 179
                 }
             },
             "classification": {
@@ -7225,7 +7377,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Veille",
-                    "order": 176
+                    "order": 180
                 }
             },
             "classification": {
@@ -7263,7 +7415,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Prospection",
-                    "order": 177
+                    "order": 181
                 }
             },
             "classification": {
@@ -7301,7 +7453,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Expérimentation",
-                    "order": 178
+                    "order": 182
                 }
             },
             "classification": {
@@ -7341,7 +7493,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Contrôle",
-                    "order": 179
+                    "order": 183
                 }
             },
             "classification": {
@@ -7381,7 +7533,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Eradication",
-                    "order": 180
+                    "order": 184
                 }
             },
             "classification": {
@@ -7421,7 +7573,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Régulation",
-                    "order": 181
+                    "order": 185
                 }
             },
             "classification": {
@@ -7461,7 +7613,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Confinement",
-                    "order": 182
+                    "order": 186
                 }
             },
             "classification": {
@@ -7501,7 +7653,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Autre",
-                    "order": 183
+                    "order": 187
                 }
             },
             "classification": {
@@ -7541,7 +7693,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Etat des lieux avant travaux",
-                    "order": 184
+                    "order": 188
                 }
             },
             "classification": {
@@ -7580,7 +7732,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Piégeage",
-                    "order": 185
+                    "order": 189
                 }
             },
             "classification": {
@@ -7620,7 +7772,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Abattage",
-                    "order": 186
+                    "order": 190
                 }
             },
             "classification": {
@@ -7660,7 +7812,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Lutte chimique",
-                    "order": 187
+                    "order": 191
                 }
             },
             "classification": {
@@ -7700,7 +7852,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Lutte biologique",
-                    "order": 188
+                    "order": 192
                 }
             },
             "classification": {
@@ -7740,7 +7892,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Autre",
-                    "order": 189
+                    "order": 193
                 }
             },
             "classification": {
@@ -7780,7 +7932,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Auncun suivi",
-                    "order": 190
+                    "order": 194
                 }
             },
             "classification": {
@@ -7820,7 +7972,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Suivi partiel",
-                    "order": 191
+                    "order": 195
                 }
             },
             "classification": {
@@ -7860,7 +8012,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Suivi avec repasse",
-                    "order": 192
+                    "order": 196
                 }
             },
             "classification": {
@@ -7900,7 +8052,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Detail",
-                    "order": 193
+                    "order": 197
                 }
             },
             "classification": {
@@ -7940,7 +8092,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Mise à mort",
-                    "order": 194
+                    "order": 198
                 }
             },
             "classification": {
@@ -7980,7 +8132,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Transfert dans un refuge",
-                    "order": 195
+                    "order": 199
                 }
             },
             "classification": {
@@ -8020,7 +8172,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Autre",
-                    "order": 196
+                    "order": 200
                 }
             },
             "classification": {
@@ -8060,7 +8212,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Information",
-                    "order": 197
+                    "order": 201
                 }
             },
             "classification": {
@@ -8099,7 +8251,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Sensibilisation",
-                    "order": 198
+                    "order": 202
                 }
             },
             "classification": {
@@ -8138,7 +8290,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Formation",
-                    "order": 199
+                    "order": 203
                 }
             },
             "classification": {
@@ -8177,7 +8329,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Autre",
-                    "order": 200
+                    "order": 204
                 }
             },
             "classification": {
@@ -8216,7 +8368,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Lien vers les ressources",
-                    "order": 201
+                    "order": 205
                 }
             },
             "classification": {
@@ -8255,7 +8407,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Résultats",
-                    "order": 202
+                    "order": 206
                 }
             },
             "classification": {
@@ -8293,7 +8445,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Bilan",
-                    "order": 203
+                    "order": 207
                 }
             },
             "classification": {
@@ -8331,7 +8483,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Valorisation des actions",
-                    "order": 204
+                    "order": 208
                 }
             },
             "classification": {
@@ -8369,7 +8521,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Production(s) associée(s)",
-                    "order": 205
+                    "order": 209
                 }
             },
             "classification": {
@@ -8407,7 +8559,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Points de vigilances",
-                    "order": 206
+                    "order": 210
                 }
             },
             "classification": {
@@ -8445,7 +8597,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Enseignement du projet",
-                    "order": 207
+                    "order": 211
                 }
             },
             "classification": {
@@ -8483,7 +8635,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Perspectives",
-                    "order": 208
+                    "order": 212
                 }
             },
             "classification": {
@@ -8521,7 +8673,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Réglementation",
-                    "order": 209
+                    "order": 213
                 }
             },
             "classification": {
@@ -8559,7 +8711,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Autorisation de publication sur le site de l'ARBE",
-                    "order": 210
+                    "order": 214
                 }
             },
             "classification": {
@@ -8591,13 +8743,13 @@
         },
         "dateRedaction": {
             "type": "Property",
-            "value": "2026-10-08T09:06:23.866Z",
+            "value": "2026-10-08T12:35:49.051Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "date",
                     "title": "Date rédaction",
-                    "order": 211,
+                    "order": 215,
                     "dateMode": "date"
                 }
             },
@@ -8636,7 +8788,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Nom(s) rédacteur(s)",
-                    "order": 212
+                    "order": 216
                 }
             },
             "classification": {
@@ -8674,7 +8826,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Nom(s) relecteur",
-                    "order": 213
+                    "order": 217
                 }
             },
             "classification": {
@@ -8712,7 +8864,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Fiche publiée sur le site de l'ARBE",
-                    "order": 214
+                    "order": 218
                 }
             },
             "classification": {
@@ -8744,13 +8896,13 @@
         },
         "datePublication": {
             "type": "Property",
-            "value": "2026-10-08T09:06:23.866Z",
+            "value": "2026-10-08T12:35:49.051Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "date",
                     "title": "Date publication",
-                    "order": 215,
+                    "order": 219,
                     "dateMode": "date"
                 }
             },

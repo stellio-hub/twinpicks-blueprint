@@ -63,6 +63,21 @@ export const SpeciesTemplate: StellioTemplate = {
         classification: getClassificationJsonProp(Structures.ficheEspece),
         displayName: getDisplayNameProp('Relecteur(s)'),
     },
+    structuresIntervenantSurLEspece: {
+        ...getSimpleTextProp({ title: "Structures intervenant sur l'espèce" }),
+        classification: getClassificationJsonProp(Structures.ficheEspece),
+        displayName: getDisplayNameProp("Structures intervenant sur l'espèce"),
+    },
+    signaler: {
+        ...getSimpleTextProp({ title: 'Signaler' }),
+        classification: getClassificationJsonProp(Structures.ficheEspece),
+        displayName: getDisplayNameProp('Signaler'),
+    },
+    actionEnRegion: {
+        ...getSimpleTextProp({ title: 'Action en région' }),
+        classification: getClassificationJsonProp(Structures.ficheEspece),
+        displayName: getDisplayNameProp('Action en région'),
+    },
     // #endregion
 
     // #region TAXONOMIE
@@ -393,6 +408,11 @@ export const SpeciesTemplate: StellioTemplate = {
         ...getSimpleTextProp({ title: "Compléments d'information" }),
         classification: getClassificationJsonProp(Structures.informationsSupplementaires),
         displayName: getDisplayNameProp("Compléments d'information"),
+    },
+    descriptionEtBiologie: {
+        ...getSimpleTextProp({ title: 'Description et biologie' }),
+        classification: getClassificationJsonProp(Structures.informationsSupplementaires),
+        displayName: getDisplayNameProp('Description et biologie'),
     },
     listeDeTravail: {
         ...getEnumProp({ title: 'Liste de travail', enum: [...filtreXEnumValues, 'A mettre à jour'] }),
