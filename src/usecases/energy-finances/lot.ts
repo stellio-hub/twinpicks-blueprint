@@ -3,7 +3,7 @@ import {
     getDateProp,
     getEnumProp,
     getMultiAttributeProp,
-    getNumberProp,
+    getNumericProp,
     getRelationshipProp,
     getSimpleTextProp,
 } from '../../utils/blueprintHelpers';
@@ -34,7 +34,7 @@ export const LotTemplate: StellioTemplate = {
     contractedPrice: {
         ...getMultiAttributeProp({
             formLabel: 'Prix contractuels (bordereau de prix)',
-            propertySchemaDefinition: getNumberProp({ title: 'Prix HT', minimum: 0 }, 'EUR'),
+            propertySchemaDefinition: getNumericProp({ schemaType: 'number', title: 'Prix HT', minimum: 0 }, 'EUR'),
             subProps: [
                 ['pricingGroup', getSimpleTextProp({ title: 'Groupe de prix (ex. C4, C5-BASE)' })],
                 [
@@ -46,7 +46,10 @@ export const LotTemplate: StellioTemplate = {
                 ],
                 [
                     'timeClass',
-                    getEnumProp({ title: 'Poste horosaisonnier', enum: ['BASE', 'HP', 'HC', 'HPH', 'HCH', 'HPE', 'HCE', 'PTE'] }),
+                    getEnumProp({
+                        title: 'Poste horosaisonnier',
+                        enum: ['BASE', 'HP', 'HC', 'HPH', 'HCH', 'HPE', 'HCE', 'PTE'],
+                    }),
                 ],
                 ['priceUnit', getEnumProp({ title: 'Unité de prix', enum: ['MWH', 'YEAR', 'MONTH'] })],
                 ['validFrom', getDateProp({ title: 'Valable du' })],

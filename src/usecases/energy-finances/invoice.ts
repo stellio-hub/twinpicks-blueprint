@@ -2,7 +2,7 @@ import { StellioTemplate } from 'src/interfaces';
 import {
     getDateProp,
     getEnumProp,
-    getNumberProp,
+    getNumericProp,
     getRelationshipProp,
     getSimpleTextProp,
 } from '../../utils/blueprintHelpers';
@@ -32,13 +32,13 @@ export const InvoiceTemplate: StellioTemplate = {
         ...getDateProp({ title: "Date d'échéance" }),
     },
     totalExclVAT: {
-        ...getNumberProp({ title: 'Montant total HT' }, 'EUR'),
+        ...getNumericProp({ schemaType: 'number', title: 'Montant total HT' }, 'EUR'),
     },
     totalVAT: {
-        ...getNumberProp({ title: 'Montant total TVA' }, 'EUR'),
+        ...getNumericProp({ schemaType: 'number', title: 'Montant total TVA' }, 'EUR'),
     },
     totalInclVAT: {
-        ...getNumberProp({ title: 'Montant total TTC' }, 'EUR'),
+        ...getNumericProp({ schemaType: 'number', title: 'Montant total TTC' }, 'EUR'),
     },
     // Where the PDF is stored is still open (D18)
     sourceDocument: {

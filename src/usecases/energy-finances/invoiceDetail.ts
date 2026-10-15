@@ -3,7 +3,7 @@ import {
     getDateProp,
     getEnumProp,
     getMultiAttributeProp,
-    getNumberProp,
+    getNumericProp,
     getRelationshipProp,
     getSimpleTextProp,
 } from '../../utils/blueprintHelpers';
@@ -40,19 +40,34 @@ export const InvoiceDetailTemplate: StellioTemplate = {
     amount: {
         ...getMultiAttributeProp({
             formLabel: 'Lignes de facture (montants HT)',
-            propertySchemaDefinition: getNumberProp({ title: 'Montant HT', canSetObservedAt: true }, 'EUR'),
+            propertySchemaDefinition: getNumericProp(
+                { schemaType: 'number', title: 'Montant HT', canSetObservedAt: true },
+                'EUR'
+            ),
             subProps: [
                 ...getLineSubProps(),
-                ['quantity', getNumberProp({ title: 'Quantité', canSetUnitCode: true })],
-                ['unitPrice', getNumberProp({ title: 'Prix unitaire HT', minimum: 0, canSetUnitCode: true })],
-                ['vatRate', getNumberProp({ title: 'Taux de TVA (%)', minimum: 0, maximum: 100 })],
+                ['quantity', getNumericProp({ schemaType: 'number', title: 'Quantité', canSetUnitCode: true })],
+                [
+                    'unitPrice',
+                    getNumericProp({
+                        schemaType: 'number',
+                        title: 'Prix unitaire HT',
+                        minimum: 0,
+                        canSetUnitCode: true,
+                    }),
+                ],
+                [
+                    'vatRate',
+                    getNumericProp({ schemaType: 'number', title: 'Taux de TVA (%)', minimum: 0, maximum: 100 }),
+                ],
             ],
         }),
     },
     consumption: {
         ...getMultiAttributeProp({
             formLabel: 'Consommations facturées',
-            propertySchemaDefinition: getNumberProp({
+            propertySchemaDefinition: getNumericProp({
+                schemaType: 'number',
                 title: 'Consommation',
                 canSetObservedAt: true,
                 canSetUnitCode: true,
@@ -66,7 +81,11 @@ export const InvoiceDetailTemplate: StellioTemplate = {
     // Set to toReview by the ingestion flow, then changed in the control queue (D20). observedAt = review time.
     // Control results: D17.
     reviewStatus: {
-        ...getEnumProp({ title: 'Statut de contrôle', enum: ['toReview', 'validated', 'rejected'], canSetObservedAt: true }),
+        ...getEnumProp({
+            title: 'Statut de contrôle',
+            enum: ['toReview', 'validated', 'rejected'],
+            canSetObservedAt: true,
+        }),
         reviewerId: {
             ...getSimpleTextProp({ title: 'Identifiant du contrôleur (Keycloak)' }),
         },
