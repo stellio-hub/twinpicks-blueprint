@@ -18,10 +18,14 @@ const getLineSubProps = (): [string, StellioTemplateProp][] => [
     ['startDate', getDateProp({ title: 'Début de période' })],
     ['endDate', getDateProp({ title: 'Fin de période' })],
     ['section', getEnumProp({ title: 'Bloc de facture', enum: ['supply', 'network', 'taxes', 'services'] })],
-    // Normalised category shared across suppliers, list still to agree on (D9)
+    // Normalised component shared across suppliers, {component}[-{timeClass}] (D9)
     ['lineCategory', getSimpleTextProp({ title: 'Catégorie de ligne' })],
+    // Adjustment lines keep the category of the component they adjust (D9)
+    ['adjustment', getEnumProp({ title: "Type d'ajustement", enum: ['estimateCancellation', 'regularisation'] })],
     // Invoice number of a cancelled estimate ("Annulation estimation facture n°…")
     ['cancelsInvoice', getSimpleTextProp({ title: 'Facture annulée' })],
+    // Supplier label(s), several when lines of the same category and start date are summed (D9)
+    ['sourceLabel', getSimpleTextProp({ title: 'Libellé fournisseur' })],
 ];
 
 /** Part of an invoice for one delivery point (D7). One row of the Finances control queue. */
@@ -113,6 +117,16 @@ export const InvoiceDetailTemplate: StellioTemplate = {
             formLabel: 'Contrat de fourniture',
             targetTemplateObjectId: 'urn:ngsi-ld:Contract:Template',
         }),
+    },
+    // On a credit note: the invoice it corrects for this delivery point, which can differ per delivery point (D21)
+    corrects: {
+        ...getRelationshipProp({
+            formLabel: 'Facture corrigée (avoir)',
+            targetTemplateObjectId: 'urn:ngsi-ld:Invoice:Template',
+        }),
+        correctionType: {
+            ...getEnumProp({ title: 'Type de correction', enum: ['cancellation', 'partialCorrection'] }),
+        },
     },
     jsonSchema: {
         type: 'Property',

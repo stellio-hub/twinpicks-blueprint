@@ -44,12 +44,6 @@ export const InvoiceTemplate: StellioTemplate = {
     sourceDocument: {
         ...getSimpleTextProp({ title: 'Lien vers le document (PDF)' }),
     },
-    marketReference: {
-        ...getSimpleTextProp({ title: 'Référence du marché indiquée sur la facture' }),
-    },
-    chorusStatus: {
-        ...getSimpleTextProp({ title: 'Statut Chorus Pro' }),
-    },
     supplier: {
         ...getRelationshipProp({
             formLabel: 'Fournisseur',
@@ -62,13 +56,7 @@ export const InvoiceTemplate: StellioTemplate = {
             targetTemplateObjectId: 'urn:ngsi-ld:BillingAccount:Template',
         }),
     },
-    // For a credit note: the invoice it corrects
-    corrects: {
-        ...getRelationshipProp({
-            formLabel: 'Facture corrigée (avoir)',
-            targetTemplateObjectId: 'urn:ngsi-ld:Invoice:Template',
-        }),
-    },
+    // What a credit note corrects is on each InvoiceDetail (D21)
     jsonSchema: {
         type: 'Property',
         value: {

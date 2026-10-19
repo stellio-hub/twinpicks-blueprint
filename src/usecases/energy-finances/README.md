@@ -22,9 +22,10 @@ FrameworkContract ── supplier, buyer ──> Organization
         ^
         └── DeliveryPoint (relatedContract, 0..*: successive contracts)
 
-Invoice ── supplier ──> Organization, billingAccount ──> BillingAccount, corrects ──> Invoice
+Invoice ── supplier ──> Organization, billingAccount ──> BillingAccount
 └── InvoiceDetail (isPartOf) ── relatedDeliveryPoint ──> DeliveryPoint
                              ── relatedContract ──> Contract
+                             ── corrects ──> Invoice (credit notes, with correctionType)
 ```
 
 | Entity | Role |
@@ -35,7 +36,7 @@ Invoice ── supplier ──> Organization, billingAccount ──> BillingAcco
 | `Contract` | Supply contract as referenced on invoices. Covers one or several delivery points, which point to it. |
 | `BillingAccount` | What an invoice is addressed to, with Chorus Pro routing (SIRET, EJ, service code). |
 | `Invoice` | Invoice or credit note header: number, totals, source document. |
-| `InvoiceDetail` | Part of an invoice for one delivery point. Invoice lines are multi-instance `amount` and `consumption` properties, one `datasetId` per line. |
+| `InvoiceDetail` | Part of an invoice for one delivery point. Invoice lines are multi-instance `amount` and `consumption` properties, one `datasetId` per line. On a credit note, `corrects` points to the invoice it corrects for that delivery point: one multi-site credit note can cancel a different invoice per delivery point. |
 | `DeliveryPoint` | Light version: name, number, fluid, segment, distributor and contracts. Measured data and the link to the building belong to other use cases. |
 
 Relationships always go from child to parent, i.e. from the many side: a contract can cover hundreds of delivery points, so each delivery point points to its contracts. Every entity has a required `name`, because the Twin Picks relationship picker searches existing entities by `name`. Enum values are stable English codes (`electricity`, `creditNote`, `toReview`…).
@@ -59,9 +60,10 @@ Expected ids, applied by the ingestion flows:
 
 ## Open points
 
-- Naming of line `datasetId`s and the list of `lineCategory` codes (data model D9).
 - Codes and labels (D10): `renewalStatus` and `segment` values are drafts.
 - Storage of control results (D17): only `reviewStatus` for now. It carries the reviewer (`reviewerId`, `reviewerName`, `reviewComment`) and the review time in `observedAt` (D20). The invoice header has no status: it is computed from its details.
 - Storage of invoice PDFs (D18): `sourceDocument` is a plain link.
 - Contracted prices (D15, proposal): `Lot.contractedPrice`, one value per price group, component, time class and year, and `Contract.pricingGroup` to pick the rows that apply. Modelled on published price schedules; to confirm on a real one.
-- Line categories (D9, proposal): `{component}[-{timeClass}]`, e.g. `energy-HPH`, `turpe-fixed`, `excise` (list in the data model).
+- Line categories (D9, proposal): `{component}[-{timeClass}]`, e.g. `energy-HPH`, `turpe-fixed`, `excise` (list in the data model). Adjustment lines keep their component category and add `adjustment` (`estimateCancellation` / `regularisation`). Line `datasetId` = `urn:ngsi-ld:Dataset:{lineCategory}[:{adjustment}]`. Lines with the same `datasetId` and start date are summed at ingestion, with the supplier labels kept in `sourceLabel`.
+- Credit notes (D21, decided): `InvoiceDetail.corrects` with `correctionType` (`cancellation` / `partialCorrection`), from Chorus `numeroFactureOrigine` or the PDF wording.
+- Market reference: the Chorus `numeroMarche` of an invoice is not stored on `Invoice`. Ingestion parses it into `FrameworkContract.reference` + `Lot.lotNumber` to find the lot (EDF `252025S0301L02/MS1` → `252025S0301` / `L02`).
