@@ -642,14 +642,14 @@
                 }
             }
         },
-        "isObserving": {
+        "controlledAsset": {
             "type": "Relationship",
             "object": "urn:ngsi-ld",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "relationship",
-                    "title": "Est en train d'observer",
+                    "title": "Actif contrôlé",
                     "order": 42,
                     "listOfAllowedRelationships": [
                         "urn:ngsi-ld:Building:Template",
@@ -679,7 +679,7 @@
                     "name",
                     "deliveryPointNumber",
                     "fluidType",
-                    "isObserving"
+                    "controlledAsset"
                 ],
                 "description": "Point de livraison regroupant le type d'énergie, les données du distributeur et celles du fournisseur.",
                 "minimum": 0,

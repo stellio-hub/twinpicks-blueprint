@@ -37,9 +37,9 @@ export const DeliveryPointTemplate: StellioTemplate = {
             ],
         }),
     },
-    isObserving: {
+    controlledAsset: {
         ...getRelationshipProp({
-            formLabel: "Est en train d'observer",
+            formLabel: 'Actif contrôlé',
             listOfAllowedRelationships: ['urn:ngsi-ld:Building:Template', 'urn:ngsi-ld:Site:Template'],
         }),
     },
@@ -54,7 +54,7 @@ export const DeliveryPointTemplate: StellioTemplate = {
         value: {
             schemaType: entityType,
             title: 'Point de livraison',
-            required: ['name', 'deliveryPointNumber', 'fluidType', 'isObserving'],
+            required: ['name', 'deliveryPointNumber', 'fluidType', 'controlledAsset'],
             description: `Point de livraison regroupant le type d'énergie, les données du distributeur et celles du fournisseur.`,
             minimum: 0,
             identifier: 'deliveryPointNumber',
