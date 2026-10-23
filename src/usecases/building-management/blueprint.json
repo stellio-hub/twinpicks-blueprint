@@ -129,18 +129,6 @@
                 }
             }
         },
-        "territory": {
-            "type": "Property",
-            "value": "Territoire",
-            "jsonSchema": {
-                "type": "Property",
-                "value": {
-                    "schemaType": "string",
-                    "title": "Territoire",
-                    "order": 10
-                }
-            }
-        },
         "hasWeatherInformation": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:WeatherInformation:Template",
@@ -149,7 +137,7 @@
                 "value": {
                     "schemaType": "relationship",
                     "title": "Station météo (DJU)",
-                    "order": 11
+                    "order": 10
                 }
             }
         },
@@ -160,7 +148,7 @@
                 "type": "Property",
                 "value": {
                     "schemaType": "array",
-                    "order": 12,
+                    "order": 11,
                     "title": "Utilisation du bâtiment",
                     "items": {
                         "type": "Relationship",
@@ -184,7 +172,7 @@
                 "value": {
                     "schemaType": "relationship",
                     "title": "Appartient au site",
-                    "order": 13
+                    "order": 12
                 }
             }
         },
@@ -198,7 +186,7 @@
                 "type": "Property",
                 "value": {
                     "schemaType": "object",
-                    "order": 14,
+                    "order": 13,
                     "title": "Sélectionner le bâtiment sur la carte"
                 }
             }
@@ -210,7 +198,7 @@
                 "type": "Property",
                 "value": {
                     "schemaType": "json",
-                    "order": 15,
+                    "order": 14,
                     "title": "Référentiel National des Bâtiments",
                     "canSelfInit": true
                 }
@@ -241,7 +229,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Nom",
-                    "order": 16
+                    "order": 15
                 }
             }
         },
@@ -253,7 +241,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Description",
-                    "order": 17
+                    "order": 16
                 }
             }
         },
@@ -265,7 +253,7 @@
                 "value": {
                     "schemaType": "integer",
                     "title": "Niveau",
-                    "order": 18
+                    "order": 17
                 }
             }
         },
@@ -277,7 +265,7 @@
                 "value": {
                     "schemaType": "relationship",
                     "title": "Appartient au bâtiment",
-                    "order": 19
+                    "order": 18
                 }
             }
         },
@@ -307,7 +295,7 @@
                     "friendlyAttributeName": "Nom",
                     "schemaType": "string",
                     "title": "Nom de l'espace",
-                    "order": 20
+                    "order": 19
                 }
             }
         },
@@ -319,24 +307,24 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Description de l'espace",
-                    "order": 21
+                    "order": 20
                 }
             }
         },
         "spaceType": {
             "type": "Property",
-            "value": "Espace",
+            "value": "space",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "enum",
                     "enum": [
-                        "Espace",
-                        "Pièce",
-                        "Local"
+                        "space",
+                        "room",
+                        "technicalRoom"
                     ],
                     "title": "Type d'espace",
-                    "order": 22
+                    "order": 21
                 }
             }
         },
@@ -348,7 +336,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Zone fonctionnelle (BACS)",
-                    "order": 23
+                    "order": 22
                 }
             }
         },
@@ -361,7 +349,7 @@
                 "value": {
                     "schemaType": "integer",
                     "title": "Surface (m²)",
-                    "order": 24
+                    "order": 23
                 }
             }
         },
@@ -372,7 +360,7 @@
                 "type": "Property",
                 "value": {
                     "schemaType": "json",
-                    "order": 25,
+                    "order": 24,
                     "title": "Horaires propres à l'espace"
                 }
             }
@@ -387,7 +375,7 @@
                     "canSelfInit": true,
                     "schemaType": "integer",
                     "title": "Personnes détectées",
-                    "order": 26
+                    "order": 25
                 }
             }
         },
@@ -402,7 +390,7 @@
                     "canSelfInit": true,
                     "schemaType": "integer",
                     "title": "Température intérieure",
-                    "order": 27
+                    "order": 26
                 }
             }
         },
@@ -417,7 +405,7 @@
                     "canSelfInit": true,
                     "schemaType": "integer",
                     "title": "Consigne de température",
-                    "order": 28
+                    "order": 27
                 }
             }
         },
@@ -432,7 +420,7 @@
                     "canSelfInit": true,
                     "schemaType": "integer",
                     "title": "CO2",
-                    "order": 29
+                    "order": 28
                 }
             }
         },
@@ -443,7 +431,7 @@
                 "type": "Property",
                 "value": {
                     "schemaType": "array",
-                    "order": 30,
+                    "order": 29,
                     "title": "Niveaux de l'espace",
                     "items": {
                         "type": "Relationship",
@@ -485,7 +473,7 @@
                     "friendlyAttributeName": "Nom",
                     "schemaType": "string",
                     "title": "Nom de l'usage",
-                    "order": 31
+                    "order": 30
                 }
             }
         },
@@ -497,7 +485,7 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Code de l'usage",
-                    "order": 32
+                    "order": 31
                 }
             }
         },
@@ -509,7 +497,20 @@
                 "value": {
                     "schemaType": "string",
                     "title": "Source de nomenclature",
-                    "order": 33
+                    "order": 32
+                }
+            }
+        },
+        "thresholds": {
+            "type": "JsonProperty",
+            "json": "{}",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "json",
+                    "order": 33,
+                    "title": "Seuils des détections (vide : valeurs par défaut)",
+                    "canSelfInit": true
                 }
             }
         },
@@ -570,15 +571,15 @@
         },
         "fluidType": {
             "type": "Property",
-            "value": "Eau",
+            "value": "electricity",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "enum",
                     "enum": [
-                        "Eau",
-                        "Gaz",
-                        "Electricité"
+                        "electricity",
+                        "gas",
+                        "water"
                     ],
                     "title": "Type de fluide",
                     "order": 37
@@ -588,14 +589,14 @@
         "index": {
             "meterReading": {
                 "type": "Property",
-                "value": "mesuré",
+                "value": "measured",
                 "jsonSchema": {
                     "type": "Property",
                     "value": {
                         "schemaType": "enum",
                         "enum": [
-                            "mesuré",
-                            "estimé"
+                            "measured",
+                            "estimated"
                         ],
                         "title": "Type de relevé",
                         "order": 39
@@ -604,14 +605,14 @@
             },
             "providedBy": {
                 "type": "Property",
-                "value": "distributeur",
+                "value": "distributor",
                 "jsonSchema": {
                     "type": "Property",
                     "value": {
                         "schemaType": "enum",
                         "enum": [
-                            "distributeur",
-                            "fournisseur"
+                            "distributor",
+                            "supplier"
                         ],
                         "title": "Fourni par",
                         "order": 40
@@ -633,6 +634,7 @@
                             "type": "Property",
                             "value": {
                                 "canSetObservedAt": true,
+                                "canSetUnitCode": true,
                                 "schemaType": "integer",
                                 "title": "Valeur d'index",
                                 "order": 38
@@ -902,6 +904,35 @@
                 "description": "Point de sortie électrique, possiblement protégé/contrôlé par d'autres équipements de l'armoire électrique",
                 "minimum": 0,
                 "identifier": "deliveryPointNumber"
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:WeatherInformation:Template",
+        "type": "Template",
+        "temperature": {
+            "type": "Property",
+            "value": 0,
+            "unitCode": "CEL",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "canSetObservedAt": true,
+                    "canSelfInit": true,
+                    "schemaType": "integer",
+                    "title": "Température extérieure",
+                    "order": 57
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "WeatherInformation",
+                "title": "Information Météo",
+                "description": "Station météo dont la température extérieure sert aux DJU et aux chronologies des bâtiments (de préférence la station Météo-France retenue par OPERAT)",
+                "minimum": 0,
+                "canEntityBeCreated": false
             }
         }
     }

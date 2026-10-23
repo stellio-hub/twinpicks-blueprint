@@ -24,16 +24,20 @@ export const DeliveryPointTemplate: StellioTemplate = {
     fluidType: {
         ...getEnumProp({
             title: 'Type de fluide',
-            enum: ['Eau', 'Gaz', 'Electricité'],
+            enum: ['electricity', 'gas', 'water'],
         }),
     },
     index: {
         ...getMultiAttributeProp({
-            propertySchemaDefinition: getIntegerProp({ title: "Valeur d'index", canSetObservedAt: true }),
+            propertySchemaDefinition: getIntegerProp({
+                title: "Valeur d'index",
+                canSetObservedAt: true,
+                canSetUnitCode: true,
+            }),
             formLabel: 'Index',
             subProps: [
-                ['meterReading', getEnumProp({ title: 'Type de relevé', enum: ['mesuré', 'estimé'] })],
-                ['providedBy', getEnumProp({ title: 'Fourni par', enum: ['distributeur', 'fournisseur'] })],
+                ['meterReading', getEnumProp({ title: 'Type de relevé', enum: ['measured', 'estimated'] })],
+                ['providedBy', getEnumProp({ title: 'Fourni par', enum: ['distributor', 'supplier'] })],
             ],
         }),
     },
