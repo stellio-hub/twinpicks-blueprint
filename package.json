@@ -21,6 +21,8 @@
         "building": "npx tsc && cd ./dist/usecases/building-management && node index.js && cd ../../..",
         "energyFinances": "npx tsc && cd ./dist/usecases/energy-finances && node index.js && cd ../../..",
         "energyFinancesUpdate:all": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=energy-finances --useCaseConfigId=urn:ngsi-ld:UseCaseConfig:EnergyFinances --realms=stellio-dev",
+        "energyPerformance": "npx tsc && cd ./dist/usecases/energy-performance && node index.js && cd ../../..",
+        "energyPerformanceUpdate:all": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=energy-performance --useCaseConfigId=urn:ngsi-ld:UseCaseConfig:EnergyPerformance --realms=stellio-dev",
         "buildingUpdate:all": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=building-management --realms=stellio-dev,egm-showcase,carf"
     },
     "devDependencies": {
