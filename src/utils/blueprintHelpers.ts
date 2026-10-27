@@ -257,7 +257,7 @@ export const getGeoPropertyProp = ({
 
 type GetJsonPropertyPropParams = {
     formLabel: string;
-    json?: string;
+    json?: object;
 } & JsonPropertyWithoutSchemaType;
 export const getJsonPropertyProp = ({
     formLabel,

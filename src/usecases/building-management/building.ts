@@ -25,13 +25,13 @@ export const BuildingTemplate: StellioTemplate = {
     openingHours: {
         ...getJsonPropertyProp({
             formLabel: "Horaires d'ouverture et fermetures",
-            json: JSON.stringify({
+            json: {
                 weekly: {
                     mon: [['08:00', '18:00']],
                     tue: [['08:00', '18:00']],
                 },
                 closures: [],
-            }),
+            },
         }),
     },
     territory: {
