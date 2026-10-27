@@ -33,12 +33,12 @@ export const SpaceTemplate: StellioTemplate = {
     openingHours: {
         ...getJsonPropertyProp({
             formLabel: "Horaires propres à l'espace",
-            json: JSON.stringify({
+            json: {
                 weekly: {
                     mon: [['08:00', '18:00']],
                 },
                 closures: [],
-            }),
+            },
         }),
     },
     occupancy: {
