@@ -4,7 +4,7 @@ import {
     getMultiAttributeProp,
     getSimpleTextProp,
     getRelationshipProp,
-    getIntegerProp,
+    getNumericProp,
 } from '../../utils/blueprintHelpers';
 
 const entityType = 'DeliveryPoint';
@@ -29,7 +29,7 @@ export const DeliveryPointTemplate: StellioTemplate = {
     },
     index: {
         ...getMultiAttributeProp({
-            propertySchemaDefinition: getIntegerProp({ title: "Valeur d'index", canSetObservedAt: true }),
+            propertySchemaDefinition: getNumericProp({ title: "Valeur d'index", canSetObservedAt: true }),
             formLabel: 'Index',
             subProps: [
                 ['meterReading', getEnumProp({ title: 'Type de relevé', enum: ['mesuré', 'estimé'] })],

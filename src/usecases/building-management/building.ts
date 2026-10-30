@@ -1,7 +1,7 @@
 import { StellioTemplate } from 'src/interfaces';
 import {
     getGeoPropertyProp,
-    getIntegerProp,
+    getNumericProp,
     getJsonPropertyProp,
     getMultiRelationshipProp,
     getRelationshipProp,
@@ -20,7 +20,7 @@ export const BuildingTemplate: StellioTemplate = {
         ...getSimpleTextProp({ title: 'Description du bâtiment' }),
     },
     floorArea: {
-        ...getIntegerProp({ title: 'Surface de plancher (m²)' }, 'MTK'),
+        ...getNumericProp({ title: 'Surface de plancher (m²)' }, 'MTK'),
     },
     openingHours: {
         ...getJsonPropertyProp({
