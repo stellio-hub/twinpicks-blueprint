@@ -2,7 +2,8 @@ import { StellioTemplate } from 'src/interfaces';
 import {
     getSimpleTextProp,
     getEnumProp,
-    getRelationshipProp,
+    getNumericProp,
+    getJsonPropertyProp,
     getMultiRelationshipProp,
 } from '../../utils/blueprintHelpers';
 
@@ -22,6 +23,35 @@ export const SpaceTemplate: StellioTemplate = {
             title: `Type d'espace`,
             enum: [`Espace`, `Pièce`, `Local`],
         }),
+    },
+    functionalZone: {
+        ...getSimpleTextProp({ title: 'Zone fonctionnelle (BACS)' }),
+    },
+    floorArea: {
+        ...getNumericProp({ title: 'Surface (m²)' }, 'MTK'),
+    },
+    openingHours: {
+        ...getJsonPropertyProp({
+            formLabel: "Horaires propres à l'espace",
+            json: {
+                weekly: {
+                    mon: [['08:00', '18:00']],
+                },
+                closures: [],
+            },
+        }),
+    },
+    occupancy: {
+        ...getNumericProp({ title: 'Personnes détectées', canSetObservedAt: true, canSelfInit: true }),
+    },
+    temperature: {
+        ...getNumericProp({ title: 'Température intérieure', canSetObservedAt: true, canSelfInit: true }, 'CEL'),
+    },
+    temperatureSetpoint: {
+        ...getNumericProp({ title: 'Consigne de température', canSetObservedAt: true, canSelfInit: true }, 'CEL'),
+    },
+    co2: {
+        ...getNumericProp({ title: 'CO2', canSetObservedAt: true, canSelfInit: true }, '59'),
     },
     isPartOf: {
         ...getMultiRelationshipProp({

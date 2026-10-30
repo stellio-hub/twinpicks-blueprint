@@ -1,7 +1,7 @@
 {
     "name": "blueprints",
     "author": "junjou",
-    "version": "1.5.3",
+    "version": "1.5.5",
     "description": "blueprints for twinpicks",
     "scripts": {
         "tsc": "tsc",
@@ -23,7 +23,7 @@
         "energyFinancesUpdate:all": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=energy-finances --useCaseConfigId=urn:ngsi-ld:UseCaseConfig:EnergyFinances --realms=stellio-dev",
         "energyPerformance": "npx tsc && cd ./dist/usecases/energy-performance && node index.js && cd ../../..",
         "energyPerformanceUpdate:all": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=energy-performance --useCaseConfigId=urn:ngsi-ld:UseCaseConfig:EnergyPerformance --realms=stellio-dev",
-        "buildingUpdate:all": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=building-management --realms=stellio-dev,egm-showcase,carf"
+        "buildingUpdate:all": "npx tsc && node --env-file=.env ./dist/utils/updateUseCaseConfig.js --directoryName=building-management --useCaseConfigId=urn:ngsi-ld:UseCaseConfig:BuildingManagement --realms=stellio-dev,egm-showcase,carf"
     },
     "devDependencies": {
         "@types/geojson": "^7946.0.10",
