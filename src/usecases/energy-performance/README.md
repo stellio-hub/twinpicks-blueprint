@@ -17,7 +17,9 @@ The target model is `data_model_v2.md` (Energies - Fluides SharePoint folder).
 
 ```text
 EnergyAction ── refBuilding ──> Building ── hasWeatherInformation ──> WeatherInformation
-EnergyTarget ── refBuilding ──>    ^         ── hasUsage ──> Usage, isPartOf ──> Site (building-management)
+     │ refEnergyTarget (0..n)      ^         ── hasUsage ──> Usage, isPartOf ──> Site (building-management)
+     v                             │
+EnergyTarget ── refBuilding ───────┤
                                    │
                     DeliveryPoint ─┘ controlledAsset (measured consumption, utility-management)
 ```
@@ -26,7 +28,7 @@ EnergyTarget ── refBuilding ──>    ^         ── hasUsage ──> Usa
 |--------|------|
 | `Building` | Light version: name, `floorArea` (kWh/m²), `hasWeatherInformation` (degree days). Created with full detail in building-management, same attribute names. |
 | `WeatherInformation` | Weather station. Daily `temperature` instances, one `datasetId` per statistic: `urn:ngsi-ld:Dataset:{source}:temperatureMin:P1D` and `…:temperatureMax:P1D`. The dashboard computes the degree days from them. |
-| `EnergyAction` | Improvement action on a building: category, status, priority, fluids, start and end dates, cost, estimated saving (kWh/year and/or %). The gain is measured by the dashboard (before `startDate` vs after `endDate`). |
+| `EnergyAction` | Improvement action on a building: category, status, priority, fluids, start and end dates, cost, estimated saving (kWh/year and/or %). The gain is measured by the dashboard (before `startDate` vs after `endDate`). `refEnergyTarget` (optional, several possible, one instance per target with its `datasetId`) names the targets the action is meant for: the target's action plan. The dashboard also shows, apart, the other actions of the target's building ending in its period. |
 | `EnergyTarget` | Building target, all energies: reference year, target year, reduction in % and/or absolute intensity (kWh/m²/year), climate-adjusted or not. `targetSource` = `tertiaryDecree` marks the targets to connect with the Conformité use case later. |
 
 Read, not declared here: `DeliveryPoint` (measured `consumption`, `controlledAsset`), `Usage` and `Site` (portfolio filters). There is no portfolio entity: a portfolio is a filter on site and usage.

@@ -45,6 +45,13 @@ export const EnergyActionTemplate: StellioTemplate = {
             targetTemplateObjectId: 'urn:ngsi-ld:Building:Template',
         }),
     },
+    // Optional, several possible: one instance per target, each with its datasetId (like DeliveryPoint.controlledAsset)
+    refEnergyTarget: {
+        ...getRelationshipProp({
+            formLabel: 'Objectifs visés',
+            targetTemplateObjectId: 'urn:ngsi-ld:EnergyTarget:Template',
+        }),
+    },
     actionCategory: {
         ...getEnumProp({ title: "Catégorie d'action", enum: actionCategories }),
     },
