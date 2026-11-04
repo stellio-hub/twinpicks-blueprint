@@ -163,6 +163,10 @@ type GetMultiRelationshipPropParams = {
     targetTemplateObjectId: string;
     minimum?: number;
     maximum?: number;
+    /** Target templates the picker offers, read by Twin Picks on each item */
+    listOfAllowedRelationships?: string[];
+    /** Sub-properties of each relationship instance */
+    subProps?: [string, StellioTemplateProp][];
 } & ArrayWithoutSchemaType;
 export const getMultiRelationshipProp = ({
     formLabel,
@@ -170,10 +174,13 @@ export const getMultiRelationshipProp = ({
     targetTemplateObjectId,
     minimum,
     maximum,
+    listOfAllowedRelationships,
+    subProps,
     ...rest
 }: GetMultiRelationshipPropParams): StellioTemplateRelationship => {
     order++;
     return {
+        ...(subProps ? Object.fromEntries(subProps) : {}),
         type: 'Relationship',
         object: targetTemplateObjectId,
         jsonSchema: {
@@ -190,10 +197,9 @@ export const getMultiRelationshipProp = ({
                     object: targetTemplateObjectId,
                     jsonSchema: {
                         type: 'Property',
-                        value: {
-                            schemaType: 'string',
-                            title: formLabelPerItem,
-                        },
+                        value: listOfAllowedRelationships
+                            ? { schemaType: 'relationship', title: formLabelPerItem, listOfAllowedRelationships }
+                            : { schemaType: 'string', title: formLabelPerItem },
                     },
                 },
             },
