@@ -138,6 +138,18 @@
                 }
             }
         },
+        "refEnergyTarget": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:EnergyTarget:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "relationship",
+                    "title": "Objectifs visés",
+                    "order": 9
+                }
+            }
+        },
         "actionCategory": {
             "type": "Property",
             "value": "lighting",
@@ -159,7 +171,7 @@
                         "other"
                     ],
                     "title": "Catégorie d'action",
-                    "order": 9
+                    "order": 10
                 }
             }
         },
@@ -178,7 +190,7 @@
                         "cancelled"
                     ],
                     "title": "Statut",
-                    "order": 10
+                    "order": 11
                 }
             }
         },
@@ -195,7 +207,7 @@
                         "low"
                     ],
                     "title": "Priorité",
-                    "order": 11
+                    "order": 12
                 }
             }
         },
@@ -213,33 +225,33 @@
                         "heat"
                     ],
                     "title": "Fluides concernés",
-                    "order": 12,
+                    "order": 13,
                     "allowMultiple": true
                 }
             }
         },
         "startDate": {
             "type": "Property",
-            "value": "2026-10-26T10:08:00.148Z",
+            "value": "2026-11-02T09:54:59.419Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "date",
                     "title": "Début des travaux ou de la mise en œuvre",
-                    "order": 13,
+                    "order": 14,
                     "dateMode": "date"
                 }
             }
         },
         "endDate": {
             "type": "Property",
-            "value": "2026-10-26T10:08:00.148Z",
+            "value": "2026-11-02T09:54:59.419Z",
             "jsonSchema": {
                 "type": "Property",
                 "value": {
                     "schemaType": "date",
                     "title": "Fin des travaux / mise en service",
-                    "order": 14,
+                    "order": 15,
                     "dateMode": "date"
                 }
             }
@@ -254,7 +266,7 @@
                     "schemaType": "integer",
                     "minimum": 0,
                     "title": "Coût (€ HT)",
-                    "order": 15
+                    "order": 16
                 }
             }
         },
@@ -268,7 +280,7 @@
                     "schemaType": "integer",
                     "minimum": 0,
                     "title": "Économie estimée (kWh/an)",
-                    "order": 16
+                    "order": 17
                 }
             }
         },
@@ -283,7 +295,7 @@
                     "minimum": 0,
                     "maximum": 100,
                     "title": "Économie estimée (% de la consommation du bâtiment)",
-                    "order": 17
+                    "order": 18
                 }
             }
         },
@@ -315,7 +327,7 @@
                     "friendlyAttributeName": "Nom",
                     "schemaType": "string",
                     "title": "Nom de l'objectif",
-                    "order": 18
+                    "order": 19
                 }
             }
         },
@@ -327,7 +339,7 @@
                 "value": {
                     "schemaType": "relationship",
                     "title": "Bâtiment concerné",
-                    "order": 19
+                    "order": 20
                 }
             }
         },
@@ -343,7 +355,7 @@
                         "tertiaryDecree"
                     ],
                     "title": "Origine de l'objectif",
-                    "order": 20
+                    "order": 21
                 }
             }
         },
@@ -357,7 +369,7 @@
                     "minimum": 2010,
                     "maximum": 2100,
                     "title": "Année de référence",
-                    "order": 21
+                    "order": 22
                 }
             }
         },
@@ -371,7 +383,7 @@
                     "minimum": 2010,
                     "maximum": 2100,
                     "title": "Année cible",
-                    "order": 22
+                    "order": 23
                 }
             }
         },
@@ -386,7 +398,7 @@
                     "minimum": 0,
                     "maximum": 100,
                     "title": "Réduction visée par rapport à l'année de référence (%)",
-                    "order": 23
+                    "order": 24
                 }
             }
         },
@@ -399,7 +411,7 @@
                     "schemaType": "integer",
                     "minimum": 0,
                     "title": "Objectif en valeur absolue (kWh/m²/an)",
-                    "order": 24
+                    "order": 25
                 }
             }
         },
@@ -411,7 +423,7 @@
                 "value": {
                     "schemaType": "boolean",
                     "title": "Comparer à la consommation corrigée du climat (DJU)",
-                    "order": 25
+                    "order": 26
                 }
             }
         },
