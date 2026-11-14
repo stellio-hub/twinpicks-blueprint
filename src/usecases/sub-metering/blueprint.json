@@ -1,0 +1,580 @@
+[
+    {
+        "id": "urn:ngsi-ld:RebillingContract:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Nom du contrat",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Nom",
+                    "schemaType": "string",
+                    "title": "Nom du contrat",
+                    "order": 10
+                }
+            }
+        },
+        "reference": {
+            "type": "Property",
+            "value": "Référence du contrat",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Référence",
+                    "schemaType": "string",
+                    "title": "Référence du contrat",
+                    "order": 11
+                }
+            }
+        },
+        "customer": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "relationship",
+                    "title": "Refacturé à",
+                    "order": 12,
+                    "listOfAllowedRelationships": [
+                        "urn:ngsi-ld:Organization:Template",
+                        "urn:ngsi-ld:Person:Template"
+                    ]
+                }
+            }
+        },
+        "startDate": {
+            "type": "Property",
+            "value": "2026-11-02T08:48:03.599Z",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "date",
+                    "title": "Date de début du contrat",
+                    "order": 13,
+                    "dateMode": "date"
+                }
+            }
+        },
+        "endDate": {
+            "type": "Property",
+            "value": "2026-11-02T08:48:03.599Z",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "date",
+                    "title": "Date de fin du contrat",
+                    "order": 14,
+                    "dateMode": "date"
+                }
+            }
+        },
+        "billingPeriodicity": {
+            "type": "Property",
+            "value": "monthly",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "enum",
+                    "enum": [
+                        "monthly",
+                        "quarterly",
+                        "yearly"
+                    ],
+                    "title": "Périodicité de facturation",
+                    "order": 15
+                }
+            }
+        },
+        "status": {
+            "type": "Property",
+            "value": "active",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "enum",
+                    "enum": [
+                        "active",
+                        "archived"
+                    ],
+                    "title": "Statut",
+                    "order": 16
+                }
+            }
+        },
+        "volumeSource": {
+            "product": {
+                "type": "Property",
+                "value": "electricity",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "enum",
+                        "enum": [
+                            "electricity",
+                            "gas",
+                            "water",
+                            "heat"
+                        ],
+                        "title": "Produit",
+                        "order": 17
+                    }
+                }
+            },
+            "measureType": {
+                "type": "Property",
+                "value": "index",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "enum",
+                        "enum": [
+                            "index",
+                            "consumption"
+                        ],
+                        "title": "Mesure lue",
+                        "order": 18
+                    }
+                }
+            },
+            "validFrom": {
+                "type": "Property",
+                "value": "2026-11-02T08:48:03.599Z",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "date",
+                        "title": "Refacturé à partir du",
+                        "order": 19,
+                        "dateMode": "date"
+                    }
+                }
+            },
+            "validTo": {
+                "type": "Property",
+                "value": "2026-11-02T08:48:03.599Z",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "date",
+                        "title": "Refacturé jusqu'au",
+                        "order": 20,
+                        "dateMode": "date"
+                    }
+                }
+            },
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:MeteringPoint:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "order": 21,
+                    "title": "Produits refacturés et compteurs",
+                    "minimum": 1,
+                    "items": {
+                        "type": "Relationship",
+                        "object": "urn:ngsi-ld:MeteringPoint:Template",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "string",
+                                "title": "Sélectionner le point de comptage"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "unitPrice": {
+            "product": {
+                "type": "Property",
+                "value": "electricity",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "enum",
+                        "enum": [
+                            "electricity",
+                            "gas",
+                            "water",
+                            "heat"
+                        ],
+                        "title": "Produit",
+                        "order": 23
+                    }
+                }
+            },
+            "validFrom": {
+                "type": "Property",
+                "value": "2026-11-02T08:48:03.599Z",
+                "jsonSchema": {
+                    "type": "Property",
+                    "value": {
+                        "schemaType": "date",
+                        "title": "Valable à partir du",
+                        "order": 24,
+                        "dateMode": "date"
+                    }
+                }
+            },
+            "type": "Property",
+            "value": "placeholder",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "title": "Tarifs unitaires HT (historique)",
+                    "order": 25,
+                    "items": {
+                        "type": "Property",
+                        "value": 0,
+                        "unitCode": "EUR",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "integer",
+                                "minimum": 0,
+                                "title": "Prix HT par kWh ou m³",
+                                "order": 22
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "description": {
+            "type": "Property",
+            "value": "Description",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "string",
+                    "title": "Description",
+                    "order": 26
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "RebillingContract",
+                "title": "Contrat de refacturation",
+                "required": [
+                    "name",
+                    "customer",
+                    "startDate",
+                    "billingPeriodicity",
+                    "status",
+                    "volumeSource"
+                ],
+                "description": "Refacturation à un tiers d'une partie des consommations (électricité, eau…) mesurées par un sous-compteur.",
+                "minimum": 0
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:MeteringPoint:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Nom du point de comptage",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Nom",
+                    "schemaType": "string",
+                    "title": "Nom du point de comptage",
+                    "order": 1
+                }
+            }
+        },
+        "fluidType": {
+            "type": "Property",
+            "value": "electricity",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "enum",
+                    "enum": [
+                        "electricity",
+                        "gas",
+                        "water",
+                        "heat"
+                    ],
+                    "title": "Fluide",
+                    "order": 2
+                }
+            }
+        },
+        "meteringType": {
+            "type": "Property",
+            "value": "physical",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "enum",
+                    "enum": [
+                        "physical",
+                        "virtual"
+                    ],
+                    "title": "Type de comptage",
+                    "order": 3
+                }
+            }
+        },
+        "communicationStatus": {
+            "type": "Property",
+            "value": "connected",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "enum",
+                    "enum": [
+                        "connected",
+                        "notConnected",
+                        "notCommunicating",
+                        "communicationFailure",
+                        "doubtful",
+                        "planned"
+                    ],
+                    "title": "État de communication",
+                    "order": 4
+                }
+            }
+        },
+        "referenceSource": {
+            "type": "Property",
+            "value": "Source de référence",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "description": "Code de la source à utiliser quand plusieurs systèmes mesurent ce point (ex. SubMeter, GTC). Vide : une seule source.",
+                    "schemaType": "string",
+                    "title": "Source de référence",
+                    "order": 5
+                }
+            }
+        },
+        "isFedBy": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "relationship",
+                    "title": "Compteur amont",
+                    "order": 6,
+                    "listOfAllowedRelationships": [
+                        "urn:ngsi-ld:MeteringPoint:Template",
+                        "urn:ngsi-ld:DeliveryPoint:Template"
+                    ]
+                }
+            }
+        },
+        "controlledAsset": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Building:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "order": 7,
+                    "title": "Ce que le point de comptage alimente",
+                    "minimum": 0,
+                    "items": {
+                        "type": "Relationship",
+                        "object": "urn:ngsi-ld:Building:Template",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "relationship",
+                                "title": "Sélectionner un bâtiment, un équipement, un espace ou une sortie électrique",
+                                "listOfAllowedRelationships": [
+                                    "urn:ngsi-ld:Building:Template",
+                                    "urn:ngsi-ld:Asset:Template",
+                                    "urn:ngsi-ld:Space:Template",
+                                    "urn:ngsi-ld:ConnectivityNode:Template"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "addedMeter": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:MeteringPoint:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "order": 8,
+                    "title": "Compteur virtuel : compteurs ajoutés",
+                    "minimum": 0,
+                    "items": {
+                        "type": "Relationship",
+                        "object": "urn:ngsi-ld:MeteringPoint:Template",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "relationship",
+                                "title": "Sélectionner un compteur",
+                                "listOfAllowedRelationships": [
+                                    "urn:ngsi-ld:MeteringPoint:Template",
+                                    "urn:ngsi-ld:DeliveryPoint:Template"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "subtractedMeter": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:MeteringPoint:Template",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "array",
+                    "order": 9,
+                    "title": "Compteur virtuel : compteurs soustraits",
+                    "minimum": 0,
+                    "items": {
+                        "type": "Relationship",
+                        "object": "urn:ngsi-ld:MeteringPoint:Template",
+                        "jsonSchema": {
+                            "type": "Property",
+                            "value": {
+                                "schemaType": "relationship",
+                                "title": "Sélectionner un compteur",
+                                "listOfAllowedRelationships": [
+                                    "urn:ngsi-ld:MeteringPoint:Template",
+                                    "urn:ngsi-ld:DeliveryPoint:Template"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "MeteringPoint",
+                "title": "Point de comptage",
+                "required": [
+                    "name",
+                    "fluidType",
+                    "meteringType"
+                ],
+                "description": "Compteur ou sous-compteur (physique), ou compteur calculé à partir d'autres (virtuel), placé dans l'arborescence de comptage.",
+                "minimum": 0
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Organization:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Nom de l'organisation",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Nom",
+                    "schemaType": "string",
+                    "title": "Nom de l'organisation",
+                    "order": 27
+                }
+            }
+        },
+        "roles": {
+            "type": "Property",
+            "value": "supplier",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "schemaType": "enum",
+                    "enum": [
+                        "supplier",
+                        "distributor",
+                        "client",
+                        "buyer"
+                    ],
+                    "title": "Rôles",
+                    "order": 28,
+                    "allowMultiple": true
+                }
+            }
+        },
+        "siren": {
+            "type": "Property",
+            "value": "SIREN",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "pattern": "^[0-9]{9}$",
+                    "schemaType": "string",
+                    "title": "SIREN",
+                    "order": 29
+                }
+            }
+        },
+        "siret": {
+            "type": "Property",
+            "value": "SIRET",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "pattern": "^[0-9]{14}$",
+                    "schemaType": "string",
+                    "title": "SIRET",
+                    "order": 30
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "Organization",
+                "title": "Organisation",
+                "required": [
+                    "name"
+                ],
+                "description": "Organisation à qui des consommations sont refacturées (occupant, concessionnaire…).",
+                "minimum": 0
+            }
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Person:Template",
+        "type": "Template",
+        "name": {
+            "type": "Property",
+            "value": "Nom",
+            "jsonSchema": {
+                "type": "Property",
+                "value": {
+                    "friendlyAttributeName": "Nom",
+                    "schemaType": "string",
+                    "title": "Nom",
+                    "order": 31
+                }
+            }
+        },
+        "jsonSchema": {
+            "type": "Property",
+            "value": {
+                "schemaType": "Person",
+                "title": "Personne",
+                "required": [
+                    "name"
+                ],
+                "description": "Personne physique à qui des consommations sont refacturées.",
+                "minimum": 0
+            }
+        }
+    }
+]
