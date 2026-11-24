@@ -165,6 +165,8 @@ type GetMultiRelationshipPropParams = {
     maximum?: number;
     /** Target templates the picker offers, read by Twin Picks on each item */
     listOfAllowedRelationships?: string[];
+    /** The picker searches every use case, not only the selected one */
+    searchAllUseCases?: boolean;
     /** Sub-properties of each relationship instance */
     subProps?: [string, StellioTemplateProp][];
 } & ArrayWithoutSchemaType;
@@ -175,6 +177,7 @@ export const getMultiRelationshipProp = ({
     minimum,
     maximum,
     listOfAllowedRelationships,
+    searchAllUseCases,
     subProps,
     ...rest
 }: GetMultiRelationshipPropParams): StellioTemplateRelationship => {
@@ -198,7 +201,12 @@ export const getMultiRelationshipProp = ({
                     jsonSchema: {
                         type: 'Property',
                         value: listOfAllowedRelationships
-                            ? { schemaType: 'relationship', title: formLabelPerItem, listOfAllowedRelationships }
+                            ? {
+                                  schemaType: 'relationship',
+                                  title: formLabelPerItem,
+                                  listOfAllowedRelationships,
+                                  ...(searchAllUseCases && { searchAllUseCases }),
+                              }
                             : { schemaType: 'string', title: formLabelPerItem },
                     },
                 },

@@ -8,7 +8,7 @@ import {
     getRelationshipProp,
     getSimpleTextProp,
 } from '../../utils/blueprintHelpers';
-import { fluidTypes } from './meteringPoint';
+import { fluidTypes } from './deliveryPoint';
 
 const entityType = 'RebillingContract';
 
@@ -46,12 +46,24 @@ export const RebillingContractTemplate: StellioTemplate = {
     volumeSource: {
         ...getMultiRelationshipProp({
             formLabel: 'Produits refacturés et compteurs',
-            formLabelPerItem: 'Sélectionner le point de comptage',
-            targetTemplateObjectId: 'urn:ngsi-ld:MeteringPoint:Template',
+            formLabelPerItem: 'Sélectionner le point compté (ou le point de livraison)',
+            targetTemplateObjectId: 'urn:ngsi-ld:ConnectivityNode:Template',
+            listOfAllowedRelationships: ['urn:ngsi-ld:ConnectivityNode:Template', 'urn:ngsi-ld:DeliveryPoint:Template'],
+            // The nodes live in the building management use case, not in the energy finances one
+            searchAllUseCases: true,
             minimum: 1,
             subProps: [
                 ['product', getEnumProp({ title: 'Produit', enum: fluidTypes })],
                 ['measureType', getEnumProp({ title: 'Mesure lue', enum: ['index', 'consumption'] })],
+                // D39: the series billed on when several systems measure the node (e.g. SubMeter, GTC)
+                [
+                    'referenceSource',
+                    getSimpleTextProp({
+                        title: 'Source de référence',
+                        description:
+                            'Code de la source sur laquelle facturer quand plusieurs systèmes mesurent le point (ex. SubMeter, GTC). Vide : une seule source.',
+                    }),
+                ],
                 ['validFrom', getDateProp({ title: 'Refacturé à partir du' })],
                 ['validTo', getDateProp({ title: "Refacturé jusqu'au" })],
             ],
