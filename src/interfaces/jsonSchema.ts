@@ -160,8 +160,13 @@ type JsonSchemaRelationship = JsonSchemaCommon & {
      * The string id contained in "object" will be ignored
      */
     listOfAllowedRelationships?: string[];
-    /** The picker searches the entities of every use case, not only the selected one (e.g. a node read by a contract) */
-    searchAllUseCases?: boolean;
+    /**
+     * At the entity level: has no effects
+     * At the property level: the picker searches the entities of every use case,
+     *  not only those of the selected one
+     *  Default "undefined" value is considered as "false"
+     */
+    canSearchAllUseCases?: boolean;
 };
 
 export type PropertySchemaVariant =

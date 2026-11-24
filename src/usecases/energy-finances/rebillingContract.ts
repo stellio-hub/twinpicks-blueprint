@@ -50,7 +50,7 @@ export const RebillingContractTemplate: StellioTemplate = {
             targetTemplateObjectId: 'urn:ngsi-ld:ConnectivityNode:Template',
             listOfAllowedRelationships: ['urn:ngsi-ld:ConnectivityNode:Template', 'urn:ngsi-ld:DeliveryPoint:Template'],
             // The nodes live in the building management use case, not in the energy finances one
-            searchAllUseCases: true,
+            canSearchAllUseCases: true,
             minimum: 1,
             subProps: [
                 ['product', getEnumProp({ title: 'Produit', enum: fluidTypes })],
