@@ -160,11 +160,10 @@ export const getMultiAttributeProp = ({
 type GetMultiRelationshipPropParams = {
     formLabel: string;
     formLabelPerItem: string;
-    targetTemplateObjectId: string;
+    /** Target templates the picker offers: the first one is the relationship's template object */
+    listOfAllowedRelationships: [string, ...string[]];
     minimum?: number;
     maximum?: number;
-    /** Target templates the picker offers, read by Twin Picks on each item */
-    listOfAllowedRelationships?: string[];
     /** The picker searches every use case, not only the selected one */
     canSearchAllUseCases?: boolean;
     /** Sub-properties of each relationship instance */
@@ -173,15 +172,15 @@ type GetMultiRelationshipPropParams = {
 export const getMultiRelationshipProp = ({
     formLabel,
     formLabelPerItem,
-    targetTemplateObjectId,
+    listOfAllowedRelationships,
     minimum,
     maximum,
-    listOfAllowedRelationships,
     canSearchAllUseCases,
     subProps,
     ...rest
 }: GetMultiRelationshipPropParams): StellioTemplateRelationship => {
     order++;
+    const [targetTemplateObjectId] = listOfAllowedRelationships;
     return {
         ...(subProps ? Object.fromEntries(subProps) : {}),
         type: 'Relationship',
@@ -200,14 +199,16 @@ export const getMultiRelationshipProp = ({
                     object: targetTemplateObjectId,
                     jsonSchema: {
                         type: 'Property',
-                        value: listOfAllowedRelationships
-                            ? {
-                                  schemaType: 'relationship',
-                                  title: formLabelPerItem,
-                                  listOfAllowedRelationships,
-                                  ...(canSearchAllUseCases && { canSearchAllUseCases }),
-                              }
-                            : { schemaType: 'string', title: formLabelPerItem },
+                        // A single target is read from the item's object
+                        value:
+                            listOfAllowedRelationships.length > 1 || canSearchAllUseCases
+                                ? {
+                                      schemaType: 'relationship',
+                                      title: formLabelPerItem,
+                                      listOfAllowedRelationships,
+                                      ...(canSearchAllUseCases && { canSearchAllUseCases }),
+                                  }
+                                : { schemaType: 'string', title: formLabelPerItem },
                     },
                 },
             },
